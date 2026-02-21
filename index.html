@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Explorar | Roof Segmentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #080b12;
+            --surface: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.09);
+            --accent: #4facfe;
+            --accent2: #00f2fe;
+            --text: #e2e8f0;
+            --muted: rgba(226, 232, 240, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1.5rem;
+            background-image:
+                radial-gradient(ellipse 80% 50% at 50% -10%, rgba(79, 172, 254, 0.15) 0%, transparent 60%);
+        }
+
+        /* ---- Header ---- */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeDown 0.7s ease;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            color: var(--muted);
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        /* ---- Upload Zone ---- */
+        .upload-zone {
+            width: 100%;
+            max-width: 560px;
+            border: 2px dashed var(--border);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--surface);
+            backdrop-filter: blur(8px);
+            animation: fadeIn 0.8s ease;
+            position: relative;
+        }
+
+        .upload-zone:hover,
+        .upload-zone.dragover {
+            border-color: var(--accent);
+            background: rgba(79, 172, 254, 0.06);
+            box-shadow: 0 0 40px rgba(79, 172, 254, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .upload-zone .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .upload-zone h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-zone p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .upload-zone input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ---- Analyze Button ---- */
+        .btn {
+            margin-top: 1.5rem;
+            padding: 0.85rem 2.5rem;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #05080f;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(79, 172, 254, 0.3);
+        }
+
+        /* ---- Preview strip ---- */
+        #preview-name {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--accent);
+            display: none;
+        }
+
+        /* ---- Loader ---- */
+        .loader {
+            display: none;
+            margin: 2.5rem auto;
+            width: 48px;
+            height: 48px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+        }
+
+        /* ---- Result Dashboard ---- */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.55s ease;
+            pointer-events: none;
+        }
+
+        .dashboard.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.4rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .img-box {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #0d1117;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Mask with cyan tint overlay */
+        .mask-overlay {
+            position: relative;
+        }
+
+        .mask-overlay img {
+            filter: hue-rotate(160deg) saturate(1.5);
+        }
+
+        /* ---- Stats card (spans both cols) ---- */
+        .stats-card {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .stat {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.2rem 1rem;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-sub {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 0.3rem;
+        }
+
+        /* ---- Error toast ---- */
+        #error-toast {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            background: rgba(255, 80, 80, 0.12);
+            border: 1px solid rgba(255, 80, 80, 0.3);
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            max-width: 560px;
+            text-align: center;
+        }
+
+        /* ---- Animations ---- */
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-card {
+                flex-direction: column;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>☀️ Solar Explorar</h1>
+        <p>AI-powered rooftop detection using U-Net segmentation</p>
+    </div>
+
+    <div class="upload-zone" id="upload-zone">
+        <input type="file" id="file-input" accept="image/*">
+        <span class="icon">🛰️</span>
+        <h2>Drop a satellite image here</h2>
+        <p>or click to browse — PNG, JPG, WEBP supported</p>
+    </div>
+
+    <div id="preview-name"></div>
+    <button class="btn" id="analyze-btn" onclick="analyzeImage()">Analyze Rooftop</button>
+
+    <div id="error-toast"></div>
+    <div class="loader" id="loader"></div>
+
+    <div class="dashboard" id="dashboard">
+        <div class="card">
+            <div class="card-title">Original Image</div>
+            <div class="img-box">
+                <img id="original-img" src="" alt="Original">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Roof Segmentation Mask</div>
+            <div class="img-box mask-overlay">
+                <img id="mask-img" src="" alt="Mask">
+            </div>
+        </div>
+
+        <div class="stats-card card">
+            <div class="stat">
+                <div class="stat-label">Roof Coverage</div>
+                <div class="stat-value" id="stat-coverage">--%</div>
+                <div class="stat-sub">% of pixels detected as roof</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Model</div>
+                <div class="stat-value" style="font-size:1.1rem;padding-top:0.5rem;">U-Net</div>
+                <div class="stat-sub">Trained on satellite imagery</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Input Size</div>
+                <div class="stat-value" style="font-size:1.1rem;padding-top:0.5rem;">256×256</div>
+                <div class="stat-sub">Auto-resized for inference</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file-input');
+        const uploadZone = document.getElementById('upload-zone');
+        const analyzeBtn = document.getElementById('analyze-btn');
+        const previewName = document.getElementById('preview-name');
+        const loader = document.getElementById('loader');
+        const dashboard = document.getElementById('dashboard');
+        const errorToast = document.getElementById('error-toast');
+
+        let selectedFile = null;
+
+        // File selection via input
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files[0]) selectFile(fileInput.files[0]);
+        });
+
+        // Drag & drop
+        uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('dragover'); });
+        uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+        uploadZone.addEventListener('drop', e => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            if (e.dataTransfer.files[0]) selectFile(e.dataTransfer.files[0]);
+        });
+
+        function selectFile(file) {
+            selectedFile = file;
+            previewName.textContent = `📎 ${file.name}`;
+            previewName.style.display = 'block';
+            analyzeBtn.style.display = 'inline-block';
+            errorToast.style.display = 'none';
+            dashboard.classList.remove('visible');
+        }
+
+        function showError(msg) {
+            errorToast.textContent = '⚠️ ' + msg;
+            errorToast.style.display = 'block';
+        }
+
+        async function analyzeImage() {
+            if (!selectedFile) return;
+
+            loader.style.display = 'block';
+            analyzeBtn.disabled = true;
+            errorToast.style.display = 'none';
+            dashboard.classList.remove('visible');
+
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+
+            try {
+                const response = await fetch('http://localhost:8000/segment', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.detail || 'Segmentation failed');
+                }
+
+                document.getElementById('original-img').src = data.original_image;
+                document.getElementById('mask-img').src = data.mask_image;
+                document.getElementById('stat-coverage').textContent = data.coverage + '%';
+
+                dashboard.classList.add('visible');
+            } catch (err) {
+                showError(err.message);
+            } finally {
+                loader.style.display = 'none';
+                analyzeBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+
+</html>
