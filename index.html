@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Explorar | AI Rooftop Analysis</title>
+    <meta name="description"
+        content="Enter any address to get a satellite view and AI-powered rooftop solar potential analysis.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --accent: #3b82f6;
+            --accent2: #06b6d4;
+            --gold: #f59e0b;
+            --text: #1e293b;
+            --muted: #64748b;
+            --red: #ef4444;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1.5rem 5rem;
+            background-image:
+                radial-gradient(ellipse 90% 50% at 50% -5%, rgba(59, 130, 246, .08) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 90% 100%, rgba(6, 182, 212, .05) 0%, transparent 60%);
+        }
+
+        /* ---- Header ---- */
+        .header {
+            text-align: center;
+            margin-bottom: 2.8rem;
+            animation: fadeDown .7s ease;
+        }
+
+        .header h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .header p {
+            color: var(--muted);
+            margin-top: .5rem;
+            font-size: 1.05rem;
+        }
+
+        /* ---- Search bar ---- */
+        .search-bar {
+            width: 100%;
+            max-width: 680px;
+            display: flex;
+            gap: .75rem;
+            margin-bottom: 2rem;
+            animation: fadeIn .8s ease;
+        }
+
+        .search-bar input {
+            flex: 1;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: .85rem 1.5rem;
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color .3s, box-shadow .3s;
+            box-shadow: var(--shadow);
+        }
+
+        .search-bar input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, .15);
+        }
+
+        .btn-search {
+            padding: .85rem 1.8rem;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform .25s, box-shadow .25s;
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, .4);
+        }
+
+        .btn-search:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .btn-search:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 8px 28px rgba(79, 172, 254, .35);
+        }
+
+        /* ---- Place label ---- */
+        #place-details {
+            font-size: .9rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: none;
+            text-align: center;
+        }
+
+        /* ---- Tabs (address search / upload) ---- */
+        .tabs {
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            padding: .55rem 1.4rem;
+            font-size: .85rem;
+            font-weight: 600;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            color: var(--muted);
+            font-family: 'Outfit', sans-serif;
+            transition: background .2s, color .2s;
+        }
+
+        .tab.active {
+            background: rgba(59, 130, 246, .1);
+            color: var(--accent);
+        }
+
+        /* ---- Upload fallback ---- */
+        .upload-zone {
+            width: 100%;
+            max-width: 680px;
+            border: 2px dashed var(--border);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all .3s ease;
+            background: var(--surface);
+            position: relative;
+            display: none;
+            box-shadow: var(--shadow);
+        }
+
+        .upload-zone.dragover,
+        .upload-zone:hover {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, .02);
+            transform: translateY(-3px);
+        }
+
+        .upload-zone .icon {
+            font-size: 2.5rem;
+            margin-bottom: .8rem;
+            display: block;
+        }
+
+        .upload-zone h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: .4rem;
+        }
+
+        .upload-zone p {
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .upload-zone input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+
+        #preview-name {
+            margin-top: .8rem;
+            font-size: .85rem;
+            color: var(--accent);
+            display: none;
+        }
+
+        .btn-upload {
+            margin-top: 1rem;
+            padding: .8rem 2rem;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: .95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform .25s, box-shadow .25s;
+            display: none;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, .4);
+        }
+
+        .btn-upload:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 18px rgba(59, 130, 246, .4);
+        }
+
+        /* ---- Loader ---- */
+        .loader {
+            display: none;
+            margin: 2.5rem auto;
+            width: 48px;
+            height: 48px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin .9s linear infinite;
+        }
+
+        .loader-text {
+            display: none;
+            text-align: center;
+            color: var(--muted);
+            font-size: .9rem;
+            margin-top: .5rem;
+        }
+
+        /* ---- Error ---- */
+        #error-toast {
+            display: none;
+            margin: 1rem auto;
+            padding: .8rem 1.5rem;
+            border-radius: 12px;
+            background: rgba(239, 68, 68, .1);
+            border: 1px solid rgba(239, 68, 68, .2);
+            color: var(--red);
+            font-size: .9rem;
+            max-width: 680px;
+            text-align: center;
+        }
+
+        /* ---- Dashboard ---- */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 960px;
+            margin-top: .5rem;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all .55s ease;
+            pointer-events: none;
+        }
+
+        .dashboard.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 1.4rem;
+            box-shadow: var(--shadow);
+        }
+
+        .card-title {
+            font-size: .72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .img-box {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ---- Prediction banner ---- */
+        .prediction-banner {
+            grid-column: 1/-1;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1.4rem 1.8rem;
+            border-radius: 20px;
+            border: 1px solid rgba(245, 158, 11, .2);
+            background: #fffbeb;
+            box-shadow: var(--shadow);
+        }
+
+        .pred-emoji {
+            font-size: 2.8rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .pred-label {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1.2;
+        }
+
+        .pred-desc {
+            font-size: .88rem;
+            color: var(--muted);
+            margin-top: .35rem;
+        }
+
+        .pred-coverage {
+            margin-left: auto;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .pred-coverage .big {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pred-coverage .small {
+            font-size: .75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ---- Metrics Grid ---- */
+        .metrics-grid {
+            grid-column: 1/-1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: transform .3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .metric-label {
+            font-size: .65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--muted);
+            margin-bottom: .6rem;
+        }
+
+        .metric-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .metric-unit {
+            font-size: .7rem;
+            color: var(--muted);
+            margin-left: .2rem;
+        }
+
+        /* ---- Stats row ---- */
+        .stats-card {
+            grid-column: 1/-1;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .stat {
+            flex: 1;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-label {
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+            margin-bottom: .5rem;
+        }
+
+        .stat-value {
+            font-size: 1.7rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-sub {
+            font-size: .76rem;
+            color: var(--muted);
+            margin-top: .3rem;
+        }
+
+        /* ---- Animations ---- */
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        @media(max-width:640px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-card {
+                flex-direction: column;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>☀️ Solar Explorar</h1>
+        <p>AI-powered rooftop solar potential analysis</p>
+    </div>
+
+    <div class="tabs">
+        <button class="tab active" id="tab-address" onclick="switchTab('address')">🔍 Address Search</button>
+        <button class="tab" id="tab-upload" onclick="switchTab('upload')">📂 Upload Image</button>
+    </div>
+
+    <div class="search-bar" id="address-panel">
+        <input type="text" id="address-input" placeholder="e.g. Taj Mahal, Agra"
+            onkeydown="if(event.key==='Enter')searchAddress()">
+        <button class="btn-search" id="search-btn" onclick="searchAddress()">Search →</button>
+    </div>
+
+    <div class="upload-zone" id="upload-zone">
+        <input type="file" id="file-input" accept="image/*">
+        <span class="icon">🛰️</span>
+        <h2>Drop a satellite image here</h2>
+        <p>or click to browse — PNG, JPG, WEBP</p>
+    </div>
+    <div id="preview-name" style="text-align: center; margin-bottom: 1rem;"></div>
+    <button class="btn-upload" id="upload-btn" onclick="analyzeUpload()"
+        style="margin: 0 auto 2rem; display: none;">Analyze Rooftop</button>
+
+    <div id="place-details"></div>
+    <div id="error-toast"></div>
+    <div class="loader" id="loader"></div>
+    <div class="loader-text" id="loader-text"></div>
+
+    <div class="dashboard" id="dashboard">
+        <div class="prediction-banner" id="pred-banner">
+            <div class="pred-emoji" id="pred-emoji">☀️</div>
+            <div>
+                <div class="pred-label" id="pred-label">Analysis Result</div>
+                <div class="pred-desc" id="pred-desc">Waiting for input...</div>
+            </div>
+            <div class="pred-coverage">
+                <div class="big" id="stat-coverage">--%</div>
+                <div class="small">Confidence</div>
+            </div>
+        </div>
+
+        <div class="metrics-grid" id="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Detected Roof Area</div>
+                <div class="metric-value" id="val-area">--</div>
+                <span class="metric-unit">m²</span>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Est. Panel Count</div>
+                <div class="metric-value" id="val-panels">--</div>
+                <span class="metric-unit">panels</span>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">System Capacity</div>
+                <div class="metric-value" id="val-capacity">--</div>
+                <span class="metric-unit">kW</span>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Annual Savings</div>
+                <div class="metric-value" id="val-savings">--</div>
+                <span class="metric-unit">USD/yr</span>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">CO2 Offset</div>
+                <div class="metric-value" id="val-co2">--</div>
+                <span class="metric-unit">kg/yr</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">🛰️ Satellite Image</div>
+            <div class="img-box">
+                <img id="original-img" src="" alt="Satellite">
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">🔍 Analysis Overlay</h3>
+            <div class="img-box">
+                <img id="mask-img" src="" alt="Mask">
+            </div>
+        </div>
+
+        <div class="stats-card card">
+            <div class="stat">
+                <div class="stat-label">Model</div>
+                <div class="stat-value" style="font-size:1rem;padding-top:.4rem;">U-Net</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Image Source</div>
+                <div class="stat-value" id="stat-source" style="font-size:1rem;padding-top:.4rem;">Mapbox</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API = 'http://localhost:8000';
+
+        function switchTab(mode) {
+            document.getElementById('tab-address').classList.toggle('active', mode === 'address');
+            document.getElementById('tab-upload').classList.toggle('active', mode === 'upload');
+            document.getElementById('address-panel').style.display = mode === 'address' ? 'flex' : 'none';
+            document.getElementById('upload-zone').style.display = mode === 'upload' ? 'block' : 'none';
+            hideDashboard();
+        }
+
+        function setLoading(on, msg = 'Processing...') {
+            document.getElementById('loader').style.display = on ? 'block' : 'none';
+            document.getElementById('loader-text').style.display = on ? 'block' : 'none';
+            document.getElementById('loader-text').textContent = msg;
+            document.getElementById('search-btn').disabled = on;
+            document.getElementById('upload-btn').disabled = on;
+        }
+
+        function showError(msg) {
+            const t = document.getElementById('error-toast');
+            t.textContent = '⚠️ ' + msg;
+            t.style.display = 'block';
+        }
+
+        function hideDashboard() {
+            document.getElementById('dashboard').classList.remove('visible');
+            document.getElementById('error-toast').style.display = 'none';
+        }
+
+        function showResults(data) {
+            document.getElementById('original-img').src = data.satellite_image || data.original_image;
+            document.getElementById('mask-img').src = data.mask_image;
+            document.getElementById('stat-coverage').textContent = data.coverage.toFixed(1) + '%';
+
+            const p = data.prediction;
+            document.getElementById('pred-emoji').textContent = p.emoji;
+            document.getElementById('pred-label').textContent = p.label;
+            document.getElementById('pred-desc').textContent = p.description;
+
+            if (data.metrics) {
+                const m = data.metrics;
+                document.getElementById('val-area').textContent = m.roof_area_m2;
+                document.getElementById('val-panels').textContent = m.panel_count;
+                document.getElementById('val-capacity').textContent = m.capacity_kw;
+                document.getElementById('val-savings').textContent = '$' + m.annual_savings.toLocaleString();
+                document.getElementById('val-co2').textContent = m.co2_offset_kg.toLocaleString();
+            }
+
+            document.getElementById('dashboard').classList.add('visible');
+        }
+
+        async function searchAddress() {
+            const addr = document.getElementById('address-input').value.trim();
+            if (!addr) { showError('Please enter an address.'); return; }
+
+            hideDashboard();
+            setLoading(true, 'Geocoding via Mapbox...');
+            document.getElementById('place-details').style.display = 'none';
+
+            try {
+                const geoResp = await fetch(`${API}/geocode?address=${encodeURIComponent(addr)}`);
+                const geo = await geoResp.json();
+                if (!geoResp.ok) throw new Error(geo.detail || 'Geocoding failed');
+
+                const placeDetails = document.getElementById('place-details');
+                placeDetails.textContent = '📍 ' + geo.place_name;
+                placeDetails.style.display = 'block';
+
+                setLoading(true, 'Running AI segmentation...');
+                const segResp = await fetch(`${API}/segment-from-coords?lat=${geo.lat}&lng=${geo.lng}`);
+                const seg = await segResp.json();
+                if (!segResp.ok) throw new Error(seg.detail || 'Segmentation failed');
+
+                document.getElementById('stat-source').textContent = 'Mapbox';
+                showResults(seg);
+            } catch (err) {
+                showError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        let selectedFile = null;
+        document.getElementById('file-input').addEventListener('change', e => {
+            if (e.target.files[0]) pickFile(e.target.files[0]);
+        });
+
+        function pickFile(file) {
+            selectedFile = file;
+            document.getElementById('preview-name').textContent = '📎 ' + file.name;
+            document.getElementById('preview-name').style.display = 'block';
+            document.getElementById('upload-btn').style.display = 'block';
+            hideDashboard();
+        }
+
+        async function analyzeUpload() {
+            if (!selectedFile) return;
+            hideDashboard();
+            setLoading(true, 'Analyzing rooftop...');
+
+            const fd = new FormData();
+            fd.append('file', selectedFile);
+
+            try {
+                const resp = await fetch(`${API}/segment`, { method: 'POST', body: fd });
+                const data = await resp.json();
+                if (!resp.ok) throw new Error(data.detail || 'Analysis failed');
+
+                document.getElementById('stat-source').textContent = 'Local Upload';
+                data.satellite_image = data.original_image;
+                showResults(data);
+            } catch (err) {
+                showError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        }
+    </script>
+</body>
+
+</html>
