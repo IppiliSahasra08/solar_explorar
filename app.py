@@ -8,6 +8,7 @@ import torchvision.transforms as T
 from PIL import Image
 import numpy as np
 import requests
+import cv2
 
 from fastapi import FastAPI, File, UploadFile, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
@@ -175,24 +176,51 @@ def coverage_to_label(pct: float) -> dict:
 
 
 def predict_mask(image: Image.Image):
-    """Run U-Net inference. Returns (mask PIL image, roof coverage 0–100, area in m2)."""
-    inp  = TRANSFORM(image).unsqueeze(0).to(DEVICE)
+    """Run U-Net inference. Returns (mask PIL, overlay PIL, coverage %, area m2)."""
+    # 1. Preprocess & Inference
+    inp = TRANSFORM(image).unsqueeze(0).to(DEVICE)
     with torch.no_grad():
-        pred = torch.sigmoid(model(inp)).squeeze().cpu().numpy()
-    mask_arr = (pred * 255).astype(np.uint8)
+        pred_tensor = torch.sigmoid(model(inp)).squeeze().cpu()
+        pred_np = pred_tensor.numpy()
     
-    # Coverage percentage
-    coverage_pct = float(np.mean(pred)) * 100
+    # 2. Basic Mask (for area/coverage)
+    mask_arr = (pred_np * 255).astype(np.uint8)
+    coverage_pct = float(np.mean(pred_np)) * 100
     
-    # Real-world area calculation for zoom level
-    # At zoom 18, 1 pixel is ~0.6m x 0.6m = 0.36 m2 (approx)
-    # We scale based on SATELLITE_WIDTH and the mask size (256x256)
-    white_pixels = np.sum(pred > 0.5)
-    # Scale factor for Zoom 18: each pixel is ~0.15m at Z20, so ~0.6m at Z18
+    # Scale calculation for area
+    white_pixels = np.sum(pred_np > 0.5)
     pixel_to_m2 = 0.36 * ((SATELLITE_WIDTH / 256) ** 2)
     area_m2 = float(white_pixels * pixel_to_m2)
 
-    return Image.fromarray(mask_arr), round(float(coverage_pct), 2), area_m2
+    # 3. Create Analysis Overlay (Contours on original)
+    # Convert PIL image to OpenCV format
+    orig_cv = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+    h, w = orig_cv.shape[:2]
+    
+    # Resize prediction back to original image size for overlay
+    pred_resized = cv2.resize(pred_np, (w, h))
+    binary_mask = (pred_resized > 0.5).astype(np.uint8) * 255
+    
+    # Find contours
+    contours, _ = cv2.findContours(binary_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    
+    # Create semi-transparent overlay
+    overlay = orig_cv.copy()
+    # Fill detected regions with semi-transparent Cyan (B=255, G=182, R=6)
+    cv2.fillPoly(overlay, contours, (255, 182, 6))
+    
+    # Blend overlay with original (alpha=0.3)
+    alpha = 0.3
+    combined = cv2.addWeighted(overlay, alpha, orig_cv, 1 - alpha, 0)
+    
+    # Draw sharp borders (Cyan)
+    cv2.drawContours(combined, contours, -1, (255, 182, 6), 2)
+    
+    # Convert back to PIL
+    overlay_pil = Image.fromarray(cv2.cvtColor(combined, cv2.COLOR_BGR2RGB))
+    mask_pil = Image.fromarray(mask_arr)
+
+    return mask_pil, overlay_pil, round(float(coverage_pct), 2), area_m2
 
 
 def pil_to_b64(img: Image.Image, fmt: str = "PNG") -> str:
@@ -312,7 +340,7 @@ async def segment_from_coords(
 
     # 2. Run segmentation
     try:
-        mask_pil, coverage, area_m2 = predict_mask(sat_img)
+        mask_pil, overlay_pil, coverage, area_m2 = predict_mask(sat_img)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Segmentation failed: {e}")
 
@@ -325,7 +353,7 @@ async def segment_from_coords(
         "prediction":      prediction,
         "metrics":         metrics,
         "satellite_image": f"data:image/png;base64,{pil_to_b64(sat_img)}",
-        "mask_image":      f"data:image/png;base64,{pil_to_b64(mask_pil)}",
+        "mask_image":      f"data:image/png;base64,{pil_to_b64(overlay_pil)}",
     }
 
 
@@ -344,7 +372,7 @@ async def segment(file: UploadFile = File(...)):
         raise HTTPException(status_code=400, detail="Could not read the uploaded image.")
 
     try:
-        mask_pil, coverage, area_m2 = predict_mask(image)
+        mask_pil, overlay_pil, coverage, area_m2 = predict_mask(image)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Model inference failed: {e}")
 
@@ -357,7 +385,7 @@ async def segment(file: UploadFile = File(...)):
         "prediction":     prediction,
         "metrics":        metrics,
         "original_image": f"data:image/png;base64,{pil_to_b64(thumb)}",
-        "mask_image":     f"data:image/png;base64,{pil_to_b64(mask_pil)}",
+        "mask_image":     f"data:image/png;base64,{pil_to_b64(overlay_pil)}",
     }
 
 
