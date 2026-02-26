@@ -4,18 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Explorar | Roof Segmentation</title>
+    <title>Solar Explorar | AI Rooftop Analysis</title>
+    <meta name="description"
+        content="Enter any address to get a satellite view and AI-powered rooftop solar potential analysis.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #080b12;
-            --surface: rgba(255, 255, 255, 0.04);
-            --border: rgba(255, 255, 255, 0.09);
-            --accent: #4facfe;
-            --accent2: #00f2fe;
-            --text: #e2e8f0;
-            --muted: rgba(226, 232, 240, 0.5);
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --accent: #3b82f6;
+            --accent2: #06b6d4;
+            --gold: #f59e0b;
+            --text: #1e293b;
+            --muted: #64748b;
+            --red: #ef4444;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
 
         * {
@@ -32,73 +37,169 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 3rem 1.5rem;
+            padding: 3rem 1.5rem 5rem;
             background-image:
-                radial-gradient(ellipse 80% 50% at 50% -10%, rgba(79, 172, 254, 0.15) 0%, transparent 60%);
+                radial-gradient(ellipse 90% 50% at 50% -5%, rgba(59, 130, 246, .08) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 90% 100%, rgba(6, 182, 212, .05) 0%, transparent 60%);
         }
 
         /* ---- Header ---- */
         .header {
             text-align: center;
-            margin-bottom: 3rem;
-            animation: fadeDown 0.7s ease;
+            margin-bottom: 2.8rem;
+            animation: fadeDown .7s ease;
         }
 
         .header h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
+            font-size: 3.2rem;
+            font-weight: 800;
             background: linear-gradient(90deg, var(--accent), var(--accent2));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
         }
 
         .header p {
             color: var(--muted);
-            margin-top: 0.5rem;
-            font-size: 1rem;
+            margin-top: .5rem;
+            font-size: 1.05rem;
         }
 
-        /* ---- Upload Zone ---- */
+        /* ---- Search bar ---- */
+        .search-bar {
+            width: 100%;
+            max-width: 680px;
+            display: flex;
+            gap: .75rem;
+            margin-bottom: 2rem;
+            animation: fadeIn .8s ease;
+        }
+
+        .search-bar input {
+            flex: 1;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: .85rem 1.5rem;
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color .3s, box-shadow .3s;
+            box-shadow: var(--shadow);
+        }
+
+        .search-bar input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(79, 172, 254, .15);
+        }
+
+        .search-bar input::placeholder {
+            color: var(--muted);
+        }
+
+        .btn-search {
+            padding: .85rem 1.8rem;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform .25s, box-shadow .25s;
+            white-space: nowrap;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, .4);
+        }
+
+        .btn-search:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .btn-search:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 8px 28px rgba(79, 172, 254, .35);
+        }
+
+        /* ---- Place label ---- */
+        #place-details {
+            font-size: .9rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: none;
+            text-align: center;
+        }
+
+        /* ---- Tabs (address search / upload) ---- */
+        .tabs {
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            padding: .55rem 1.4rem;
+            font-size: .85rem;
+            font-weight: 600;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            color: var(--muted);
+            font-family: 'Outfit', sans-serif;
+            transition: background .2s, color .2s;
+        }
+
+        .tab.active {
+            background: rgba(79, 172, 254, .15);
+            color: var(--accent);
+        }
+
+        /* ---- Upload fallback ---- */
         .upload-zone {
             width: 100%;
-            max-width: 560px;
+            max-width: 680px;
             border: 2px dashed var(--border);
             border-radius: 20px;
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all .3s ease;
             background: var(--surface);
             backdrop-filter: blur(8px);
-            animation: fadeIn 0.8s ease;
             position: relative;
+            display: none;
         }
 
-        .upload-zone:hover,
-        .upload-zone.dragover {
+        .upload-zone.dragover,
+        .upload-zone:hover {
             border-color: var(--accent);
-            background: rgba(79, 172, 254, 0.06);
-            box-shadow: 0 0 40px rgba(79, 172, 254, 0.1);
+            background: rgba(79, 172, 254, .06);
+            box-shadow: 0 0 40px rgba(79, 172, 254, .1);
             transform: translateY(-3px);
         }
 
         .upload-zone .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: .8rem;
             display: block;
         }
 
         .upload-zone h2 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: .4rem;
         }
 
         .upload-zone p {
             color: var(--muted);
-            font-size: 0.9rem;
+            font-size: .9rem;
         }
 
         .upload-zone input[type="file"] {
@@ -110,33 +211,31 @@
             height: 100%;
         }
 
-        /* ---- Analyze Button ---- */
-        .btn {
-            margin-top: 1.5rem;
-            padding: 0.85rem 2.5rem;
+        #preview-name {
+            margin-top: .8rem;
+            font-size: .85rem;
+            color: var(--accent);
+            display: none;
+        }
+
+        .btn-upload {
+            margin-top: 1rem;
+            padding: .8rem 2rem;
             border-radius: 50px;
             border: none;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
-            color: #05080f;
+            color: #04080f;
             font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: .95rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: transform .25s, box-shadow .25s;
             display: none;
         }
 
-        .btn:hover {
+        .btn-upload:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 24px rgba(79, 172, 254, 0.3);
-        }
-
-        /* ---- Preview strip ---- */
-        #preview-name {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            color: var(--accent);
-            display: none;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, .4);
         }
 
         /* ---- Loader ---- */
@@ -148,20 +247,42 @@
             border: 3px solid var(--border);
             border-top-color: var(--accent);
             border-radius: 50%;
-            animation: spin 0.9s linear infinite;
+            animation: spin .9s linear infinite;
         }
 
-        /* ---- Result Dashboard ---- */
+        .loader-text {
+            display: none;
+            text-align: center;
+            color: var(--muted);
+            font-size: .9rem;
+            margin-top: .5rem;
+        }
+
+        /* ---- Error ---- */
+        #error-toast {
+            display: none;
+            margin: 1rem auto;
+            padding: .8rem 1.5rem;
+            border-radius: 12px;
+            background: rgba(255, 80, 80, .12);
+            border: 1px solid rgba(255, 80, 80, .3);
+            color: var(--red);
+            font-size: .9rem;
+            max-width: 680px;
+            text-align: center;
+        }
+
+        /* ---- Dashboard ---- */
         .dashboard {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
             width: 100%;
-            max-width: 900px;
-            margin-top: 2rem;
+            max-width: 960px;
+            margin-top: .5rem;
             opacity: 0;
             transform: translateY(24px);
-            transition: all 0.55s ease;
+            transition: all .55s ease;
             pointer-events: none;
         }
 
@@ -176,11 +297,11 @@
             border: 1px solid var(--border);
             border-radius: 20px;
             padding: 1.4rem;
-            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
         }
 
         .card-title {
-            font-size: 0.75rem;
+            font-size: .72rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -203,25 +324,119 @@
             display: block;
         }
 
-        /* Mask with cyan tint overlay */
-        .mask-overlay {
-            position: relative;
-        }
-
         .mask-overlay img {
             filter: hue-rotate(160deg) saturate(1.5);
         }
 
-        /* ---- Stats card (spans both cols) ---- */
+        /* ---- Prediction banner (full width) ---- */
+        .prediction-banner {
+            grid-column: 1/-1;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1.4rem 1.8rem;
+            border-radius: 20px;
+            border: 1px solid rgba(245, 158, 11, .2);
+            background: #fffbeb;
+            box-shadow: var(--shadow);
+        }
+
+        .pred-emoji {
+            font-size: 2.8rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .pred-label {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1.2;
+        }
+
+        .pred-desc {
+            font-size: .88rem;
+            color: var(--muted);
+            margin-top: .35rem;
+        }
+
+        .pred-coverage {
+            margin-left: auto;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .pred-coverage .big {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pred-coverage .small {
+            font-size: .75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ---- Solar Metrics Grid ---- */
+        .metrics-grid {
+            grid-column: 1/-1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: transform .3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, .05);
+            border-color: var(--accent);
+        }
+
+        .metric-label {
+            font-size: .65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--muted);
+            margin-bottom: .6rem;
+        }
+
+        .metric-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .metric-unit {
+            font-size: .7rem;
+            color: var(--muted);
+            margin-left: .2rem;
+        }
+
+        /* ---- Stats row ---- */
         .stats-card {
-            grid-column: 1 / -1;
+            grid-column: 1/-1;
             display: flex;
             gap: 1.5rem;
         }
 
         .stat {
             flex: 1;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, .03);
             border: 1px solid var(--border);
             border-radius: 14px;
             padding: 1.2rem 1rem;
@@ -229,15 +444,15 @@
         }
 
         .stat-label {
-            font-size: 0.72rem;
+            font-size: .7rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--muted);
-            margin-bottom: 0.5rem;
+            margin-bottom: .5rem;
         }
 
         .stat-value {
-            font-size: 2rem;
+            font-size: 1.7rem;
             font-weight: 700;
             background: linear-gradient(90deg, var(--accent), var(--accent2));
             -webkit-background-clip: text;
@@ -246,55 +461,41 @@
         }
 
         .stat-sub {
-            font-size: 0.78rem;
+            font-size: .76rem;
             color: var(--muted);
-            margin-top: 0.3rem;
-        }
-
-        /* ---- Error toast ---- */
-        #error-toast {
-            display: none;
-            margin-top: 1rem;
-            padding: 0.8rem 1.5rem;
-            border-radius: 12px;
-            background: rgba(255, 80, 80, 0.12);
-            border: 1px solid rgba(255, 80, 80, 0.3);
-            color: #ff6b6b;
-            font-size: 0.9rem;
-            max-width: 560px;
-            text-align: center;
+            margin-top: .3rem;
         }
 
         /* ---- Animations ---- */
         @keyframes fadeDown {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(-20px)
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0)
             }
         }
 
         @keyframes fadeIn {
             from {
-                opacity: 0;
+                opacity: 0
             }
 
             to {
-                opacity: 1;
+                opacity: 1
             }
         }
 
         @keyframes spin {
             to {
-                transform: rotate(360deg);
+                transform: rotate(360deg)
             }
         }
 
-        @media (max-width: 600px) {
+        @media(max-width:640px) {
             .dashboard {
                 grid-template-columns: 1fr;
             }
@@ -304,7 +505,15 @@
             }
 
             .header h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .prediction-banner {
+                flex-wrap: wrap;
+            }
+
+            .pred-coverage {
+                margin-left: 0;
             }
         }
     </style>
@@ -314,128 +523,256 @@
 
     <div class="header">
         <h1>☀️ Solar Explorar</h1>
-        <p>AI-powered rooftop detection using U-Net segmentation</p>
+        <p>Enter an address to get satellite imagery and AI-powered rooftop solar analysis</p>
     </div>
 
+    <!-- Mode tabs -->
+    <div class="tabs">
+        <button class="tab active" id="tab-address" onclick="switchTab('address')">🔍 Address Search</button>
+        <button class="tab" id="tab-upload" onclick="switchTab('upload')">📂 Upload Image</button>
+    </div>
+
+    <!-- Address search -->
+    <div class="search-bar" id="address-panel">
+        <input type="text" id="address-input" placeholder="e.g. Taj Mahal, Agra  or  1600 Amphitheatre Pkwy, CA"
+            onkeydown="if(event.key==='Enter')searchAddress()">
+        <button class="btn-search" id="search-btn" onclick="searchAddress()">Search →</button>
+    </div>
+
+    <!-- Upload fallback -->
     <div class="upload-zone" id="upload-zone">
         <input type="file" id="file-input" accept="image/*">
         <span class="icon">🛰️</span>
         <h2>Drop a satellite image here</h2>
-        <p>or click to browse — PNG, JPG, WEBP supported</p>
+        <p>or click to browse — PNG, JPG, WEBP</p>
     </div>
-
     <div id="preview-name"></div>
-    <button class="btn" id="analyze-btn" onclick="analyzeImage()">Analyze Rooftop</button>
+    <button class="btn-upload" id="upload-btn" onclick="analyzeUpload()">Analyze Rooftop</button>
 
+    <!-- Feedback -->
+    <div id="place-details"></div>
     <div id="error-toast"></div>
     <div class="loader" id="loader"></div>
+    <div class="loader-text" id="loader-text">Fetching satellite image…</div>
 
+    <!-- Results -->
     <div class="dashboard" id="dashboard">
-        <div class="card">
-            <div class="card-title">Original Image</div>
-            <div class="img-box">
-                <img id="original-img" src="" alt="Original">
+
+        <!-- Prediction banner -->
+        <div class="prediction-banner" id="pred-banner">
+            <div class="pred-emoji" id="pred-emoji">☀️</div>
+            <div>
+                <div class="pred-label" id="pred-label">Good Solar Potential</div>
+                <div class="pred-desc" id="pred-desc">Suitable for a standard solar installation.</div>
+            </div>
+            <div class="pred-coverage">
+                <div class="big" id="stat-coverage">--%</div>
+                <div class="small">Confidence</div>
             </div>
         </div>
 
+        <!-- Solar Metrics Grid -->
+        <div class="metrics-grid" id="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Detected Roof Area</div>
+                <div class="metric-value" id="val-area">--</div>
+                <span class="metric-unit">m²</span>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Est. Panel Count</div>
+                <div class="metric-value" id="val-panels">--</div>
+                <span class="metric-unit">panels</span>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">System Capacity</div>
+                <div class="metric-value" id="val-capacity">--</div>
+                <span class="metric-unit">kW</span>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Annual Savings</div>
+                <div class="metric-value" id="val-savings">--</div>
+                <span class="metric-unit">USD/yr</span>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">CO2 Offset</div>
+                <div class="metric-value" id="val-co2">--</div>
+                <span class="metric-unit">kg/yr</span>
+            </div>
+        </div>
+
+        <!-- Satellite / original -->
         <div class="card">
-            <div class="card-title">Roof Segmentation Mask</div>
+            <div class="card-title">🛰️ Satellite Image</div>
+            <div class="img-box">
+                <img id="original-img" src="" alt="Satellite">
+            </div>
+        </div>
+
+        <!-- Segmentation mask -->
+        <div class="card">
+            <div class="card-title">🏠 Roof Segmentation Mask</div>
             <div class="img-box mask-overlay">
                 <img id="mask-img" src="" alt="Mask">
             </div>
         </div>
 
+        <!-- Stats -->
         <div class="stats-card card">
             <div class="stat">
-                <div class="stat-label">Roof Coverage</div>
-                <div class="stat-value" id="stat-coverage">--%</div>
-                <div class="stat-sub">% of pixels detected as roof</div>
-            </div>
-            <div class="stat">
                 <div class="stat-label">Model</div>
-                <div class="stat-value" style="font-size:1.1rem;padding-top:0.5rem;">U-Net</div>
+                <div class="stat-value" style="font-size:1rem;padding-top:.4rem;">U-Net</div>
                 <div class="stat-sub">Trained on satellite imagery</div>
             </div>
             <div class="stat">
                 <div class="stat-label">Input Size</div>
-                <div class="stat-value" style="font-size:1.1rem;padding-top:0.5rem;">256×256</div>
+                <div class="stat-value" style="font-size:1rem;padding-top:.4rem;">256 × 256</div>
                 <div class="stat-sub">Auto-resized for inference</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Image Source</div>
+                <div class="stat-value" id="stat-source" style="font-size:.9rem;padding-top:.4rem;">Mapbox</div>
+                <div class="stat-sub">Satellite (Zoom 18)</div>
             </div>
         </div>
     </div>
 
     <script>
-        const fileInput = document.getElementById('file-input');
-        const uploadZone = document.getElementById('upload-zone');
-        const analyzeBtn = document.getElementById('analyze-btn');
-        const previewName = document.getElementById('preview-name');
-        const loader = document.getElementById('loader');
-        const dashboard = document.getElementById('dashboard');
-        const errorToast = document.getElementById('error-toast');
+        const API = 'http://localhost:8000';
 
-        let selectedFile = null;
-
-        // File selection via input
-        fileInput.addEventListener('change', () => {
-            if (fileInput.files[0]) selectFile(fileInput.files[0]);
-        });
-
-        // Drag & drop
-        uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('dragover'); });
-        uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
-        uploadZone.addEventListener('drop', e => {
-            e.preventDefault();
-            uploadZone.classList.remove('dragover');
-            if (e.dataTransfer.files[0]) selectFile(e.dataTransfer.files[0]);
-        });
-
-        function selectFile(file) {
-            selectedFile = file;
-            previewName.textContent = `📎 ${file.name}`;
-            previewName.style.display = 'block';
-            analyzeBtn.style.display = 'inline-block';
-            errorToast.style.display = 'none';
-            dashboard.classList.remove('visible');
+        // ---- Tab switching ----
+        function switchTab(mode) {
+            document.getElementById('tab-address').classList.toggle('active', mode === 'address');
+            document.getElementById('tab-upload').classList.toggle('active', mode === 'upload');
+            document.getElementById('address-panel').style.display = mode === 'address' ? 'flex' : 'none';
+            document.getElementById('upload-zone').style.display = mode === 'upload' ? 'block' : 'none';
+            hideDashboard();
         }
 
+        // ---- Helpers ----
+        function setLoading(on, msg = 'Fetching satellite image…') {
+            document.getElementById('loader').style.display = on ? 'block' : 'none';
+            document.getElementById('loader-text').style.display = on ? 'block' : 'none';
+            document.getElementById('loader-text').textContent = msg;
+            document.getElementById('search-btn').disabled = on;
+            document.getElementById('upload-btn').disabled = on;
+        }
         function showError(msg) {
-            errorToast.textContent = '⚠️ ' + msg;
-            errorToast.style.display = 'block';
+            const t = document.getElementById('error-toast');
+            t.textContent = '⚠️  ' + msg;
+            t.style.display = 'block';
+        }
+        function hideDashboard() {
+            document.getElementById('dashboard').classList.remove('visible');
+            document.getElementById('error-toast').style.display = 'none';
+        }
+        function showResults(data) {
+            // Images
+            document.getElementById('original-img').src = data.satellite_image || data.original_image;
+            document.getElementById('mask-img').src = data.mask_image;
+
+            // Coverage
+            document.getElementById('stat-coverage').textContent = data.coverage.toFixed(1) + '%';
+
+            // Human-readable prediction
+            const p = data.prediction;
+            document.getElementById('pred-emoji').textContent = p.emoji;
+            document.getElementById('pred-label').textContent = p.label;
+            document.getElementById('pred-desc').textContent = p.description;
+
+            // Solar Metrics
+            if (data.metrics) {
+                const m = data.metrics;
+                document.getElementById('val-area').textContent = m.roof_area_m2;
+                document.getElementById('val-panels').textContent = m.panel_count;
+                document.getElementById('val-capacity').textContent = m.capacity_kw;
+                document.getElementById('val-savings').textContent = '$' + m.annual_savings.toLocaleString();
+                document.getElementById('val-co2').textContent = m.co2_offset_kg.toLocaleString();
+            }
+
+            document.getElementById('dashboard').classList.add('visible');
         }
 
-        async function analyzeImage() {
-            if (!selectedFile) return;
+        // ---- Address search flow ----
+        async function searchAddress() {
+            const addr = document.getElementById('address-input').value.trim();
+            if (!addr) { showError('Please enter an address.'); return; }
 
-            loader.style.display = 'block';
-            analyzeBtn.disabled = true;
-            errorToast.style.display = 'none';
-            dashboard.classList.remove('visible');
-
-            const formData = new FormData();
-            formData.append('file', selectedFile);
+            hideDashboard();
+            setLoading(true, 'Geocoding address via Mapbox…');
+            document.getElementById('place-details').style.display = 'none';
 
             try {
-                const response = await fetch('http://localhost:8000/segment', {
-                    method: 'POST',
-                    body: formData,
-                });
+                // 1. Geocode
+                const geoResp = await fetch(`${API}/geocode?address=${encodeURIComponent(addr)}`);
+                const geo = await geoResp.json();
+                if (!geoResp.ok) throw new Error(geo.detail || 'Geocoding failed');
 
-                const data = await response.json();
+                const placeDetails = document.getElementById('place-details');
+                placeDetails.textContent = '📍 ' + geo.place_name;
+                placeDetails.style.display = 'block';
 
-                if (!response.ok) {
-                    throw new Error(data.detail || 'Segmentation failed');
-                }
+                // 2. Segment from coords
+                setLoading(true, 'Fetching satellite image & running AI segmentation…');
+                const segResp = await fetch(
+                    `${API}/segment-from-coords?lat=${geo.lat}&lng=${geo.lng}`
+                );
+                const seg = await segResp.json();
+                if (!segResp.ok) throw new Error(seg.detail || 'Segmentation failed');
 
-                document.getElementById('original-img').src = data.original_image;
-                document.getElementById('mask-img').src = data.mask_image;
-                document.getElementById('stat-coverage').textContent = data.coverage + '%';
+                document.getElementById('stat-source').textContent = 'Mapbox';
+                showResults(seg);
 
-                dashboard.classList.add('visible');
             } catch (err) {
                 showError(err.message);
             } finally {
-                loader.style.display = 'none';
-                analyzeBtn.disabled = false;
+                setLoading(false);
+            }
+        }
+
+        // ---- Upload flow (fallback) ----
+        let selectedFile = null;
+
+        document.getElementById('file-input').addEventListener('change', e => {
+            if (e.target.files[0]) pickFile(e.target.files[0]);
+        });
+        const uz = document.getElementById('upload-zone');
+        uz.addEventListener('dragover', e => { e.preventDefault(); uz.classList.add('dragover'); });
+        uz.addEventListener('dragleave', () => uz.classList.remove('dragover'));
+        uz.addEventListener('drop', e => {
+            e.preventDefault(); uz.classList.remove('dragover');
+            if (e.dataTransfer.files[0]) pickFile(e.dataTransfer.files[0]);
+        });
+
+        function pickFile(file) {
+            selectedFile = file;
+            const pn = document.getElementById('preview-name');
+            pn.textContent = '📎 ' + file.name;
+            pn.style.display = 'block';
+            document.getElementById('upload-btn').style.display = 'inline-block';
+            hideDashboard();
+        }
+
+        async function analyzeUpload() {
+            if (!selectedFile) return;
+            hideDashboard();
+            setLoading(true, 'Running AI segmentation…');
+
+            const fd = new FormData();
+            fd.append('file', selectedFile);
+
+            try {
+                const resp = await fetch(`${API}/segment`, { method: 'POST', body: fd });
+                const data = await resp.json();
+                if (!resp.ok) throw new Error(data.detail || 'Segmentation failed');
+
+                document.getElementById('stat-source').textContent = 'Local Upload';
+                // Map original_image to satellite_image key for unified showResults
+                data.satellite_image = data.original_image;
+                showResults(data);
+            } catch (err) {
+                showError(err.message);
+            } finally {
+                setLoading(false);
             }
         }
     </script>

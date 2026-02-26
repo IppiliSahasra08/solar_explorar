@@ -5,3 +5,6 @@ opencv-python
 albumentations
 matplotlib
 pillow
+fastapi
+uvicorn
+requests

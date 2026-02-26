@@ -6,6 +6,9 @@ __pycache__/
 venv/
 env/
 
+# API keys — never commit this file!
+config.py
+
 # Data (Optional: keeping small images for demo is okay, but usually ignored)
 # raw_images/
 # images/
