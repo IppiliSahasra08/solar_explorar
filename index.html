@@ -92,11 +92,7 @@
 
         .search-bar input:focus {
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(79, 172, 254, .15);
-        }
-
-        .search-bar input::placeholder {
-            color: var(--muted);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, .15);
         }
 
         .btn-search {
@@ -157,7 +153,7 @@
         }
 
         .tab.active {
-            background: rgba(79, 172, 254, .15);
+            background: rgba(59, 130, 246, .1);
             color: var(--accent);
         }
 
@@ -172,16 +168,15 @@
             cursor: pointer;
             transition: all .3s ease;
             background: var(--surface);
-            backdrop-filter: blur(8px);
             position: relative;
             display: none;
+            box-shadow: var(--shadow);
         }
 
         .upload-zone.dragover,
         .upload-zone:hover {
             border-color: var(--accent);
-            background: rgba(79, 172, 254, .06);
-            box-shadow: 0 0 40px rgba(79, 172, 254, .1);
+            background: rgba(59, 130, 246, .02);
             transform: translateY(-3px);
         }
 
@@ -224,18 +219,19 @@
             border-radius: 50px;
             border: none;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
-            color: #04080f;
+            color: #ffffff;
             font-family: 'Outfit', sans-serif;
             font-size: .95rem;
             font-weight: 700;
             cursor: pointer;
             transition: transform .25s, box-shadow .25s;
             display: none;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, .4);
         }
 
         .btn-upload:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, .4);
+            box-shadow: 0 8px 18px rgba(59, 130, 246, .4);
         }
 
         /* ---- Loader ---- */
@@ -264,8 +260,8 @@
             margin: 1rem auto;
             padding: .8rem 1.5rem;
             border-radius: 12px;
-            background: rgba(255, 80, 80, .12);
-            border: 1px solid rgba(255, 80, 80, .3);
+            background: rgba(239, 68, 68, .1);
+            border: 1px solid rgba(239, 68, 68, .2);
             color: var(--red);
             font-size: .9rem;
             max-width: 680px;
@@ -314,7 +310,7 @@
             aspect-ratio: 1;
             border-radius: 12px;
             overflow: hidden;
-            background: #0d1117;
+            background: #f1f5f9;
         }
 
         .img-box img {
@@ -324,11 +320,7 @@
             display: block;
         }
 
-        .mask-overlay img {
-            filter: hue-rotate(160deg) saturate(1.5);
-        }
-
-        /* ---- Prediction banner (full width) ---- */
+        /* ---- Prediction banner ---- */
         .prediction-banner {
             grid-column: 1/-1;
             display: flex;
@@ -382,7 +374,7 @@
             letter-spacing: 1px;
         }
 
-        /* ---- Solar Metrics Grid ---- */
+        /* ---- Metrics Grid ---- */
         .metrics-grid {
             grid-column: 1/-1;
             display: grid;
@@ -403,7 +395,6 @@
 
         .metric-card:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, .05);
             border-color: var(--accent);
         }
 
@@ -436,11 +427,12 @@
 
         .stat {
             flex: 1;
-            background: rgba(255, 255, 255, .03);
+            background: #ffffff;
             border: 1px solid var(--border);
             border-radius: 14px;
             padding: 1.2rem 1rem;
             text-align: center;
+            box-shadow: var(--shadow);
         }
 
         .stat-label {
@@ -507,14 +499,6 @@
             .header h1 {
                 font-size: 2.2rem;
             }
-
-            .prediction-banner {
-                flex-wrap: wrap;
-            }
-
-            .pred-coverage {
-                margin-left: 0;
-            }
         }
     </style>
 </head>
@@ -523,47 +507,41 @@
 
     <div class="header">
         <h1>☀️ Solar Explorar</h1>
-        <p>Enter an address to get satellite imagery and AI-powered rooftop solar analysis</p>
+        <p>AI-powered rooftop solar potential analysis</p>
     </div>
 
-    <!-- Mode tabs -->
     <div class="tabs">
         <button class="tab active" id="tab-address" onclick="switchTab('address')">🔍 Address Search</button>
         <button class="tab" id="tab-upload" onclick="switchTab('upload')">📂 Upload Image</button>
     </div>
 
-    <!-- Address search -->
     <div class="search-bar" id="address-panel">
-        <input type="text" id="address-input" placeholder="e.g. Taj Mahal, Agra  or  1600 Amphitheatre Pkwy, CA"
+        <input type="text" id="address-input" placeholder="e.g. Taj Mahal, Agra"
             onkeydown="if(event.key==='Enter')searchAddress()">
         <button class="btn-search" id="search-btn" onclick="searchAddress()">Search →</button>
     </div>
 
-    <!-- Upload fallback -->
     <div class="upload-zone" id="upload-zone">
         <input type="file" id="file-input" accept="image/*">
         <span class="icon">🛰️</span>
         <h2>Drop a satellite image here</h2>
         <p>or click to browse — PNG, JPG, WEBP</p>
     </div>
-    <div id="preview-name"></div>
-    <button class="btn-upload" id="upload-btn" onclick="analyzeUpload()">Analyze Rooftop</button>
+    <div id="preview-name" style="text-align: center; margin-bottom: 1rem;"></div>
+    <button class="btn-upload" id="upload-btn" onclick="analyzeUpload()"
+        style="margin: 0 auto 2rem; display: none;">Analyze Rooftop</button>
 
-    <!-- Feedback -->
     <div id="place-details"></div>
     <div id="error-toast"></div>
     <div class="loader" id="loader"></div>
-    <div class="loader-text" id="loader-text">Fetching satellite image…</div>
+    <div class="loader-text" id="loader-text"></div>
 
-    <!-- Results -->
     <div class="dashboard" id="dashboard">
-
-        <!-- Prediction banner -->
         <div class="prediction-banner" id="pred-banner">
             <div class="pred-emoji" id="pred-emoji">☀️</div>
             <div>
-                <div class="pred-label" id="pred-label">Good Solar Potential</div>
-                <div class="pred-desc" id="pred-desc">Suitable for a standard solar installation.</div>
+                <div class="pred-label" id="pred-label">Analysis Result</div>
+                <div class="pred-desc" id="pred-desc">Waiting for input...</div>
             </div>
             <div class="pred-coverage">
                 <div class="big" id="stat-coverage">--%</div>
@@ -571,7 +549,6 @@
             </div>
         </div>
 
-        <!-- Solar Metrics Grid -->
         <div class="metrics-grid" id="metrics-grid">
             <div class="metric-card">
                 <div class="metric-label">Detected Roof Area</div>
@@ -600,7 +577,6 @@
             </div>
         </div>
 
-        <!-- Satellite / original -->
         <div class="card">
             <div class="card-title">🛰️ Satellite Image</div>
             <div class="img-box">
@@ -608,30 +584,21 @@
             </div>
         </div>
 
-        <!-- Segmentation mask -->
         <div class="card">
             <h3 class="card-title">🔍 Analysis Overlay</h3>
-            <div class="img-box mask-overlay">
+            <div class="img-box">
                 <img id="mask-img" src="" alt="Mask">
             </div>
         </div>
 
-        <!-- Stats -->
         <div class="stats-card card">
             <div class="stat">
                 <div class="stat-label">Model</div>
                 <div class="stat-value" style="font-size:1rem;padding-top:.4rem;">U-Net</div>
-                <div class="stat-sub">Trained on satellite imagery</div>
-            </div>
-            <div class="stat">
-                <div class="stat-sub">Smart Outlines</div>
-                <div class="stat-value" style="font-size:1rem;padding-top:.4rem;">256 × 256</div>
-                <div class="stat-sub">Auto-resized for inference</div>
             </div>
             <div class="stat">
                 <div class="stat-label">Image Source</div>
-                <div class="stat-value" id="stat-source" style="font-size:.9rem;padding-top:.4rem;">Mapbox</div>
-                <div class="stat-sub">Satellite (Zoom 18)</div>
+                <div class="stat-value" id="stat-source" style="font-size:1rem;padding-top:.4rem;">Mapbox</div>
             </div>
         </div>
     </div>
@@ -639,7 +606,6 @@
     <script>
         const API = 'http://localhost:8000';
 
-        // ---- Tab switching ----
         function switchTab(mode) {
             document.getElementById('tab-address').classList.toggle('active', mode === 'address');
             document.getElementById('tab-upload').classList.toggle('active', mode === 'upload');
@@ -648,38 +614,35 @@
             hideDashboard();
         }
 
-        // ---- Helpers ----
-        function setLoading(on, msg = 'Fetching satellite image…') {
+        function setLoading(on, msg = 'Processing...') {
             document.getElementById('loader').style.display = on ? 'block' : 'none';
             document.getElementById('loader-text').style.display = on ? 'block' : 'none';
             document.getElementById('loader-text').textContent = msg;
             document.getElementById('search-btn').disabled = on;
             document.getElementById('upload-btn').disabled = on;
         }
+
         function showError(msg) {
             const t = document.getElementById('error-toast');
-            t.textContent = '⚠️  ' + msg;
+            t.textContent = '⚠️ ' + msg;
             t.style.display = 'block';
         }
+
         function hideDashboard() {
             document.getElementById('dashboard').classList.remove('visible');
             document.getElementById('error-toast').style.display = 'none';
         }
+
         function showResults(data) {
-            // Images
             document.getElementById('original-img').src = data.satellite_image || data.original_image;
             document.getElementById('mask-img').src = data.mask_image;
-
-            // Coverage
             document.getElementById('stat-coverage').textContent = data.coverage.toFixed(1) + '%';
 
-            // Human-readable prediction
             const p = data.prediction;
             document.getElementById('pred-emoji').textContent = p.emoji;
             document.getElementById('pred-label').textContent = p.label;
             document.getElementById('pred-desc').textContent = p.description;
 
-            // Solar Metrics
             if (data.metrics) {
                 const m = data.metrics;
                 document.getElementById('val-area').textContent = m.roof_area_m2;
@@ -692,17 +655,15 @@
             document.getElementById('dashboard').classList.add('visible');
         }
 
-        // ---- Address search flow ----
         async function searchAddress() {
             const addr = document.getElementById('address-input').value.trim();
             if (!addr) { showError('Please enter an address.'); return; }
 
             hideDashboard();
-            setLoading(true, 'Geocoding address via Mapbox…');
+            setLoading(true, 'Geocoding via Mapbox...');
             document.getElementById('place-details').style.display = 'none';
 
             try {
-                // 1. Geocode
                 const geoResp = await fetch(`${API}/geocode?address=${encodeURIComponent(addr)}`);
                 const geo = await geoResp.json();
                 if (!geoResp.ok) throw new Error(geo.detail || 'Geocoding failed');
@@ -711,17 +672,13 @@
                 placeDetails.textContent = '📍 ' + geo.place_name;
                 placeDetails.style.display = 'block';
 
-                // 2. Segment from coords
-                setLoading(true, 'Fetching satellite image & running AI segmentation…');
-                const segResp = await fetch(
-                    `${API}/segment-from-coords?lat=${geo.lat}&lng=${geo.lng}`
-                );
+                setLoading(true, 'Running AI segmentation...');
+                const segResp = await fetch(`${API}/segment-from-coords?lat=${geo.lat}&lng=${geo.lng}`);
                 const seg = await segResp.json();
                 if (!segResp.ok) throw new Error(seg.detail || 'Segmentation failed');
 
                 document.getElementById('stat-source').textContent = 'Mapbox';
                 showResults(seg);
-
             } catch (err) {
                 showError(err.message);
             } finally {
@@ -729,33 +686,23 @@
             }
         }
 
-        // ---- Upload flow (fallback) ----
         let selectedFile = null;
-
         document.getElementById('file-input').addEventListener('change', e => {
             if (e.target.files[0]) pickFile(e.target.files[0]);
-        });
-        const uz = document.getElementById('upload-zone');
-        uz.addEventListener('dragover', e => { e.preventDefault(); uz.classList.add('dragover'); });
-        uz.addEventListener('dragleave', () => uz.classList.remove('dragover'));
-        uz.addEventListener('drop', e => {
-            e.preventDefault(); uz.classList.remove('dragover');
-            if (e.dataTransfer.files[0]) pickFile(e.dataTransfer.files[0]);
         });
 
         function pickFile(file) {
             selectedFile = file;
-            const pn = document.getElementById('preview-name');
-            pn.textContent = '📎 ' + file.name;
-            pn.style.display = 'block';
-            document.getElementById('upload-btn').style.display = 'inline-block';
+            document.getElementById('preview-name').textContent = '📎 ' + file.name;
+            document.getElementById('preview-name').style.display = 'block';
+            document.getElementById('upload-btn').style.display = 'block';
             hideDashboard();
         }
 
         async function analyzeUpload() {
             if (!selectedFile) return;
             hideDashboard();
-            setLoading(true, 'Running AI segmentation…');
+            setLoading(true, 'Analyzing rooftop...');
 
             const fd = new FormData();
             fd.append('file', selectedFile);
@@ -763,10 +710,9 @@
             try {
                 const resp = await fetch(`${API}/segment`, { method: 'POST', body: fd });
                 const data = await resp.json();
-                if (!resp.ok) throw new Error(data.detail || 'Segmentation failed');
+                if (!resp.ok) throw new Error(data.detail || 'Analysis failed');
 
                 document.getElementById('stat-source').textContent = 'Local Upload';
-                // Map original_image to satellite_image key for unified showResults
                 data.satellite_image = data.original_image;
                 showResults(data);
             } catch (err) {
