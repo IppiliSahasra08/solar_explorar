@@ -5,3 +5,7 @@ opencv-python
 albumentations
 matplotlib
 pillow
+flask
+flask-cors
+requests
+python-dotenv
