@@ -15,8 +15,8 @@ import cv2
 from fastapi import FastAPI, File, UploadFile, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from ensemble_model import EnsemblePredictor
 import uvicorn
-import segmentation_models_pytorch as smp
 
 # --------------------------
 # CONFIGURATION
@@ -31,6 +31,15 @@ except ImportError:
     SATELLITE_ZOOM   = 18
 
 DEVICE = torch.device("cpu")
+
+# Ensemble model paths
+ENSEMBLE_PATHS = [
+    "best_model_fold1.pth",
+    "best_model_fold2.pth",
+    "best_model_fold3.pth",
+    "best_model_fold4.pth",
+    "best_model_fold5.pth",
+]
 
 app = FastAPI(title="Solar Explorar — Roof Segmentation API")
 
@@ -48,28 +57,9 @@ app.add_middleware(
 
 
 # --------------------------
-# MODEL LOADER (swappable)
+# ENSEMBLE MODEL LOADER
 # --------------------------
-def load_model(path: str = MODEL_PATH) -> nn.Module:
-    """Load the ResNet34 UNet from the given .pth file."""
-    # The new model uses ResNet34 backbone
-    m = smp.Unet(
-        encoder_name="resnet34",
-        encoder_weights=None,
-        in_channels=3,
-        classes=1,
-    ).to(DEVICE)
-    
-    if os.path.exists(path):
-        m.load_state_dict(torch.load(path, map_location=DEVICE))
-        m.eval()
-        print(f"[OK] Model loaded from {path}")
-    else:
-        print(f"[WARN] Warning: {path} not found. Segmentation will return a blank mask.")
-    return m
-
-
-model = load_model()
+predictor = EnsemblePredictor(ENSEMBLE_PATHS, device=DEVICE)
 
 
 # --------------------------
@@ -148,19 +138,19 @@ def coverage_to_label(pct: float) -> dict:
 
 
 def predict_mask(image: Image.Image):
-    """Run U-Net inference. Returns (mask PIL, overlay PIL, coverage %, area m2)."""
+    """Run Ensemble inference. Returns (mask PIL, overlay PIL, coverage %, area m2)."""
     # 1. Preprocess & Inference
-    inp = TRANSFORM(image).unsqueeze(0).to(DEVICE)
-    with torch.no_grad():
-        pred_tensor = torch.sigmoid(model(inp)).squeeze().cpu()
-        pred_np = pred_tensor.numpy()
+    mask_arr, coverage_pct, avg_pred = predictor.predict(image)
     
+    if mask_arr is None:
+        # Fallback for error case
+        return Image.new("L", (256, 256)), Image.new("RGB", (256, 256)), 0.0, 0.0
+
     # 2. Basic Mask
-    mask_arr = (pred_np * 255).astype(np.uint8)
-    coverage_pct = float(np.mean(pred_np)) * 100
+    # coverage_pct is already calculated in the predictor
     
     # Scale calculation for area
-    white_pixels = np.sum(pred_np > 0.5)
+    white_pixels = np.sum(avg_pred > 0.5)
     pixel_to_m2 = 0.36 * ((SATELLITE_WIDTH / 256) ** 2)
     area_m2 = float(white_pixels * pixel_to_m2)
 
@@ -168,7 +158,7 @@ def predict_mask(image: Image.Image):
     orig_cv = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
     h, w = orig_cv.shape[:2]
     
-    pred_resized = cv2.resize(pred_np, (w, h))
+    pred_resized = cv2.resize(avg_pred, (w, h))
     binary_mask = (pred_resized > 0.5).astype(np.uint8) * 255
     
     contours, _ = cv2.findContours(binary_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -419,19 +409,16 @@ async def segment(file: UploadFile = File(...)):
 
 
 @app.post("/reload-model")
-async def reload_model_endpoint(path: str = Query(default=MODEL_PATH)):
+async def reload_model_endpoint():
     """
-    Hot-swap the model without restarting the server.
-    POST /reload-model?path=new_model.pth
+    Reload the ensemble models.
     """
-    global model
-    if not os.path.exists(path):
-        raise HTTPException(status_code=404, detail=f"Model file not found: {path}")
+    global predictor
     try:
-        model = load_model(path)
-        return {"status": "ok", "loaded": path}
+        predictor = EnsemblePredictor(ENSEMBLE_PATHS, device=DEVICE)
+        return {"status": "ok", "message": "Ensemble reloaded"}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to load model: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to reload ensemble: {e}")
 
 
 if __name__ == "__main__":

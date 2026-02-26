@@ -4,14 +4,3 @@ numpy
 opencv-python
 albumentations
 matplotlib
-pillow
-<<<<<<< HEAD
-flask
-flask-cors
-requests
-python-dotenv
-=======
-fastapi
-uvicorn
-requests
->>>>>>> 2b6a1a3317a3d33d848b191fa7e90a13e5849c66
