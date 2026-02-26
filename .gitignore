@@ -1,22 +1,14 @@
-# Python
 __pycache__/
-*.py[cod]
+*.pyc
+*.pyo
+*.pyd
 *$py.class
 .env
 venv/
 env/
 
-# Data (Optional: keeping small images for demo is okay, but usually ignored)
-# raw_images/
-# images/
-# masks/
-
-# Debug files
 debug_output.txt
 debug_results.json
 debug_prediction.py
 visualize_raw.py
 visualize_raw.png
-
-# Large Model Weights (Keep one if small, ignore others)
-# roof_model.pth 
