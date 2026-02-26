@@ -7,7 +7,7 @@ MAPBOX_TOKEN = "pk.YOUR_MAPBOX_TOKEN_HERE"
 
 # To swap the model: change this path and restart the server.
 # Any .pth file trained with the same UNet architecture works.
-MODEL_PATH = "roof_model.pth"
+MODEL_PATH = "roof_segmentation_model.pth"
 
 # Mapbox Static Image settings
 SATELLITE_WIDTH  = 600
