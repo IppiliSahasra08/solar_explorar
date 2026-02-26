@@ -11,7 +11,7 @@ A U-Net based deep learning project to segment roofs from satellite imagery.
 ## Setup
 1. Clone the repository:
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/IppiliSahasra08/solar_explorar
    cd solar_explorar
    ```
 2. Install dependencies:
