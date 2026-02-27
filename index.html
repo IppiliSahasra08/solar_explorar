@@ -2,25 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solar Explorar | AI Rooftop Analysis</title>
     <meta name="description"
         content="Enter any address to get a satellite view and AI-powered rooftop solar potential analysis.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg: #f8fafc;
-            --surface: #ffffff;
+            --bg: #d8f9ff;
+            --surface: #fdfd96;
             --border: #e2e8f0;
-            --accent: #3b82f6;
-            --accent2: #06b6d4;
+
+            /* solid (no gradients) */
+            --accent: #0ea5e9;
+            /* sky blue */
+            --accent2: #22c55e;
+            /* green */
             --gold: #f59e0b;
-            --text: #1e293b;
+
+            --text: #0f172a;
             --muted: #64748b;
             --red: #ef4444;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+            --shadow: 0 10px 30px rgba(2, 6, 23, .10);
+            --shadow2: 0 16px 50px rgba(2, 6, 23, .16);
         }
 
         * {
@@ -29,34 +37,269 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Outfit', sans-serif;
-            background: var(--bg);
             color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+
+        /* ---------- TOP NAV ---------- */
+        .topnav {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(1040px, calc(100% - 20px));
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(15, 23, 42, .08);
+            background: #eaf3ef;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 900;
+            letter-spacing: -.4px;
+            user-select: none;
+            color: var(--text);
+        }
+
+        .logoDot {
+            width: 30px;
+            height: 30px;
+            border-radius: 10px;
+            background: var(--accent);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, .18);
+        }
+
+        .navLinks {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .navLinks a {
+            text-decoration: none;
+            color: inherit;
+            padding: 8px 10px;
+            border-radius: 12px;
+            transition: background .2s, color .2s;
+        }
+
+        .navLinks a:hover {
+            background: rgba(14, 165, 233, .10);
+            color: var(--text);
+        }
+
+        /* ---------- HERO (centered text; no image/video) ---------- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            padding-top: 86px;
+        }
+
+        .heroBg {
+            position: absolute;
+            inset: 0;
+            background: var(--bg);
+            /* solid */
+            z-index: 1;
+        }
+
+        .heroContent {
+            position: relative;
+            z-index: 2;
+            width: min(1040px, calc(100% - 28px));
+            margin: 0 auto;
+            min-height: calc(100vh - 86px);
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-items: center;
+            text-align: center;
+            gap: 18px;
+            align-items: center;
+            padding: 40px 0 90px;
+        }
+
+        .heroTitle {
+            font-size: clamp(2.0rem, 3.6vw, 3.6rem);
+            line-height: 1.05;
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: var(--text);
+            margin: 0 auto;
+        }
+
+        .heroTitle span {
+            color: var(--accent);
+            /* solid, no gradient */
+        }
+
+        .heroSub {
+            margin-top: 8px;
+            font-size: 1.05rem;
+            color: rgba(15, 23, 42, .72);
+            line-height: 1.65;
+            max-width: 68ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .heroChips {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .chip {
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: .85rem;
+            color: rgba(15, 23, 42, .75);
+            border: 1px solid rgba(15, 23, 42, .10);
+            background: rgba(255, 255, 255, .85);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 22px rgba(2, 6, 23, .06);
+        }
+
+        .heroCard {
+            margin-top: 14px;
+            width: 100%;
+            max-width: 860px;
+            border-radius: 22px;
+            border: 1px solid rgba(15, 23, 42, .10);
+            background: rgba(255, 255, 255, .85);
+            backdrop-filter: blur(12px);
+            box-shadow: var(--shadow2);
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .heroCardTop {
+            padding: 14px 16px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: rgba(15, 23, 42, .85);
+            font-weight: 900;
+            border-bottom: 1px solid rgba(15, 23, 42, .08);
+        }
+
+        .badgeLive {
+            font-size: .78rem;
+            font-weight: 900;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(34, 197, 94, .12);
+            border: 1px solid rgba(34, 197, 94, .22);
+            color: rgba(21, 128, 61, .95);
+        }
+
+        .heroCardBody {
+            padding: 14px 16px 16px;
+            color: rgba(15, 23, 42, .75);
+        }
+
+        .miniGrid {
+            margin-top: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .mini {
+            padding: 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(15, 23, 42, .08);
+            background: #ffffff;
+            box-shadow: 0 10px 22px rgba(2, 6, 23, .05);
+        }
+
+        .mini .k {
+            font-size: .72rem;
+            letter-spacing: .12em;
+            color: rgba(100, 116, 139, .95);
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .mini .v {
+            margin-top: 8px;
+            font-size: 1.18rem;
+            font-weight: 900;
+            color: rgba(15, 23, 42, .88);
+        }
+
+        /* ---------- REVEAL SCROLL ZONE ---------- */
+        .transition {
+            position: relative;
+            min-height: 250vh;
+            background: var(--bg);
+        }
+
+        .panel {
+            position: sticky;
+            top: 0;
+            min-height: 100vh;
+            height: auto;
+            z-index: 20;
+            background: #ffffc5;
+            clip-path: ellipse(var(--rx, 0px) var(--ry, 0px) at 50% 40%);
+            will-change: clip-path;
+        }
+
+        .panel::before {
+            content: "";
+            position: absolute;
+            inset: -60px;
+            pointer-events: none;
+            box-shadow: 0 0 0 9999px rgba(255, 255, 224, 1);
+            opacity: var(--shade, .85);
+            transition: opacity 180ms ease;
+            z-index: 1;
+        }
+
+        /* Analyzer page */
+        .appPage {
+            position: relative;
+            z-index: 2;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            background: var(--bg);
             padding: 3rem 1.5rem 5rem;
-            background-image:
-                radial-gradient(ellipse 90% 50% at 50% -5%, rgba(59, 130, 246, .08) 0%, transparent 60%),
-                radial-gradient(ellipse 50% 40% at 90% 100%, rgba(6, 182, 212, .05) 0%, transparent 60%);
         }
 
-        /* ---- Header ---- */
+        /* ---------- App styling (no gradients) ---------- */
         .header {
             text-align: center;
-            margin-bottom: 2.8rem;
-            animation: fadeDown .7s ease;
+            margin-bottom: 2.4rem;
         }
 
         .header h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, var(--accent), var(--accent2));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text);
+            /* solid */
             letter-spacing: -1px;
         }
 
@@ -66,14 +309,41 @@
             font-size: 1.05rem;
         }
 
-        /* ---- Search bar ---- */
+        .tabs {
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, .85);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+        }
+
+        .tab {
+            padding: .55rem 1.4rem;
+            font-size: .85rem;
+            font-weight: 800;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            color: var(--muted);
+            font-family: 'Outfit', sans-serif;
+            transition: background .2s, color .2s;
+        }
+
+        .tab.active {
+            background: rgba(14, 165, 233, .10);
+            color: var(--accent);
+        }
+
         .search-bar {
             width: 100%;
             max-width: 680px;
             display: flex;
             gap: .75rem;
             margin-bottom: 2rem;
-            animation: fadeIn .8s ease;
         }
 
         .search-bar input {
@@ -92,22 +362,23 @@
 
         .search-bar input:focus {
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, .15);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, .15);
         }
 
         .btn-search {
             padding: .85rem 1.8rem;
             border-radius: 50px;
             border: none;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-            color: #ffffff;
+            background: var(--accent);
+            /* solid */
+            color: #fff;
             font-family: 'Outfit', sans-serif;
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: 900;
             cursor: pointer;
             transition: transform .25s, box-shadow .25s;
             white-space: nowrap;
-            box-shadow: 0 4px 14px rgba(59, 130, 246, .4);
+            box-shadow: 0 10px 28px rgba(14, 165, 233, .25);
         }
 
         .btn-search:disabled {
@@ -117,11 +388,10 @@
         }
 
         .btn-search:hover:not(:disabled) {
-            transform: scale(1.05);
-            box-shadow: 0 8px 28px rgba(79, 172, 254, .35);
+            transform: scale(1.03);
+            box-shadow: 0 16px 40px rgba(14, 165, 233, .22);
         }
 
-        /* ---- Place label ---- */
         #place-details {
             font-size: .9rem;
             color: var(--accent);
@@ -130,34 +400,6 @@
             text-align: center;
         }
 
-        /* ---- Tabs (address search / upload) ---- */
-        .tabs {
-            display: flex;
-            gap: 0;
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-
-        .tab {
-            padding: .55rem 1.4rem;
-            font-size: .85rem;
-            font-weight: 600;
-            cursor: pointer;
-            background: transparent;
-            border: none;
-            color: var(--muted);
-            font-family: 'Outfit', sans-serif;
-            transition: background .2s, color .2s;
-        }
-
-        .tab.active {
-            background: rgba(59, 130, 246, .1);
-            color: var(--accent);
-        }
-
-        /* ---- Upload fallback ---- */
         .upload-zone {
             width: 100%;
             max-width: 680px;
@@ -176,7 +418,7 @@
         .upload-zone.dragover,
         .upload-zone:hover {
             border-color: var(--accent);
-            background: rgba(59, 130, 246, .02);
+            background: rgba(14, 165, 233, .03);
             transform: translateY(-3px);
         }
 
@@ -188,7 +430,7 @@
 
         .upload-zone h2 {
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 900;
             margin-bottom: .4rem;
         }
 
@@ -218,23 +460,22 @@
             padding: .8rem 2rem;
             border-radius: 50px;
             border: none;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-            color: #ffffff;
+            background: var(--accent);
+            color: #fff;
             font-family: 'Outfit', sans-serif;
             font-size: .95rem;
-            font-weight: 700;
+            font-weight: 900;
             cursor: pointer;
             transition: transform .25s, box-shadow .25s;
             display: none;
-            box-shadow: 0 4px 14px rgba(59, 130, 246, .4);
+            box-shadow: 0 10px 28px rgba(14, 165, 233, .25);
         }
 
         .btn-upload:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 18px rgba(59, 130, 246, .4);
+            transform: scale(1.03);
+            box-shadow: 0 16px 40px rgba(14, 165, 233, .22);
         }
 
-        /* ---- Loader ---- */
         .loader {
             display: none;
             margin: 2.5rem auto;
@@ -254,7 +495,6 @@
             margin-top: .5rem;
         }
 
-        /* ---- Error ---- */
         #error-toast {
             display: none;
             margin: 1rem auto;
@@ -268,7 +508,6 @@
             text-align: center;
         }
 
-        /* ---- Dashboard ---- */
         .dashboard {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -298,7 +537,7 @@
 
         .card-title {
             font-size: .72rem;
-            font-weight: 600;
+            font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--accent);
@@ -320,7 +559,6 @@
             display: block;
         }
 
-        /* ---- Prediction banner ---- */
         .prediction-banner {
             grid-column: 1/-1;
             display: flex;
@@ -328,8 +566,9 @@
             gap: 1.2rem;
             padding: 1.4rem 1.8rem;
             border-radius: 20px;
-            border: 1px solid rgba(245, 158, 11, .2);
-            background: #fffbeb;
+            border: 1px solid rgba(245, 158, 11, .18);
+            background: #ffffff;
+            /* solid */
             box-shadow: var(--shadow);
         }
 
@@ -341,15 +580,16 @@
 
         .pred-label {
             font-size: 1.45rem;
-            font-weight: 700;
-            color: var(--gold);
+            font-weight: 900;
+            color: var(--text);
             line-height: 1.2;
         }
 
         .pred-desc {
             font-size: .88rem;
-            color: var(--muted);
+            color: rgba(100, 116, 139, .95);
             margin-top: .35rem;
+            line-height: 1.45;
         }
 
         .pred-coverage {
@@ -360,21 +600,18 @@
 
         .pred-coverage .big {
             font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, var(--accent), var(--accent2));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            color: var(--text);
         }
 
         .pred-coverage .small {
             font-size: .75rem;
-            color: var(--muted);
+            color: rgba(100, 116, 139, .95);
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 900;
         }
 
-        /* ---- Metrics Grid ---- */
         .metrics-grid {
             grid-column: 1/-1;
             display: grid;
@@ -390,12 +627,12 @@
             padding: 1.2rem;
             text-align: center;
             transition: transform .3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .02);
         }
 
         .metric-card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent);
+            border-color: rgba(14, 165, 233, .55);
         }
 
         .metric-label {
@@ -404,11 +641,12 @@
             letter-spacing: 1.2px;
             color: var(--muted);
             margin-bottom: .6rem;
+            font-weight: 900;
         }
 
         .metric-value {
             font-size: 1.4rem;
-            font-weight: 700;
+            font-weight: 900;
             color: var(--text);
         }
 
@@ -416,9 +654,9 @@
             font-size: .7rem;
             color: var(--muted);
             margin-left: .2rem;
+            font-weight: 900;
         }
 
-        /* ---- Stats row ---- */
         .stats-card {
             grid-column: 1/-1;
             display: flex;
@@ -441,44 +679,13 @@
             letter-spacing: 1.5px;
             color: var(--muted);
             margin-bottom: .5rem;
+            font-weight: 900;
         }
 
         .stat-value {
-            font-size: 1.7rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--accent), var(--accent2));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .stat-sub {
-            font-size: .76rem;
-            color: var(--muted);
-            margin-top: .3rem;
-        }
-
-        /* ---- Animations ---- */
-        @keyframes fadeDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0
-            }
-
-            to {
-                opacity: 1
-            }
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--text);
         }
 
         @keyframes spin {
@@ -487,7 +694,25 @@
             }
         }
 
-        @media(max-width:640px) {
+        @media (max-width:720px) {
+            .heroContent {
+                padding-bottom: 40px;
+            }
+
+            .navLinks {
+                display: none;
+            }
+
+            .miniGrid {
+                grid-template-columns: 1fr;
+            }
+
+            .heroCard {
+                text-align: left;
+            }
+        }
+
+        @media (max-width:640px) {
             .dashboard {
                 grid-template-columns: 1fr;
             }
@@ -500,228 +725,217 @@
                 font-size: 2.2rem;
             }
         }
+
+        @media (prefers-reduced-motion:reduce) {
+            .panel {
+                clip-path: none !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        .navRight {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navIcon {
+            width: 28px;
+            height: 28px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 1px solid rgba(15, 23, 42, .10);
+            box-shadow: 0 6px 16px rgba(2, 6, 23, .10);
+        }
     </style>
 </head>
 
 <body>
-
-    <div class="header">
-        <h1>☀️ Solar Explorar</h1>
-        <p>AI-powered rooftop solar potential analysis</p>
+    <div class="topnav">
+        <div class="brand">
+            <div class="logoDot"></div>
+            Solar Explorar
+        </div>
+        <div class="navLinks">
+            <a href="#home">Home</a>
+            <a href="#analyze">Analyze</a>
+        </div>
+        <div class="navRight">
+            <img class="navIcon" src="img1.png" alt="Icon 1">
+            <img class="navIcon" src="img2.png" alt="Icon 2">
+        </div>
     </div>
 
-    <div class="tabs">
-        <button class="tab active" id="tab-address" onclick="switchTab('address')">🔍 Address Search</button>
-        <button class="tab" id="tab-upload" onclick="switchTab('upload')">📂 Upload Image</button>
-    </div>
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="heroBg"></div>
 
-    <div class="search-bar" id="address-panel">
-        <input type="text" id="address-input" placeholder="e.g. Taj Mahal, Agra"
-            onkeydown="if(event.key==='Enter')searchAddress()">
-        <button class="btn-search" id="search-btn" onclick="searchAddress()">Search →</button>
-    </div>
+        <div class="heroContent">
 
-    <div class="upload-zone" id="upload-zone">
-        <input type="file" id="file-input" accept="image/*">
-        <span class="icon">🛰️</span>
-        <h2>Drop a satellite image here</h2>
-        <p>or click to browse — PNG, JPG, WEBP</p>
-    </div>
-    <div id="preview-name" style="text-align: center; margin-bottom: 1rem;"></div>
-    <button class="btn-upload" id="upload-btn" onclick="analyzeUpload()"
-        style="margin: 0 auto 2rem; display: none;">Analyze Rooftop</button>
 
-    <div id="place-details"></div>
-    <div id="error-toast"></div>
-    <div class="loader" id="loader"></div>
-    <div class="loader-text" id="loader-text"></div>
 
-    <div class="dashboard" id="dashboard">
-        <div class="prediction-banner" id="pred-banner">
-            <div class="pred-emoji" id="pred-emoji">☀️</div>
             <div>
-                <div class="pred-label" id="pred-label">Analysis Result</div>
-                <div class="pred-desc" id="pred-desc">Waiting for input...</div>
-            </div>
-            <div class="pred-coverage">
-                <div class="big" id="stat-coverage">--%</div>
-                <div class="small">Confidence</div>
-            </div>
-        </div>
+                <div class="heroTitle">Solar rooftop analysis, <span>powered by AI</span></div>
+                <div class="heroSub">
+                    Search any address or upload a satellite image to estimate roof area, panel count, system size,
+                    annual savings, and CO₂ offset.
+                </div>
 
-        <div class="metrics-grid" id="metrics-grid">
-            <div class="metric-card">
-                <div class="metric-label">Detected Roof Area</div>
-                <div class="metric-value" id="val-area">--</div>
-                <span class="metric-unit">m²</span>
-            </div>
-            <div class="metric-card">
-                <div class="metric-label">Est. Panel Count</div>
-                <div class="metric-value" id="val-panels">--</div>
-                <span class="metric-unit">panels</span>
-            </div>
-            <div class="metric-card">
-                <div class="metric-label">System Capacity</div>
-                <div class="metric-value" id="val-capacity">--</div>
-                <span class="metric-unit">kW</span>
-            </div>
-            <div class="metric-card">
-                <div class="metric-label">Annual Savings</div>
-                <div class="metric-value" id="val-savings">--</div>
-                <span class="metric-unit">USD/yr</span>
-            </div>
-            <div class="metric-card">
-                <div class="metric-label">CO2 Offset</div>
-                <div class="metric-value" id="val-co2">--</div>
-                <span class="metric-unit">kg/yr</span>
-            </div>
-        </div>
+                <div class="heroChips">
+                    <div class="chip">☀️ Solar-ready insights</div>
+                    <div class="chip">🛰️ Satellite + Upload</div>
+                    <div class="chip">🧠 Segmentation</div>
+                    <div class="chip">🌿 CO₂ offset estimate</div>
+                </div>
 
-        <div class="card">
-            <div class="card-title">🛰️ Satellite Image</div>
-            <div class="img-box">
-                <img id="original-img" src="" alt="Satellite">
-            </div>
-        </div>
+                <div class="heroCard">
+                    <div class="heroCardTop">
+                        <div>What you get</div>
+                        <div class="badgeLive">• Instant</div>
+                    </div>
+                    <div class="heroCardBody">
+                        Roof area → Panels → Capacity → Savings → CO₂ offset
+                        <div class="miniGrid">
+                            <div class="mini">
+                                <div class="k">RULE</div>
+                                <div class="v">8 m² = 1 panel</div>
+                            </div>
+                            <div class="mini">
+                                <div class="k">PANEL POWER</div>
+                                <div class="v">470 W each</div>
+                            </div>
+                            <div class="mini">
+                                <div class="k">ASSUMPTION</div>
+                                <div class="v">300–400 kWh/mo</div>
+                            </div>
+                            <div class="mini">
+                                <div class="k">ESTIMATES</div>
+                                <div class="v">Savings + CO₂</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="card">
-            <h3 class="card-title">🔍 Analysis Overlay</h3>
-            <div class="img-box">
-                <img id="mask-img" src="" alt="Mask">
             </div>
         </div>
+    </section>
 
-        <div class="stats-card card">
-            <div class="stat">
-                <div class="stat-label">Model</div>
-                <div class="stat-value" style="font-size:1rem;padding-top:.4rem;">U-Net</div>
+    <!-- REVEAL SCROLL ZONE -->
+    <section class="transition" id="analyze">
+        <section class="panel" id="panel">
+            <div class="appPage">
+
+                <div class="header">
+                    <br>
+                    <br>
+                    <br>
+                    <h1>☀️ Solar Explorar</h1>
+                    <p>AI-powered rooftop solar potential analysis</p>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" id="tab-address" onclick="switchTab('address')">🔍 Address
+                        Search</button>
+                    <button class="tab" id="tab-upload" onclick="switchTab('upload')">📂 Upload Image</button>
+                </div>
+
+                <div class="search-bar" id="address-panel">
+                    <input type="text" id="address-input" placeholder="e.g. Taj Mahal, Agra"
+                        onkeydown="if(event.key==='Enter')searchAddress()">
+                    <button class="btn-search" id="search-btn" onclick="searchAddress()">Search →</button>
+                </div>
+
+                <div class="upload-zone" id="upload-zone">
+                    <input type="file" id="file-input" accept="image/*">
+                    <span class="icon">🛰️</span>
+                    <h2>Drop a satellite image here</h2>
+                    <p>or click to browse — PNG, JPG, WEBP</p>
+                </div>
+                <div id="preview-name" style="text-align: center; margin-bottom: 1rem;"></div>
+                <button class="btn-upload" id="upload-btn" onclick="analyzeUpload()"
+                    style="margin: 0 auto 2rem; display: none;">Analyze Rooftop</button>
+
+                <div id="place-details"></div>
+                <div id="error-toast"></div>
+                <div class="loader" id="loader"></div>
+                <div class="loader-text" id="loader-text"></div>
+
+                <div class="dashboard" id="dashboard">
+                    <div class="prediction-banner" id="pred-banner">
+                        <div class="pred-emoji" id="pred-emoji">☀️</div>
+                        <div>
+                            <div class="pred-label" id="pred-label">Analysis Result</div>
+                            <div class="pred-desc" id="pred-desc">Waiting for input...</div>
+                        </div>
+                        <div class="pred-coverage">
+                            <div class="big" id="stat-coverage">--%</div>
+                            <div class="small">Confidence</div>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid" id="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-label">Detected Roof Area</div>
+                            <div class="metric-value" id="val-area">--</div>
+                            <span class="metric-unit">m²</span>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Est. Panel Count</div>
+                            <div class="metric-value" id="val-panels">--</div>
+                            <span class="metric-unit">panels</span>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">System Capacity</div>
+                            <div class="metric-value" id="val-capacity">--</div>
+                            <span class="metric-unit">kW</span>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">Annual Savings</div>
+                            <div class="metric-value" id="val-savings">--</div>
+                            <span class="metric-unit">USD/yr</span>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">CO2 Offset</div>
+                            <div class="metric-value" id="val-co2">--</div>
+                            <span class="metric-unit">kg/yr</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title">🛰️ Satellite Image</div>
+                        <div class="img-box">
+                            <img id="original-img" src="" alt="Satellite">
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">🔍 Analysis Overlay</h3>
+                        <div class="img-box">
+                            <img id="mask-img" src="" alt="Mask">
+                        </div>
+                    </div>
+
+                    <div class="stats-card card">
+                        <div class="stat">
+                            <div class="stat-label">Model</div>
+                            <div class="stat-value" style="font-size:1rem;padding-top:.4rem;">U-Net</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-label">Image Source</div>
+                            <div class="stat-value" id="stat-source" style="font-size:1rem;padding-top:.4rem;">Mapbox
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="stat">
-                <div class="stat-label">Image Source</div>
-                <div class="stat-value" id="stat-source" style="font-size:1rem;padding-top:.4rem;">Mapbox</div>
-            </div>
-        </div>
-    </div>
+        </section>
+    </section>
 
-    <script>
-        const API = 'http://localhost:8000';
-
-        function switchTab(mode) {
-            document.getElementById('tab-address').classList.toggle('active', mode === 'address');
-            document.getElementById('tab-upload').classList.toggle('active', mode === 'upload');
-            document.getElementById('address-panel').style.display = mode === 'address' ? 'flex' : 'none';
-            document.getElementById('upload-zone').style.display = mode === 'upload' ? 'block' : 'none';
-            hideDashboard();
-        }
-
-        function setLoading(on, msg = 'Processing...') {
-            document.getElementById('loader').style.display = on ? 'block' : 'none';
-            document.getElementById('loader-text').style.display = on ? 'block' : 'none';
-            document.getElementById('loader-text').textContent = msg;
-            document.getElementById('search-btn').disabled = on;
-            document.getElementById('upload-btn').disabled = on;
-        }
-
-        function showError(msg) {
-            const t = document.getElementById('error-toast');
-            t.textContent = '⚠️ ' + msg;
-            t.style.display = 'block';
-        }
-
-        function hideDashboard() {
-            document.getElementById('dashboard').classList.remove('visible');
-            document.getElementById('error-toast').style.display = 'none';
-        }
-
-        function showResults(data) {
-            document.getElementById('original-img').src = data.satellite_image || data.original_image;
-            document.getElementById('mask-img').src = data.mask_image;
-            document.getElementById('stat-coverage').textContent = data.coverage.toFixed(1) + '%';
-
-            const p = data.prediction;
-            document.getElementById('pred-emoji').textContent = p.emoji;
-            document.getElementById('pred-label').textContent = p.label;
-            document.getElementById('pred-desc').textContent = p.description;
-
-            if (data.metrics) {
-                const m = data.metrics;
-                document.getElementById('val-area').textContent = m.roof_area_m2;
-                document.getElementById('val-panels').textContent = m.panel_count;
-                document.getElementById('val-capacity').textContent = m.capacity_kw;
-                document.getElementById('val-savings').textContent = '$' + m.annual_savings.toLocaleString();
-                document.getElementById('val-co2').textContent = m.co2_offset_kg.toLocaleString();
-            }
-
-            document.getElementById('dashboard').classList.add('visible');
-        }
-
-        async function searchAddress() {
-            const addr = document.getElementById('address-input').value.trim();
-            if (!addr) { showError('Please enter an address.'); return; }
-
-            hideDashboard();
-            setLoading(true, 'Geocoding via Mapbox...');
-            document.getElementById('place-details').style.display = 'none';
-
-            try {
-                const geoResp = await fetch(`${API}/geocode?address=${encodeURIComponent(addr)}`);
-                const geo = await geoResp.json();
-                if (!geoResp.ok) throw new Error(geo.detail || 'Geocoding failed');
-
-                const placeDetails = document.getElementById('place-details');
-                placeDetails.textContent = '📍 ' + geo.place_name;
-                placeDetails.style.display = 'block';
-
-                setLoading(true, 'Running AI segmentation...');
-                const segResp = await fetch(`${API}/segment-from-coords?lat=${geo.lat}&lng=${geo.lng}`);
-                const seg = await segResp.json();
-                if (!segResp.ok) throw new Error(seg.detail || 'Segmentation failed');
-
-                document.getElementById('stat-source').textContent = 'Mapbox';
-                showResults(seg);
-            } catch (err) {
-                showError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        }
-
-        let selectedFile = null;
-        document.getElementById('file-input').addEventListener('change', e => {
-            if (e.target.files[0]) pickFile(e.target.files[0]);
-        });
-
-        function pickFile(file) {
-            selectedFile = file;
-            document.getElementById('preview-name').textContent = '📎 ' + file.name;
-            document.getElementById('preview-name').style.display = 'block';
-            document.getElementById('upload-btn').style.display = 'block';
-            hideDashboard();
-        }
-
-        async function analyzeUpload() {
-            if (!selectedFile) return;
-            hideDashboard();
-            setLoading(true, 'Analyzing rooftop...');
-
-            const fd = new FormData();
-            fd.append('file', selectedFile);
-
-            try {
-                const resp = await fetch(`${API}/segment`, { method: 'POST', body: fd });
-                const data = await resp.json();
-                if (!resp.ok) throw new Error(data.detail || 'Analysis failed');
-
-                document.getElementById('stat-source').textContent = 'Local Upload';
-                data.satellite_image = data.original_image;
-                showResults(data);
-            } catch (err) {
-                showError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        }
-    </script>
+    <script src="css.js"></script>
 </body>
 
 </html>
