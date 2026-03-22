@@ -1,6 +1,14 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
 torch
 torchvision
 numpy
 opencv-python
 albumentations
 matplotlib
+Pillow
+requests
+fastapi
+uvicorn
+python-multipart
+segmentation-models-pytorch
+tqdm

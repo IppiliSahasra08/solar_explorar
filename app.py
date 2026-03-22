@@ -41,6 +41,10 @@ ENSEMBLE_PATHS = [
     "best_model_fold5.pth",
 ]
 
+# If running on Render (Free/Starter tiers), load only 1 model to prevent OOM
+if os.environ.get("RENDER"):
+    ENSEMBLE_PATHS = [ENSEMBLE_PATHS[0]]
+
 app = FastAPI(title="Solar Explorar — Roof Segmentation API")
 
 app.add_middleware(
