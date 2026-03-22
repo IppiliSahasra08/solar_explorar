@@ -300,10 +300,7 @@ async def satellite_preview(
     lng:  float = Query(...),
     zoom: int   = Query(default=SATELLITE_ZOOM),
 ):
-    """
-    Fetch a satellite image for the given coordinates.
-    Returns: { image_b64 }  (data URI ready)
-    """
+    
     img = fetch_satellite_image(lat, lng, zoom)
     return {
         "image_b64": f"data:image/png;base64,{pil_to_b64(img)}",
@@ -319,24 +316,18 @@ async def segment_from_coords(
     lng:  float = Query(...),
     zoom: int   = Query(default=SATELLITE_ZOOM),
 ):
-    """
-    Full pipeline: fetch satellite image → run U-Net segmentation → return results.
-    """
-    # 1. Fetch satellite image
+    
     try:
         sat_img = fetch_satellite_image(lat, lng, zoom)
     except HTTPException:
         raise
     except Exception as e:
         raise HTTPException(status_code=502, detail=f"Satellite fetch failed: {e}")
-
-    # 2. Run segmentation
     try:
         mask_pil, overlay_pil, coverage, area_m2 = predict_mask(sat_img)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Segmentation failed: {e}")
 
-    # 3. Build solar metrics
     metrics = calculate_solar_potential(area_m2)
     prediction = coverage_to_label(coverage)
 
@@ -353,16 +344,9 @@ async def segment_from_coords(
 async def segment_demo(
     address: str = Query(..., description="Demo address to simulate satellite lookup"),
 ):
-    """
-    Demo endpoint: uses local images to simulate a satellite lookup for an address.
-    """
-    # 1. Fetch dummy satellite image
-    sat_img = fetch_dummy_satellite_image(address)
-
-    # 2. Run segmentation
-    mask_pil, overlay_pil, coverage, area_m2 = predict_mask(sat_img)
     
-    # 3. Build solar metrics
+    sat_img = fetch_dummy_satellite_image(address)
+    mask_pil, overlay_pil, coverage, area_m2 = predict_mask(sat_img)
     metrics = calculate_solar_potential(area_m2)
     prediction = coverage_to_label(coverage)
 
@@ -378,9 +362,7 @@ async def segment_demo(
 
 @app.post("/segment")
 async def segment(file: UploadFile = File(...)):
-    """
-    Legacy endpoint: upload an image file directly → segmentation results.
-    """
+
     if not file.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="Uploaded file must be an image.")
 
@@ -410,9 +392,6 @@ async def segment(file: UploadFile = File(...)):
 
 @app.post("/reload-model")
 async def reload_model_endpoint():
-    """
-    Reload the ensemble models.
-    """
     global predictor
     try:
         predictor = EnsemblePredictor(ENSEMBLE_PATHS, device=DEVICE)

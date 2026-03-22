@@ -10,19 +10,10 @@ from albumentations.pytorch import ToTensorV2
 from tqdm import tqdm
 import segmentation_models_pytorch as smp
 
-# --------------------------
-# MODEL DEFINITION
-# --------------------------
-# Using smp.Unet with resnet34 backbone
-
-# --------------------------
-# DATASET
-# --------------------------
 class RoofDataset(Dataset):
     def __init__(self, image_dir, mask_dir, transform=None):
         self.image_dir = image_dir
         self.mask_dir = mask_dir
-        # Only include images that have corresponding masks
         self.images = [f for f in os.listdir(image_dir) if os.path.exists(os.path.join(mask_dir, f.replace(".jpg", ".png")))]
         self.transform = transform
 

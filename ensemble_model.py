@@ -38,7 +38,6 @@ class EnsemblePredictor:
         ])
 
     def predict(self, image_pil):
-        """Run ensemble inference by averaging sigmoid outputs."""
         if not self.models:
             return None, 0.0, None
 
@@ -50,14 +49,9 @@ class EnsemblePredictor:
                 output = model(inp)
                 pred = torch.sigmoid(output).squeeze().cpu().numpy()
                 all_preds.append(pred)
-        
-        # Average the predictions
         avg_pred = np.mean(all_preds, axis=0)
-        
-        # Generate mask
+
         mask_arr = (avg_pred * 255).astype(np.uint8)
-        
-        # Coverage percentage
         coverage_pct = float(np.mean(avg_pred)) * 100
         
         return mask_arr, coverage_pct, avg_pred

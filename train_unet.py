@@ -18,19 +18,12 @@ train_transform = A.Compose([
     ToTensorV2()
 ])
 
-# Using smp.Unet with resnet34 backbone
-# ==============================
-
 model = smp.Unet(
     encoder_name="resnet34",
     encoder_weights="imagenet",
     in_channels=3,
     classes=1,
 ).to(torch.device("cuda" if torch.cuda.is_available() else "cpu"))
-
-# ==============================
-# DATASET
-# ==============================
 
 class RoofDataset(Dataset):
     def __init__(self, image_dir, mask_dir, transform=None):
@@ -58,12 +51,6 @@ class RoofDataset(Dataset):
             mask = augmented["mask"].unsqueeze(0)
 
         return image, mask
-
-
-# ==============================
-# TRAINING
-# ==============================
-
 dataset = RoofDataset("images", "masks", transform=train_transform)
 loader = DataLoader(dataset, batch_size=4, shuffle=True)
 
@@ -71,7 +58,6 @@ criterion = nn.BCEWithLogitsLoss()
 optimizer = optim.Adam(model.parameters(), lr=1e-4)
 
 epochs = 100
-
 for epoch in range(epochs):
     model.train()
     epoch_loss = 0
@@ -88,7 +74,5 @@ for epoch in range(epochs):
 
     if (epoch + 1) % 10 == 0 or epoch == 0:
         print(f"Epoch [{epoch+1}/{epochs}] Loss: {epoch_loss/len(loader):.4f}")
-
-# Save model
 torch.save(model.state_dict(), "roof_segmentation_model.pth")
 print("Model saved as roof_model.pth")
