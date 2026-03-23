@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         searchBtn.disabled = true;
 
         try {
-            const response = await fetch('/predict', {
+            const response = await fetch('https://solar-explorar.onrender.com/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

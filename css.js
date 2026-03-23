@@ -1,4 +1,4 @@
-const API = 'http://localhost:8000';
+const API = 'https://solar-explorar.onrender.com';
 
 // ---------- OVAL REVEAL ----------
 const transition = document.getElementById("analyze");
