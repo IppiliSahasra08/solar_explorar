@@ -1,0 +1,1697 @@
+Solar Access to Public Capital Working Group
+Best Practices in
+Commercial and Industrial
+(C&I) PV System Installation
+NREL is a national laboratory of the U.S. Department of Energy
+Office of Energy Efficiency and Renewable Energy
+Operated by the Alliance for Sustainable Energy, LLC
+
+--- PAGE 1 ---
+
+Best Practices in Commercial and
+Industrial (C&I) Solar Photovoltaic
+System Installation
+Period of Performance
+November 28, 2014–September 1, 2015
+Chris Doyle
+Dividend Solar, IBTS
+Len Loomans, Andrew Truitt, and Robert Lockhart
+Acuity Power
+Matt Golden
+Efficiency.org
+Kareem Dabbagh
+Aurora Solar
+Richard Lawrence
+NABCEP
+NREL Technical Monitors: Michael Mendelsohn and Francisco
+Flores-Espino
+NREL is a national laboratory of the U.S. Department of Energy
+Office of Energy Efficiency & Renewable Energy
+Operated by the Alliance for Sustainable Energy, LLC
+This report is available at no cost from the National Renewable Energy
+Laboratory (NREL) at www.nrel.gov/publications.
+Subcontract Report
+NREL/SR-6A20-65286
+December 2015
+Contract No. DE-AC36-08GO28308
+
+--- PAGE 2 ---
+
+This publication was reproduced from the best available copy
+submitted by the subcontractor and received minimal editorial review at NREL.
+NOTICE
+This report was prepared as an account of work sponsored by an agency of the United States government.
+Neither the United States government nor any agency thereof, nor any of their employees, makes any warranty,
+express or implied, or assumes any legal liability or responsibility for the accuracy, completeness, or usefulness of
+any information, apparatus, product, or process disclosed, or represents that its use would not infringe privately
+owned rights. Reference herein to any specific commercial product, process, or service by trade name,
+trademark, manufacturer, or otherwise does not necessarily constitute or imply its endorsement, recommendation,
+or favoring by the United States government or any agency thereof. The views and opinions of authors
+expressed herein do not necessarily state or reflect those of the United States government or any agency thereof.
+This report is available at no cost from the National Renewable Energy
+Laboratory (NREL) at www.nrel.gov/publications.
+Available electronically at SciTech Connect http:/www.osti.gov/scitech
+Available for a processing fee to U.S. Department of Energy
+and its contractors, in paper, from:
+U.S. Department of Energy
+Office of Scientific and Technical Information
+P.O. Box 62
+Oak Ridge, TN 37831-0062
+OSTI http://www.osti.gov
+Phone: 865.576.8401
+Fax: 865.576.5728
+Email: reports@osti.gov
+Available for sale to the public, in paper, from:
+U.S. Department of Commerce
+National Technical Information Service
+5301 Shawnee Road
+Alexandria, VA 22312
+NTIS http://www.ntis.gov
+Phone: 800.553.6847 or 703.605.6000
+Fax: 703.605.6900
+Email: orders@ntis.gov
+Cover Photo: iStock 46445820
+NREL prints on paper that contains recycled content.
+
+--- PAGE 3 ---
+
+Disclaimer
+The attached Best Practices in Commercial and Industrial (C&I) Photovoltaic (PV) System
+Installation Guide was developed through an industry-organizing process convened by the
+National Renewable Energy Laboratory (NREL). The process was open to a wide array of
+industry members to get a broad range of perspectives. The document represents the result of
+long discussions and negotiations on a variety of topic areas of interest to the participating
+stakeholders. The document does not reflect NREL’s or the U.S. Department of Energy’s
+endorsement of any activity or group of activities. Rather, the document is designed to provide a
+reasonable protocol associated with photovoltaics (PV) system installation supported by the
+industry stakeholder process in order to mitigate risks and improve PV asset energy and cash
+flow production reliability.
+iii
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 4 ---
+
+Acknowledgments
+The authors would like to thank the following contributors to this report.
+Contributors
+Johan Alfsen, Quick Mount PV Calder Lamb, Dominion Energy Solutions
+Mark Berger, NextGrid Technologies Minh Le, U.S. Department of Energy
+Megan Birney, Wiser Capital Kimberlie Lenihan, New York State Energy
+Brian Brookman, Solar Energy Industries Research and Development Authority
+Association Jay Levin, Clean Energy Associates
+Joe Cain, DNV GL John Lochner, Locus Energy
+Derek Chase, SunSystem Technology Rich Matsui, kWh Analytics
+John Dalton, Burnham Energy Michael Mendelsohn, NREL
+Lyleen Dauz, Burnham Energy Jack Meng, Fortune Energy
+Matt Denninger, Advanced Energy David Milner, NuGen Capital, Dividend
+Industries Solar
+CJ Desantis, CounterPointe Energy Emeline Minor, Kilowatt Financial
+Solutions Rue Phillips, TRUE South Renewables Inc.
+Paul Detering, Redwood Insights Travis Richardson, Sungevity
+Trevor D’Olier-Lees, Standard & Poor’s Sydney Roberts, Southface
+Max Foltz, TRUE South Mehrad Saidi, SunSystem Technology
+Whit Fulton, Infinite Invention Laks Sampath, NRG Energy, Inc.
+Heath Galoway, Sungevity Jeffrey Schub, Coalition for Green Capital
+David Hattis, Building Technology, Inc. Greg Sellers, Clean Power Finance
+C. Todd Himle, Super Anchor Safety Aashish Shahani, IBTS
+Ron Hooson, Solar Inspectors Hawaii Shawn Shaw, Cadmus
+David Inda, Clean Power Finance Josh Sturtevant, Distributed Sun
+Saul Inda, GAF Solar Don Warfield, NABCEP
+Drew Johnson, Burnham Energy Scott Weicht, Adolfson and Peterson
+Nick Kasza, Distributed Sun Chase Weir, Distributed Sun
+TJ Keating, SunSpec Alliance Roger Williams, Sungevity
+Geoff Klise, Sandia National Laboratories Peter Xu, PVAP Expo 2012
+Sarah Kurtz, NREL
+iv
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 5 ---
+
+List of Acronyms
+AC alternating current
+AHJ authority having jurisdiction
+ASCE American Society of Civil Engineers
+API application programming interface
+BOS balance of system
+C&I commercial and industrial
+CA commissioning authority
+CGL commercial general liability (insurance)
+CX commissioning
+DC direct current
+EC electrical contractor
+EG equipment grounding
+E&O errors and omissions (insurance)
+EOR engineer of record
+EPC engineering, procurement, and construction
+EPRI Electric Power Research Institute
+FIV field inspection verification
+GFDI ground fault detection and interruption
+GFP ground fault protection
+IBTS Institute for Building Technology and Safety
+I-V current-voltage (curve)
+ICC International Code Council
+IEC International Electrotechnical Commission
+IFC International Fire Code
+IP Ingress Protection (rating)
+IREC Interstate Renewable Energy Council
+ISO International Organization for Standardization
+JHA job hazard analysis
+LPS lightning protection system
+MFL maximum foreseeable loss
+MW megawatt
+NABCEP North American Board of Certified Energy
+Practitioners
+NEMA National Electrical Manufacturers Association
+NEC National Electrical Code
+NERC North American Electric Reliability Corporation
+NLE normal loss expected
+O&M operations and maintenance
+OE owner’s engineer
+OSHA Occupational Safety and Health Administration
+P.E. professional engineer
+PID potential-induced degradation
+PML probably maximum loss
+PPA power purchase agreement
+PPE personal protective equipment
+v
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 6 ---
+
+PV photovoltaic
+QA quality assurance
+QC quality control
+RCD residual current device
+SAPC Solar Access to Public Capital
+TCIR total case incident rate
+TOU time-of-use (rates)
+TPO third-party owned system
+TSRF total solar resource fraction
+UL UL was formerly known as Underwriters
+Laboratories
+UV ultraviolet
+V volt
+vi
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 7 ---
+
+Table of Contents
+1 Introduction ........................................................................................................................................... 1
+1.1 Solar Access to Public Capital ...................................................................................................... 1
+1.2 Purpose .......................................................................................................................................... 1
+1.3 How to Use This Document .......................................................................................................... 2
+1.4 Guide Overview ............................................................................................................................ 2
+1.5 Definition of Roles ........................................................................................................................ 2
+1.5.1 Owner ............................................................................................................................... 2
+1.5.2 Developer ......................................................................................................................... 2
+1.5.3 EPC Contractor ................................................................................................................ 2
+2 Qualificati ons ........................................................................................................................................ 4
+2.1 EPC Contractor General Qualifications ........................................................................................ 4
+2.1.1 Trade Licenses.................................................................................................................. 4
+2.1.2 Work History .................................................................................................................... 4
+2.1.3 Financial Solvency ........................................................................................................... 4
+2.1.4 Health and Safety ............................................................................................................. 4
+2.1.5 Insurance .......................................................................................................................... 5
+2.1.6 EPC Bonding Capacity (Performance Security) .............................................................. 6
+2.1.7 EPC Engineer Insurance ................................................................................................... 6
+2.1.8 Defined Quality Management Plan .................................................................................. 6
+2.2 EPC Contractor Personnel Qualifications ..................................................................................... 7
+2.2.1 EPC Engineer Qualifications ........................................................................................... 7
+2.2.2 EPC Project Manager Qualifications ............................................................................... 7
+2.2.3 EPC Installer Site Supervisor Qualifications ................................................................... 8
+2.3 Oper ator/O&M Provider Qualifications ........................................................................................ 8
+2.4 Engin eer of Record Qualifications ................................................................................................ 8
+2.5 Developer Qualifications ............................................................................................................... 9
+3 Pro ject Design Best Practices ........................................................................................................... 10
+3.1 Usage Data and Estimate of Utility Cost Savings ....................................................................... 10
+3.2 Site Data ...................................................................................................................................... 11
+3.2.1 Site Information.............................................................................................................. 11
+3.2.2 Structural Information .................................................................................................... 11
+3.2.3 Roof Information (if applicable) .................................................................................... 11
+3.2.4 Electrical Information .................................................................................................... 12
+3.2.5 Potential Locations for New Equipment ........................................................................ 13
+3.3 Produ ction Estimate .................................................................................................................... 13
+3.3.1 Estimating Tools ............................................................................................................ 13
+3.3.2 Modeling Tools .............................................................................................................. 13
+3.3.3 Solar Resource/Weather Data Sources ........................................................................... 14
+3.3.4 Performance Guarantees ................................................................................................ 14
+3.4 Syste m Design ............................................................................................................................. 14
+3.4.1 Project Planset ................................................................................................................ 15
+3.4.2 Module Support Structure .............................................................................................. 16
+3.4.3 DC System Design ......................................................................................................... 17
+3.4.4 AC System Design ......................................................................................................... 17
+3.5 Equip ment Requirements ............................................................................................................ 17
+3.5.1 Photovoltaic Modules ..................................................................................................... 17
+3.5.2 Inverters .......................................................................................................................... 18
+3.5.3 Racking Systems ............................................................................................................ 18
+3.5.4 Monitoring ...................................................................................................................... 19
+vii
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 8 ---
+
+3.5.5 Electrical Components ................................................................................................... 19
+3.6 Permitting and Inspections .......................................................................................................... 19
+4 Installation Best Practices ................................................................................................................. 20
+4.1 Equipment Best Practices ............................................................................................................ 20
+4.1.1 PV Modules .................................................................................................................... 20
+4.1.2 Mounting Systems .......................................................................................................... 20
+4.2 Work manship Best Practices ....................................................................................................... 21
+4.2.1 System Grounding and Bonding .................................................................................... 21
+4.2.2 DC Ground-Fault Protection (DCGFP) .......................................................................... 22
+4.2.3 DC Arc-Fault Circuit Protection (DCAFP) .................................................................... 22
+4.2.4 Rapid Shutdown of PV Systems on Buildings ............................................................... 22
+4.2.5 Marking (Labeling) Best Practices ................................................................................. 22
+4.2.6 Mechanical Components ................................................................................................ 23
+4.2.7 Systems with Module-Level Power Electronics ............................................................ 23
+4.3 Syste m Documentation ............................................................................................................... 24
+4.3.1 Required Site Data Points .............................................................................................. 24
+4.3.2 Required System Design Data ........................................................................................ 24
+4.3.3 As-Built Photograph Inventory ...................................................................................... 25
+4.3.4 EPC Submittal Information ............................................................................................ 25
+4.4 Third -Party Inspection and Verification ...................................................................................... 26
+4.4.1 Field Inspection Verification .......................................................................................... 26
+4.4.2 Third-Party Inspector Qualifications .............................................................................. 27
+4.4.3 Scoring System ............................................................................................................... 27
+4.5 Interc onnection ............................................................................................................................ 28
+5 O&M Best Practices ........................................................................................................................... 30
+5.1 Solar PV Operations, Maintenance, and Monitoring (OM&M) .................................................. 30
+5.2 PV System Warranty ................................................................................................................... 31
+5.3 Solar PV System Commissioning ............................................................................................... 31
+6 Ref erences and Resources ............................................................................................................... 33
+Append ix. References to Codes, Standards, and Guidelines .............................................................. 36
+viii
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 9 ---
+
+1 Introduction
+1.1 Solar Access to Public Capital
+The following Best Practices in Commercial and Industrial (C&I) PV System Installation Guide
+is one of several work products developed by the Solar Access to Public Capital (SAPC)
+working group. SAPC worked from 2012 to 2015 to open capital market investment for PV
+systems. Capital market investment includes debt and equity securities procured by pension
+funds, family offices, endowment funds, and other large managers of investment. These sources
+of institutional investments allow for the industry to access the lowest cost of capital financing.
+SAPC membership included over 480 leading solar developers, financiers and capital managers,
+law firms, rating agencies, accounting and engineering firms, and other stakeholders engaged in
+solar asset deployment.1 SAPC activities were directed toward foundational elements necessary
+to pool project cash flows into tradable securities:
+• Standardization of power purchase, lease and loan contracts for residential and
+commercial end customers
+• Development of performance and credit data sets to facilitate investor due diligence
+activities
+• Engagement of rating agencies to comprehend their risk perception of the solar
+asset class
+• Development of best practice documents for photovoltaic (PV) system installation and
+operations and maintenance (O&M) protocols to encourage high-quality system
+deployment and operation that may improve lifetime project performance and
+energy production.
+1.2 Purpose
+This Best Practices in C&I PV System Installation Guide is the second of a series of guides
+designed to standardize and improve solar asset transparency for investors and rating agencies,
+provide an industry framework for quality management, and reduce transaction costs in the solar
+asset securitization process. The Best Practices in C&I PV System Installation Guide is intended
+to outline the minimum requirements for commercial and industrial solar project developments.
+Adherence to the guide is voluntary. Providers that adhere to the guide are responsible for self-
+certifying that they have fulfilled the guide requirements. Investors and rating agencies should
+verify compliance.
+The first in the series, SAPC Best Practices in PV System Installation, was published in March
+2015 and addresses best practices in the installation of residential PV systems (Doyle et
+al. 2015).
+1 SAPC was funded by the U.S. Department of Energy during a three-year period that concluded on
+September 30, 2015.
+1
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 10 ---
+
+1.3 How to Use This Document
+This document is best viewed on a computer or tablet in order to take full advantage of the
+embedded, clickable hyperlinks that lead to further information and additional resources. Each
+hyperlink is fully cited in section 6, References and Resources. Relevant definitions used in this
+document are listed in the Appendix.
+1.4 Guide Overview
+There is no one-size-fits-all solar deployment strategy. Firms have unique value propositions,
+customer acquisition strategies, distribution channels, and technical specifications. The
+framework for the guide includes:
+1. Developer qualifications
+2. Engineering, procurement, and construction (EPC) qualifications
+3. Design best practices
+4. Installation best practices
+5. O&M/Operator best practices.
+1.5 Definition of Roles
+1.5.1 Owner
+In the C&I PV sector, development of third-party-owned (TPO) systems typically includes a
+turnkey solar energy supply agreement for a host client, also known as the energy off-taker. The
+“Owner” is identified as the long-term owner of the project, and may typically be a special
+purpose entity comprised of the Developer, the Investor, or both.
+1.5.2 Developer
+The Developer is responsible for facilitating the planning and construction of the PV project,
+including site selection, design, solar resource and energy production estimation, permits, utility
+interconnection, construction, and commissioning. The Developer might only act as an originator
+or project broker and not play an active role once the project construction commences.
+The primary objective of the Developer is to create financeable PV projects with sound
+investment return and performance upside. Developers have found success in third-party leasing
+and power purchase agreement (PPA) models, backed with traditional sources of debt and equity
+financing. As the financing landscape evolves, these third-party ownership models are strong
+candidates for new sources of financing such as asset securitization.
+Investors seek diversification of underlying assets, as well as predictable and profitable
+operations, low credit risk, and project transparency.
+1.5.3 Engineering, Procurement, and Construction Contractor
+The Developer or Owner typically contracts with a primary entity known as an engineering,
+procurement, and construction (EPC) Contractor for turnkey EPC services. The EPC Contractor
+may use internal design and construction resources, or may subcontract some of these services;
+for example, the EPC Contractor may subcontract installation to an electrical contractor (EC).
+2
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 11 ---
+
+The EPC Contractor can have an important impact on the quality of the asset in terms of system
+safety, performance, and durability. As such, the legal agreement between the Developer or
+Owner and the EPC Contractor is a critical component of project risk for investors.
+3
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 12 ---
+
+2 Qualifications
+2.1 EPC Contractor General Qualifications
+The EPC Contractor’s performance and financial capabilities to successfully complete its
+obligations under contract are of key importance. The EPC Contractor should meet minimum
+general requirements and minimum personnel qualifications as set forth below.
+2.1.1 Trade Licenses
+The EPC Contractor should have all professional and trade licenses required by the applicable
+state and local authorities having jurisdiction (AHJ). Required solar PV licenses can be found
+through the Interstate Renewable Energy Council’s (IREC) Solar Licensing Database
+(IREC 2014).
+2.1.2 Work History
+The EPC Contractor should have a successful track record of design and construction of similar
+type and scale projects, completed on time and on budget. The EPC Contractor should
+demonstrate this experience through:
+□ At least 3 years company work experience in design, engineering and installation of
+commercial scale solar PV systems
+2.1.3 Financial Solvency
+The EPC Contractor should have the financial resources to successfully complete projects and to
+meet all warranty obligations. EPC Contractors shall provide documentation related to the
+financial solvency of the company. The documents should be kept on file by the financing
+company. Sample documents include:
+□ Audited financial statements
+□ Bank references
+□ Supplier references
+The purpose of these references is to demonstrate that the EPC Contractor is/was not in financial
+distress at the time of project development and installation. Financial distress could have a
+negative impact on the level of system quality.
+2.1.4 Health and Safety
+The EPC Contractor should have and maintain a health and safety manual that establishes
+appropriate rules and procedures concerning workplace safety, including rules related to:
+reporting health and safety problems, injuries, and unsafe conditions; risk assessment; and first
+aid and emergency response.
+Some examples of typical rules and procedures include:
+• Contractor Site Supervisor has completed a minimum of Occupational Safety and Health
+Administration (OSHA) 30-hour Construction Industry training, and all site personnel
+have completed a minimum of OSHA 10-hour Construction Industry training.
+4
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 13 ---
+
+• Additional training should be supplemented to provide sufficient knowledge for installers
+to identify hazards, provide corrective actions, and prevent reoccurrence specific to solar
+PV systems.
+• All site personnel must be equipped with complete personal protective equipment (PPE)
+and trained on any specific hazards associated with their jobs.
+• Contractor Site Supervisor has completed a job hazard analysis (JHA).
+• Contractor Site Supervisor has completed a job site orientation with all workers onsite.
+The Contractor must maintain an OSHA total case incident rate (TCIR) of 5.00 or less or a
+similar rate based on a substantially equivalent, accepted measure used to report
+workplace injuries.
+2.1.5 Insurance
+An EPC Contractor must maintain appropriate levels of insurance relative to project scale,
+complexity, and associated risk. An insurance engineer and underwriter should be engaged to
+evaluate a design or installation and to negotiate the following parameters: normal loss expected
+(NLE), which determines the dollar amount of the deductible without an insurance claim;
+probable maximum loss (PML), which determines the premium paid on a policy; and maximum
+foreseeable loss (MFL), which sets limits on coverage. Coverage should include:
+□ Commercial general liability (CGL) insurance ($1,000,000 per occurrence, $2,000,000
+aggregate)
+□ CGL umbrella policy
+□ Professional liability insurance, also known as errors and omissions (E&O) insurance
+□ Property insurance (builder’s risk), written on an “all-risks” structure and replacement
+cost basis; alternatively, this may be covered under the Developer’s coverage, depending
+on the specific arrangement between parties
+□ Commercial vehicle insurance ($1,000,000 per occurrence)
+□ Workers compensation insurance ($1,000,000 each accident, each employee)
+□ Business interruption insurance, which covers lost revenue due to downtime caused by
+covered event
+□ Inland marine insurance, which insures against loss of equipment not on the
+property premises
+□ Insurance policies should name the developer or owner and any intermediaries as
+additional insured(s) and certificate holder(s). Legal agreements between the
+Developer/Owner and EPC Contractor should require additional insured specification.
+5
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 14 ---
+
+2.1.6 EPC Bonding Capacity (Performance Security)
+Surety Bonds
+Surety bonds, or performance bonds, are typically provided by an insurance company (surety or
+guarantor) to back the performance of the EPC Contractor and ensure that the construction
+project is completed even if the EPC contractor goes bankrupt. Surety bonds are a means to
+protect the contract counterparty, in this case the Developer, if the EPC Contractor is unable to
+fulfill its contractual requirements.
+Payment Bonds
+Payment bonds are insurance that ensures that subcontractors get paid even if the EPC contractor
+goes bankrupt, and thus there are no mechanic’s liens against the facility upon completion.
+2.1.7 EPC Engineer Insurance
+Insurance requirements for project engineers should be relative to the scale and scope of the
+project, but should include at least:
+□ Professional liability (E&O) insurance
+□ Commercial general liability insurance
+□ Commercial vehicle insurance
+□ Workers compensation insurance
+□ Insurance policies should name the Developer/Owner and any intermediaries as
+additional insured(s) and certificate holder(s).
+2.1.8 Defined Quality Management Plan
+The EPC Contractor shall have a quality management plan that includes all elements of the
+company’s customer service policy and other quality assurance practices. The plan should be
+distributed to all company employees and contain a Quality Manual, as defined by International
+Organization for Standardization (ISO) 9001:2008, which includes documented statements of a
+quality policy and quality objectives. A Quality Management Plan should include:
+□ System equipment specifications
+□ System equipment testing
+□ Inspection protocol/inspector qualification
+□ Design best practices
+□ Installation guidelines with explicit quality standards
+□ Safety policies
+□ System commissioning
+6
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 15 ---
+
+□ Upstream and downstream quality assurance (QA) activities with explicitly defined
+corrective action protocols.
+2.2 EPC Contractor Personnel Qualifications
+2.2.1 EPC Engineer Qualifications
+The electrical and structural design of a PV system is the fundamental determinant in system
+safety and performance. The design process will include selection and application of major
+components, including modules and inverters, as well as balance of system (BOS) specifications,
+such as mounting system, combiner boxes, disconnects, conductors size/type, raceways,
+grounding & bonding specifications, arc-fault detection and interruption (AFDI), rapid
+shutdown, monitoring equipment and communications as well as other critical system
+components and features. EPC design must comply with all local codes and utility requirements,
+as well as meet performance expectations of the Provider and Off-taker.
+At minimum, EPC engineer qualifications for electrical and structural design should include:
+□ Professional Engineer, licensed in the state where project is located. The P.E. should be
+qualified in the relevant specific discipline (electrical power, electrical controls,
+structural, environmental, mechanical, etc.).
+Additional qualifications of the design engineer should be strongly considered because direct
+current (DC) power systems, and in particular PV power plants, are quite different than other
+alternating current (AC) electrical systems. Such additional qualifications may include one or all
+of the following:
+□ North American Board of Certified Energy Practitioners (NABCEP) PV Installation
+Professional Certification
+□ UL Photovoltaic System Installation Certification
+□ Training by an instructor in PV system design including National Electrical Code (NEC)
+690 and 705 and International Fire Code (IFC) 605
+□ Prior experience and successful track record in PV system design.
+2.2.2 EPC Project Manager Qualifications
+Technical Experience
+□ Bachelor of Science in engineering or other degree with relevant industry experience
+□ Commercial or utility construction experience
+□ Solar PV experience on commercial, industrial, or utility-scale projects
+□ Knowledge of construction and electrical codes
+□ Experience with electrical systems and wiring.
+Management Experience
+□ Project management training
+7
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 16 ---
+
+□ Project Management Institute project management professional (PMP) certification
+or similar
+□ Project management experience on large-scale projects.
+2.2.3 EPC Installer Site Supervisor Qualifications
+Most electricians work on AC building systems, and even a master electrician may be unfamiliar
+with DC-based PV systems. PV-specific qualifications include:
+□ Licensed electrical contractor
+□ NABCEP PV Installation Professional Certification
+□ UL Photovoltaic (PV) System Installation Certification
+□ Experience with medium-voltage electrical systems
+□ Experience with DC power systems
+□ Familiarity with sections of the National Electric Code specific to PV (section 690).
+2.3 Operator/O&M Provider Qualifications
+Same as EPC installer site supervisor qualifications, plus:
+□ Certification by the North American Energy Reliability Corporation (NERC) (necessary
+for positions that affect the power grid).
+For more details about Operator and O&M provider qualifications, please refer to Keating et
+al. (2015).
+2.4 Engineer of Record Qualifications
+The Engineer of Record (EOR) is responsible for stamping and approving the system planset.
+The EOR should be a Licensed Professional Engineer (P.E.). Approval of a specific planset is
+indicated with a unique stamp (including license number and signature) from the P.E. Note that
+typically, P.E. licenses do not specify a specialty (e.g., electrical, structural, mechanical, civil),
+and it is up to the engineer to only stamp projects that are within their realm of expertise.
+The following engineering disciplines (from National Council of Examiners for Engineering and
+Surveying P.E. exam types) are typically required for PV system design (some overlap and not
+all may be required depending on system type):
+□ Civil: Construction
+□ Civil: Geotechnical
+□ Civil: Structural
+□ Civil: Water Resources and Environmental
+□ Control Systems
+8
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 17 ---
+
+□ Electrical and Computer: Electrical and Electronics
+□ Electrical and Computer: Power
+□ Environmental
+□ Fire Protection
+□ Mechanical: Mechanical Systems and Materials
+□ Software.
+Different AHJs have different P.E. requirements, such as not requiring a P.E. stamp at all or
+requiring multiple P.E. approvals for the various disciplines relevant to the project.
+2.5 Developer Qualifications
+Developers seeking these sources of capital must meet investor expectations. While not an exact
+science, certain general characteristics of developer qualifications should be strongly considered.
+These considerations include:
+□ A proven track record of capabilities and successful projects similar in type and size
+□ Creditworthy off-takers
+□ Strong company financials/low bankruptcy risk
+□ Strong advisory team, with industry-specific expertise (legal, financial, technical, etc.)
+□ Proficiency and standardization in procurement, construction and O&M contracts, off-
+take agreements, permitting and technical requirements, quality assurance/quality control
+(QA/QC) protocols, and other aspects of PV development.
+Developers are expected to carry adequate insurance coverage with levels of coverage
+commensurate with investor requirements, type and scale of development.
+Additional types of coverage and policies may also be required. Coverage may be extended to
+cover contractors under these policies, contractors may carry their own policies, or both.
+9
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 18 ---
+
+3 Project Design Best Practices
+3.1 Usage Data and Estimate of Utility Cost Savings
+The EPC Contractor is responsible for analyzing the customer’s utility bills from the start of the
+contract and through at least one prior year, including electrical usage and current rate structure.
+It is vital that usage and rate structure data is included in the system design to ensure that the
+customer receives a system that is well suited to that particular situation in order to maximize the
+system’s economic impact. Utility bill analysis may be contracted out by the EPC Contractor.
+Measuring the savings associated with the energy delivery of an RE system with accuracy
+requires estimating the annual utility bills based on the details of the utility rate structure, with
+and without the output of the PV system.
+There are many different types of utility rate structures involving combinations of the
+following features:
+• Energy (c/kWh): The output of a PV generator varies with conditions, but monthly or
+annual energy delivery is more predictable and reliable. This is the feature of the rate
+schedule in which most of the benefits of the PV delivery will accrue under net metering.
+Every kWh of net-metered PV delivery will reduce this part of the utility bill according to
+the energy rate (c/kWh).
+• Demand ($/kW/month): Typically, demand charges are calculated as the 15-minute
+period of each month in which electricity consumption peaked. PV systems are able to
+reduce demand only when the system is producing during peak demand periods. Many
+commercial building have their peak load in the afternoon due to cooling loads, and many
+of these cooling loads are exacerbated by solar heat gain, so there is a coincidence of
+peak demand and solar output for many types of buildings in many climates. But it is
+possible that there will be some peaking demand period when the solar is not contributing
+and a new demand charge is determined. A rule of thumb is that solar can save demand
+equivalent to about 10% of its rated capacity- so a 1 MW PV system might be expected
+to save an average of 100 kW in demand.
+• Demand ratchet: This 10% rule of thumb would not apply if there is a demand ratchet,
+which bases demand charges on a historic (usually annual) demand peak (kW) rather than
+the measured peak in a month. Now it becomes much more likely that there will be some
+15 minute demand period in the preceding year when the solar is not contributing. So a
+demand ratchet generally results in little or no demand savings for a PV system driven by
+the intermittent solar resource.
+• Time-of-use (TOU) rates: Time of use rates are meant to discourage energy use during
+the day with higher rates when system loads are highest, and incentivize energy use at
+night with lower rates when loads are lower. PV is generally favored by this type of rate
+structure because they offset the most expensive power during the afternoon.
+• Seasonal rates: Many utilities have different rates for summer and winter months. PV
+produces additional cost savings for customers whose summer rates are higher than
+winter rates.
+10
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 19 ---
+
+• Fixed customer charges and other riders: Fixed charges such as customer charges,
+metering and billing charges, or other fixed charges are not reduced by delivery of energy
+from a PV system, so they tend to reduce the average value (c/kWh) of the RE energy
+delivered in terms of utility cost savings.
+To accurately estimate the utility cost savings, the EPC contractor must analyze time-series data
+of the estimated PV generation and load, and use the rate schedule to calculate monthly bills with
+and without PV generation. This calculation must be performed for every hour of the year and is
+generally accomplished using specialized software, such as the System Advisor Model (SAM),
+which can automatically download the appropriate rate schedule from the Utility Rate Database
+(URDB). The URDB contains more than 38,000 rate schedules from over 3,740 utility
+companies.
+3.2 Site Data
+C&I PV systems can be complex and require an extensive amount of site-specific information to
+be gathered early in the design process. If possible, the full structural and electrical plansets
+should be procured when mounting on an existing building. For ground mounts a detailed site
+survey should be performed including soils analysis and proposed utility interconnection
+location.
+Relevant information from the following list should be noted on the construction plans submitted
+for permit application. Site data to be recorded includes:
+3.2.1 Site Information
+□ Property and building dimensions
+□ Details of any existing easements, restrictions or open permits
+□ Photos of building from a variety of angles.
+3.2.2 Structural Information (if applicable)
+□ Local design wind speed and source of information (e.g., ASCE 7, local AHJ)
+□ Local ground snow load and source of information (e.g., ASCE 7, local AHJ)
+□ Design roof snow load (indicate any snow load reductions)
+□ Roof support system type (e.g., metal truss, wood laminate joist/beam) and dimensions
+□ Support member spans and spacings
+□ Lumber species and grade (indicate whether identified in field or assumed)
+□ Photos of all components of the roof support system.
+3.2.3 Roof Information (if applicable)
+□ Dimensions, including the depth and height of any parapet walls
+□ Locally required minimum roof setback dimensions (from 2012 IFC or local AHJ)
+11
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 20 ---
+
+□ Age and type of roof covering (e.g., thermoplastic polyolefin2, built-up asphalt, torch-
+down). To avoid unnecessary cost to the EPC or the building owner, the roof covering
+should have sufficient life remaining such that re-roofing is unlikely to be needed during
+the contract term.
+□ Roof construction (e.g., mechanically attached, partly adhered, fully adhered)
+□ Decking type and dimension (e.g., ¾” OSB, 8” reinforced concrete, corrugated metal)
+□ Roof condition (roof covering, decking, and roof framing)
+□ Existing equipment locations and drainage path
+□ Existing roof warranty (manufacturer and installer) information and original roofer of
+record
+□ Safety or liability considerations such as skylights, pipes, and other trip or fall hazards
+□ Photos of the entire roof, with close-ups of features, equipment, and existing damage.
+3.2.4 Grade Information (if applicable)
+□ Soil analysis
+□ Environmental impact study
+□ Topical graphical information
+□ Ground cover information
+□ Location of all easements, underground utilities, or other features that could impact
+system design or installation
+□ Photographs of site conditions
+□ Identification of outstanding easements or non-disturbance agreements.
+3.2.5 Electrical Information
+□ Service type and size (e.g., 208/120 V or 480/277 V; wye or delta configuration; location
+of ground connection)
+□ Main service panel details (e.g., make and model, main breaker and busbar ratings,
+available breaker spaces)
+□ Location of other electrical equipment (e.g., sub-panels, transformers, disconnects,
+gutters)
+□ Photos of all electrical equipment
+□ Utility meter location.
+2 Thermoplastic polyolefin is also known as TPO.
+12
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 21 ---
+
+3.2.6 Potential Locations for New Equipment
+□ Inverter(s)/transformer(s)
+□ Conduit runs/wire trays/gutters
+□ PV modules
+□ Disconnects
+□ Monitoring equipment.
+3.3 Production Estimate
+There are multiple tools for estimating PV system production, with more options becoming
+available every year. The key features for a tool include accurate weather data, shading
+functionality, adjustable system derate factors, component hardware selection, and monthly
+energy production estimates.
+It is important to use the same production model for initial design, ongoing performance
+monitoring and metric reporting, so that the design model can be a baseline for comparison to
+operating results.
+3.3.1 Estimating Tools
+Popular tools for production estimates are estimating algorithms like PVWatts or more complex
+simulating software like PVsyst, PV Complete, Aurora, Helioscope or Energy Pariscope.
+NREL’s System Advisor Model includes the PVWatts v1 algorithm.
+3.3.2 Modeling Tools
+Sophisticated modeling software, such as PV Syst, PV Sol, Aurora SIM, and PV SAM, should be
+used to estimate C&I system performance. Software tools should have accuracy validation from
+an independent third party such as NREL, DNV GL, or Black and Veatch. The software should
+include:
+□ Module-level performance simulation showing the current-voltage (I-V) curve at
+module level
+□ Real equipment electrical characteristics for modules, inverters, and power optimizers
+(unlike PVWatts, for example)
+□ Ability to include multiple types of inverters (micro versus string) as well as module-
+level DC optimization
+□ A wire-loss calculator used to model wire losses in long distances
+□ Specific losses should be calculated based on real system design, for example, DC to AC
+derates, conductor sizes, and other factors as applicable (as opposed to a general loss
+factor)
+□ A soiling/snow study of the local region could be taken before the production is modeled
+to improve the accuracy of including these losses.
+13
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 22 ---
+
+3.3.3 Solar Resource/Weather Data Sources
+The EPC Contractor shall perform an onsite analysis or remote shade analysis for each project
+using a Solmetric Suneye, Solar Pathfinder, or similar industry-accepted measurement tool. For
+each unique array tilt, orientation, or module type used, the EPC Contractor shall evaluate, at a
+minimum, the corners of each array, and possibly more if the array is large enough where a
+shade obstacle could impact the center without impacting the corners of the array. For each
+portion of the array, the EPC Contractor will calculate a total solar resource fraction (TSRF) and
+provide a calculated TSRF for the overall array. This will be done by weighting each portion’s
+TSRF by its proportional capacity to the entire array as stipulated by the resource measurement
+tool manufacturer.
+Weather data sources for all design estimates shall be one of the following:
+□ Meteonorm synthetic data sets
+□ NREL typical meteorological years (TMY) data sets: TMY2, TMY3
+□ White Box Technologies CZ2010 data set for California
+□ NREL 40-km gridded data set for United States
+□ Clean Power Research 10 km gridded data set.
+In lieu of an onsite shade analysis, it may be acceptable to perform the analyses remotely with
+tools that incorporate aerial photography and satellite imaging techniques. Examples include:
+□ Aurora SIM
+□ Solar Census
+□ Helioscope.
+For large projects, the project developer can install weather monitoring equipment at the site;
+however a minimum of one year of monitoring should be completed. Even this, however, could
+provide inaccurate information in terms of “typical” weather.
+3.3.4 Performance Guarantees
+EPC Contractors or third-party designers may provide a performance guarantee of some form to
+the Provider. The modeling methods, tools, and estimates used must be agreed upon, results
+acceptable to both parties, and results clearly stated in the contract. If there are material design
+changes during construction (such as uprated module performance), the original models may
+need to be adjusted accordingly and should be investigated. Using a performance guarantee
+standard, such as IEC 61724 Photovoltaic System Performance Monitoring, can help eliminate
+subjective estimates.
+3.4 System Design
+EPC Contractors should ensure that system design and feasibility estimates are made using
+reliable data. NABCEP’s Resource Guide addresses many of the key factors and current industry
+best practices regarding PV system design and can be used as a resource. Below are brief
+14
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 23 ---
+
+summaries of major design topics, with references to existing documentation, which provides
+further detail.
+The EPC Contractor is responsible for the PV system design, although outsourcing system
+design is acceptable provided the details of the design are confirmed on site. Key factors of PV
+system design include:
+□ Accordance with all state and local (AHJ) building and safety requirements
+□ Accuracy of collected site data, including roof dimensions and slope, grade conditions,
+existing electrical equipment locations, and shade analysis
+□ Proper implementation of all applicable codes, such as NEC, IFC, and IBC
+□ Consideration of customer priorities, including aesthetics, power production
+maximization, equipment manufacturer preferences, and equipment location preferences
+□ Appropriate level of detail in the design drawings such that the installation team
+encounters a minimum number of unknown obstacles onsite
+□ Designer proficiency with implemented software (e.g., PV Syst, Helioscope, CAD)
+□ P.E. approval as required.
+3.4.1 Project Planset
+The project planset—also known as design drawings—should have a sufficient level of detail to
+address any questions that the AHJ may have during the permitting process and any questions
+that the installation crew may have during construction. A robust and detailed planset can be
+considered a very important indicator of construction quality and consistency on a PV project.
+An example of the level of detail to expect for a MW-scale PV system planset follows.
+General • Contact information for all project stakeholders (including designer, client, profession
+engineer of record, project manager, electrician, and construction manager)
+• Site location, including a map showing system location and surrounding area
+• System details (including system capacity [kW], module type(s), inverter type(s), support
+structure type(s), and number of strings and sub-arrays)
+• List of the codes and standards applicable to the project (such as relevant NEC version, state-
+specific codes, AHJ-specific guidelines, building codes, seismic codes, historical codes, and
+safety standards)
+• Version control documentation and revision history
+• Table of contents
+• General Notes section outlining project responsibilities, processes, procedures, requirements
+and expectations
+• Torque specifications and requirements
+• Abbreviations and symbols legend
+• Location of key system components, such as PV arrays, equipment pads, walkways,
+interconnection location
+• Staging and access plan for modules and equipment
+• Tree removal, lighting, grading, and erosion control plans (as applicable).
+15
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 24 ---
+
+Structural • Notes section detailing specific design criteria (such as maximum and minimum design
+temperatures, wind speed data, exposure category, seismic data, concrete specifications, steel
+specifications, and welding specifications)
+• Structural layout including array support structure locations and anchor points
+• Roof-mounted systems:
+Roof loading details (e.g., design wind speed, design snow load)
+o
+Roofing system elevation drawing (including roof type and flashing/attachment)
+o
+Installation detail for mounting system stand-off and roof penetration
+o
+Roof framing details and design checks (e.g., span tables or calculations), loads
+o
+associated with PV system including ballast weight. Consider both distributed loads
+after system is installed and also point loads when equipment is staged on the roof
+prior to installation, in particular concentrated loads such as heavy inverters
+• Ground-mounted systems:
+Soils analysis
+o
+Environmental impact study
+o
+Fencing layout and details
+o
+Trenching and underground construction plan (where applicable)
+o
+Foundation details showing how the mounting structure is secured in place
+o
+• Carport systems:
+Bollard locations and installation details
+o
+Foundation details showing how the carport structure is secured in place
+o
+Lighting plan
+o
+• Tracking systems:
+Tracking system mechanical details.
+o
+Electrical • Electrical Notes section outlining equipment requirements, approved wiring methods,
+grounding requirements, and general electrical installation guidelines
+• 1-line and 3-line diagrams
+• Conduit and wiring schedule
+• Inverter and BOS elevation drawings and riser diagrams
+• Plan views of all electrical equipment locations
+• String diagrams
+• Construction detail drawings showing how every electrical part and piece of equipment on the
+project is to be installed
+• Grounding details
+• Required labels, including location-specific electrical values
+• Monitoring system wiring diagram.
+Equipment Equipment data sheets for all equipment including modules, inverters, mounting systems, enclosures,
+monitoring equipment, and any other equipment to be installed.
+In regions prone to sliding snow and ice, developers should consider heavy snow-rated modules
+and snow guards in specific areas where people could be at risk of snow/ice shedding, such as
+roofs over building entries, parking lots, and walkways. Provide a safe place for snow sliding off
+the array to accumulate without shading the array.
+3.4.2 Module Support Structure
+Items to include in the design description:
+□ Anchoring method (e.g., ballasted, concrete piers, helical ground screws, driven piles)
+□ Racking material (steel, aluminum)
+16
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 25 ---
+
+□ Varying tolerances for variations in terrain
+□ Module attachment method (e.g., top clamps, bottom clamps, bolt through)
+□ Note that some locations may require non-penetrating racking (e.g., landfills)
+□ Grounding (e.g., integrated grounding, UL 2703, what parts of the rack need to
+be grounded).
+3.4.3 DC System Design
+Items to include in the design description:
+□ PV Module layout: Number of modules in series strings, series strings per combiner box,
+recombiner boxes, disconnects, overcurrent protection, ground fault protection, arc fault
+protection, and grounding
+□ Inverter architecture (monopolar vs. bipolar; 600 vs. 1000V)
+□ Inverter types (micro, sting, central)
+□ Inverter loading.
+3.4.4 AC System Design
+Items to include in the design description:
+□ Inverter AC output types
+□ AC disconnect means
+□ AC overcurrent protection
+□ Grounding
+□ Transformer (if needed based on inverter type)
+□ Interconnection location/method.
+3.5 Equipment Requirements
+PV systems are composed of a multitude of components, each of which has its own set of
+specifications and certifications. This section will identify the most common requirements for the
+fundamental types of PV system equipment.
+3.5.1 Photovoltaic Modules
+Baseline requirements:
+□ UL1703 – Flat-Plate Photovoltaic Modules and Panels
+□ International Electrotechnical Commission (IEC) 61215 or UL 61215 - Crystalline
+Silicon Terrestrial Photovoltaic (PV) Modules
+17
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 26 ---
+
+□ IEC 61646 or UL 61646 Thin-Film Terrestrial Photovoltaic (PV) Modules
+□ ASTM E2481-06 Standard Test Method for Hot Spot Protection Testing of Photovoltaic
+Modules
+□ Manufactured using an ISO-9001 quality management system
+□ Warranties for both “materials and work quality” and “production”
+□ Manufacturer is required to remain willing to participate in third-party audits if required
+by the EPC Contractor or capital provider.
+It is recommended that modules that are resistant to potential-induced degradation (PID) be used
+for systems where transformerless inverters are used because these systems are ungrounded.
+3.5.2 Inverters
+For information on inverters, consult UL 1741 Inverters, Converters, Controllers and
+Interconnection System Equipment for Use with Distributed Energy Resources.
+□ IEEE 1547 Standard for Interconnecting Distributed Resources with Electric Power
+Systems
+□ IEEE 1547.1 Standard for Conformance Test Procedures for Equipment Interconnecting
+Distributed Resources with Electric Power Systems
+□ Inverter installation requirements are governed by the NEC Articles 690 and 705. Article
+705, Part II lists requirements of Utility Interactive Inverters including circuit sizing and
+over current protection
+□ NEC 690.10 lists requirements for standalone system inverters
+□ NEC 690.14 provides additional requirements including location of inverters in not-
+readily-accessible locations
+□ NEC 705.12(D) lists requirements for utility interactive inverters
+□ NEC 705.40 lists requirements of inverters for loss of primary source of power.
+Arc fault protection is required for inverters in jurisdictions subject to NEC 2011 or beyond. It is
+noted that future requirements, such as those under consideration in California at the time of this
+writing, may include “smart inverter” capabilities, which allow for remote system shutoff and
+restart by the utilities. New provisions of IEEE 1547 facilitate grid integration issues by
+allowing, upon mutual consent of the system owner and the utility, for low voltage ride through,
+low frequency ride through, and non-unity power factor.
+3.5.3 Racking Systems
+See UL 2703 Rack Mounting Systems and Clamping Devices for Flat-Plate Photovoltaic
+Modules and Panels for installation criteria regarding rack mounting PV systems and clamping
+devices for flat-plate PV modules and panels that comply with UL 1703. UL 2703 is intended to
+address product safety concerns for electrical rack mounting systems and clamping devices
+18
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 27 ---
+
+pertaining to ground and bonding paths, mechanical strength, and suitability of materials. This
+standard also addresses installation, materials, wind resistance, and fire classification.
+International Code Council (ICC) Evaluation Services has published AC 428, Acceptance
+Criteria for Modular Framing Systems Used to Support Photovoltaic (PV) Modules. This
+publication was created to provide the criteria for evaluation of rooftop PV mounting systems for
+manufacturers seeking a product listing under ICC Evaluation Services. It includes structural
+design criteria that are useful for designing mounting systems:
+□ Ballasted racking
+□ Hybrid racking (ballast and anchors)
+□ Anchored racking.
+3.5.4 Monitoring
+A monitoring system with connectivity (99.5% uptime preferred) to the O&M provider is
+recommended to support revenue and O&M, including regular performance and
+availability alerts.
+It is preferred that the monitoring system be application programming interface (API) compatible
+with SunSpec Alliance Best Practices in Solar Performance Monitoring guidelines. Data
+structures should conform to SunSpec Alliance’s SunSpec Plant Information Exchange
+document to support compatibility of the system lifetime. One common standard for monitoring
+protocols is IEC 61724 – Performance Monitoring.
+3.5.5 Electrical Components
+Additional electrical components such as junction boxes, combiner boxes and ancillary electrical
+equipment should be subject to the following criteria:
+□ IEC 62852 – ultraviolet (UV) exposure for connectors/cables
+□ IEC 62790 – UV exposure for junction boxes
+□ UL 1565 Wire Positioning Devices
+□ National Electrical Manufacturers Association (NEMA) or Ingress Protection (IP) ratings
+for electrical enclosures.
+3.6 Permitting and Inspections
+The EPC Contractor is responsible for procuring all necessary permits and approvals for PV
+system construction and inspection. Permitting processes vary based on the project capacity,
+requirements of the Owner, AHJ, and the utility.
+19
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 28 ---
+
+4 Installation Best Practices
+4.1 Equipment Best Practices
+4.1.1 PV Modules
+Regardless of construction type (e.g., metal-framed, frameless, building-integrated, “peel and
+stick”), care must be taken to comply with all manufacturer instructions concerning the
+transportation, storage, mounting, grounding, and connecting of the PV modules. Failure to do so
+could result in voiding of the module warranty, underproduction of the PV system over time, and
+increased shock- or fire-hazard risk. Important items to consider when installing the PV
+modules include:
+□ Awareness of any specific mounting location stipulations from the module manufacturer,
+which may or may not vary based on the potential wind load at the site or proximity to
+marine environment.
+□ Understanding of the different module mounting options, such as bolting the module
+frame to the mounting structure or clamping the frame with the appropriate hardware and
+compression force.
+□ Appropriate use of fall protection equipment is particularly important during array
+installation because PV modules tend to be large and unwieldy, presenting elevated risk
+for installer injury and to workers on the ground if any equipment is dropped. This risk is
+further exacerbated on steeper roofs.
+□ Knowledge of electrical safety protocols, such as ensuring that homerun conductors are
+not connected during installation to ensure the safety of any personnel wiring
+electrical equipment.
+4.1.2 Mounting Systems
+PV modules are typically attached to roofs via purpose-built metal (usually aluminum) mounting
+systems. Module mounting systems must be listed for the application and capable of
+withstanding the uplift (due to wind) and downward forces (e.g., snow load) that they could
+potentially be exposed to, based on the specific location of the installation. Important items to
+consider when installing the mounting system include:
+□ Appropriate weather sealing of all penetrations of the building envelope.
+□ I-codes guidelines on array setbacks (requirements vary based on roof design).
+□ Complying with local guidelines when navigating existing vents or equipment on
+the roof.
+□ Layout on roof should provide walkways for firefighter access including areas for
+laydown of equipment and places for people walking in opposite directions to pass
+each other.
+□ Understanding best practices for working with a given roof covering as per the National
+Roofing Contractor’s Association Roofing Manual.
+20
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 29 ---
+
+□ Balancing customer aesthetics expectations with code requirements and airflow directives
+from the module or racking manufacturer.
+□ Assessment of the roof structure (usually via attic or crawl-space inspection) for lumber
+type, dimension, and condition.
+□ Assessment of the condition of the roof covering. If the roof covering will need
+replacement before the end of the expected PV system lifetime (20–25 years), the Project
+Owner should consider roof replacement prior to PV system installation.
+□ Using the appropriate size and type of fasteners for the application, and achieving the
+proper embedment in the substrate.
+□ Understanding the cause and effect of inter-row shading in tilted arrays and identifying
+when such shading may become an issue.
+□ Understanding of the span and cantilever limitations of the mounting system.
+4.2 Work Quality Best Practices
+4.2.1 System Grounding and Bonding
+Proper grounding and bonding (or earthing and continuity) is a crucial safety element of an
+installed PV system. Grounding and bonding of PV systems is covered in NEC 690(V), along
+with many sections of Article 250. There are two forms of PV grounding: system grounding and
+equipment grounding.
+An equipment grounding ‘network’ consists of equipment-grounding conductors, a grounding-
+electrode system, and a grounding-electrode conductor. The purpose of the equipment grounding
+(EG) system is to ensure there is no hazardous voltage between any exposed metal parts of a
+system and earth. If a system is properly “earthed,” a barefoot person standing on the ground and
+touching any exposed metal surface of the system will not experience an electrical shock.
+All metallic equipment (both DC and AC) should be grounded per the requirements of the NEC
+and equipment manufacturer. This includes metal raceways, enclosures, mounting hardware,
+module frames, conduit fittings, metal fences, etc. If there is a lightning protection system (LPS)
+existing on a building, the electric engineer of record should make a determination as to whether,
+and how, to bond the array EG to the LPS main ground.
+It is essential that a current-carrying conductor of a PV output circuit is bonded to ground at only
+one point, as per NEC Article 250 requirements.
+PV strings with the fuse on the positive side are grounded on the negative side so that if the fuse
+blows the path to ground is not interrupted. In “bi-polar” systems the reverse will also be true:
+strings with the fuse on the negative side are grounded on the positive side. Article 690.35 of the
+NEC allows ungrounded PV systems of any voltage, if conditions are met, particularly ground-
+fault protection (see below). “Ungrounded” systems do not have a bonding connection between a
+current-carrying conductor of the PV output circuit and ground. They are becoming increasingly
+common due to lower equipment costs and higher efficiency. Note that the name refers only to
+21
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 30 ---
+
+the fact that there is no “system ground” (i.e., grounded current-carrying conductor), but that all
+equipment grounding and bonding requirements do still apply.
+4.2.2 DC Ground-Fault Protection (DCGFP)
+All PV systems now incorporate DC ground-fault protection (GFP), as required by the NEC. The
+two types of GFP are 1) directly fused (reference grounded) or 2) differential “residual” current
+sensors. A third type of GFP is a combination of both, depending on the grounding application.
+For separated (isolated DC/AC) systems, a residual current device (RCD) is essential to measure
+the difference in polarity currents (leakage) because there is no singular fault path to earth to
+monitor. Grounded DC system inverters typically still use a fuse between the grounded pole and
+earth that blows when more than an amp or more flows through the common bond between
+them. Sometimes the fuse is paralleled with an RCD to signal the inverter when fault current is
+first sensed, in an attempt to disconnect the DC input as quickly as possible and possibly avert a
+blown fuse.
+A particular hazard still exists for systems using inverters with the “directly fused” ground fault
+detection and interruption (GFDI) protection, which many inverters still incorporate (see Solar
+America Board for Codes and Standards’ [Solar ABC’s] Ground Fault Detection Blind Spot for
+details). The situation of having a blown (open) GFDI fuse, with no defined path for any fault
+current to earth, can have severe consequences for the safety of personnel, structures, and
+equipment. The industry is gradually moving away from fused ground fault detectors and toward
+differential RCDs that do not open the path to earth (as with “ungrounded” inverters).
+4.2.3 DC Arc-Fault Circuit Protection (DCAFP)
+Arc-fault circuit protection, which is now required by the 2014 NEC for all systems 80V or
+DC
+more, should safely extinguish any series arcing faults resulting from a loose or broken
+connection in a PV source or output circuit. These devices open the faulted circuit at some point
+to interrupt arcing current across the faulty connection. Note that these devices do not detect or
+interrupt “parallel” arc-faults, which occur between two current-carrying wires or connections of
+opposite polarity. Arc fault detection and interruption is recommended even if not required by
+the AHJ due to the safety benefits.
+4.2.4 Rapid Shutdown of PV Systems on Buildings
+2014 NEC requires that all PV systems installed in or on buildings include a rapid shutdown
+function to. The DC section of a PV system can still be energized during an emergency, even if
+the inverter has been shut down. The rapid shutdown function protects first responders. For
+reference, a building is defined by NEC as a structure that stands alone or is adjacent to other
+structures but separated by a fire wall. This definition includes any structure, such as canopies, or
+even a pole, billboard, sign, or water tower.
+4.2.5 Marking (Labeling) Best Practices
+Strict conformance to system marking (or labeling) requirements of PV systems and their
+components is crucial for the safety of operators, service personnel, emergency responders and
+others. PV system general labeling requirements are covered in NEC 2014 690 Chapter VI, as
+well as specific accompanying requirements throughout Articles 690 and 705. All required and
+desired labeling language should be included in the design drawings.
+22
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 31 ---
+
+Electrical equipment and components used in PV systems have markings identifying the
+manufacturer, size, type, ratings, hazard warnings, and other specifications. Equipment markings
+should never be removed, and all equipment markings must be durable for the environment in
+which the equipment is installed. Markings must be visible or easily accessible during and
+after installation.
+Field-applied markings are required for certain components and for the inclusive PV system.
+These markings must be designed to withstand the environment in which they are installed (e.g.,
+“UV rated” for outdoor labels) and permanently affixed to the respective equipment in a manner
+appropriate for the environment and compatible with the substrate materials. Field-applied
+markings are required on many types of equipment and components, including (but not limited
+to) conductors, connectors, conduits, disconnecting means, point of utility connection, as well as
+special markings for bi-polar arrays, ungrounded arrays, battery storage systems, standalone
+inverters providing a single 120-volt supply, and other marking as required by codes and local
+AHJ requirements.
+One common mistake to avoid is to use combiner boxes that are labeled as negative ground in a
+bi-polar system in a location that is actually positive ground, or to re-label one that is supplied as
+negative ground to positive ground with labels or markers that are not permanent.
+4.2.6 Mechanical Components
+Though a PV system’s purpose is electrical in nature, it is very important that the components
+are mechanically installed in a manor appropriate for the local environment. This holds true for
+all types of installations, but is particularly important for rooftop installations due to the load
+forces they may be exposed to (e.g., wind and snow), and the potential damage to life or property
+that could occur if mechanical connections were to fail.
+4.2.7 Systems with Module-Level Power Electronics
+For future O&M purposes, the serial numbers of module-level power electronics (e.g., power
+optimizers, microinverters) should be mapped during installation (e.g., Enphase installation
+guide). There are numerous technology solutions to capturing equipment barcode information
+through mobile technology.
+Additional resources:
+• International Building Code Section 1504
+• PV Racking and Attachment Criteria for Effective Asphalt Shingle Roof System
+Integration
+• A Guide to Photovoltaic (PV) System Design and Installation
+• Field Inspection Guidelines for PV Systems
+• Photovoltaic Power Systems, 2005 National Electric Code: Suggested Best Practices
+• Southwest Technology Development Institute, Codes and Standards Resources
+• NABCEP Photovoltaic (PV) Installer Resource Guide
+23
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 32 ---
+
+• Best Practices for Solar Photovoltaic Installations – Renewable Energy Vermont
+Partnership Program
+• IEC 62446 Commissioning Standard
+• Green Job Hazards: Solar Energy
+• Solar Construction Safety.
+4.3 System Documentation
+EPCs should store basic Project Owner and system information for the term of the initial
+customer agreement. Data naming methodology should follow the SunSpec Data Dictionary.
+Outlining the minimum documentation that should be provided for grid-tied PV systems will
+ensure transparency to investors of basic system components, information on design and
+installation, and O&M requirements. Additional data representing the consumer credit
+worthiness are not included in this list.
+4.3.1 Required Site Data Points
+□ Plant identifier
+□ Site owner name
+□ Site owner address
+□ Site owner city
+□ Site owner state
+□ Site owner zip code
+□ Site owner phone number
+□ Site owner email address
+□ Activation date
+□ Individual PV system boundaries for buildings that have more than one system.
+4.3.2 Required System Design Data
+□ Design model
+□ Installed DC capacity
+□ Derate factor
+□ Nominal power rating
+□ Module manufacturer
+□ Module model
+24
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 33 ---
+
+□ Module units
+□ Inverter manufacturer
+□ Inverter model
+□ Inverter units
+□ Racking manufacturer(s)
+□ Racking model(s)
+□ Wiring layouts:
+Wiring of modules into strings; strings into combiner boxes; combiner boxes into
+o
+re-combiner boxes; disconnects; source circuits into inverter. Wiring layouts help
+personnel locate the origin of faults.
+4.3.3 As-Built Photograph Inventory
+The EPC Contractor shall maintain a photograph inventory of all active systems. Photographs
+may be captured through the installation EPC Contractor, third-party inspector, or in-house
+personnel. A photograph inventory allows the provider to have a strong understanding of onsite
+conditions and overall level of quality. A photograph inventory will reduce O&M costs.
+Photographs shall be stored through the life of the service contract and retrievable through
+Customer/Address query. Electronic capture and cataloguing of site information is preferred to
+ensure consistency and accuracy. Mandatory photographs include at least one onsite photo of
+each system component outlined in Table 1.
+Table 1. Required System Photographs
+Roof (array) Balance of System
+Site Address Confirmation DC Disconnect location and interior
+Overall Array Inverter Location
+Under Array Inverter Nameplate
+Array Horizon (shading) AC Disconnect location and interior
+Module Nameplate Main service panel (cover open)
+Conduit Runs and Support Main service panel (cover closed)
+Junction Box Locations Connection to premise’s grounding system
+Junction Box Interior Production meter
+Wire Management Monitoring system
+Flashing of roof penetrations Net meter
+Vegetation and other shading objects
+4.3.4 EPC Submittal Information
+Copies of additional key information should be provided to the system owner and stored through
+the duration of the service agreement.
+25
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 34 ---
+
+4.3.4.1 Electrical Design
+□ Company name
+□ Company address
+□ Company phone number, email, website
+□ Contact person (contact name, address, phone number)
+□ Structural/mechanical design (if provided by mounting equipment manufacturer, list
+manufacturer information).
+4.3.4.2 PV Installer (If more than one company, list for each and note company roles)
+□ Company name
+□ Company address
+□ Company phone number, email, website
+□ Contact person (contact name, address, phone number).
+4.3.4.3 Electrical Design Documentation
+At minimum, a one-line or three-line wiring diagram that includes:
+□ General specifications
+□ String diagram
+□ 3-line diagram
+□ Electrical details/inverter information
+□ Grounding/overvoltage protection
+□ Ac system specification
+□ Equipment data sheets
+□ Warranty information
+□ Installation manuals
+□ O&M manuals
+□ Test results/commissioning (Cx) data.
+4.4 Third-Party Inspection and Verification
+4.4.1 Field Inspection Verification
+EPC Contractors should verify and measure installed asset quality through a continuous process
+of third-party field inspection verification (FIV) of the EPC Contractor’s completed systems. For
+purposes of this document, a third-party inspector means any technically qualified entity that was
+26
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 35 ---
+
+not directly involved in the installation or system design process. The third-party inspector can
+be part of the installation company (e.g., part of the O&M division) or an entirely separate entity.
+The FIV process includes onsite inspections of completed system installations to verify the
+systems have been installed to equipment manufacturer specifications, relevant codes, and
+installation best practices. This process is essential to the checks and balances of solar as an
+asset class.
+• To ensure an objective process, the inspector(s) should be a third-party provider, not
+involved in the design or installation of the inspected system(s)
+• Data collected by the FIV are subject to approval by the EPC Contractor and may be
+modified by the EPC Contractor upon review
+• FIV results should be shared with the EPC Contractor for a continuous improvement
+process for installation quality.
+4.4.2 Third-Party Inspector Qualifications
+The third-party inspector should have at least one of the following professional certifications and
+have specific knowledge of solar PV design and installation.
+□ NABCEP Certified Installer
+□ UL Certified PV System Installer
+□ Licensed Professional Engineer
+□ Licensed Electrician
+□ ICC Certified Electrical Inspector and/or Plans Examiner
+□ Equivalent proprietary training programs.
+All inspectors shall have a minimum OSHA 10-hour certification and applicable skills (climbing
+and carrying ladder, walking on roof surface, etc.) to perform an objective inspection.
+4.4.3 Scoring System
+The FIV will also result in a system quality scoring metric that can be used as a single quality
+assessment of the initial installation. The scoring system should numerically quantify the level of
+risks associated with the safety and performance of the system.
+• Pass/Fail – For each inspection, a report shall be issued that summarizes the issues
+identified and provides the EPC Contractor with a list of deficiencies requiring corrective
+action. The report shall also include the overall QA score.
+• Define System Components – The sample breakout includes inverter, models,
+conduit/junction box, AC disconnects, DC disconnects, PV system labeling,
+grounding/bonding, wire management, roof conditions, flashing, shading, and
+system layout.
+27
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 36 ---
+
+4.5 Interconnection
+Before a PV system is allowed to operate legally, the appropriate utility provider must approve
+the system for operation. Similar to PV permitting, PV interconnection requirements vary around
+the country but are generally based on one or a combination of the following major
+interconnection standards:
+• FERC’s Small Generator Interconnection Standards (SGIP)
+• California’s Rule 21
+• IREC’s Model Interconnection Standards
+• The Mid-Atlantic Demand Resource Initiative procedures (MADRI).
+The interconnection of a distributed generation system such as a PV system with the local utility
+depends upon state regulations and utility policies and practices. Interconnection guidelines and
+state- and utility-specific rules can usually be accessed by installers through utility websites.
+Contractual aspects of interconnection include fees, metering requirements, billing arrangements,
+and size restrictions on the system. Understanding the local utility’s requirements is a very
+important process.
+In addition, national and local codes have interconnection and system equipment and labeling
+requirements so that the system can be easily identified and/or shut off. For example, some states
+or utilities require an easily accessible external disconnect switch. The NEC governs how the
+output of a PV system can be connected to the utility in Article 705. The two relevant
+connections would be:
+1. Supply side (similar to installing another service onsite and usually found on larger
+installations)
+2. Load side (most commonly used for smaller systems and requires a dedicated circuit
+breaker or overcurrent device with the sum total of overcurrent devices supplying the
+busbar should not exceed 120% of the busbar rating for commercial applications as per
+2014 NEC 705.12(D)(2)).
+Before investing in a solar PV system, it is wise to apply for interconnection approval as early in
+the process as possible. This allows added costs or barriers to be factored into the decision to
+install at a particular location; it can impact decisions about system design. With PV market
+penetration increasing, there are emerging issues around the need for transformer or other
+equipment upgrades on local circuits and the question of who pays for this. In the case of non-
+residential systems, even more equipment and local circuit considerations may arise, making it
+unfeasible to install a system at a particular location or at the intended size. These factors can
+change the economics of a project and should be identified as early as possible.
+Further details on interconnection requirements can be found on the Database of State Incentives
+for Renewable Energy. Additional information on interconnection requirements can be found on
+the Freeing the Grid website.
+• IEEE 1547 Series of Interconnection Standards
+28
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 37 ---
+
+• NEC 690, 705.
+29
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 38 ---
+
+5 O&M Best Practices
+5.1 Solar PV Operations, Maintenance, and Monitoring (OM&M)
+The ongoing operation, monitoring and maintenance of a solar PV generating system throughout
+its lifespan is absolutely critical to keeping the system running, achieving optimal performance
+and realizing the expected rate of return.
+The OM&M requirements and plan need to be roughly defined during the design phase of the
+project so they can be adequately budgeted and included in the energy production and financial
+models. All instrumentation should be designed and installed as part of the larger PV system.
+Production models typically assume a system availability of at least 99% of daylight hours,
+which equals less than two days of total downtime during the year–including scheduled
+maintenance. Meeting these uptime requirements can be very difficult unless the system is
+properly designed and carefully operated, monitored, and maintained.
+Solar PV operations, procedures, and maintenance best practices are still evolving and new tools
+are becoming available for improving the quality of maintenance inspections and testing.
+Monitoring systems also continue to advance and provide ever more detailed data on the
+system’s operation and performance, some even down to the individual module level (as in
+optimizers and microinverters).
+The administrative effort required to keep track of warranty paperwork, recruit and contract with
+service providers and suppliers can be considerable and should be included in the initial
+planning. Similarly, reviewing performance information and plan O&M activities should be
+included as part of the OM&M plan. As outlined in the Electric Power Research Institute’s
+(EPRI’s) Addressing Solar Photovoltaic Operations and Maintenance Challenges (EPRI 2010),
+there are several different approaches and strategies for solar PV O&M, each attempting to
+reduce costs while improving availability and increasing productivity. The three major
+approaches identified are:
+• Preventive maintenance (PM)
+• Corrective/reactive maintenance (RM)
+• Condition-based maintenance (CBM).
+Depending on who is responsible for system maintenance, the value of productivity, accessibility
+to the site, and many other factors, any one (or even a combination) of these approaches may be
+appropriate. Every system must be evaluated and cost-benefit tradeoffs for the different
+approaches analyzed to determine how best to proceed.
+In 2010, EPRI gathered anecdotal data for direct O&M costs for both in-house and outsourced
+approaches from several installers of systems of 1 MW and less. They ranged from $6/kW to
+$27/kW of rated capacity, and from <1% to 5% of the “all in” cost of the complete project.
+Scheduled comprehensive maintenance visits are usually required at least annually, sometimes
+semi-annually, or even quarterly—particularly at sites that often need the modules cleaned or
+weeds pulled, etc., to prevent shading and lost solar production. And inverters, despite being
+solid state devices, may still have cooling systems with fans and filters that need periodic
+30
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 39 ---
+
+cleaning and occasional replacement. Close monitoring of the AC output versus DC input of an
+inverter helps determine if there may be a problem, and it is possible for inverters to fault or even
+fail while still under warranty. Inverter manufacturers typically offer a range of extended
+warranties beyond the 10–12 year industry standard, which need to be carefully assessed for cost
+versus benefits by an experienced designer or installer.
+Some of the newer maintenance test procedures that have been instituted recently due to the
+availability of proper test equipment are thermographic imaging of modules and individual string
+tests, including insulation resistance. Both of these tests can fairly quickly point out faults and
+trouble spots in a PV array that need attention. String testing data can also be compared from
+year to year to give an indication of the average degradation of module power to determine if the
+modules are still producing within their warranted power range (typically 80% of original rated
+capacity after 25 years).
+5.2 PV System Warranty
+Warranties for both work quality and products are an essential and integral component to the
+O&M program. Work quality warranties must clearly define what constitutes a required repair or
+replacement, whether it’s critical or non-critical, who is responsible for equipment replacement,
+labor and shipping costs, and response timeliness.
+Warranty coverages for modules and inverters usually have very clear terms and conditions for
+proper installation, operation and maintenance, and must be followed to the letter for the
+warranty to remain in effect. The detailed requirements of all equipment warranties must be
+understood and enforced by the commissioning authority during installation and final
+commissioning to assure full coverage is maintained.
+5.3 Solar PV System Commissioning
+The process of commissioning (Cx) PV systems has evolved into a comprehensive program that
+typically includes not only the EPC Contractor’s testing and inspections by their Cx authority but
+often full oversight and QA of an entire project by an independent, third-party consultant.
+Commissioning is the link between the EPC contractor and the operator. Documentation of the
+system, array testing, and whole-system performance test (as applicable to commercial,
+industrial, and field systems) should be performed as defined in IEC 62446: Grid Connected
+Photovoltaic Systems-Minimum Requirements for System Documentation, Commissioning
+Tests, and Inspections (2009).
+Ideally, Cx begins with the basis of design, continuing through construction and final acceptance
+testing, and sometimes beyond (retro-Cx, on-going Cx). It is best directed by an independent
+owner’s engineer (OE), usually an experienced consultant who works directly for, and represents
+only the interests of, the owner. The OE typically oversees the EPC Contractor’s Cx authority
+and plays an advisory role throughout the life of a project to assure a quality installation.
+The cost for an OE to fully oversee and commission a PV project can vary between 2%–3% (or
+more) of the total project cost, depending on the specific application and complexity of the
+installation. It can be advantageous and preferable to spend more up front, to get the project
+31
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 40 ---
+
+clearly defined and designed correctly, thus avoiding very costly and difficult mid-stream
+changes during procurement and construction.
+The Cx process follows a general path of design review, construction inspections, start-up and
+acceptance (functional) testing, and final performance testing. The final Cx report should include
+all design reviews, issue logs, inspection and testing data, and the OM&M plan. Performance
+Guarantees, if any, shall be clearly defined along with the responsibility for on-going monitoring
+of the system and enforcement of the contract.
+5.4 System Monitoring
+SunSpec PV Performance Metrics and IEC 61724 describe the basic data required for reporting
+standard PV performance metrics, including energy performance index and availability. The
+monitoring system used should be capable of collecting this information.
+32
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 41 ---
+
+6 References and Resources
+Brooks Engineering. 2010. Field Inspection Guidelines for PV Systems. Latham, NY: Interstate
+Renewable Energy Council. Accessed October 2015. http://brooksolar.com/files/PV-Field-
+Inspection-Guide-June-2010-F-1.pdf.
+Center for Environmental Innovation in Roofing. 2014. “PV Racking and Attachment Criteria
+for Effective Asphalt Shingle Roof System Integration.” Washington, D.C.: Center for
+Environmental Innovation in Roofing. Accessed October 2015.
+http://roofingcenter.org/syncshow/uploaded_media/CEIR_PV%20Racking%20and%20Attachme
+nt%20Criteria%20for%20Asphalt%20Shingle%20Roof%20Systems_(7_8_2014)(1).pdf.
+CPUC (California Public Utilities Commission). 2015. “Rule 21.” San Francisco: CPUC.
+Accessed October 2015. http://www.cpuc.ca.gov/PUC/energy/rule21.htm.
+Doyle, C., A. Truitt, D. Inda, R. Lawrence, R. Lockhart, and M. Golden. 2015. Solar Access to
+Public Capital (SAPC) Working Group: Best Practices in PV System Installation. Version 1.0.
+Golden, CO: National Renewable Energy Laboratory. Accessed October 2015.
+http://www.nrel.gov/docs/fy15osti/63234.pdf.
+Endecon Engineering. 2001. A Guide to Photovoltaic (PV) System Design and Installation.
+Sacramento: California Energy Commission. Accessed October 2015.
+http://brooksolar.com/files/PV_Install_Guide-Latest_CEC.pdf.
+Enphase Energy. 2013. “M215-Z Safety Information.”
+http://enphase.com/global/files/M215_M250_IG_ZEP.pdf.
+EPRI (Electric Power Research Institute). 2010. Addressing Solar Photovoltaic Operations and
+Maintenance Challenges, A Survey of Current Knowledge and Practices. Palo Alto, CA: EPRI.
+http://www.epri.com/abstracts/Pages/ProductAbstract.aspx?ProductId=000000000001021496.
+Freeingthegrid.org. 2015. “Freeing the Grid 2015.” Accessed October 2015:
+http://freeingthegrid.org/.
+ICC (International Code Council). 2012. International Building Code Section 1504.
+———. 2015. “AC428 Modular Framing Systems Used to Support Photovoltaic (PV)
+Modules—Approved October 2015.” Accessed October 2015. http://shop.iccsafe.org/ac428-
+modular-framing-systems-used-to-support-photovoltaic-pv-modules-approved-november-2012-
+pdf-download.html.
+IEC (International Electrotechnical Commission). 2009. International Standard. IEC 62446.
+Geneva, Switzerland: IEC. Accessed October 2015.
+http://webstore.iec.ch/webstore/webstore.nsf/Artnum_PK/42990.
+———. 2014. International Standard. IEC 62852. Geneva, Switzerland: IEC. Accessed October
+2015. https://webstore.iec.ch/publication/7463.
+33
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 42 ---
+
+IEEE (Institute of Electrical and Electronics Engineers) Standards Association. 2014. “IEEE
+1547 Standard for Interconnecting Distributed Resources with Electric Power Systems.”
+Accessed October 2015. http://grouper.ieee.org/groups/scc21/1547/1547_index.html.
+IREC (Interstate Renewable Energy Council). 2014. “Solar Licensing Database.” Latham, NY:
+IREC. Accessed October 2015. http://www.irecusa.org/workforce-education/solar-licensing-
+database/.
+Keating, T.J., A. Walker, and K. Ardani. 2015. Solar Access Public Capital (SAPC) Working
+Group: Best Practices in PV Operations and Maintenance. Version 1.0. Golden, CO: National
+Renewable Energy Laboratory. Accessed October 2015.
+http://www.nrel.gov/docs/fy15osti/63235.pdf.
+NABCEP (North American Board of Certified Energy Practitioners). 2013. PV Installation
+Professional Resources Guide. Clifton Park, NY: NABCEP. Accessed October 2015.
+http://www.nabcep.org/wp-content/uploads/2013/08/NABCEP-PV-Guide-7-16-13-W.pdf.
+New Mexico State University. 2014. “Codes and Standards.” Accessed October 2015:
+http://www.nmsu.edu/~tdi/Photovoltaics/Codes-Stds/C-S-Resources.html.
+NRCA (National Roofing Contractors Association). 2014. The NRCA Roofing Manual.
+Rosemont, IL: NRCA. Accessed October 2015. http://www.nrca.net/store/detail/the-nrca-
+roofing-manual---2014-boxed-set/1245.
+OSEIA (Oregon Solar Energy Industries Association). 2006. Solar Construction Safety.
+Accessed October 2015.
+http://www.coshnetwork.org/sites/default/files/OSEIA_Solar_Safety_12-06.pdf.
+Renewable Energy Vermont Partnership Program. 2012. “Best Practices for Solar Photovoltaic
+Installations.” Accessed October 2014.
+http://www.revermont.org/main/wpcontent/uploads/Vermont-Best-Practices-PV.pdf.
+Solar America Board for Codes and Standards. 2011. “Codes and Standards: Grounding
+Photovoltaic Modules.” Accessed October 2015.
+http://solarabcs.org/about/publications/reports/module-grounding/index.html.
+Solar America Board for Codes and Standards. 2013. Inverter Ground Fault Detection “Blind
+Spot” and Mitigation Methods. Washington, D.C.: U.S. Department of Energy. Accessed
+October 2015.
+http://solarabcs.org/about/publications/reports/blindspot/pdfs/inverter_groundfault-2013.pdf.
+SunSpec Alliance. 2013. “SunSpec Plant Information Exchange.” San Jose, CA: SunSpec.
+Accessed November 2015. http://sunspec.org/download-sunspec-specifications/.
+———. 2014. Best Practices in Solar Performance Monitoring. San Jose, CA: SunSpec.
+Accessed November 2015. http://sunspec.org/wp-content/uploads/2015/06/Best-Practices-In-
+Solar-Performance-Monitoring.pdf.
+34
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 43 ---
+
+U.S. Department of Labor. undated. “Green Job Hazards: Solar Energy.” Washington, D.C.:
+Department of Labor. Accessed October 2015. https://www.osha.gov/dep/greenjobs/solar.html.
+UL. 2012. “Outline of Investigation for Mounting Systems, Mounting Devices,
+Clamping/Retention Devices, and Ground Lugs for Use with Flat-Plate Photovoltaic Modules
+and Panels.” 2nd edition. Accessed October 2015. http://ulstandards.ul.com/standard/?id=2703.
+———. 2015. “Standard 1565 – Positioning Devices.” Accessed October 2015.
+http://ulstandards.ul.com/standard/?id=1565.
+———. 2015. “Standard 2703 - Standard for Mounting Systems, Mounting Devices,
+Clamping/Retention Devices, and Ground Lugs for Use with Flat-Plate Photovoltaic Modules
+and Panels.” Accessed October 2015. http://ulstandards.ul.com/standard/?id=2703.
+Wiles, J. 2010. Photovoltaic Power Systems and the 2005 National Electrical Code: Suggested
+Practices. Vacaville, CA: Brooks Engineering. Accessed October 2015.
+http://brooksolar.com/files/PV-NEC-V-1.91-opt.pdf.
+35
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 44 ---
+
+Appendix. References to Codes, Standards, and
+Guidelines
+The following references relevant codes and standards that are commonly adopted by the AHJ.
+Relevant Codes
+IBC - 2012 International Building Code
+1503.2 Flashing
+1507.2.9 Flashings
+1507.2.9.1 Base and cap flashing
+1507.3.9 Flashing
+1505.8 Photovoltaic systems
+1507.17 Photovoltaic modules/shingles
+1507.17.1 Material standards
+1507.17.2 Attachment
+1507.17.3 Wind resistance
+1509.7 Photovoltaic systems
+1509.7.1 Wind resistance
+1509.7.2 Fire classification
+1509.7.3 Installation
+1509.7.4 Photovoltaic panels and modules
+1511.1 Solar photovoltaic panels/modules
+1511.1.1 Structural fire resistance
+IRC - 2012 International Residential Code
+R903.2 Flashing
+R905.2.8.1 Base and cap flashing
+R905.2.8.4 Other flashing
+36
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 45 ---
+
+R905.3.8 Flashing
+R905.16 Photovoltaic modules/shingles
+R905.16.1 Material standards
+R905.16.2 Attachment
+R905.16.3 Wind resistance
+M2301.2 Installation
+M2301.2.1 Access
+M2301.2.2 Roof-mounted collectors
+M2301.2.7 Roof and wall penetrations
+M2301.3.1 Collectors
+M2302.1 General
+M2302.2 Requirements
+M2302.2.1 Roof-mounted panels and modules
+IFC - 2012 International Fire Code
+[A] 105.7.13 Solar photovoltaic power systems.
+605.11 Solar photovoltaic power systems
+605.11.1 Marking.
+605.11.1.1 Materials
+605.11.1.2 Marking content
+605.11.1.3 Main service disconnect
+605.11.1.4 Location of marking
+605.11.2 Locations of DC conductors
+605.11.3 Access and pathways
+605.11.3.1 Roof access points
+605.11.3.2 Residential systems for one- and two-family dwellings
+37
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 46 ---
+
+605.11.3.2.1 Residential buildings with hip roof layouts
+605.11.3.2.2 Residential buildings with a single ridge
+605.11.3.2.3 Residential buildings with roof hips and valleys
+605.11.3.2.4 Residential building smoke ventilation
+605.11.3.3 Other than residential buildings
+605.11.3.3.1 Access
+605.11.3.3.2 Pathways
+605.11.3.3.3 Smoke ventilation
+605.11.4 Ground-mounted photovoltaic arrays.
+NFPA 70 - National Electrical Code
+Relevant Standards
+ASCE 7: Minimum Design Loads for Buildings and Other Structures
+ASCE 7 is the source of wind loads, snow loads, etc., and the calculation methods that
+develop the loads from tabled data.
+2012 National Design Specification For Wood Construction
+Many sections of the NDS are relevant for checking roof framing for the added loads
+from solar. Span tables are derived from values and formulas in the NDS.
+UL 1703
+UL 2703
+UL 1741
+Roofing Guidelines and Resources
+PV Racking and Attachment Criteria for Effective Asphalt Shingle Roof System
+Integration: http://roofingcenter.org/main/Initiatives/pv
+NRCA - 2010 National Roofing Contractor Association, Chapter 3: Guidelines
+Application to Steep-slope Roof Systems
+3.9 PENETRATIONS
+4.1 Rack-Mounted Photovoltaic Modules Flashings
+38
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 47 ---
+
+ARMA - 2006 Asphalt Roofing Manufacturers Association, Chapter 10 Flashings, soil
+stacks and vent pipes
+TRI - Tile Roofing Institute
+http://www.mca-tile.com/downloads/TRIGuide2010.pdf
+TRI ICC-Evaluation Report – ESR-2015P
+http://www.icc-es.org/Reports/pdf_files/ESR-2015P.pdf.
+39
+This report is available at no cost from the National Renewable Energy Laboratory (NREL) at www.nrel.gov/publications.
+
+--- PAGE 48 ---

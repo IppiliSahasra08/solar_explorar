@@ -1,0 +1,573 @@
+Next Energy 12 (2026) 100644
+Contents lists available at ScienceDirect
+Next Energy
+journal homepage: www.sciencedirect.com/journal/next-energy
+Research article
+A simulation-based framework for pre-installation solar PV feasibility
+]]
+]]
+assessment using long-term climatic data ]]]]]]
+Azfar Rasoola,b, Muhammad Amjadc, Mannan Hassand,⁎ , Md Shafiullahd,e,⁎⁎ ,
+Muhammad Shahid Mastoif
+a Department of Electrical Engineering, The Islamia University of Bahawalpur, Bahawalpur 63100, Pakistan
+b Department of Electrical and Electronics Technology, Mir Chakar Khan Rind University of Technology, Dera Ghazi Khan, Pakistan
+c Department of Electronic Engineering, The Islamia University of Bahawalpur, Bahawalpur 63100, Pakistan
+d Interdisciplinary Research Center for Sustainable Energy Systems, King Fahd University of Petroleum & Minerals, Dhahran 31261, Saudi Arabia
+e Control & Instrumentation Engineering Department, King Fahd University of Petroleum & Minerals, Dhahran 31261, Saudi Arabia
+f School of Electrical Engineering, Southwest Jiaotong University, Chengdu, Sichuan 611756, China
+A R T I C L E I N F O A B S T R A C T
+Keywords: Generation of electricity from solar photovoltaic (PV) panels is an economical, clean, and renewable energy
+Solar PV feasibility solution; however, achieving the desired power output during installation remains a challenging task. This study
+Energy yield estimation presents a method to estimate solar potential prior to the installation of a solar power plant at a given location. A
+NASA POWER data discrepancy often exists between the installed and actual capacity of PV systems due to environmental factors,
+Photovoltaic systems
+system losses, and PV cell efficiency. To address this issue, a 100 kW grid-connected solar PV system is modeled
+Solar irradiance modeling
+using an average Voltage Source Converter controller integrated with a Maximum Power Point Tracking algo-
+Climatic data analysis
+rithm based on the perturb and observe technique. Long-term climatological datasets of temperature and irra-
+Renewable energy assessment
+diance are obtained from the National Aeronautics and Space Administration (NASA) POWER database for the
+Bahawalpur region (Punjab, Pakistan). These data are used as input to the MATLAB/Simulink model to simulate
+power generation and power loss under varying conditions of direct normal irradiance, diffuse irradiance, and
+temperature. The results show good agreement with theoretical expectations. The generated power varies be-
+tween 23.43% and 87.07%, while power loss ranges from 12.93% to 76.57% under different operating condi-
+tions. The proposed approach can be applied to other regions, subject to the availability of relevant climatic data.
+1. Introduction [2]. This shows that scientists are keen to develop this technology to
+overcome the energy demand for the rest of the world in the future.
+Energy generation trends are shifting due to the harmful effects of There is ongoing research for the effective and efficient use of solar
+fossil fuel-based generation to renewable energies. The primary source energy by the advent of the 21st century among researchers, which
+of energy on Earth is the Sun. Therefore, all the natural cycles of the shows an improvement of materials and techniques in the infrastructure
+earth revolve around the sun in one or another way, leading from the of solar plants for maximum power accumulation in the solar hours
+process of photosynthesis, wind currents, carbonization, to the direct [3–6]. A key challenge is the portion of solar energy that is not con-
+utilization of solar energy [1]. The importance of solar energy cannot verted into electricity from the solar photovoltaic (PV) power plant,
+be undermined, as it supplies an ample, clean source of energy without which needs redressal for maximum capturing and utilization. This
+harmful greenhouse gas emissions. Also, it is a sustainable source of challenge is addressed by engineers, researchers, and scientists.
+energy. There is a potential gap between the research institutions and the
+The global usage of solar electricity started back 3 decades ago, and engineering companies to solve the practical issues that relate to the
+it shows a significant boom from the year 1990, though the technology solar industry, such as absorption of maximum solar radiation
+itself is half a century old. Also, in the field of solar energy and its throughout the whole day, where the start and end of day may have
+efficient utilization, it has registered 86,000 patents up to the year 2017 maximum output of solar PV power plant, figuratively. Solar investors
+⁎ Corresponding author.
+⁎⁎ Corresponding author at: Control & Instrumentation Engineering Department, King Fahd University of Petroleum & Minerals, Dhahran 31261, Saudi Arabia.
+E-mail addresses: rasoolazfar@gmail.com(A. Rasool), muhammad.amjad@iub.edu.pk(M. Amjad), mannan.hassan@kfupm.edu.sa(M. Hassan),
+shafiullah@kfupm.edu.sa(M. Shafiullah), shahidmastoi797@gmail.com(M.S. Mastoi).
+https://doi.org/10.1016/j.nxener.2026.100644
+Received 28 January 2026; Received in revised form 9 April 2026; Accepted 10 April 2026
+2949-821X/© 2026 The Author(s). Published by Elsevier Ltd. This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).
+
+--- PAGE 1 ---
+
+A. Rasool, M. Amjad, M. Hassan et al. Next Energy 12 (2026) 100644
+are less keen to invest in solar technology; they feel motivated to invest of 50 MW solar PV system based on single-axis and dual-axis tracking.
+in wind technology for the high and timely investment returns. The The Geographic Information System is accessed for data generation to
+high capital cost and large-scale investment are the only way to lower provide resource mapping. However, the adopted algorithm is the
+the price of the product for the access of a common man. Thus, solar Analytic Hierarchy Process and Multicriteria Decision Making.
+technology remains less accessible in many regions [7]. Whereas, the object of this study is to analyze the utility scale model
+The classical engineering practices in the field of solar energy are feasibility for the reduction of fossil fuels by the enhancement of effi-
+outdated, as they may not provide maximum extraction of solar irra- ciency [23,24]. Whereas, this research highlights the problem of solar
+diance for the high-power yields. It is limited adoption to find a solar feasibility based on satellite data logging, which is missing in the lit-
+monitoring system implanted by the assistance of Internet of Things and erature reviewed. Also, the data set generated and used in MATLAB/
+Programmable Logic Control, mounted Supervisory Control and Data SIMULINK briefs the power output for the solar's actual feasibility
+Acquisition monitoring systems at residential and commercial levels analysis. The research gap for this research is to prepare a feasibility
+[8]. The classics of switch gear technology are still used in most parts of study model that provides actual power loss and power generation of
+the world, especially in the developing countries, where more than two- the solar PV power plant.
+thirds of the population exists [9]. Existing studies on PV energy yield estimation mainly focus on
+Generally, the PV solar power plants have a generic concern for system optimization, tracking mechanisms, or short-term irradiance
+having a significant difference between the installed and run capacities inputs. While some models incorporate environmental and system
+in terms of power generation. This power is lost in the process of parameters, they often rely on limited temporal resolution or site-spe-
+generation, which needs to be addressed in detail to bring back the cific conditions. The key gap addressed in this study is the use of long-
+confidence among the investors for their pinpoint understanding of PV term (multidecade) climatological data to develop a simplified simu-
+solar power plant technology [10–12]. The goal is to demonstrate a lation framework for energy yield estimation. This approach enables
+model that interprets and addresses the concerns of best engineering feasibility screening based on stable climatic trends, which is less ex-
+practices to provide a feasible solution for the maximum production of plored in the current literature.
+PV solar energy. Moreover, a model can be easily usable to adopt in the The scope of this study can be extended to any part of the world,
+practical fields for the new erection of infrastructure or improving the prior to data extraction points and data validity for the specific region;
+existing PV solar plants. The main focus of this work is to find com- for instance, in this study, the Bahawalpur region is the choice of se-
+prehensive framework to address and validate the power loss in the lection.
+process of PV generation. This approach may support improved esti-
+mation of solar energy production. This study aims to quantify the 1) The simulation based on long-term climatological data of a PV solar
+difference between installed and actual power output. Research ques- plant allows us to know the practical results for a specific region that
+tion is to find a hourly/daily time series solar potential whose results can be extended to any part of the world.
+are coherent to the practicality and may be adopted for modern en- 2) This approach can support preliminary feasibility assessment prior
+gineering practices without dubious frames. to detailed field studies.
+The case study was performed in this research on the Quaid-e-Azam 3) An approach is given to find a ‘home-based’ physical feasibility re-
+Solar Power Plant located in the Bahawalpur region. Initially, in the 1st port for the solar potential anywhere in the world, without ex-
+phase of installation, this PV solar plant was erected to an installed pending resources on physical surveys of the land for installing PV
+capacity of 100 MW. The run capacity was observed to be as low as solar power plants.
+18 MW, which also became the reason for the delay of the next phases
+to raise it to a number of 900 MW. Therefore, the government analyzed This study highlights the gap between simulated power output and
+the mistake by installing this pilot project of 100 MW, and transferred it the actual generation of a PV solar power plant. This difference re-
+to private companies of Turkey and China [13,14]. Two reasons for the presents the portion of potential energy that is not realized in practice
+obstacle at the beginning of the next phase. Firstly, the solar survey due to the combined effects of environmental variability, system losses,
+work was inefficient enough for the site selection, as in summer regions, and non-ideal operating conditions. In standard PV system analysis,
+the average temperature of the day of Bahawalpur reaches 45 degrees such discrepancies are commonly associated with loss mechanisms and
+centigrade, whereas 25 degrees is the nominal operation range for performance ratios. For the Bahawalpur case study, the results de-
+optimum efficiencies of PV solar arrays [15]. PV modules were de- monstrate a clear difference between theoretical generation potential
+signed for different climatic conditions, which could not satisfy the and observed plant performance.
+Bahawalpur environment at all [16]. Secondly, the government made
+all contract agreements to the installed capacity of the PV solar plant, 2. Methodology
+whereas the run capacity was just 15–35% of the installed capacity
+[17]. This leads to a deficit in governmental finance expectations, and it 2.1. Generation of dataset
+led to the transfer of the Quaid-e-Azam Solar Power Plant to a public-
+private partnership. The main motive behind this research is to orga- The foundation of this study lies in finding solar potential on an
+nize a step-by-step approach that assists governments and investors in actual-time simulation. The predecessor work following this research
+improving confidence in PV technology, as it is the future of renewable uses the National Aeronautics and Space Administration (NASA) Power
+energies. Data Access Viewer to narrate the idea of finding a solar potential
+In Hafez et al. [18], a solar feasibility of Saudi Arabia at 10 different [20,25]. Therefore, these studies partly lack actual-time results. This
+locations to measure utility-scale with the assistance of software Na- study depicts the idea to generate the results of PV solar power po-
+tional Renewable Energy Laboratory. This way, they addressed the tential with respect to the coherent values of practicality, such as there
+minimum cost of electricity by conducting software base solar feasi- may not be a significant difference between the practical values and
+bility. A hybrid model is conducted in Algeria for PV-Wind-Diesel- simulation results produced by the assistance of software. Therefore, to
+Battery Configuration on HOMER for ambient temperature, global solar achieve this arduous task, a 100 kW PV solar model is deployed that
+radiation, and wind speed. This feasibility results in savings of 69% lays the basis for the findings of solar potential anywhere in the world.
+savings of fossil fuels [19]. The data logging review for prototype solar The user of this model must access the climatology data from any of the
+PV system feasibility shows the enhancement of solar absorption of 8 archives of solar research centers. The next step is to execute the data in
+PV panels rated as 250 watts used at various sites [20–22]. RETScreen the form of Excel sheets of 2-column formats, where each column re-
+clean energy management software is used to analyze the performance presents the inputs of irradiance and temperature, respectively.
+2
+
+--- PAGE 2 ---
+
+A. Rasool, M. Amjad, M. Hassan et al. Next Energy 12 (2026) 100644
+voltage profile of 3-phase with the aid of an average model of VSC that
+works on a theory of commutation. The boost converter nurtures the
+average voltage profile of single-phase to make the VSC system work at
+a stable rate. The low-voltage 3-phase supply is converted to a high-
+voltage supply through a substation that is further attached to a grid
+network for commercial uses. It may also act as a stand-alone system
+prior to the concept of micro-grid to meet the demand of the local
+market with the assistance of batteries to supply electric power in night
+mode. The PV solar plant model system used in this research supports
+the governments, investors, researchers, scientists, and engineers to
+find a solar electric potential without using any of the external re-
+sources. Thus, the testing cost is readily zero if anyone uses it for
+findings of the solar potential in any locality of the world. Moreover, a
+step-by-step approach is helpful for adopting the procedures mentioned
+Fig. 1. Location (latitude and longitude) East longitude 71.78° and North la- in this research. The basic input parameters are the surface temperature
+titude 29.33° for the extraction of climatology data from NASA. NASA =
+and solar irradiance. However, these parameters can be subdivided into
+National Aeronautics and Space Administration.
+more than 2 categories to acquire the scientific results, which are given
+in Fig. 1. Nowhere, the maximum and minimum durations of sunshine
+Table 1
+are taken as 6.67 and 8.33 h per day, prior to the fact that 200–250 h of
+Conversion factor for solar radiation to solar irradiance
+monthly sunshine is available in records of the Bahawalpur region [26].
+Conversion factor W/m2 kW·h/(m2·day) Sun hours/day Henceforth, the monthly average of the same month gives a dataset
+of 12 points. Furthermore, the rest of the climatology data for the years
+W/m2 1 41.66666 41.66666
+kW·h/(m2·day) 0.024 1 1 is converted into 12- point datasets by taking out averages. The purpose
+sun hours/day 0.024 1 1 is to make it executable in a SIMULINK model of MATLAB to achieve
+desirable results. The raw data is modified using an average scheme to a
+12-point dataset in 9 different parameters. Namely, 3 cases of direct
+Fig. 1shows the location coordinates of Quaid-e-Azam Solar Park under normal irradiance (DNI) and Diffused Irradiance (DI) each that make up
+study. Data were obtained from the NASA POWER Data Access Viewer for 6 parameters, and 3 cases of surface temperature of a PV module.
+the Quaid-e-Azam Solar Park, Bahawalpur (71.78° E, 29.33° N). An aver- Hence, these 9 parameters are organized and executed based on a turn-
+aging scheme was applied to process the raw data based on the geographic by-turn policy in a separate simulation. The refined data of 9 para-
+coordinates of Bahawalpur extracted from the NASA POWER Data Access meters is enlisted in Table 2. The organization and classification of
+Viewer [22]. The climatology data of the previous 35 years was aggregated these 9 parameters give the execution for conducting a simulation.
+into 12 monthly data points representing months from January to De- The climatology data for the previous 35 years is taken from the
+cember. The daily average of data for the different parameters gives a 30- NASA Power Data Access Viewer of direct normal radiation (DNR),
+point set for a month. Table 1presents the conversion factors and conver- diffused radiation (DR), and the temperature of the Earth's surface. The
+sion factor explicitly for radiation to irradiance of solar. solar radiation data can only be utilized in solar calculations if it is
+Averaging Scheme for Data Pre-Processing Steps Aggregate converted into solar irradiance. Therefore, the unit scheme mentioned
+in Table 2is used for the conversion of radiation data into irradiance to
+MonthlyAverage = 1 35 DM 24 f(h,d,M,y)#
+M 24*DM*35 y=1 d=1 h=1 (1) use in the SIMULINK model of MATLAB software. It is to be noted that
+the unit for solar radiation is kWh / m2 day, and the unit for solar
+Eq. (1)gives monthly average of 12 data points for 35 years data set; irradiance is W / m2.
+M = Month (January to December); Where; January =1 to December
+= 12; DM = number of days in month M =31 (January, March, May,
+July, August, October, & December), M = 30 (February, April, June, 2.2. Scheme to generate feasibility report
+September, & November), or M= 28 or 29 for February) and f (h, d, M,
+y) = hourly value for year y, month M, day d, & hour h. The main model is the 100-kW grid-connected PV array represented
+The solar model works on a mechanism of MPPT-based perturb and by an average model controlled by a voltage source converter (VSC)
+observe (P&O) algorithm to convert a single-phase supply to a stable controller [27]. The maximum power point tracking (MPPT) technique
+Table 2
+Jan to Dec climatology data of power access
+Months Average Diffused Diffused Direct normal Direct normal Direct normal Min. Max. Avg.
+diffused irradiance irradiance irradiance irradiance irradiance full Temp. Temp. Temp.
+irradiance sunshine (min) sunshine sunshine (min) sunshine (max) day (°C) (°C) (°C)
+sunshine (max)
+1 144 91.5 168 691.2 864 240 5.4 21.4 13.4
+2 177 145.5 198 746.4 933 260 8.5 24.4 16.4
+3 238.5 201 261 728.4 910.5 252 13.7 30.1 21.8
+4 292.5 276 310.5 734.4 918 254 19.5 36.3 27.9
+5 325.5 307.5 345 765.6 957 265 24.8 41.4 33.1
+6 340.5 301.5 369 768 960 266 28.8 42.5 35.6
+7 346.5 316.5 363 681.6 852 236 28.8 39.8 34.3
+8 322.5 306 328.5 627.6 784.5 217 27.7 38.2 32.9
+9 264 241.5 277.5 676.8 846 234 24.9 37.4 31.1
+10 199.5 177 222 718.8 898.5 250 18.1 35.2 26.6
+11 151.5 127.5 165 710.4 888 246 11.4 29.4 20.4
+12 133.5 103.5 148.5 668.4 835.5 232 6.8 23.6 15.2
+3
+
+--- PAGE 3 ---
+
+A. Rasool, M. Amjad, M. Hassan et al. Next Energy 12 (2026) 100644
+Fig. 2. Involved parameters for inputs to generate outputs. Fig. 3. Power loss tree for PV solar system. PV = photovoltaic.
+is in consideration that work on the principle of a hill-climbing algo- capacities of PV arrays. However, the assumptions of solar trackers are
+rithm to track the maximum power with reference to the voltages. This not included in this research to serve as a comparison analysis from
+technique is famous for the high percentage levels up to 98% to stream DNI. Furthermore, sunshine is a narration used for the solar hours of the
+the Direct Current (DC) supply and provide the maximum power output day.
+at the boosting side [28,29]. The whole system works under the um- Fig. 3 summarizes the power losses at every stage of the solar PV
+brella of 2 basic inputs: namely, the surface temperature of a PV module system; however, the input parameters for DNI, DI, and temperature are
+and the solar irradiance values of a specific region. In this model, the fixed for the sensitivity analysis in checking the power loss in this re-
+Bahawalpur region is chosen for experimentation to produce viable search, as per the model considered. Whereas other variables may be
+results. On the other hand, when the inputs are active and in a rea- involved in measuring the power loss for future works.
+sonable range, then the system produces electricity to the grid network.
+The P&O command helps to execute the Perturb & Observe algorithm 3. Modeling, simulation, and system description
+for the work command window of a MATLAB [30].
+The basic steps to cover this simulation are demonstrated in Fig. 2, 3.1. Main model
+which enlightens the sequential working of the model. The imported
+data from Power Access is treated as the input of temperature and ir- The main model is the 100-kW grid-connected PV array represented
+radiance for a 100-kW solar PV power plant. The output is the 3-phase by an average model controlled by a VSC controller as shown in Fig. 4.
+power supplied to the local grid for distribution and utilization. The The DC voltages collected by the PV arrays are boosted with the help of
+output power is measured at the grid-side Alternating Current (AC) bus a boost converter. The MPPT technique is in consideration that work on
+of the inverter. A positive sign convention indicates power injected into a principle of hill climbing algorithm to track the maximum power with
+the grid, while negative values correspond to reverse power flow during reference to the voltages. This technique is famous for the high per-
+transient conditions. To ensure accurate analysis, only steady-state data centage levels up to 98% to stream the DC supply and provide the
+are considered, and initial transient periods are excluded from statis- maximum power output at the boosting side. The VSC provides the
+tical calculations. reference values to convert the boosted DC supply to a 3-phase AC
+supply, and then electricity is supplied to the nearby grid by stepping
+2.3. Irradiance modeling approach up with the help of a transformer. The whole system works under the
+umbrella of 2 basic inputs: namely, the surface temperature of a PV
+Plane of Array (POA) irradiation is the average accumulated irra- module and the solar irradiance values of a specific region. In this
+diation from various physical weather stations located at the site plant model, the Bahawalpur region is chosen for experimentation to produce
+over a specific period, normally a quarter of a year. This may be subject viable results.
+to the construction of irradiance, such as beam angles, diffusing factors, When the inputs are inadequate, the enabling command of MPPT is
+albedo, tilt/azimuth/incidence, plate erection angle, etc. [31]. Con- unable to register any changes that set the values to zero. On the other
+verting NASA variables to POA from 35 years of long-term data sets of hand, when the inputs are active and in a reasonable range, then the
+DNI & DI may pass on many physical factors, which may change on a system produces electricity to the grid network. The PandO command
+yearly basis, for the construction of irradiance POA. Whereas, DNI & DI helps to execute the Perturb & Observe algorithm for the work com-
+may not specifically rely on the mentioned physicality factors, such as mand window of MATLAB.
+DI is less sensitive to tilt compared to direct irradiance, azimuth, and The basic steps to cover this simulation are demonstrated in Fig. 5,
+solar tracking. Also, DNI & DI are independent of the PV surface geo- which enlightens the sequential working of the model. Also, the Perturb
+metry, in contrast to POA. Moreover, DNI suggests an optimized pattern & Observe algorithm used in the MPPT is given in the flowchart, given
+for the maximum limit of capturing solar rays [32]. This creates a in Fig. 6to understand the basic steps of an algorithm.
+sensitivity study of the solar PV system for considering the given inputs
+of DNI & DI. POA provides more physically representative results than 3.2. Boost converter
+DNI & DI for simulation. Averaging DNI & DI long-term data sets
+complies with simulative sensitivity analysis that relates to a featured The boost converter helps to step up the DC supply collected from
+approach towards finding the difference between install and run the PV arrays, and the modeling of a boost converter is illustrated in
+4
+
+--- PAGE 4 ---
+
+A. Rasool, M. Amjad, M. Hassan et al. Next Energy 12 (2026) 100644
+Fig. 4. Main model of a 100-kW grid-connected PV module [31]. PV = photovoltaic.
+Fig. 5. Basic steps for the functionality of a solar PV model. MPPT = maximum power point tracking; PV = photovoltaic; VSC = voltage source converter.
+Fig. 7. The scaling is applied with the unity constant values, and the 3.3. VSC main controller
+gain is set to half the value to demonstrate the average values. The
+multiplying factors from the DC values of voltage and current give the The VSC main controller helps the VSC to adjust the reference values
+electrical power, which is equivalent to the AC power supplied to the with the phase-locked loop to convert the DC supply to the 3-phase AC
+grid network. supply. The current and voltage regulators register the smoothness to
+5
+
+--- PAGE 5 ---
+
+A. Rasool, M. Amjad, M. Hassan et al. Next Energy 12 (2026) 100644
+adjust the reference values of current and voltage, respectively. In this
+way, the reference values are adjusted each time to allow the consistent
+supply of AC power provided with an ample supply of inputs. The
+modeling of the VSC main controller is shown in Fig. 8.
+3.4. PV array
+The modeling of the PV array module is demonstrated in Fig. 9,
+where 2 inputs are the core needs to make a PV cell in an active
+mode. The temperature and solar irradiance are put in the PV
+cell with the help of a function generator, signal builder, or by ex-
+ternal Excel sheets. The output is generated in terms of voltages and
+current.
+The PV module used in this simulation is SunPower SPR-305E-WHT-
+D, whose plate specification values are given in Table 3. Even the user-
+defined values can be used in the PV array module if a specific company
+is not given in the list of MATLAB PV array models. However, for the
+existing model, the array data consists of 66 parallel strings and 5
+series-connected modules per string
+4. Results and discussion
+4.1. Characteristics profile of direct normal irradiance
+The characteristic profiles of DNI for maximum, minimum, and full-
+Fig. 6. Flowchart for the P&O algorithm [32]. day (24-h) conditions are shown in Figs. 10–12, respectively. The
+Fig. 7. Modeling of a boost converter.
+Fig. 8. Modeling of a VSC main controller. VSC = voltage source converter.
+6
+
+--- PAGE 6 ---
+
+A. Rasool, M. Amjad, M. Hassan et al. Next Energy 12 (2026) 100644
+Fig. 9. PV array modeling. PV = photovoltaic.
+Table 3 characteristics profile includes the solar irradiance, PV module surface
+Solar plate specification parameters temperature, average power, voltage profile, and the duty cycle.
+Plate specification of SunPower SPR-305E-WHT-D Values
+4.2. Effect of direct normal irradiance
+Maximum power (W) 305.226
+Open circuit voltage Voc (V) 64.2
+The data obtained from the Power Data Access Viewer of NASA is
+Voltage at maximum power point Vmp (V) 54.7
+DNR, which is converted to DNI. The power generated is shown in
+Temperature coefficient of Voc (%/deg.C) 0.27269
+Cell per module (Ncell) 96 Fig. 13for maximum DNI sunshine, minimum DNI sunshine, and 24-h
+Short circuit current Isc (A) 5.96 DNI, respectively.
+Current at maximum power point Imp (A) 5.98 The characteristics profile of DI is given in Figs. 14–16 for max-
+Temperature coefficient of Isc (%/deg.C) 0.061745
+imum, minimum, and average sunshine.
+Light-generated current IL (A) 6.0092
+Diode saturation current I0 (A) 6.3014*10^-12
+Diode ideality factor n 0.94504 4.3. Effect of diffused irradiance
+Shunt resistance Rsh (ohm) 269.5934
+Series resistance (ohms) 0.37152
+The data fetched from the Power Data Access Viewer of NASA is the
+DR, which is the radiation striking on a solar panel with less than 10%
+Fig. 10. Characteristics profile of DNI for maximum sunshine. DNI = direct normal irradiance.
+7
+
+--- PAGE 7 ---
+
+A. Rasool, M. Amjad, M. Hassan et al. Next Energy 12 (2026) 100644
+Fig. 11. Characteristics profile of DNI for minimum sunshine. DNI = direct normal irradiance.
+Fig. 12. Characteristics profile of DNI for full day (24 h). DNI = direct normal irradiance.
+cloud shatter, regardless of DNR that strike the panel perpendicularly. 4.4. PV module temperature modeling
+Therefore, the DR is converted to DI for the correct input parameter of
+the PV solar model of a 100-kW. The power generated curves supplied The operating temperature of a PV module is a critical factor in-
+to a grid are represented in Fig. 17, respectively, to maximum sunshine fluencing its electrical performance and overall energy yield. In prac-
+DI, minimum sunshine DI, and average sunshine DI. tical conditions, the module temperature is not equal to the ambient
+8
+
+--- PAGE 8 ---
+
+A. Rasool, M. Amjad, M. Hassan et al. Next Energy 12 (2026) 100644
+Fig. 13. Power generated to the grid via bus (a)maximum sunshine DNI, (b) minimum sunshine DNI, (c) full day (24 h) DNI. DNI = direct normal irradiance.
+Fig. 14. Characteristics profile of DI for maximum sunshine. DI = diffused irradiance.
+temperature, but is governed by a combination of environmental and represents the nominal operating cell temperature under standard test
+system-specific parameters, including solar irradiance, ambient tem- conditions. However, due to the use of monthly averaged long-term
+perature, wind speed, and mounting configuration. data and the absence of high-resolution inputs such as wind speed and
+In this study, long-term climatological temperature data (35-year installation-specific parameters, the above model is not fully im-
+averages) obtained from the NASA POWER Data Access Viewer are used plemented in the simulation. Instead, ambient temperature is used as a
+as the primary thermal input. These values represent ambient condi- baseline approximation for PV module temperature. This simplification
+tions for the selected location (Bahawalpur region) and provide a stable enables consistent comparison across multiple irradiance cases while
+basis for comparative simulation across different irradiance scenarios, maintaining computational efficiency. It is important to note that this
+as shown in Fig. 18. assumption may introduce deviations from actual operating conditions,
+To account for the physical relationship between ambient conditions particularly under high irradiance or low wind scenarios where module
+and PV module temperature, a standard Nominal Operating Cell temperature typically exceeds ambient temperature. Therefore, the
+Temperature (NOCT)-based formulation is considered. The module temperature-related results presented in this study should be inter-
+temperature can be expressed as: preted as indicative trends rather than exact field values.
+T cell =T ambient + NOC 8 T 0 20 ×G# (1) 4.5. Effect of temperature
+where T cell is the PV cell temperature (°C), T ambientis the ambient tem- It is a common mistake among renewable contractors and investors
+perature (°C), G is the incident solar irradiance (W/m²), and NOCT that high temperature will lead to high power rating results; however,
+9
+
+--- PAGE 9 ---
+
+A. Rasool, M. Amjad, M. Hassan et al. Next Energy 12 (2026) 100644
+Fig. 15. Characteristics profile of DI for minimum sunshine. DI = diffused irradiance.
+Fig. 16. Characteristics profile of DI for average sunshine. DI = diffused irradiance.
+the case is not the same in the theory of solar PV panels. This is ela- A significant amount of work has been conducted on improving
+borated in the Fig. 19, the maximum and minimum temperature ranges. the energy excavation form the PV panels by improving the abilities
+It is to be noted that the minimum DNI is used as the other input, of inverters and MPPT techniques. This may count to only registering
+combined with the initial input of temperature to the PV solar array, for the utilization of generated energy with maximum efficiencies of onto
+the clear judgment of results. Here, DNI minimum values are treated as 99%, at most [33]. Also, new techniques and algorithms are being
+the constant parameter. introduced for improving the efficiencies beyond 99% [34]. Similar
+10
+
+--- PAGE 10 ---
+
+A. Rasool, M. Amjad, M. Hassan et al. Next Energy 12 (2026) 100644
+Fig. 17. Power generated to the grid via bus (a) maximum sunshine DI, (b) minimum sunshine DNI, (c) full day (24 h) DNI. DI = diffused irradiance; DNI = direct
+normal irradiance.
+Fig. 18. Climatology surface temperature ranges of a PV module for Bahawalpur City. PV = photovoltaic.
+Fig. 19. Power generated to the grid network via bus (a), maximum temperature (b).
+trends in DNI variation have been reported in previous studies generated or lost due to environmental factors, infrastructure, and
+[35,36], where the diurnal and seasonal fluctuations significantly material properties, for any location in the world, in real-time. Once
+influence solar energy generation. These works further emphasize the it is realized, surely a large amount of work will switch to revitalize
+importance of accurate irradiance profiling for reliable performance and increase the production of energy from the existing to new in-
+assessment of PV systems. However, the need should be to validate stallations of PV solar power plants.
+and improve the energy production of solar energy for most. There- Comparison of the predicted annual yield with the measured plant
+fore, to realize the fact, the results indicate finding the true power output is presented in Table 4. The results reveal a significant
+11
+
+--- PAGE 11 ---
+
+A. Rasool, M. Amjad, M. Hassan et al. Next Energy 12 (2026) 100644
+Table 4
+Predicted yield 100 MW simulation reframed for 100 MW versus measured plant output year 2025
+Month Power output (kW) full day (24 hr) Monthly energy yield (kWh) Monthly energy yield (MWh)
+Direct normal irradiance Diffused irradiance Direct normal irradiance Diffused irradiance Plane of array irradiance
+Jan 22.2 12.5 16516.8 9300 12227.06
+Feb 25.3 18 18823.2 13392 12043.39
+Mar 23.7 21.7 17632.8 16144.8 16017.45
+Apr 24.1 28.8 17930.4 21427.2 15246.55
+May 24.9 30.6 18525.6 22766.4 14732.46
+Jun 24.8 31.1 18451.2 23138.4 13052.29
+Jul 21.3 31.2 15847.2 23212.8 13439.48
+Aug 20 30 14880 22320 12646.89
+Sep 23.1 24.6 17186.4 18302.4 13497.01
+Oct 23.9 18.3 17781.6 13615.2 13905.11
+Nov 23.5 14.5 17484 10788 9581.83
+Dec 23.3 12.9 17335.2 9597.6 10619.95
+Annual energy yield (kWh) for 100 kW 208394.4 204004.8 157009.47
+Annual energy yield (MWh) for 100 kW 208.3944 204.0048
+Annual energy yield (MWh) for 100 MW 208394.4 204004.8
+Table 5 the maximum power achievable is close to 90%. Also, the 3 tempera-
+Monthly energy yield estimation for the data set ture parameters are shown in Fig. 21for the output power to the grid. It
+highlights that maximum temperature may reduce power efficiency due
+Reframed contributions for a yield-estimation method
+to optimal plate operating temperatures, which may not satisfy the high
+100 kW grid-connected solar PV system simulation temperature ranges.
+These results highlight the importance of engineering optimiza-
+Month Power output (kW) full day Monthly energy yield (kWh)
+tion to adopt best engineering practices and ensure the accuracy of
+(FD) (24 hr)
+the solar tracking system to meet the percentages in the fields co-
+Direct Diffused Direct Diffused herent to the simulation results. This can only be achieved in the real
+normal irradiance normal irradiance PV power plants to capture the maximum DNI that strikes the solar
+irradiance irradiance (FD) panels. Whereas, this purpose is achieved in only 15–25% to increase
+(FD)
+the production of energy by different methods and techniques.
+Jan 22.2 12.5 688.2 387.5 Table 5complements this analysis by providing a statistical and de-
+Feb 25.3 18 784.3 558 scriptive summary of the simulated outputs, including key indicators
+Mar 23.7 21.7 734.7 672.7 such as mean, peak, and variability of power generation across dif-
+Apr 24.1 28.8 747.1 892.8
+ferent irradiance and temperature scenarios. Negative power values
+May 24.9 30.6 771.9 948.6
+Jun 24.8 31.1 768.8 964.1 observed in initial simulations were associated with transient beha-
+Jul 21.3 31.2 660.3 967.2 vior during system initialization and controller settling. These values
+Aug 20 30 620 930 have been excluded by applying a steady-state filtering window, and
+Sep 23.1 24.6 716.1 762.6 the statistical results presented in Table 5 reflect steady operating
+Oct 23.9 18.3 740.9 567.3
+conditions.
+Nov 23.5 14.5 728.5 449.5
+Dec 23.3 12.9 722.3 399.9 Generally, investors may be reluctant to show a prompt interest in
+Annual energy yield (kWh) 8683.1 8500.2 the solar development business and its activities because of their lim-
+ited understanding. Therefore, a large part of development in the sector
+of solar energy is implemented by the governments. Normally, investors
+may not achieve expected returns on solar due to least understandings
+performance gap between the installed capacity (100 MW) and of technical contracts. For instance, a investors allocate capital to erect
+the operational output (18 MW) of the Quaid-e-Azam Solar Park. In a PV solar plant, but the return on energy is far lower due to initial high
+2025, the measured annual energy yield is approximately 18% of the investments. Therefore, this research is useful for investors to under-
+predicted value obtained from the 100 MW simulation. This also stand the true solar potential for a specific area when signing heavy
+supports the accuracy of the dataset, where 35 years of NASA cli- deals and contracts before ending up with low investment returns on
+matology data are condensed into 12 monthly representative points. their capital. The proposed framework can be utilized by researchers,
+The dataset was sourced from the NASA Power Data Archive under engineers, and policymakers to evaluate solar PV feasibility for dif-
+official ticket #97881, reflecting the data constraints considered in ferent locations based on long-term climatic data. This approach sup-
+this study. ports data-driven decision-making in the planning and assessment of PV
+Table 5 further provides month-wise predicted energy yields from solar power systems.
+the simulation, separated into DNI and DI, along with measured plant The performance analysis conducted for the PV solar power plant
+output for validation under real operating conditions. The comparison may be extended beyond the boundaries of this research. As one may
+emphasizes the discrepancy between expected and actual generation in only need to use the manufactured solar panel specification values of
+large-scale PV systems. Under optimal conditions, DNI can contribute the installed company’s plate and repeat the whole simulation by using
+up to 87.07% of daily maximum power, with a corresponding loss of the user-default inputs to their specific region. In this way, the per-
+12.93% in a 100 kW PV system. formance of a solar power plant is measured from climatology-based
+The comparison analysis for the results of output power for the simulation to the practical field results. Therefore, the validation of
+variables of radiation may be understood form Fig. 20, where the 6 results may help to improve the energy production of existing PV solar
+parameters of irradiance are illustrated in the graph. It is evident that power plants.
+12
+
+--- PAGE 12 ---
+
+A. Rasool, M. Amjad, M. Hassan et al. Next Energy 12 (2026) 100644
+Fig. 20. Comparison analysis for the output power to the grid for 6 parameters of irradiance. DI = diffused irradiance; DNI = direct normal irradiance.
+Fig. 21. Comparison analysis for the output power to the grid for 3 parameters of temperature.
+5. Conclusion between simulated (expected) power output and the actual generation
+of a PV solar power plant. This difference represents the portion of
+The scheme introduced is to validate the difference in the power potential energy that is not realized in practice due to combined effects
+ratings from the installed to the run capacity of a PV solar power plant. of environmental variability, system losses, and non-ideal operating
+It leads to the identification of the solar power potential of any locality conditions. In standard PV system analysis, such discrepancies are
+around the world. Further, it develops to address the technical aspects commonly associated with loss mechanisms and performance ratios.
+relevant to the PV solar power plant, which proves the credibility of the For the Bahawalpur case study, the results demonstrate a clear differ-
+research in climatology-based simulation. The MATLAB/SIMULINK ence between theoretical generation potential and observed plant per-
+model of a 100-kW grid-connected produces practical results based on formance. This research estimates the theoretical generation potential
+NASA data set points. It benefited the analysis to statistical and gra- that a PV solar power plant may convert electrical power from solar
+phical terms, which states about finding a true solar potential for the energy. This concept can be further investigated in future studies by
+installation of a PV solar power plant. This may help to support the analyzing the differences between simulation and practical results using
+feasibility assessment of the feasibility studies without spending ex- an existing 100 kW grid-connected PV model for next-generation en-
+travagant money on physical land surveys. The findings suggest the gap ergy applications.
+13
+
+--- PAGE 13 ---
+
+A. Rasool, M. Amjad, M. Hassan et al. Next Energy 12 (2026) 100644
+This study uses 35-year climatological data aggregated into monthly [13] A.A. Khosa, T.U. Rashid, M. Usman, M.S. Khalil, Performance analysis based on
+averages, which do not capture short-term variability or year-to-year probabilistic modelling of Quaid-e-Azam Solar Park (QASP) Pakistan, Energy
+Strategy Rev. 29 (2020) 100479.
+fluctuations. Several practical factors are not explicitly modeled, in-
+[14] A. Khaliq, A. Ikram, M. Salman, Quaid-e-Azam solar power park: Prospects and
+cluding system orientation, soiling, shading, degradation, curtailment, challenges. 2015 Power Generation System and Renewable Energy Technologies
+and detailed thermal effects. In addition, satellite-derived data may (PGSRET), 2015. pp. 1-6.
+[15] Z. Yang, Z. Xiao, A review of the sustainable development of solar photovoltaic
+introduce uncertainties compared to ground measurements, and results
+tracking system technology, Energies 16 (23) (2023) 7768.
+are not cross-validated with other simulation tools. Therefore, the [16] S.F.A. Shah, I.A. Khan, H.A. Khan, Performance evaluation of two similar 100MW
+proposed method should be interpreted as a preliminary feasibility and solar PV plants located in environmentally homogeneous conditions, IEEE Access 7
+(2019) 161697–161707.
+yield estimation approach, rather than a detailed performance analysis.
+[17] L. Alhmoud, Why does the PV solar power plant operate ineffectively? Energies 16
+(10) (2023) 4074.
+CRediT authorship contribution statement [18] A.A. Hafez, Y.F. Nassar, M.I. Hammdan, S.Y. Alsadi, Technical and economic fea-
+sibility of utility-scale solar energy conversion systems in Saudi Arabia, Iran. J. Sci.
+Technol. Trans. Electr. Eng. 44 (1) (2020) 213–225.
+Md Shafiullah: Writing – review & editing, Visualization, [19] F. Baghdadi, K. Mohammedi, S. Diaf, O. Behar, Feasibility study and energy con-
+Investigation, Formal analysis. Muhammad Shahid Mastoi: version analysis of stand-alone hybrid renewable energy system, Energy Convers.
+Visualization, Formal analysis, Data curation. Azfar Rasool: Writing – Manag. 105 (2015) 471–479.
+[20] A.G. Abo-Khalil, K. Sayed, A. Radwan, I.A. El-Sharkawy, Analysis of the PV system
+original draft, Validation, Software, Methodology, Data curation,
+sizing and economic feasibility study in a grid-connected PV system, Case Stud.
+Conceptualization. Muhammad Amjad: Writing – review & editing, Therm. Eng. 45 (2023) 102903.
+Visualization, Supervision, Resources, Project administration. Mannan [21] M. Shafiullah, S.D. Ahmed, F.A. Al-Sulaiman, Grid integration challenges and so-
+lution strategies for solar PV systems: a review, IEEE Access 10 (2022)
+Hassan: Writing – review & editing, Visualization, Validation,
+52233–52257.
+Investigation, Formal analysis, Conceptualization. [22] M.D.S.S. Ashhab, H. Kaylani, A. Abdallah, PV solar system feasibility study, Energy
+Convers. Manag. 65 (2013) 777–782.
+[23] J. Hamad, M. Ahmad, M. Zeeshan, Solar energy resource mapping, site suitability
+Declaration of Competing Interest
+and techno-economic feasibility analysis for utility scale photovoltaic power plants
+in Afghanistan, Energy Convers. Manag. 303 (2024) 118188.
+The authors declare that they have no known competing financial [24] S. Iqbal, M. Shafiullah, M. Aurangzeb, I. Jamil, A. Islam, ... S.S. Alharbi, Forecasting
+interests or personal relationships that could have appeared to influ- large-scale solar power plant energy production based on Monte Carlo simulations
+and long-short-term memory, Results Eng 27 (2025) 106269.
+ence the work reported in this paper.
+[25] National Aeronautics and Space Administration. (n.d.). POWER Data Access
+Viewer. NASA Langley Research Center. 〈https://power.larc.nasa.gov/data-access-
+References viewer/〉.
+[26] Bahawalpur Weather & Climate | Year-Round Guide with Graphs. (n.d.). World
+[1] W.B. Chen, Assessing global land-based solar–wind complementarity using high- Weather & Climate Information. 〈https://weather-and-climate.com/average-
+resolution climate reanalysis for hybrid renewable energy design, Energy Convers. monthly-Rainfall-Temperature-Sunshine,bahawalpur-pk,Pakistan〉.
+Manag. 343 (2025) 120267. [27] E. Kantar, A.M. Hava, Optimal design of grid-connected voltage-source converters
+[2] C. Binz, T. Tang, J. Huenteler, Spatial lifecycles of cleantech industries–the global considering cost and operating factors, IEEE Trans. Ind. Electron. 63 (9) (2016)
+development history of solar photovoltaics, Energy Policy 101 (2017) 386–402. 5336–5347.
+[3] D. Sharma, P. Gaikwad, S. Choudhury, C.A. Betty, Chalcogenide thin film multilayer [28] M.A. Raza, S. Zahra, S. Raza, M.R. Altimania, M. Hassan, H.M. Munir, ...
+structure for solar cell applications, Vacuum 159 (2019) 141–143. V. Kuchanskyy, Mitigating the impact of partial shading conditions on photovoltaic
+[4] L. Zhang, D. Wang, J. Wang, M.S. Mastoi, Z. He, M. Hassan, A hybrid optimization arrays through modified bridge-linked configuration, Sustainability 17 (3) (2025)
+approach to evaluating load capacity in distribution networks with new energy and 1263.
+energy storage integration, IET Renew. Power Gener. 19 (1) (2025) e13198. [29] M.S. Mastoi, H.M. Munir, S. Zhuang, M. Hassan, M. Usman, A. Alahmadi, B. Alamri,
+[5] A.M. Parvanian, H.R. Salimijazi, M. Fathi, M. Saadatfar, Synthesis and thermal A comprehensive analysis of the power demand–supply situation, electricity usage
+shock evaluation of porous SiC ceramic foams for solar thermal applications, J. Am. patterns, and the recent development of renewable energy in China, Sustainability
+Ceram. Soc. 102 (4) (2019) 2009–2020. 14 (6) (2022) 3391.
+[6] K. Ravichandran, P. Philominathan, Investigations on microstructural and optical [30] Perturb and Observe (P&O) Algorithm for PV MPPT – File Exchange – MATLAB
+properties of CdS films fabricated by a low-cost, simplified spray technique using Central. (n.d.). MathWorks. 〈https://www.mathworks.com/matlabcentral/
+perfume atomizer for solar cell applications, Sol. Energy 82 (11) (2008) 1062–1066. fileexchange/39641-perturb-and-observe-p-o-algorithm-for-pv-mppt〉.
+[7] M.F. Bashir, U.K. Pata, L. Shahzad, Linking climate change, energy transition and [31] J. Freeman, D. Freestate, W. Hobbs, C. Riley, Using measured plane-of-array data
+renewable energy investments to combat energy security risks: evidence from top directly in photovoltaic modeling: methodology and validation. In: Proceedings of
+energy consuming economies, Energy 314 (2025) 134175. the 2016 IEEE 43rd Photovoltaic Specialists Conference (PVSC), Portland, OR, USA,
+[8] M. Španer, M. Truntič, D. Hercog, IoT-based off-grid solar power supply: design, 2016. pp. 2653-2656.
+implementation, and case study of energy consumption control using forecasted [32] M.K. Boutahir, Y. Farhaoui, M. Azrour, I. Zeroual, A. El Allaoui, Effect of feature
+solar irradiation, Appl. Sci. 15 (22) (2025) 12018. selection on the prediction of direct normal irradiance, Big Data Min. Anal. 5 (4)
+[9] R.Z. Khan, M.I. Aremu, L.A. Razak, G. Premaratne, A. Sattar, Impact of renewable (2022) 309–317.
+and non-renewable energy consumption, economic growth, and ICT on environ- [33] Rahman, H. (2026). Grid connected PV system [MATLAB code]. MATLAB Central
+mental degradation: evidence from Asia Pacific economic cooperation countries, File Exchange. 〈https://www.mathworks.com/matlabcentral/fileexchange/
+Int. J. Green. Energy. 22 (11) (2025) 2246–2262. 179019-grid-connected-pv-system〉.
+[10] A.M. Imran, M. Kowsalya, A new power system reconfiguration scheme for power [34] X. Zhang, B. Zhao, H. Cui, G. Zhao, Y. Li, Y. Huangfu, A hybrid global maximum
+loss minimization and voltage profile enhancement using fireworks algorithm, Int. power point tracking control method based on particle swarm optimization (PSO)
+J. Electr. Power Energy Syst. 62 (2014) 312–322. and perturbation and observation (P&O), Electr. Power Syst. Res. 248 (2025)
+[11] M.S. Mastoi, D. Wang, N. Ma, M. Hassan, M. Shafiullah, T. Bashir, ... A. Flah, AI- 111967.
+driven control and optimization for renewable energy integration in smart grids: [35] Y. Teng, Y. Wei, Y. Li, X. Guo, Y. Li, An overview of current source converters:
+challenges, applications, and future research directions, Energy Strategy Rev. 64 state-of-the-art and future trends, IEEE Trans. Power Electron. 41 (6) (2026)
+(2026) 102049. 9959–9984.
+[12] M. Shafiullah, A.R. Katranji, M. Hassan, M.M. Rahman, S.A. Shezan, Advanced [36] N. Kumar, I. Hussain, B. Singh, B.K. Panigrahi, Rapid MPPT for uniformly and
+multivariate deep learning methodology for forecasting wind speed and solar ir- partial shaded PV system by using JayaDE algorithm in highly fluctuating atmo-
+radiation, Smart Cities 9 (4) (2026) 59. spheric conditions, IEEE Trans. Ind. Inform. 13 (5) (2017) 2406–2416.
+14
+
+--- PAGE 14 ---

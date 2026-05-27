@@ -1,0 +1,1244 @@
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS 690.2
+Array. Amechanically integrated assembly of modules or
+ARTICLE 690 panelswithasupportstructureandfoundation,tracker,and
+Solar Photovoltaic (PV) Systems other components, as required, to form a direct-current
+power-producing unit.
+I. General
+690.1 Scope. The provisions of this article apply to solar Photovoltaic source circuits Inverter input circuit
+Inverter output circuit
+PVelectricalenergysystems,includingthearraycircuit(s),
+inverter(s), and controller(s) for such systems. [See Figure Electric production
+and distribution
+690.1(a) and Figure 690.1(b).] Solar PV systems covered Photovoltaic output circuit network connection
+by this article may be interactive with other electrical Inverter
+Interactive system
+power production sources or stand-alone, with or without
+electrical energy storage such as batteries. These systems Wind, engine-generator,
+may have ac or dc output for utilization. m ot i h c e ro r - p h o y w dr e o r - s e o le u c r t c r e ic s , and E an n d e r s g y y s s te to m ra c g o e n , t r c o h l arge controller,
+Inverter input circuit
+Photovoltaic source circuits Inverter output circuit
+Photovoltaic
+Photovoltaic
+output circuit
+output circuit
+Fuses Hybrid system dc loads Inverter
+Solar cells Charge controller
+Inverter input circuit
+Photovoltaic output
+circuit Inverter output circuit
+Main supply
+equipment for
+Module
+ac loads
+Inverter
+Panel Main supply equipment
+for dc loads
+Stand-alone system Energy storage
+Array or photovoltaic Notes:
+power source 1. These diagrams are intended to be a means of identification for
+photovoltaic system components, circuits, and connections.
+2. Disconnecting means and overcurrent protection required by
+Article 690, Part III, are not shown.
+Dedicated branch circuit 3. System grounding and equipment grounding are not shown.
+See Article 690, Part V.
+of the electric production
+4. Custom designs occur in each configuration, and some components
+and distribution network
+are optional.
+Inverter output circuit
+ac module (includes inverter) Figure 690.1(b) Identification of Solar Photovoltaic System
+ComponentsinCommonSystemConfigurations.
+Array (of ac modules)
+ac module system
+Notes: BipolarPhotovoltaicArray. APV array that has two out-
+1. These diagrams are intended to be a means of identification for puts, each having opposite polarity to a common reference
+photovoltaic system components, circuits, and connections.
+2. Disconnecting means required by Article 690, Part III, are not shown. point or center tap.
+3. System grounding and equipment grounding are not shown.
+See Article 690, Part V. Blocking Diode. A diode used to block reverse flow of
+current into a PV source circuit.
+Figure 690.1(a) Identification of Solar Photovoltaic System
+Components. BuildingIntegratedPhotovoltaics.Photovoltaiccells,de-
+vices, modules, or modular materials that are integrated
+690.2 Definitions. intotheoutersurfaceorstructureofabuildingandserveas
+the outer protective surface of that building.
+Alternating-Current (ac) Module (Alternating-Current
+(cid:127)
+Photovoltaic Module). A complete, environmentally pro- DC-to-DC Converter. Adevice installed in the PVsource
+tected unit consisting of solar cells, optics, inverter, and circuit or PV output circuit that can provide an output dc
+other components, exclusive of tracker, designed to gener- voltageandcurrentatahigherorlowervaluethantheinput
+ate ac power when exposed to sunlight. dc voltage and current.
+2014Edition NATIONALELECTRICALCODE 70–623
+
+--- PAGE 1 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+690.3 ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS
+Direct-Current (dc) Combiner. A device used in the PV Photovoltaic Output Circuit. Circuit conductors between
+source and PV output circuits to combine two or more dc the PV source circuit(s) and the inverter or dc utilization
+circuit inputs and provide one dc circuit output. equipment.
+Diversion Charge Controller. Equipment that regulates Photovoltaic Power Source. An array or aggregate of ar-
+raysthatgeneratesdcpoweratsystemvoltageandcurrent.
+the charging process of a battery by diverting power from
+energy storage to direct-current or alternating-current loads Photovoltaic Source Circuit. Circuits between modules
+or to an interconnected utility service. and from modules to the common connection point(s) of
+the dc system.
+Electrical Production and Distribution Network. A
+powerproduction,distribution,andutilizationsystem,such PhotovoltaicSystemVoltage.Thedirectcurrent(dc)volt-
+as a utility system and connected loads, that is external to age of any PV source or PV output circuit. For multiwire
+and not controlled by the PV power system. installations, the PV system voltage is the highest voltage
+(cid:127) between any two dc conductors.
+Interactive System. A solar PV system that operates in
+Solar Cell. The basic PV device that generates electricity
+parallelwithandmaydeliverpowertoanelectricalproduc-
+when exposed to light.
+tion and distribution network. For the purpose of this defi-
+(cid:127)
+nition, an energy storage subsystem of a solar PV system, Stand-Alone System. A solar PV system that supplies
+such as a battery, is not another electrical production power independently of an electrical production and distri-
+source. bution network.
+Inverter.Equipmentthatisusedtochangevoltagelevelor Subarray. An electrical subset of a PV array.
+waveform, or both, of electrical energy. Commonly, an in-
+690.3 OtherArticles. Wherever the requirements of other
+verter [also known as a power conditioning unit (PCU) or
+articlesofthisCodeandArticle690differ,therequirements
+power conversion system (PCS)] is a device that changes dc
+ofArticle 690 shall apply and, if the system is operated in
+input to an ac output. Inverters may also function as battery
+parallel with a primary source(s) of electricity, the require-
+chargers that use alternating current from another source and
+ments in 705.14, 705.16, 705.32, and 705.143 shall apply.
+convertitintodirectcurrentforchargingbatteries.
+Exception: Solar PV systems, equipment, or wiring in-
+Inverter Input Circuit. Conductors between the inverter
+stalled in a hazardous (classified) location shall also com-
+and the battery in stand-alone systems or the conductors
+ply with the applicable portions of Articles 500 through
+between the inverter and the PV output circuits for electri- 516.
+cal production and distribution network.
+690.4 General Requirements.
+InverterOutputCircuit.Conductorsbetweentheinverter
+and an ac panelboard for stand-alone systems or the con- (A) Photovoltaic Systems. Photovoltaic systems shall be
+ductors between the inverter and the service equipment or permittedtosupplyabuildingorotherstructureinaddition
+another electric power production source, such as a utility, to any other electrical supply system(s).
+(cid:127)
+for electrical production and distribution network.
+(B) Equipment. Inverters, motor generators, PV modules,
+Module. A complete, environmentally protected unit con- PVpanels,acPVmodules,dccombiners,dc-to-dcconvert-
+sisting of solar cells, optics, and other components, exclu- ers, and charge controllers intended for use in PV power
+sive of tracker, designed to generate dc power when ex- systems shall be listed for the PV application.
+(cid:127)
+posed to sunlight.
+(C) Qualified Personnel. The installation of equipment
+Monopole Subarray. APV subarray that has two conduc- andallassociatedwiringandinterconnectionsshallbeper-
+tors in the output circuit, one positive (+) and one nega- formed only by qualified persons.
+tive(−). Two monopole PV subarrays are used to form a
+Informational Note: SeeArticle 100 for the definition of
+bipolar PV array. qualifiedperson.
+Multimode Inverter. Equipment having the capabilities of (D) MultipleInverters.APVsystemshallbepermittedto
+both the utility-interactive inverter and the stand-alone in- have multiple inverters installed in or on a single building
+verter. or structure.Where the inverters are remotely located from
+each other, a directory in accordance with 705.10 shall be
+Panel. A collection of modules mechanically fastened to-
+installed at each dc PV system disconnecting means, at
+gether,wired,anddesignedtoprovideafield-installableunit.
+each ac disconnecting means, and at the main service dis-
+70–624 NATIONALELECTRICALCODE 2014Edition
+
+--- PAGE 2 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS 690.7
+connectingmeansshowingthelocationofallacanddcPV WhenthePVsystemalsohasbatteries,thesamewarn-
+system disconnecting means in the building. ingshallalsobeappliedbytheinstallerinavisiblelocation
+at the batteries. The warning sign(s) or label(s) shall com-
+Exception: A directory shall not be required where all
+ply with 110.21(B).
+inverters and PV dc disconnecting means are grouped at
+the main service disconnecting means.
+690.6 Alternating-Current (ac) Modules.
+690.5 Ground-Fault Protection. Grounded dc PV arrays (A) PhotovoltaicSourceCircuits.TherequirementsofAr-
+shall be provided with dc ground-fault protection meeting ticle690pertainingtoPVsourcecircuitsshallnotapplytoac
+the requirements of 690.5(A) through (C) to reduce fire modules. The PV source circuit, conductors, and inverters
+hazards. Ungrounded dc PV arrays shall comply with shallbeconsideredasinternalwiringofanacmodule.
+690.35.
+(B) InverterOutput Circuit. The output of an ac module
+Exception: Ground-mounted or pole-mounted PV arrays
+shall be considered an inverter output circuit.
+with not more than two paralleled source circuits and with
+alldcsourceanddcoutputcircuitsisolatedfrombuildings
+(C) Disconnecting Means. Asingle disconnecting means,
+shall be permitted without ground-fault protection.
+in accordance with 690.15 and 690.17, shall be permitted
+(cid:127)
+for the combined ac output of one or more ac modules.
+(A) Ground-Fault Detection and Interruption. The Additionally, each ac module in a multiple ac module sys-
+ground fault protection device or system shall: temshallbeprovidedwithaconnector,bolted,orterminal-
+(1) Be capable of detecting a ground fault in the PV array type disconnecting means.
+dc current-carrying conductors and components, in- (cid:127)
+cluding any intentionally grounded conductors, (D) Overcurrent Protection. The output circuits of ac
+(2) Interrupt the flow of fault current modules shall be permitted to have overcurrent protection
+and conductor sizing in accordance with 240.5(B)(2).
+(3) Provide an indication of the fault, and
+(4) Be listed for providing PV ground-fault protection
+II. Circuit Requirements
+Automatically opening the grounded conductor for
+measurement purposes or to interrupt the ground-fault cur-
+690.7 Maximum Voltage.
+rent path shall be permitted. If a grounded conductor is
+opened to interrupt the ground-fault current path, all con- (A) Maximum Photovoltaic System Voltage. In a dc PV
+ductors of the faulted circuit shall be automatically and source circuit or output circuit, the maximum PV system
+simultaneously opened. voltageforthatcircuitshallbecalculatedasthesumofthe
+Manual operation of the main PV dc disconnect shall rated open-circuit voltage of the series-connected PV mod-
+not activate the ground-fault protection device or result in ulescorrectedforthelowestexpectedambienttemperature.
+grounded conductors becoming ungrounded. For crystalline and multicrystalline silicon modules, the
+ratedopen-circuitvoltageshallbemultipliedbythecorrec-
+(B) Isolating Faulted Circuits. The faulted circuits shall tion factor provided in Table 690.7. This voltage shall be
+be isolated by one of the two following methods: usedtodeterminethevoltageratingofcables,disconnects,
+(1) The ungrounded conductors of the faulted circuit shall overcurrent devices, and other equipment. Where the lowest
+be automatically disconnected. expected ambient temperature is below −40°C (−40°F), or
+(2) The inverter or charge controller fed by the faulted where other than crystalline or multicrystalline silicon PV
+circuit shall automatically cease to supply power to modules are used, the system voltage adjustment shall be
+output circuits. madeinaccordancewiththemanufacturer’sinstructions.
+When open-circuit voltage temperature coefficients are
+(C) Labels and Markings. A warning label shall appear supplied in the instructions for listed PV modules, they
+on the utility-interactive inverter or be applied by the in- shall be used to calculate the maximum PV system voltage
+staller near the ground-fault indicator at a visible location, as required by 110.3(B) instead of using Table 690.7.
+stating the following:
+Informational Note: One source for statistically valid,
+WARNING lowest-expected,ambienttemperaturedesigndataforvarious
+locationsistheExtremeAnnualMeanMinimumDesignDry
+ELECTRIC SHOCK HAZARD
+BulbTemperature found in the ASHRAE Handbook — Fun-
+IFAGROUND FAULT IS INDICATED,
+damentals. These temperature data can be used to calculate
+NORMALLYGROUNDED CONDUCTORS MAY maximumvoltageusingthemanufacturer’stemperaturecoef-
+BE UNGROUNDEDAND ENERGIZED ficientsrelativetotheratingtemperatureof25°C.
+2014Edition NATIONALELECTRICALCODE 70–625
+
+--- PAGE 3 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+690.8 ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS
+Table690.7 VoltageCorrectionFactorsforCrystallineand (2) Each circuit is connected to a separate subarray.
+MulticrystallineSiliconModules
+(3) The equipment is clearly marked with a label as
+follows:
+CorrectionFactorsforAmbientTemperaturesBelow25°C
+(77°F).(Multiplytheratedopencircuitvoltagebythe
+WARNING
+appropriatecorrectionfactorshownbelow.)
+BIPOLAR PHOTOVOLTAICARRAY.
+Ambient Ambient DISCONNECTION OF NEUTRAL
+Temperature(°C) Factor Temperature(°F) OR GROUNDED CONDUCTORS
+MAYRESULT IN OVERVOLTAGE
+24to20 1.02 76to68
+ONARRAYOR INVERTER.
+19to15 1.04 67to59
+14to10 1.06 58to50 The warning sign(s) or label(s) shall comply with
+9to5 1.08 49to41 110.21(B).
+4to0 1.10 40to32
+−1to−5 1.12 31to23
+−6to−10 1.14 22to14 690.8 Circuit Sizing and Current.
+−11to−15 1.16 13to5
+−16to−20 1.18 4to−4 (A) Calculation of Maximum Circuit Current. The
+−21to−25 1.20 −5to−13
+maximumcurrentforthespecificcircuitshallbecalculated
+−26to−30 1.21 −14to−22
+−31to−35 1.23 −23to−31 in accordance with 690.8(A)(1) through (A)(5).
+−36to−40 1.25 −32to−40
+InformationalNote: Wheretherequirementsof690.8(A)(1)
+and(B)(1)arebothapplied,theresultingmultiplicationfactor
+is156percent.
+(1) PhotovoltaicSourceCircuitCurrents.Themaximum
+current shall be the sum of parallel module rated short-
+(B) Direct-Current Utilization Circuits. The voltage of circuit currents multiplied by 125 percent.
+dc utilization circuits shall conform to 210.6.
+(2) Photovoltaic Output Circuit Currents. The maxi-
+(C) Photovoltaic Source and Output Circuits. In one- mum current shall be the sum of parallel source circuit
+and two-family dwellings, PV source circuits and PV out- maximum currents as calculated in 690.8(A)(1).
+put circuits that do not include lampholders, fixtures, or
+(3) Inverter Output Circuit Current. The maximum
+receptacles shall be permitted to have a maximum PV sys-
+current shall be the inverter continuous output current
+tem voltage up to 600 volts. Other installations with a
+rating.
+maximumPVsystemvoltageover1000voltsshallcomply
+withArticle 690, Part IX.
+(4) Stand-Alone Inverter Input Circuit Current. The
+maximum current shall be the stand-alone continuous in-
+(D) Circuits over150Volts to Ground. In one- and two-
+verter input current rating when the inverter is producing
+family dwellings, live parts in PV source circuits and PV
+rated power at the lowest input voltage.
+output circuits over 150 volts to ground shall not be acces-
+sible to other than qualified persons while energized. (5) DC-to-DC Converter Output Current. The maxi-
+InformationalNote: See110.27forguardingofliveparts, mum current shall be the dc-to-dc converter continuous
+and210.6forvoltagetogroundandbetweenconductors. output current rating.
+(E) BipolarSourceandOutputCircuits.For 2-wire cir-
+(B) Conductor Ampacity. PV system currents shall be
+cuits connected to bipolar systems, the maximum system
+considered to be continuous. Circuit conductors shall be
+voltage shall be the highest voltage between the conduc-
+sizedtocarrynotlessthanthelargerof690.8(B)(1)or(2).
+tors of the 2-wire circuit if all of the following condi-
+tions apply: (1) One hundred and twenty-five percent of the maximum
+(1) One conductor of each circuit of a bipolar subarray is currents calculated in 690.8(A) before the application of
+solidly grounded. adjustment and correction factors.
+Exception: The operation of ground-fault or arc-fault de- Exception: Circuitscontaininganassembly,togetherwith
+vices (abnormal operation) shall be permitted to interrupt its overcurrent device(s), that is listed for continuous op-
+this connection to ground when the entire bipolar array erationat100percentofitsratingshallbepermittedtobe
+becomes two distinct arrays isolated from each other and used at 100 percent of its rating.
+the utilization equipment. (cid:127)
+70–626 NATIONALELECTRICALCODE 2014Edition
+
+--- PAGE 4 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS 690.10
+(2) The maximum currents calculated in 690.8(A) after the (C) Direct-Current Rating. Overcurrent devices, either
+application of adjustment and correction factors. fuses or circuit breakers, used in any dc portion of a PV
+(cid:127) power system shall be listed and shall have the appropriate
+(C) SystemswithMultipleDirect-CurrentVoltages.For voltage, current, and interrupt ratings.
+aPVpowersourcethathasmultipleoutputcircuitvoltages
+(D) PhotovoltaicSourceandOutputCircuits.ListedPV
+and employs a common-return conductor, the ampacity of
+overcurrentdevicesshallberequiredtoprovideovercurrent
+thecommon-returnconductorshallnotbelessthanthesum
+protection in PV source and output circuits. The overcur-
+of the ampere ratings of the overcurrent devices of the
+rent devices shall be accessible but shall not be required to
+individual output circuits.
+be readily accessible.
+(D) SizingofModuleInterconnectionConductors.Where
+(E) Series Overcurrent Protection. In grounded PVsource
+a single overcurrent device is used to protect a set of two or
+circuits, a single overcurrent protection device, where re-
+moreparallel-connectedmodulecircuits,theampacityofeach
+quired, shall be permitted to protect the PV modules and the
+of the module interconnection conductors shall not be less
+interconnectingconductors.InungroundedPVsourcecircuits
+thanthesumoftheratingofthesingleovercurrentdeviceplus
+complying with 690.35, an overcurrent protection device,
+125percentoftheshort-circuitcurrentfromtheotherparallel-
+where required, shall be installed in each ungrounded circuit
+connectedmodules. conductor and shall be permitted to protect the PV modules
+andtheinterconnectingcables.
+690.9 Overcurrent Protection.
+(F) Power Transformers. Overcurrent protection for a
+(A) Circuits and Equipment. PV source circuit, PV out- transformerwithasource(s)oneachsideshallbeprovided
+put circuit, inverter output circuit, and storage battery cir- in accordance with 450.3 by considering first one side of
+cuit conductors and equipment shall be protected in accor- the transformer, then the other side of the transformer, as
+dance with the requirements of Article 240. Protection the primary.
+devices for PV source circuits and PV output circuits shall
+Exception: A power transformer with a current rating on
+beinaccordancewiththerequirementsof690.9(B)through
+the side connected toward the utility-interactive inverter
+(E). Circuits, either ac or dc, connected to current-limited
+output,notlessthantheratedcontinuousoutputcurrentof
+supplies (e.g., PV modules, ac output of utility-interactive the inverter, shall be permitted without overcurrent protec-
+inverters), and also connected to sources having signifi- tion from the inverter.
+cantly higher current availability (e.g., parallel strings of
+modules, utility power), shall be protected at the source 690.10 Stand-Alone Systems. The premises wiring sys-
+from overcurrent. temshallbeadequatetomeettherequirementsofthisCode
+forasimilarinstallationconnectedtoaservice.Thewiring
+Exception: Anovercurrentdeviceshallnotberequiredfor
+on the supply side of the building or structure disconnect-
+PVmodulesorPVsourcecircuitconductorssizedinaccor-
+ingmeansshallcomplywiththerequirementsofthisCode,
+dance with 690.8(B) where one of the following applies:
+except as modified by 690.10(A) through (E).
+(a) There are no external sources such as parallel-
+(A) Inverter Output. The ac output from a stand-alone
+connected source circuits, batteries, or backfeed from invert-
+inverter(s) shall be permitted to supply ac power to the
+ers.
+building or structure disconnecting means at current levels
+(b) The short-circuit currents from all sources do not
+less than the calculated load connected to that disconnect.
+exceed the ampacity of the conductors and the maximum The inverter output rating or the rating of an alternate en-
+overcurrent protective device size rating specified on the ergysourceshallbeequaltoorgreaterthantheloadposed
+PV module nameplate. by the largest single utilization equipment connected to the
+(cid:127) system. Calculated general lighting loads shall not be con-
+(B) Overcurrent Device Ratings. Overcurrent device rat- sidered as a single load.
+ings shall be not less than 125 percent of the maximum
+currents calculated in 690.8(A). (B) Sizing and Protection. The circuit conductors be-
+tween the inverter output and the building or structure dis-
+Exception: Circuitscontaininganassembly,togetherwith
+connecting means shall be sized based on the output rating
+its overcurrent device(s), that is listed for continuous op- of the inverter. These conductors shall be protected from
+erationat100percentofitsratingshallbepermittedtobe overcurrents in accordance with Article 240. The overcur-
+used at 100 percent of its rating. rentprotectionshallbelocatedattheoutputoftheinverter.
+2014Edition NATIONALELECTRICALCODE 70–627
+
+--- PAGE 5 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+690.11 ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS
+(C) Single 120-Volt Supply. The inverter output of a (2) Controlledconductorsshallbelimitedtonotmorethan
+stand-alone solar PV system shall be permitted to supply 30 volts and 240 volt-amperes within 10 seconds of
+120 volts to single-phase, 3-wire, 120/240-volt service rapid shutdown initiation.
+equipment or distribution panels where there are no (3) Voltage and power shall be measured between any two
+240-volt outlets and where there are no multiwire branch conductors and between any conductor and ground.
+circuits. In all installations, the rating of the overcurrent
+(4) The rapid shutdown initiation methods shall be labeled
+device connected to the output of the inverter shall be less
+in accordance with 690.56(C).
+than the rating of the neutral bus in the service equipment.
+(5) Equipment that performs the rapid shutdown shall be
+This equipment shall be marked with the following words
+listed and identified.
+or equivalent:
+WARNING
+III. Disconnecting Means
+SINGLE 120-VOLT SUPPLY. DO NOT CONNECT
+MULTIWIRE BRANCH CIRCUITS! 690.13 Building orOtherStructure Supplied by a Pho-
+The warning sign(s) or label(s) shall comply with tovoltaic System. Means shall be provided to disconnect
+110.21(B). allungroundeddcconductorsofaPVsystemfromallother
+conductors in a building or other structure.
+(D) Energy Storage or Backup Power System Require-
+(cid:127)
+ments. Energy storage or backup power supplies are not
+(A) Location. The PV disconnecting means shall be in-
+required.
+stalled at a readily accessible location either on the outside
+of a building or structure or inside nearest the point of
+(E) Back-Fed Circuit Breakers. Plug-in type back-fed
+entrance of the system conductors.
+circuit breakers connected to a stand-alone or multimode
+inverter output in stand-alone systems shall be secured in Exception: Installations that comply with 690.31(G) shall
+accordancewith408.36(D).Circuitbreakersmarked“line” be permitted to have the disconnecting means located re-
+and “load” shall not be back-fed. mote from the point of entry of the system conductors.
+690.11 Arc-Fault Circuit Protection (Direct Current). The PV system disconnecting means shall not be in-
+Photovoltaicsystemswithdcsourcecircuits,dcoutputcir- stalled in bathrooms.
+cuits, or both, operating at a PV system maximum system
+(B) Marking. Each PV system disconnecting means shall
+voltageof80voltsorgreater,shallbeprotectedbyalisted
+be permanently marked to identify it as a PV system dis-
+(dc) arc-fault circuit interrupter, PV type, or other system
+connect.
+componentslistedtoprovideequivalentprotection.ThePV
+arc-fault protection means shall comply with the following
+(C) Suitable for Use. Each PV system disconnecting
+requirements:
+meansshallnotberequiredtobesuitableasserviceequip-
+(1) The system shall detect and interrupt arcing faults re-
+ment.
+sulting from a failure in the intended continuity of a
+conductor,connection,module,orothersystemcompo- (D) Maximum Number of Disconnects. The PV system
+nent in the dc PV source and dc PV output circuits. disconnecting means shall consist of not more than six
+(cid:127)
+(2) The system shall require that the disabled or discon- switches or six circuit breakers mounted in a single enclo-
+nected equipment be manually restarted. sure or in a group of separate enclosures.
+(3) The system shall have an annunciator that provides a
+(E) Grouping. The PV system disconnecting means shall
+visual indication that the circuit interrupter has oper-
+be grouped with other disconnecting means for the system
+ated. This indication shall not reset automatically.
+in accordance with 690.13(D). A PV disconnecting means
+690.12 Rapid Shutdown of PV Systems on Buildings. shall not be required at the PV module or array location.
+PVsystemcircuitsinstalledonorinbuildingsshallinclude (cid:127)
+a rapid shutdown function that controls specific conductors 690.15 Disconnection of Photovoltaic Equipment. Means
+in accordance with 690.12(1) through (5) as follows. shall be provided to disconnect equipment, such as invert-
+(1) Requirements for controlled conductors shall apply ers, batteries, and charge controllers, from all ungrounded
+onlytoPVsystemconductorsofmorethan1.5m(5ft) conductors of all sources. If the equipment is energized
+in length inside a building, or more than 3 m (10 ft) from more than one source, the disconnecting means shall
+from a PV array. be grouped and identified.
+70–628 NATIONALELECTRICALCODE 2014Edition
+
+--- PAGE 6 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS 690.17
+A single disconnecting means in accordance with 690.17 690.17 Disconnect Type.
+shall be permitted for the combined ac output of one or
+more inverters or ac modules in an interactive system. (A) ManuallyOperable.Thedisconnectingmeansforun-
+grounded PV conductors shall consist of a manually oper-
+(A) Utility-Interactive Inverters Mounted in Not able switch(es) or circuit breaker(s). The disconnecting
+ReadilyAccessible Locations. Utility-interactive inverters means shall be permitted to be power operable with provi-
+shall be permitted to be mounted on roofs or other exterior sions for manual operation in the event of a power-supply
+areas that are not readily accessible and shall comply with failure. The disconnecting means shall be one of the fol-
+690.15(A)(1) through (4): lowing listed devices:
+(1) Adc PVdisconnecting means shall be mounted within (1) APV industrial control switch marked for use in PV
+sight of or in each inverter. systems
+(2) An ac disconnecting means shall be mounted within (2) A PV molded-case circuit breaker marked for use in
+sight of or in each inverter. PV systems
+(3) The ac output conductors from the inverter and an ad- (3) APV molded-case switch marked for use in PV sys-
+ditional ac disconnecting means for the inverter shall tems
+comply with 690.13(A). (4) APV enclosed switch marked for use in PV systems
+(4) Aplaque shall be installed in accordance with 705.10. (5) APVopen-typeswitchmarkedforuseinPVsystems
+(6) A dc-rated molded-case circuit breaker suitable for
+(B) Equipment. Equipment such as PVsource circuit iso-
+backfeed operation
+lating switches, overcurrent devices, dc-to-dc converters,
+and blocking diodes shall be permitted on the PV side of (7) A dc-rated molded-case switch suitable for backfeed
+the PV disconnecting means. operation
+(8) Adc-rated enclosed switch
+(C) Direct-Current Combiner Disconnects. The dc out-
+(9) Adc-rated open-type switch
+putofdccombinersmountedonroofsofdwellingsorother
+(10) Adc-rated rated low-voltage power circuit breaker
+buildings shall have a load break disconnecting means lo-
+cated in the combiner or within 1.8 m (6 ft) of the com-
+Informational Note: Devices marked with “line” and
+biner. The disconnecting means shall be permitted to be
+“load”arenotsuitableforbackfeedorreversecurrent.
+remotely controlled but shall be manually operable locally
+when control power is not available. (B) Simultaneous Opening of Poles. The PV disconnect-
+ing means shall simultaneously disconnect all ungrounded
+690.16 Fuses. supply conductors.
+(A) Disconnecting Means. Disconnecting means shall be (C) ExternallyOperableandIndicating.ThePVdiscon-
+provided to disconnect a fuse from all sources of supply if necting means shall be externally operable without expos-
+the fuse is energized from both directions. Such a fuse in a ingtheoperatortocontactwithlivepartsandshallindicate
+PV source circuit shall be capable of being disconnected whether in the open or closed position.
+independently of fuses in other PV source circuits.
+(D) Disconnection of Grounded Conductor. A switch,
+(B) Fuse Servicing. Disconnecting means shall be in- circuit breaker, or other device shall not be installed in a
+stalled on PV output circuits where overcurrent devices grounded conductor if operation of that switch, circuit
+(fuses) must be serviced that cannot be isolated from ener- breaker, or other device leaves the marked, grounded con-
+gized circuits. The disconnecting means shall be within ductor in an ungrounded and energized state.
+sight of, and accessible to, the location of the fuse or inte-
+ExceptionNo.1: Aswitchorcircuitbreakerthatispartof
+gralwithfuseholderandshallcomplywith690.17.Where
+a ground-fault detection system required by 690.5, or that
+thedisconnectingmeansarelocatedmorethan1.8m(6ft)
+is part of an arc-fault detection/interruption system re-
+from the overcurrent device, a directory showing the loca-
+quired by 690.11, shall be permitted to open the grounded
+tion of each disconnect shall be installed at the overcurrent
+conductor when that switch or circuit breaker is automati-
+device location.
+callyopenedasanormalfunctionofthedeviceinrespond-
+Non-load-break-rated disconnecting means shall be
+ing to ground faults.
+marked “Do not open under load.”
+2014Edition NATIONALELECTRICALCODE 70–629
+
+--- PAGE 7 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+690.18 ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS
+Exception No. 2: A disconnecting switch shall be permit- readily accessible locations, circuit conductors shall be
+ted in a grounded conductor if all of the following condi- guarded or installed in a raceway.
+tions are met:
+Informational Note: Photovoltaic modules operate at el-
+evated temperatures when exposed to high ambient tem-
+(1) The switch is used only for PV array maintenance.
+peratures and to bright sunlight. These temperatures rou-
+(2) The switch is accessible only by qualified persons.
+tinely exceed 70°C (158°F) in many locations. Module
+(3) The switch is rated for the maximum dc voltage and interconnection conductors are available with insulation
+current that could be present during any operation, rated for wet locations and a temperature rating of 90°C
+(194°F)orgreater.
+including ground-fault conditions.
+(B) Identification and Grouping. PV source circuits and
+(E) Interrupting Rating. The building or structure dis-
+PV output circuits shall not be contained in the same race-
+connecting means shall have an interrupting rating suffi-
+way, cable tray, cable, outlet box, junction box, or similar
+cient for the maximum circuit voltage and current that is
+fitting as conductors, feeders, branch circuits of other
+available at the line terminals of the equipment. Where all
+non-PVsystems,orinverteroutputcircuits,unlessthecon-
+terminals of the disconnecting means may be energized in
+ductorsofthedifferentsystemsareseparatedbyapartition.
+the open position, a warning sign shall be mounted on or
+PV system conductors shall be identified and grouped as
+adjacent to the disconnecting means. The sign shall be
+required by 690.31(B)(1) through (4). The means of iden-
+clearlylegibleandhavethefollowingwordsorequivalent:
+tificationshallbepermittedbyseparatecolorcoding,mark-
+WARNING ing tape, tagging, or other approved means.
+ELECTRIC SHOCK HAZARD
+(1) PV Source Circuits. PV source circuits shall be iden-
+DO NOTTOUCH TERMINALS.
+tified at all points of termination, connection, and splices.
+TERMINALS ON BOTH THE LINE
+ANDLOADSIDESMAYBEENERGIZEDINTHE (2) PV Output and Inverter Circuits. The conductors of
+OPEN POSITION. PV output circuits and inverter input and output circuits
+The warning sign(s) or label(s) shall comply with shall be identified at all points of termination, connection,
+110.21(B). and splices.
+Exception: A connector shall be permitted to be used as
+(3) Conductors of Multiple Systems. Where the conduc-
+an ac or a dc disconnecting means, provided that it com-
+torsofmorethanonePVsystemoccupythesamejunction
+plies with the requirements of 690.33 and is listed and
+box,raceway,orequipment,theconductorsofeachsystem
+identified for use with specific equipment.
+shallbeidentifiedatalltermination,connection,andsplice
+points.
+690.18 Installation and Service of an Array. Open cir-
+cuiting, short circuiting, or opaque covering shall be used Exception: Where the identification of the conductors is
+to disable an array or portions of an array for installation evident by spacing or arrangement, further identification
+and service. shall not be required.
+Informational Note: Photovoltaic modules are energized (4) Grouping.WheretheconductorsofmorethanonePV
+whileexposedtolight.Installation,replacement,orservic- system occupy the same junction box or raceway with a
+ing of array components while a module(s) is energized
+removable cover(s), the ac and dc conductors of each sys-
+mayexposepersonstoelectricshock.
+tem shall be grouped separately by cable ties or similar
+means at least once and shall then be grouped at intervals
+IV. Wiring Methods not to exceed 1.8 m (6 ft).
+690.31 Methods Permitted. Exception: Therequirementforgroupingshallnotapplyif
+the circuit enters from a cable or raceway unique to the
+(A) Wiring Systems. All raceway and cable wiring meth- circuit that makes the grouping obvious.
+odsincludedinthisCode,otherwiringsystemsandfittings
+specifically listed for use on PV arrays, and wiring as part (C) Single-Conductor Cable.
+ofalistedsystemshallbepermitted.Wherewiringdevices (1) General. Single-conductor cable Type USE-2, and
+with integral enclosures are used, sufficient length of cable single-conductor cable listed and labeled as photovol-
+shall be provided to facilitate replacement. taic (PV) wire shall be permitted in exposed outdoor
+WherePVsourceandoutputcircuitsoperatingatmaxi- locationsinPVsourcecircuitsforPVmoduleintercon-
+mum system voltages greater than 30 volts are installed in nections within the PV array.
+70–630 NATIONALELECTRICALCODE 2014Edition
+
+--- PAGE 8 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS 690.31
+Exception: Raceways shall be used when required by (G) Direct-Current Photovoltaic Source and Direct-
+690.31(A). CurrentOutputCircuitsonorInsideaBuilding.Where
+dc PV source or dc PV output circuits from building-
+(2) Cable Tray. PV source circuits and PV output circuits
+integrated systems or other PV systems are run inside a
+using single-conductor cable listed and labeled as pho-
+buildingorstructure,theyshallbecontainedinmetalrace-
+tovoltaic(PV)wireofallsizes,withorwithoutacable
+ways, Type MC metal-clad cable that complies with
+tray marking/rating, shall be permitted in cable trays
+250.118(10),ormetalenclosuresfromthepointofpenetra-
+installed in outdoor locations, provided that the cables
+tion of the surface of the building or structure to the first
+are supported at intervals not to exceed 300 mm
+readily accessible disconnecting means. The disconnecting
+(12 in.) and secured at intervals not to exceed 1.4 m
+meansshallcomplywith690.13(B)and(C)and690.15(A)
+(4.5 ft).
+and (B). The wiring methods shall comply with the addi-
+InformationalNote: PhotovoltaicwireandPVcablehave tionalinstallationrequirementsin690.31(G)(1)through(4).
+anonstandardouterdiameter.SeeTable1ofChapter9for
+conduitfillcalculations. (1) Embedded in Building Surfaces. Where circuits are
+embedded in built-up, laminate, or membrane roofing ma-
+(D) Multiconductor Cable. Multiconductor cable Type terials in roof areas not covered by PV modules and asso-
+TC-ER or Type USE-2 shall be permitted in outdoor loca- ciated equipment, the location of circuits shall be clearly
+tionsinPVinverteroutputcircuitswhereusedwithutility- marked using a marking protocol that is approved as being
+interactive inverters mounted in locations that are not suitable for continuous exposure to sunlight and weather.
+readily accessible. The cable shall be secured at intervals (cid:127)
+(2) Flexible Wiring Methods. Where flexible metal con-
+not exceeding 1.8 m (6 ft). Equipment grounding for the
+duit (FMC) smaller than metric designator 21 (trade size
+utilization equipment shall be provided by an equipment
+grounding conductor within the cable.
+3⁄
+4
+) orType MC cable smaller than 25 mm (1 in.) in diam-
+eter containing PV power circuit conductors is installed
+(E) FlexibleCordsandCables.Flexiblecordsandcables, acrossceilingsorfloorjoists,theracewayorcableshallbe
+where used to connect the moving parts of tracking PV protectedbysubstantialguardstripsthatareatleastashigh
+modules, shall comply with Article 400 and shall be of a as the raceway or cable. Where run exposed, other than
+type identified as a hard service cord or portable power within 1.8 m (6 ft) of their connection to equipment, these
+cable; they shall be suitable for extra-hard usage, listed for wiringmethodsshallcloselyfollowthebuildingsurfaceor
+outdooruse,waterresistant,andsunlightresistant.Allowable be protected from physical damage by an approved means.
+ampacities shall be in accordance with 400.5. For ambient
+(3) Marking and Labeling Required. The following wir-
+temperatures exceeding 30°C (86°F), the ampacities shall be
+ing methods and enclosures that contain PV power source
+deratedbytheappropriatefactorsgiveninTable690.31(E).
+conductors shall be marked with the wording WARNING:
+PHOTOVOLTAIC POWER SOURCE by means of perma-
+(F) Small-Conductor Cables. Single-conductor cables
+nentlyaffixedlabelsorotherapprovedpermanentmarking:
+listed for outdoor use that are sunlight resistant and moisture
+(1) Exposedraceways,cabletrays,andotherwiringmethods
+resistantinsizes16AWGand18AWGshallbepermittedfor
+moduleinterconnectionswheresuchcablesmeettheampacity (2) Covers or enclosures of pull boxes and junction boxes
+requirements of 400.5. Section 310.15 shall be used to deter- (3) Conduit bodies in which any of the available conduit
+minethecableampacityadjustmentandcorrectionfactors. openings are unused
+Table690.31(E) CorrectionFactors
+Ambient TemperatureRatingofConductor Ambient
+Temperature Temperature
+(°C) 60°C(140°F) 75°C(167°F) 90°C(194°F) 105°C(221°F) (°F)
+30 1.00 1.00 1.00 1.00 86
+31–35 0.91 0.94 0.96 0.97 87–95
+36–40 0.82 0.88 0.91 0.93 96–104
+41–45 0.71 0.82 0.87 0.89 105–113
+46–50 0.58 0.75 0.82 0.86 114–122
+51–55 0.41 0.67 0.76 0.82 123–131
+56–60 — 0.58 0.71 0.77 132–140
+61–70 — 0.33 0.58 0.68 141–158
+71–80 — — 0.41 0.58 159–176
+2014Edition NATIONALELECTRICALCODE 70–631
+
+--- PAGE 9 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+690.32 ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS
+(4) Marking and Labeling Methods and Locations. The (A) Configuration. The connectors shall be polarized and
+labels or markings shall be visible after installation. The shall have a configuration that is noninterchangeable with
+labels shall be reflective, and all letters shall be capitalized receptacles in other electrical systems on the premises.
+and shall be a minimum height of 9.5 mm (3⁄
+8
+in.) in white
+(B) Guarding. The connectors shall be constructed and
+on a red background. PV power circuit labels shall appear
+installedsoastoguardagainstinadvertentcontactwithlive
+on every section of the wiring system that is separated by
+parts by persons.
+enclosures,walls,partitions,ceilings,orfloors.Spacingbe-
+tween labels or markings, or between a label and a mark-
+(C) Type. The connectors shall be of the latching or lock-
+ing, shall not be more than 3 m (10 ft). Labels required by
+ingtype.Connectorsthatarereadilyaccessibleandthatare
+this section shall be suitable for the environment where
+used in circuits operating at over 30 volts, nominal, maxi-
+they are installed.
+mum system voltage for dc circuits, or 30 volts for ac
+circuits, shall require a tool for opening.
+(H) Flexible, Fine-Stranded Cables. Flexible, fine-
+stranded cables shall be terminated only with terminals, (D) Grounding Member. The grounding member shall be
+lugs, devices, or connectors in accordance with 110.14. the first to make and the last to break contact with the
+mating connector.
+(I) Bipolar Photovoltaic Systems. Where the sum, with-
+out consideration of polarity, of the PV system voltages of (E) InterruptionofCircuit.Connectorsshallbeeither(1)
+the two monopole subarrays exceeds the rating of the con- or (2):
+ductorsandconnectedequipment,monopolesubarraysina (1) Be rated for interrupting current without hazard to the
+bipolar PV system shall be physically separated, and the operator.
+electrical output circuits from each monopole subarray
+(2) Be a type that requires the use of a tool to open and
+shall be installed in separate raceways until connected to
+marked “Do Not Disconnect Under Load” or “Not for
+the inverter.The disconnecting means and overcurrent pro-
+Current Interrupting.”
+tective devices for each monopole subarray output shall be
+in separate enclosures. All conductors from each separate 690.34 Access to Boxes. Junction, pull, and outlet boxes
+monopole subarray shall be routed in the same raceway. located behind modules or panels shall be so installed that
+Bipolar PV systems shall be clearly marked with a perma- the wiring contained in them can be rendered accessible
+nent, legible warning notice indicating that the disconnec- directly or by displacement of a module(s) or panel(s) se-
+tionofthegroundedconductor(s)mayresultinovervoltage cured by removable fasteners and connected by a flexible
+on the equipment. wiring system.
+Exception: Listed switchgear rated for the maximum volt-
+690.35 Ungrounded Photovoltaic Power Systems. Pho-
+age between circuits and containing a physical barrier
+tovoltaic power systems shall be permitted to operate with
+separating the disconnecting means for each monopole
+ungrounded PV source and output circuits where the sys-
+subarray shall be permitted to be used instead of discon-
+tem complies with 690.35(A) through (G).
+necting means in separate enclosures.
+(A) Disconnects.AllPVsourceandoutputcircuitconduc-
+(J) ModuleConnectionArrangement.Theconnectionto tors shall have disconnects complying with 690, Part III.
+a module or panel shall be arranged so that removal of a
+moduleorpanelfromaPVsourcecircuitdoesnotinterrupt (B) Overcurrent Protection. All PV source and output
+a grounded conductor connection to other PV source cir- circuit conductors shall have overcurrent protection com-
+cuits. plying with 690.9.
+(C) Ground-Fault Protection. All PV source and output
+690.32 Component Interconnections. Fittings and con-
+circuits shall be provided with a ground-fault protection
+nectors that are intended to be concealed at the time of
+device or system that complies with 690.35(1) through (4):
+on-siteassembly,wherelistedforsuchuse,shallbepermit-
+(1) Detects ground fault(s) in the PV array dc current-
+ted for on-site interconnection of modules or other array
+carrying conductors and components
+components. Such fittings and connectors shall be equal to
+thewiringmethodemployedininsulation,temperaturerise, (2) Indicates that a ground fault has occurred
+and fault-current withstand, and shall be capable of resist- (3) Automatically disconnects all conductors or causes the
+ing the effects of the environment in which they are used. inverter or charge controller connected to the faulted
+circuit to automatically cease supplying power to out-
+690.33 Connectors. The connectors permitted by Article put circuits
+690 shall comply with 690.33(A) through (E). (4) Is listed for providing PV ground-fault protection
+70–632 NATIONALELECTRICALCODE 2014Edition
+
+--- PAGE 10 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS 690.45
+(D) Conductors. The PV source conductors shall consist conductor-to-ground bond made by the ground-fault pro-
+of the following: tection device. This bond, where internal to the ground-
+(1) Metallic or nonmetallic jacketed multiconductor cables fault equipment, shall not be duplicated with an external
+connection.
+(2) Conductors installed in raceways
+(3) ConductorslistedandidentifiedasPVwireinstalledas
+690.43 EquipmentGrounding.Equipmentgroundingcon-
+exposed, single conductors, or
+ductorsanddevicesshallcomplywith690.43(A)through(F).
+(4) Conductors that are direct-buried and identified for
+direct-burial use (A) Equipment Grounding Required. Exposed non–
+current-carrying metal parts of PV module frames, elec-
+(E) BatterySystems.ThePVpowersystemdirect-current
+trical equipment, and conductor enclosures shall be
+circuits shall be permitted to be used with ungrounded bat-
+grounded in accordance with 250.134 or 250.136(A), re-
+tery systems complying with 690.71(G).
+gardless of voltage.
+(F) Marking. The PV power source shall be labeled with
+(B) Equipment Grounding Conductor Required. An
+the following warning at each junction box, combiner box,
+equipment grounding conductor between a PV array and
+disconnect, and device where energized, ungrounded cir-
+other equipment shall be required in accordance with
+cuits may be exposed during service:
+250.110.
+WARNING
+(C) StructureasEquipmentGroundingConductor.De-
+ELECTRIC SHOCK HAZARD. THE DC CON-
+viceslistedandidentifiedforgroundingthemetallicframes
+DUCTORS OF THIS PHOTOVOLTAIC SYSTEM
+of PV modules or other equipment shall be permitted to
+ARE UNGROUNDED AND MAY BE ENER-
+bond the exposed metal surfaces or other equipment to
+GIZED.
+mounting structures. Metallic mounting structures, other
+The warning sign(s) or label(s) shall comply with
+than building steel, used for grounding purposes shall be
+110.21(B).
+identifiedasequipment-groundingconductorsorshallhave
+(G) Equipment. The inverters or charge controllers used identified bonding jumpers or devices connected between
+in systems with ungrounded PV source and output circuits the separate metallic sections and shall be bonded to the
+shall be listed for the purpose. grounding system.
+(D) Photovoltaic Mounting Systems and Devices. De-
+V. Grounding
+vices and systems used for mounting PV modules that are
+also used to provide grounding of the module frames shall
+690.41 System Grounding. Photovoltaic systems shall
+be identified for the purpose of grounding PV modules.
+comply with one of the following:
+(1) Ungrounded systems shall comply with 690.35.
+(E) Adjacent Modules. Devices identified and listed for
+(2) Grounded two-wire systems shall have one conductor bonding the metallic frames of PV modules shall be per-
+grounded or be impedance grounded, and the system mitted to bond the exposed metallic frames of PVmodules
+shall comply with 690.5. to the metallic frames of adjacent PV modules.
+(3) Grounded bipolar systems shall have the reference
+(F) All Conductors Together. Equipment grounding con-
+(center tap) conductor grounded or be impedance
+ductors for the PV array and structure (where installed)
+grounded, and the system shall comply with 690.5.
+shall be contained within the same raceway or cable or
+(4) Other methods that accomplish equivalent system pro-
+otherwise run with the PV array circuit conductors when
+tection in accordance with 250.4(A) with equipment
+those circuit conductors leave the vicinity of the PV array.
+listedandidentifiedfortheuseshallbepermittedtobe
+used.
+690.45 Size of Equipment Grounding Conductors.
+(cid:127)
+Equipment grounding conductors for PV source and PV
+690.42 Point of System Grounding Connection. The dc
+output circuits shall be sized in accordance with 250.122.
+circuit grounding connection shall be made at any single
+Where no overcurrent protective device is used in the cir-
+point on the PV output circuit.
+cuit, an assumed overcurrent device rated at the PV maxi-
+Informational Note: Locating the grounding connection mum circuit current shall be used when applying Table
+pointascloseaspracticabletothePVsourcebetterprotects
+250.122. Increases in equipment grounding conductor size
+thesystemfromvoltagesurgesduetolightning.
+to address voltage drop considerations shall not be re-
+Exception: Systems with a 690.5 ground-fault protection quired. An equipment grounding conductor shall not be
+device shall be permitted to have the required grounded smaller than 14AWG.
+2014Edition NATIONALELECTRICALCODE 70–633
+
+--- PAGE 11 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+690.46 ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS
+(cid:127)
+690.46 Array Equipment Grounding Conductors. For Informational Note No. 2: For utility-interactive systems,
+PVmodules,equipmentgroundingconductorssmallerthan the existing premises grounding system serves as the ac
+groundingsystem.
+6AWG shall comply with 250.120(C).
+Whereinstalledinraceways,equipmentgroundingcon- (1) Separate Direct-Current Grounding Electrode Sys-
+ductors and grounding electrode conductors not larger than tem Bonded to the Alternating-Current Grounding
+6AWG shall be permitted to be solid. Electrode System. A separate dc grounding electrode or
+system shall be installed, and it shall be bonded directly to
+690.47 Grounding Electrode System. theacgroundingelectrodesystem.Thesizeofanybonding
+jumper(s) between the ac and dc systems shall be based on
+(A) Alternating-Current Systems. If installing an ac sys-
+the larger size of the existing ac grounding electrode con-
+tem, a grounding electrode system shall be provided in
+ductor or the size of the dc grounding electrode conductor
+accordance with 250.50 through 250.60. The grounding
+specified by 250.166. The dc grounding electrode system
+electrode conductor shall be installed in accordance with
+conductor(s) or the bonding jumpers to the ac grounding
+250.64.
+electrode system shall not be used as a substitute for any
+required ac equipment grounding conductors.
+(B) Direct-Current Systems. If installing a dc system, a
+groundingelectrodesystemshallbeprovidedinaccordance (2) Common Direct-Current and Alternating-Current
+with 250.166 for grounded systems or 250.169 for un- GroundingElectrode.Adcgroundingelectrodeconductor
+groundedsystems.Thegroundingelectrodeconductorshall of the size specified by 250.166 shall be run from the
+be installed in accordance with 250.64. marked dc grounding electrode connection point to the ac
+A common dc grounding-electrode conductor shall be grounding electrode. Where an ac grounding electrode is
+permitted to serve multiple inverters. The size of the com- not accessible, the dc grounding electrode conductor shall
+mongroundingelectrodeandthetapconductorsshallbein be connected to the ac grounding electrode conductor in
+accordance with 250.166.The tap conductors shall be con- accordance with 250.64(C)(1) or 250.64(C)(2) or by using
+nected to the common grounding-electrode conductor by a connector listed for grounding and bonding. This dc
+exothermic welding or with connectors listed as grounding grounding electrode conductor shall not be used as a sub-
+and bonding equipment in such a manner that the common stituteforanyrequiredacequipmentgroundingconductors.
+grounding electrode conductor remains without a splice or
+joint. (3) Combined Direct-Current Grounding Electrode
+An ac equipment grounding system shall be permitted Conductor and Alternating-Current Equipment
+to be used for equipment grounding of inverters and other Grounding Conductor. An unspliced, or irreversibly
+equipment and for the ground-fault detection reference for spliced, combined grounding conductor shall be run from
+ungrounded PV systems. the marked dc grounding electrode conductor connection
+point along with the ac circuit conductors to the grounding
+(C) Systems with Alternating-Current and Direct- busbar in the associated ac equipment. This combined
+Current Grounding Requirements. Photovoltaic systems grounding conductor shall be the larger of the sizes speci-
+havingdccircuitsandaccircuitswithnodirectconnection fied by 250.122 or 250.166 and shall be installed in accor-
+between the dc grounded conductor and ac grounded con- dance with 250.64(E). For ungrounded systems, this con-
+ductorshallhaveadcgroundingsystem.Thedcgrounding ductor shall be sized in accordance with 250.122 and shall
+system shall be bonded to the ac grounding system by one not be required to be larger than the largest ungrounded
+of the methods in (1), (2), or (3). phase conductor.
+This section shall not apply to ac PV modules.
+When using the methods of (C)(2) or (C)(3), the exist- (D) AdditionalAuxiliary Electrodes forArray Ground-
+ingacgroundingelectrodesystemshallmeettheapplicable ing. Agrounding electrode shall be installed in accordance
+requirements ofArticle 250, Part III. with 250.52 and 250.54 at the location of all ground- and
+pole-mounted PV arrays and as close as practicable to the
+Informational Note No. 1: ANSI/UL 1741, Standard for
+locationofroof-mountedPVarrays.Theelectrodesshallbe
+Inverters,Converters,andControllersforUseinIndepen-
+connecteddirectlytothearrayframe(s)orstructure.Thedc
+dent Power Systems, requires that any inverter or charge
+controllerthathasabondingjumperbetweenthegrounded grounding electrode conductor shall be sized according to
+dc conductor and the grounding system connection point 250.166.Additionalelectrodesarenotpermittedtobeused
+havethatpointmarkedasagroundingelectrodeconductor asasubstituteforequipmentbondingorequipmentground-
+(GEC) connection point. In PVinverters, the terminals for
+ing conductor requirements. The structure of a ground- or
+the dc equipment grounding conductors and the terminals
+pole-mounted PVarray shall be permitted to be considered
+for ac equipment grounding conductors are generally con-
+nectedto,orelectricallyincommonwith,agroundingbus- a grounding electrode if it meets the requirements of
+barthathasamarkeddcGECterminal. 250.52. Roof-mounted PV arrays shall be permitted to use
+70–634 NATIONALELECTRICALCODE 2014Edition
+
+--- PAGE 12 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS 690.56
+the metal frame of a building or structure if the require- 690.53 Direct-Current Photovoltaic Power Source. A
+ments of 250.52(A)(2) are met. permanent label for the direct-current PV power source in-
+dicating the information specified in (1) through (5) shall
+Exception No. 1: An array grounding electrode(s) shall
+beprovidedbytheinstalleratthePVdisconnectingmeans:
+not be required where the load served by the array is inte-
+(1) Rated maximum power-point current.
+gral with the array.
+(2) Rated maximum power-point voltage.
+Exception No. 2: An additional array grounding elec-
+trode(s) shall not be required if located within 1.8 m (6 ft) (3) Maximum system voltage.
+of the premises wiring electrode.
+Informational Note to (3): See 690.7(A) for maximum PV
+systemvoltage.
+690.48 Continuity of Equipment Grounding Systems.
+(4) Maximum circuit current. Where the PV power source
+Where the removal of equipment disconnects the bonding
+has multiple outputs, 690.53(1) and (4) shall be speci-
+connection between the grounding electrode conductor and
+fied for each output.
+exposed conducting surfaces in the PV source or output
+circuit equipment, a bonding jumper shall be installed Informational Note to (4): See 690.8(A) for calculation of
+maximumcircuitcurrent.
+while the equipment is removed.
+(5) Maximum rated output current of the charge controller
+690.49 Continuity of Photovoltaic Source and Output (if installed).
+Circuit Grounded Conductors. Where the removal of the
+InformationalNote: Reflectingsystemsusedforirradiance
+utility-interactive inverter or other equipment disconnects
+enhancement may result in increased levels of output cur-
+the bonding connection between the grounding electrode
+rentandpower.
+conductor and the PV source and/or PV output circuit
+grounded conductor, a bonding jumper shall be installed to
+690.54 Interactive System Point of Interconnection. All
+maintain the system grounding while the inverter or other
+interactive system(s) points of interconnection with other
+equipment is removed.
+sources shall be marked at an accessible location at the
+disconnecting means as a power source and with the rated
+690.50 Equipment Bonding Jumpers. Equipment bond-
+ac output current and the nominal operating ac voltage.
+ing jumpers, if used, shall comply with 250.120(C).
+690.55 Photovoltaic Power Systems Employing Energy
+VI. Marking
+Storage. Photovoltaic power systems employing energy
+690.51 Modules.Modulesshallbemarkedwithidentifica- storage shall also be marked with the maximum operating
+tionofterminalsorleadsastopolarity,maximumovercur- voltage,includinganyequalizationvoltageandthepolarity
+rent device rating for module protection, and with the fol- of the grounded circuit conductor.
+lowing ratings:
+(1) Open-circuit voltage 690.56 Identification of Power Sources.
+(2) Operating voltage
+(A) Facilities with Stand-Alone Systems. Any structure
+(3) Maximum permissible system voltage
+orbuildingwithaPVpowersystemthatisnotconnectedto
+(4) Operating current
+a utility service source and is a stand-alone system shall
+(5) Short-circuit current
+have a permanent plaque or directory installed on the exte-
+(6) Maximum power
+rior of the building or structure at a readily visible location
+acceptable to the authority having jurisdiction. The plaque
+690.52 Alternating-Current Photovoltaic Modules.
+or directory shall indicate the location of system discon-
+Alternating-current modules shall be marked with identifi-
+necting means and that the structure contains a stand-alone
+cation of terminals or leads and with identification of the
+electrical power system. The marking shall be in accor-
+following ratings:
+dance with 690.31(G).
+(1) Nominal operating ac voltage
+(2) Nominal operating ac frequency (B) Facilities with Utility Services and PV Systems.
+(3) Maximum ac power Buildings or structures with both utility service and a PV
+(4) Maximum ac current system shall have a permanent plaque or directory provid-
+(5) Maximumovercurrentdeviceratingforacmodulepro- ingthelocationoftheservicedisconnectingmeansandthe
+tection PV system disconnecting means if not located at the same
+2014Edition NATIONALELECTRICALCODE 70–635
+
+--- PAGE 13 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+690.57 ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS
+location. The warning sign(s) or label(s) shall comply with Exception: Wherelivepartsarenotaccessibleduringrou-
+110.21(B). tine battery maintenance, a battery system voltage in ac-
+cordance with 690.7 shall be permitted.
+(C) Facilities with Rapid Shutdown. Buildings or struc-
+tures with both utility service and a PVsystem, complying (2) GuardingofLiveParts.Livepartsofbatterysystems
+with 690.12, shall have a permanent plaque or directory fordwellingsshallbeguardedtopreventaccidentalcontact
+including the following wording: bypersonsorobjects,regardlessofvoltageorbatterytype.
+PHOTOVOLTAIC SYSTEM EQUIPPED WITH
+Informational Note: Batteries in solar photovoltaic sys-
+RAPID SHUTDOWN
+tems are subject to extensive charge–discharge cycles and
+The plaque or directory shall be reflective, with all let-
+typically require frequent maintenance, such as checking
+ters capitalized and having a minimum height of 9.5 mm electrolyteandcleaningconnections.
+(3⁄
+8
+in.), in white on red background.
+(C) Current Limiting. Alisted, current-limiting, overcur-
+rent device shall be installed in each circuit adjacent to the
+VII. Connection to Other Sources
+batteries where the available short-circuit current from a
+690.57 Load Disconnect. Aload disconnect that has mul- battery or battery bank exceeds the interrupting or with-
+tiple sources of power shall disconnect all sources when in stand ratings of other equipment in that circuit. The instal-
+the off position. lation of current-limiting fuses shall comply with 690.16.
+(D) BatteryNonconductiveCasesandConductiveRacks.
+690.60 Identified Interactive Equipment. Only inverters
+Flooded,vented,lead-acidbatterieswithmorethantwenty-
+and ac modules listed and identified as interactive shall be
+four 2-volt cells connected in series (48 volts, nominal)
+permitted in interactive systems.
+shall not use conductive cases or shall not be installed in
+conductive cases. Conductive racks used to support the
+690.61 Loss of Interactive System Power. An inverter or
+nonconductive cases shall be permitted where no rack ma-
+anacmoduleinaninteractivesolarPVsystemshallautomati-
+terial is located within 150 mm (6 in.) of the tops of the
+callyde-energizeitsoutputtotheconnectedelectricalproduc-
+nonconductive cases.
+tionanddistributionnetworkuponlossofvoltageinthatsys-
+This requirement shall not apply to any type of valve-
+tem and shall remain in that state until the electrical
+regulated lead-acid (VRLA) battery or any other types of
+productionanddistributionnetworkvoltagehasbeenrestored.
+sealed batteries that may require steel cases for proper op-
+AnormallyinteractivesolarPVsystemshallbepermit-
+eration.
+ted to operate as a stand-alone system to supply loads that
+have been disconnected from electrical production and dis-
+(E) DisconnectionofSeriesBatteryCircuits.Batterycir-
+tribution network sources.
+cuits subject to field servicing, where more than twenty-
+four2-voltcellsareconnectedinseries(48volts,nominal),
+690.63 Unbalanced Interconnections. Unbalanced con-
+shall have provisions to disconnect the series-connected
+nections shall be in accordance with 705.100.
+stringsintosegmentsof24cellsorlessformaintenanceby
+qualifiedpersons.Non–load-breakboltedorplug-indiscon-
+690.64 Point of Connection. Point of connection shall be
+nects shall be permitted.
+in accordance with 705.12.
+(F) Battery Maintenance Disconnecting Means. Battery
+VIII. Storage Batteries installations, where there are more than twenty-four 2-volt
+cells connected in series (48 volts, nominal), shall have a
+690.71 Installation. disconnecting means, accessible only to qualified persons,
+that disconnects the grounded circuit conductor(s) in the
+(A) General. Storage batteries in a solar photovoltaic sys-
+battery electrical system for maintenance. This disconnect-
+tem shall be installed in accordance with the provisions of
+ing means shall not disconnect the grounded circuit con-
+Article 480. The interconnected battery cells shall be con-
+ductor(s) for the remainder of the photovoltaic electrical
+sidered grounded where the photovoltaic power source is
+system. A non–load-break-rated switch shall be permitted
+installed in accordance with 690.41.
+to be used as the disconnecting means.
+(B) Dwellings.
+(G) Battery Systems of More Than 48 Volts. On photo-
+(1) Operating Voltage. Storage batteries for dwellings voltaic systems where the battery system consists of more
+shall have the cells connected so as to operate at a voltage thantwenty-four2-voltcellsconnectedinseries(morethan
+of 50 volts, nominal, or less. 48 volts, nominal), the battery system shall be permitted to
+70–636 NATIONALELECTRICALCODE 2014Edition
+
+--- PAGE 14 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+ARTICLE690—SOLARPHOTOVOLTAIC(PV)SYSTEMS 690.74
+operate with ungrounded conductors, provided the follow- (1) Sole Means of Regulating Charging. A photovoltaic
+ing conditions are met: power system employing a diversion charge controller as
+(1) The photovoltaic array source and output circuits shall the sole means of regulating the charging of a battery shall
+comply with 690.41. be equipped with a second independent means to prevent
+(2) The dc and ac load circuits shall be solidly grounded. overcharging of the battery.
+(3) All main ungrounded battery input/output circuit con-
+(2) Circuits with Direct-Current Diversion Charge
+ductors shall be provided with switched disconnects
+Controller and Diversion Load. Circuits containing a dc
+and overcurrent protection.
+diversion charge controller and a dc diversion load shall
+(4) Aground-fault detector and indicator shall be installed
+comply with the following:
+to monitor for ground faults in the battery bank.
+(1) Thecurrentratingofthediversionloadshallbelessthan
+orequaltothecurrentratingofthediversionloadcharge
+(H) DisconnectsandOvercurrentProtection.Whereen-
+controller. The voltage rating of the diversion load shall
+ergy storage device input and output terminals are more
+begreaterthanthemaximumbatteryvoltage.Thepower
+than 1.5 m (5 ft) from connected equipment, or where the
+ratingofthediversionloadshallbeatleast150percentof
+circuits from these terminals pass through a wall or parti-
+tion, the installation shall comply with the following: thepowerratingofthephotovoltaicarray.
+(1) Adisconnectingmeansandovercurrentprotectionshall (2) The conductor ampacity and the rating of the overcur-
+be provided at the energy storage device end of the rent device for this circuit shall be at least 150 percent
+circuit. Fused disconnecting means or circuit breakers of the maximum current rating of the diversion charge
+shall be permitted to be used. controller.
+(2) Where fused disconnecting means are used, the line
+(3) PVSystemsUsingUtility-InteractiveInverters.Pho-
+terminals of the disconnecting means shall be con-
+tovoltaic power systems using utility-interactive inverters
+nected toward the energy storage device terminals.
+tocontrolbatterystate-of-chargebydivertingexcesspower
+(3) Overcurrent devices or disconnecting means shall not
+into the utility system shall comply with (1) and (2):
+be installed in energy storage device enclosures where
+(1) These systems shall not be required to comply with
+explosive atmospheres can exist.
+690.72(B)(2). The charge regulation circuits used shall
+(4) Aseconddisconnectingmeanslocatedattheconnected
+comply with the requirements of 690.8.
+equipment shall be installed where the disconnecting
+(2) Thesesystemsshallhaveasecond,independentmeans
+means required by 690.71(H)(1) is not within sight of
+of controlling the battery charging process for use
+the connected equipment.
+when the utility is not present or when the primary
+(5) Where the energy storage device disconnecting means
+charge controller fails or is disabled.
+is not within sight of the PV system ac and dc discon-
+nectingmeans,placardsordirectoriesshallbeinstalled
+(C) Buck/Boost Direct-Current Converters. When buck/
+at the locations of all disconnecting means indicating
+boost charge controllers and other dc power converters that
+the location of all disconnecting means.
+increaseordecreasetheoutputcurrentoroutputvoltagewith
+respect to the input current or input voltage are installed, the
+690.72 Charge Control.
+requirementsshallcomplywith690.72(C)(1)and(C)(2).
+(A) General. Equipment shall be provided to control the (1) The ampacity of the conductors in output circuits shall
+chargingprocessofthebattery.Chargecontrolshallnotbe bebasedonthemaximumratedcontinuousoutputcur-
+requiredwherethedesignofthephotovoltaicsourcecircuit rent of the charge controller or converter for the se-
+ismatchedtothevoltageratingandchargecurrentrequire- lected output voltage range.
+mentsoftheinterconnectedbatterycellsandthemaximum
+(2) The voltage rating of the output circuits shall be based
+chargingcurrentmultipliedby1hourislessthan3percent
+on the maximum voltage output of the charge control-
+of the rated battery capacity expressed in ampere-hours or
+ler or converter for the selected output voltage range.
+as recommended by the battery manufacturer.
+All adjusting means for control of the charging process
+690.74 Battery Interconnections.
+shall be accessible only to qualified persons.
+(A) Flexible Cables. Flexible cables, as identified in Ar-
+Informational Note: Certain battery types such as valve-
+ticle 400, in sizes 2/0 AWG and larger shall be permitted
+regulatedleadacidornickelcadmiumcanexperiencether-
+within the battery enclosure from battery terminals to a
+malfailurewhenovercharged.
+nearby junction box where they shall be connected to an
+(B) Diversion Charge Controller. approved wiring method. Flexible battery cables shall also
+2014Edition NATIONALELECTRICALCODE 70–637
+
+--- PAGE 15 ---
+
+Reproduced solely for use in a bid package to procure Grid Tied Solar Photovoltaic Systems.
+690.80 ARTICLE692—FUELCELLSYSTEMS
+be permitted between batteries and cells within the battery storagesuchasbatteries.Thesesystemsmayhaveacordc
+enclosure. Such cables shall be listed for hard-service use output for utilization.
+and identified as moisture resistant.
+Flexible, fine-stranded cables shall be terminated only 692.2 Definitions.
+with terminals, lugs, devices, or connectors in accordance
+FuelCell.Anelectrochemicalsystemthatconsumesfuelto
+with 110.14.
+produce an electric current. In such cells, the main chemi-
+cal reaction used for producing electric power is not com-
+IX. Systems over 1000 Volts bustion. However, there may be sources of combustion
+used within the overall cell system, such as reformers/fuel
+690.80 General. Solar PV systems with a maximum sys- processors.
+tem voltage over 1000 volts dc shall comply with Article
+490andotherrequirementsapplicabletoinstallationsrated Fuel Cell System. The complete aggregate of equipment
+over 1000 volts. used to convert chemical fuel into usable electricity and
+typically consisting of a reformer, stack, power inverter,
+690.81 Listing. Products listed for PV systems shall be and auxiliary equipment.
+permitted to be used and installed in accordance with their
+Interactive System. A fuel cell system that operates in
+listing. PV wire that is listed for direct burial at voltages
+parallelwithandmaydeliverpowertoanelectricalproduc-
+above 600 volts, but not exceeding 2000 volts, shall be
+tion and distribution network. For the purpose of this defi-
+installed in accordance with Table 300.50, column 1.
+nition, an energy storage subsystem of a fuel cell system,
+such as a battery, is not another electrical production
+690.85 Definitions. For the purposes of Part VIII of this
+source.
+article,thevoltagesusedtodeterminecableandequipment
+ratings are as follows. Maximum System Voltage. The highest fuel cell inverter
+outputvoltagebetweenanyungroundedconductorspresent
+Battery Circuits. In battery circuits, the highest voltage
+at accessible output terminals.
+experienced under charging or equalizing conditions.
+Output Circuit. The conductors used to connect the fuel
+Photovoltaic Circuits. In dc PV source circuits and PV cell system to its electrical point of delivery.
+output circuits, the maximum system voltage.
+InformationalNote: Inthecaseofsitesthathaveseries-or
+parallel-connected multiple units, the term output circuit
+X. Electric Vehicle Charging also refers to the conductors used to electrically intercon-
+nectthefuelcellsystem(s).
+690.90 General. Photovoltaic systems used directly to
+PointofCommonCoupling.Thepointatwhichthepower
+charge electric vehicles shall comply with Article 625 in
+productionanddistributionnetworkandthecustomerinter-
+addition to the requirements of this article.
+face occurs in an interactive system. Typically, this is the
+load side of the power network meter.
+690.91 Charging Equipment. Electric vehicle couplers
+shall comply with 625.10. Personnel protection systems in Stand-Alone System. A fuel cell system that supplies
+accordance with 625.22 and automatic de-energization of power independently of an electrical production and distri-
+cables in accordance with 625.19 are not required for PV bution network.
+systems with maximum system voltages of less than
+80 volts dc. 692.3 OtherArticles. Wherever the requirements of other
+articlesofthisCodeandArticle692differ,therequirements
+ofArticle 692 shall apply, and, if the system is operated in
+parallel with a primary source(s) of electricity, the require-
+ments in 705.14, 705.16, 705.32, and 705.143 shall apply.
+ARTICLE 692
+Fuel Cell Systems 692.4 Installation.
+(A) Fuel Cell System. Afuel cell system shall be permit-
+I. General tedtosupplyabuildingorotherstructureinadditiontoany
+service(s) of another electricity supply system(s).
+692.1 Scope. This article identifies the requirements for
+the installation of fuel cell power systems, which may be (B) Identification. A permanent plaque or directory, de-
+stand-aloneorinteractivewithotherelectricpowerproduc- noting all electric power sources on or in the premises,
+tion sources and may be with or without electric energy shall be installed at each service equipment location.
+70–638 NATIONALELECTRICALCODE 2014Edition
+
+--- PAGE 16 ---

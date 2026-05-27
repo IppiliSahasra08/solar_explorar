@@ -1,0 +1,503 @@
+PV Installation Professional
+Job Task Analysis
+December 2017
+V. 12.14.17 www.nabcep.org
+Raising Standards. Promoting Confidence.
+
+--- PAGE 1 ---
+
+Introduction
+This document presents a comprehensive Job Task
+Job Description
+Analysis (JTA) for individuals who perform responsible
+NABCEP Certified PV Installation Professional
+decision-making roles concerning the design, installation,
+Given a potential site for a solar photovoltaic
+system installation and given basic instructions,
+commissioning, and operations & maintenance of
+major components, schematics, and drawings, the
+Photovoltaic (PV) systems. It is important to note that the
+NABCEP Certified PV Installation Professional
+will: specify, adapt, implement, configure, install,
+tasks outlined in this JTA apply to a range of installation
+inspect, and maintain any type of photovoltaic
+personnel including but not limited to: installers; project
+system, including grid-connected and stand-alone
+systems with or without battery storage, that meet
+managers; installation foreman/supervisor, and designers.
+the performance and reliability needs of customers
+The common thread among these individuals is that they
+in the United States and Canada, by ensuring quality
+craftsmanship and compliance with all applicable
+will need to be fully conversant with and able to apply the
+codes, standards, and safety requirements.
+knowledge areas contained in this document.
+This JTA reflects the changes inherent in the growth and maturity of the solar industry over the last 5 years.
+It is important to note that while the range of personnel that holds responsible roles in the PV installation
+industry has evolved, the basic knowledge areas contained in the JTA remain fairly constant.
+This task list assumes the NABCEP Certified PV Installation Professional (PVIP) starts with a system design
+package, complete with major components, manufacturer installation manuals, system schematics, and
+assembly and troubleshooting instructions. Even if the NABCEP Certified PVIP was responsible for the design
+of the system, this JTA begins with the step of verifying the accuracy of the design. Likewise, if the personnel
+did not design the system, he or she must be fully knowledgeable about systems design because they may be
+required to adapt the design to fit a particular application or customer need.
+The tasks described in this JTA were developed based on conventional designs, equipment, and practice
+used in the industry today; they do not seek to limit or restrict innovative equipment, designs, or installation
+practice. As with any developing technology, it is fully expected that the skills required of the practitioner will
+develop and change over time as new materials, techniques, codes, and standards evolve.
+Pg. 2 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 2 ---
+
+Task Steps and Knowledge in
+Each Category Level
+Scope of Job Task Analysis
+NABCEP Certified PV Installation Professionals (PVIP)
+work in a variety of responsible roles on PV installation
+jobs. They fulfill a decision-making role that helps ensure
+the quality and serviceability of the PV installation.
+The scope of the JTA is such that Certified PVIPs
+fill a wide range of job positions within the industry,
+taking responsibility for installations of varying size
+and complexity. As such, the scope of their duties may
+vary considerably. Due to the range of responsibilities
+and skills that may fall within the scope of a NABCEP
+Certified PVIP’s job duties, this Job Task Analysis is
+broad in scope: not all certificants will perform all the
+tasks described.
+It is expected that all individuals who achieve NABCEP
+PV Installation Professional Certification will be familiar
+with and capable of executing all the tasks described.
+Content Domains
+Content Domain Percentage of Examination
+System Design ............................................................................................................................................................................32%
+Installation ...................................................................................................................................................................................38%
+System Commissioning .............................................................................................................................................................17%
+Operations & Maintenance .......................................................................................................................................................13%
+Pg. 3 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 3 ---
+
+CATEGORIZATION OF TASK STEPS USED BY
+PHOTOVOLTAIC INSTALLATION PROFESSIONALS
+Domain I: System Design
+Task 1: Review customer expectations
+Knowledge of:
+a. Equipment location
+b. Aesthetic concerns
+c. Electric loads assessment (e.g., new construction, multi-modal and stand-alone systems)
+d. System functionality and performance requirements
+e. Value engineering
+Task 2: Review project criteria
+Knowledge of:
+a. Authorities having jurisdiction criteria (e.g., codes, standards, covenants, and regulations)
+b. Electric service provider criteria (e.g., utilities, co-ops, third-party providers)
+c. Construction plan sets and project specification documents
+Task 3: Assess project site
+Knowledge of:
+a. Characteristics of appropriate array locations k. Construction site hazards
+b. Characteristics of viable roof surfaces l. Characteristics of appropriate staging/lifting/
+c. Live and dead load characteristics of PV arrays access locations
+d. Common roof structural design m. Shading analysis tools and techniques
+e. Drilling and trenching equipment capabilities n. Azimuth measurement tools
+f. Characteristics of appropriate equipment o. Magnetic declination
+locations p. Slope tools and techniques
+g. Types of electrical services q. Building use and dimensions
+h. Point of interconnection r. Effects of wind exposure
+i. Raceway installation parameters s. Required site information documentation
+j. Effect of obstructions
+Pg. 4 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 4 ---
+
+DOMAIN I: SYSTEM DESIGN
+Task 4: Configure mechanical design
+Knowledge of:
+a. PV system performance simulation software g. Existing and allowable loads
+b. Basic algebra, geometry, and trigonometry (e.g., snow load, seismic)
+calculations (e.g., area, slope, inter-row shading, h. Design principles of ground mount foundations
+withdrawal loads) i. Effect of PV module tilt and orientation
+c. Characteristics of racking systems j. Characteristics of PV module technologies
+d. Fastener selection criteria (e.g., types, sizes) k. Methods for equipment racking and/or installation
+e. Structure attachment criteria (e.g., spacing, l. Criteria for placement of energy storage systems
+quantity, type) m. Pathways and setbacks (e.g., walkways,
+f. Waterproofing and flashing methods and materials clearances, accessibility)
+Task 5: Configure electrical design
+Knowledge of:
+a. Inverter selection criteria (e.g., types of l. Overcurrent protection selection criteria
+inverters, DC to AC ratio) m. Electrical enclosure selection criteria
+b. String size calculations and layout n. Panelboard selection criteria
+c. DC circuit sizing formulas (e.g., PV source and o. Disconnect selection criteria
+output circuits, battery cables) p. Grounding system criteria and components
+d. AC circuit sizing formulas (e.g., inverter output q. Rapid shutdown equipment and methods
+circuit, feeders) r. Arc-fault protection equipment and methods
+e. Module level power electronics (MLPE) s. Characteristics of battery technologies
+f. Voltage drop calculations t. Characteristics of charge controllers
+g. Methods of interconnection (e.g., supply-side u. Characteristics and components of
+connection, load-side connection) AC coupled systems
+h. Conductor properties and types v. Energy storage system sizing and
+i. Raceway selection criteria and calculations performance calculations
+j. Raceway installation methods w. Power requirements of auxiliary systems
+k. Source circuit combining methods (e.g., combiner (including backup power)
+boxes, wire harnesses)
+Task 6: Configure system monitoring, control, and communications design
+Knowledge of:
+a. Monitoring selection criteria (e.g., PV system data, d. Communication methods (e.g., wired, wireless)
+consumption data, charging/discharging data) e. Characteristics of building automation systems
+b. Automated shutdown (e.g., motorized switches, f. Tracking system controllers
+protection relays)
+c. Low-voltage wiring methods
+Pg. 5 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 5 ---
+
+DOMAIN I: SYSTEM DESIGN
+Task 7: Prepare project documentation
+Knowledge of: e. Architectural plan requirements (e.g., elevations,
+a. Plans included in a complete project plan set street view renderings)
+b. Characteristics of electrical diagrams and f. PV system labeling requirements
+schematics (e.g., one-line, three-line) g. Permit application package requirements (e.g.,
+c. Use and meaning of electrical symbols and terms manufacturer specification sheets)
+d. Engineering requirements (e.g., structural,
+electrical, civil, geotechnical, environmental)
+Task 8: Secure permits and approvals
+Knowledge of:
+a. Authorities having jurisdiction criteria (e.g., codes, standards, covenants, regulations)
+b. Types of inspections (e.g., electrical, structural, environmental)
+c. Documentation criteria
+d. Electric service provider and interconnection requirements (e.g., equipment locations, clearances)
+Task 9: Adapt system design
+Knowledge of:
+a. Site condition assessment e. Change order process and documentation
+b. Design options (e.g., value engineering, alternate f. Authorities having jurisdiction criteria
+materials and methods, contingency plans) (e.g., codes, standards, covenants, and regulations)
+c. Effect of site conditions on design g. Equipment specifications
+d. Document control (e.g., revisions of plan sets from h. Project budget (e.g., time budget, financial budget)
+pre-construction to as-built and record drawings)
+Skill in:
+Interpreting project scope of work
+Performing gap analysis for scope of work
+Pg. 6 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 6 ---
+
+Domain II: Installation
+Task 1: Develop safety plan
+Knowledge of:
+d. Site hazard assessment
+a. OSHA requirements (e.g., fall protection,
+e. Material safety data sheet (MSDS)
+competent/qualified person, reporting of incidents)
+f. Emergency response resources and protocols
+b. NFPA 70E (National Fire Protection Association—
+g. Weather event response actions
+Standard for Electrical Safety in the Workplace)
+h. Specific equipment and training required for site
+c. Personal protective equipment (PPE) (e.g., specific
+i. Elements of an effective safety meeting
+equipment required for project, maintenance of PPE)
+Task 2: Safeguard against hazards
+Knowledge of:
+a. NFPA 70E (National Fire Protection Association—Standard for Electrical Safety in the Workplace)
+b. OSHA CFR 29 1926 safety standards
+c. Proper care and use of safety equipment (e.g., life cycle, defects, storage)
+d. Proper care and use of test equipment (e.g., life cycle, defects, storage)
+e. Proper care and use of power tools (e.g., life cycle, defects, storage)
+f. Safe work practices
+g. Training requirements (e.g. education materials, security clearances, certifications, manufacturer
+recommendations)
+Skill in:
+Effectively implementing the site specific safety plan
+Task 3: Install raceways
+Knowledge of:
+a. NFPA 70 (NEC) articles for use, installation, and construction specifications for raceways and associated fittings
+b. Proper raceway selection and sizing
+c. Proper installation and labeling of raceways per NFPA 70/AHJ requirements (e.g., expansion joints,
+physical protection)
+d. Neat and workmanlike manner of installation of raceways
+Skill in:
+Confirming raceway routing per plans and client input
+Pg. 7 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 7 ---
+
+DOMAIN II: INSTALLATION
+Task 4: Install electrical equipment
+Knowledge of:
+a. NFPA 70 (NEC) articles for use, installation, and construction specifications for equipment and associated fittings
+b. Neat and workmanlike manner of installation of electrical equipment
+c. Proper installation and labeling of equipment per NFPA 70 requirements
+d. Plan sets and schematics
+Skill in:
+Confirming equipment suitability and placement per plans and client input
+Providing and maintaining access and working space around all electrical equipment
+Interpreting construction plans (e.g., electrical plans, schematics, line diagrams)
+Task 5: Install DC PV system conductors
+Knowledge of:
+a. NFPA 70 (NEC) articles for use, installation, and construction specifications for DC conductors
+b. NFPA 70E (National Fire Protection Association—Standard for Electrical Safety in the Workplace)
+c. Appropriate conductor installation and pulling practices
+d. Wire management in a neat and workmanlike manner
+e. Termination and connection per NFPA 70
+Skill in:
+Conducting field verification of proper conductor identification, size, color, type, and rating
+Properly identifying and labeling DC conductors per plan set and NFPA 70 (NEC) requirements
+Conducting string sizing and string configuration per plans and NFPA 70
+Task 6: Install AC PV system conductors
+Knowledge of:
+a. NFPA 70 (NEC) articles for use, installation, and construction specifications for AC conductors
+b. NFPA 70E (National Fire Protection Association—Standard for Electrical Safety in the Workplace)
+c. Appropriate conductor installation and pulling practices
+d. Wire management in a neat and workmanlike manner
+e. Termination and connection per NFPA 70
+Skill in:
+Conducting field verification of proper conductor identification, size, color, type, and rating
+Properly identifying and labeling AC conductors per plan set and NFPA 70 requirements
+Pg. 8 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 8 ---
+
+DOMAIN II: INSTALLATION
+Task 7: Install grounding and bonding systems
+Knowledge of:
+a. NFPA 70 (NEC) articles for use, installation,
+and construction specifications for grounding
+and bonding
+b. Proper installation of bonding and bonding jumpers
+c. Grounding systems and certifications (e.g., UL
+2703, integrated bonding)
+Skill in:
+Conducting field verification of existing grounding electrode systems
+Installing proper system grounding per NFPA 70 and manufacturer specifications (grounding electrode conductor [GEC])
+Installing proper equipment grounding per NFPA 70 and manufacturer specifications (equipment grounding conductor [EGC])
+Task 8: Complete utility interconnection point
+Knowledge of:
+a. NFPA 70 (NEC) articles for use, installation, and construction specifications for utility interconnection
+b. OSHA safety standards
+c. NFPA 70E (National Fire Protection Association—Standard for Electrical Safety in the Workplace)
+d. Calculation and verification of OCPD overcurrent protection device (OCPD) and disconnecting means
+e. Effective and efficient communication regarding shutdown and inspection processes
+f. Proper termination of conductors per NFPA 70
+g. Local electric service provider requirements for interconnection
+h. Methods of interconnection
+Skill in:
+Effectively implementing the site-specific safety plan
+Interpreting design and construction documents
+Task 9: Install system monitoring, control, and communication hardware
+Knowledge of:
+a. NFPA 70 (NEC) articles for use, installation, and d. Termination and connection per NFPA 70
+construction specifications
+b. Neat and workmanlike installation of
+monitoring equipment
+c. Types and methods of data communication hardware
+Skill in:
+Confirming monitoring equipment placement per plans and with client
+Conducting field verification of final system configuration
+Conducting field verification of proper cable identification, size, type, and rating
+Installing equipment per NFPA 70 and approved plan sets
+Preparing monitoring system for commissioning
+Pg. 9 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 9 ---
+
+DOMAIN II: INSTALLATION
+Task 10: Install battery equipment
+Knowledge of:
+a. NFPA 70 (NEC) articles for use, installation, and e. Neat and workmanlike manner of installation of
+construction specifications for batteries battery equipment
+b. OSHA safety standards f. Proper conductor installation, routing,
+c. NFPA 70E (National Fire Protection Association— identification, size, color, type, and rating
+Standard for Electrical Safety in the Workplace) g. Proper battery handling, storage, future
+d. Proper installation of batteries and battery equipment maintenance, and installation techniques
+(e.g., labeling, spill kits, enclosure, ventilation)
+Skill in:
+Implementing the site-specific safety plan
+Confirming battery equipment placement per plans and client input
+Installing batteries and battery-related equipment per NFPA 70
+Conducting field verification of proper conductor identification, size, color, type, and rating
+Task 11: Install ground-mounted structure
+Knowledge of:
+a. NFPA 70 (NEC) h. Environmental impact (e.g., protected species,
+b. Authorities having jurisdiction criteria (e.g., water management)
+codes, standards, zoning, covenants, regulations) i. Site protection and restoration (e.g., straw and seed)
+c. OSHA safety standards j. Equipment requirement and availabilities
+d. Foundation and structural elements
+(e.g., geotechnical requirements)
+e. Construction and assembly of PV structure
+and racking
+f. Neat and workmanlike manner of installation
+g. Location of underground utilities (e.g., call ahead,
+underground locator services)
+Skill in:
+Managing excavation to design specifications (e.g., trenching, piers, foundations)
+Interpreting design and construction documents (e.g. site plan, system design plan)
+Pg. 10 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 10 ---
+
+DOMAIN II: INSTALLATION
+Task 12: Install building-mounted system
+Knowledge of:
+a. Authorities having jurisdiction criteria (e.g., codes, f. Neat and workmanlike manner of installation
+standards, zoning, covenants, regulations) g. Types of roofing system construction
+b. OSHA safety standards (e.g., fall protection, h. Lightning protection systems
+hoisting, scaffolding) i. Staging materials and equipment (e.g., roof or
+c. Mounting surface compositions (e.g., tile, other structure loading, security)
+composite, membrane, metal) j. Waterproofing building penetrations
+d. Mounting surface and structure protection k. Equipment requirements and availabilities
+and restoration
+e. Array layouts per location (e.g., inter-row
+shading, electrical efficiency)
+Skill in:
+Effectively implementing the site-specific safety plan
+Interpreting and applying approved design (e g., engineered drawings, manufacturer specifications)
+Installing points of attachment to roof manufacturer requirements
+Task 13: Install PV modules
+Knowledge of:
+a. NFPA 70E (National Fire Protection Association— e. Proper wire management methods and materials
+Standard for Electrical Safety in the Workplace) f. Termination and connection per NFPA 70
+b. OSHA safety standards (e.g., fall protection, g. Grounding and bonding (e.g., integrated
+ladder use, lifting) grounding, bonding washers, lugs)
+c. Neat and workmanlike manner of installation h. Regional considerations (e.g., animal guarding, ice
+(e.g., coplanar, square) and snow, wind)
+d. Proper module handling and preparation
+Skill in:
+Effectively implementing the site-specific safety plan
+Conducting field verification of equipment selection (e.g., nameplate, racking compatibility)
+Interpreting design and construction documents
+Pg. 11 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 11 ---
+
+Domain III: System Commissioning
+Task 1: Review or develop commissioning protocol
+Knowledge of:
+a. Applicable standards (e.g., manufacturer recommendations, building system,
+IEC 62446-1, performance testing)
+b. NFPA 70E (National Fire Protection Association—Standard for Electrical Safety in the Workplace)
+c. Project-specific requirements
+d. Test equipment
+Task 2: Complete visual and mechanical inspection
+Knowledge of:
+a. Project design
+b. Manufacturer requirements
+c. NEC and local AHJ requirements
+d. Electric service provider requirements (e.g., disconnecting means, interconnection method,
+equipment location, labeling requirements)
+Skill in:
+Verifying installation per project design and requirements
+Task 3: Conduct mechanical tests
+Knowledge of:
+a. Installation per torque specifications
+b. Field testing (e.g., pile load tests, soil test, concrete slump test)
+c. Witness testing (e.g., module wind or snow loading)
+Task 4: Conduct electrical tests
+Knowledge of:
+a. Proper use of diagnostic tools
+(e.g., multimeter, insulation resistance tester) g. Continuity testing
+b. Insulation resistance testing h. Ground resistance test
+c. Polarity testing i. Wire termination torque verification
+d. DC string open circuit voltage (Voc) testing j. AC voltage testing
+e. DC string maximum power current (Imp) testing k. Witness testing (e.g., functionality of relay,
+f. DC string short circuit (Isc) testing communication to utility, anti-islanding)
+Pg. 12 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 12 ---
+
+DOMAIN III: SYSTEM COMMISSIONING
+Task 5: Verify system operation
+Knowledge of:
+a. Startup procedure
+b. Acceptance test and/or performance verification test
+c. Impact of site conditions on testing (e.g., cell temperature readings, plane of array irradiance, power output)
+d. Proper use and calibration requirements of testing equipment
+Skill in:
+Programming system electronics (e.g., charge controller set points, firmware updates,
+monitoring system connection, inverter)
+Calculating expected electrical parameters and comparing to measured values
+Task 6: Confirm project completion
+Knowledge of:
+a. Finalized documentation (e.g., commission report, e. Warranty and owner’s documents (e.g., manuals,
+signed permits, permission to operate [PTO], specification sheets, signed permits)
+photographs) f. Equipment identification requirements
+b. Visual documentation (e.g. photograph, thermal (e.g., labeling, tags, signage)
+image, screen shot) g. Operation instructions and/or training for owner
+c. Close-out procedures (e.g., punch lists, contract h. Warranty terms and coverage
+reconciliation, demobilization) i. System design, operation, and performance
+d. Owner-signoff requirements (e.g., appropriate metrics (e.g., performance ratio)
+site addition, customer satisfaction)
+Task 7: Orient end user to system
+Knowledge of:
+a. Safe startup, operation, and shutdown procedures
+b. Emergency procedures
+c. Location of components
+d. Monitoring access
+Skill in:
+Explaining system operation and limitations (e.g., training, operational indicators)
+Reviewing system and project documentation with end user
+Pg. 13 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 13 ---
+
+Domain IV: Operations & Maintenance (O&M)
+Task 1: Verify system operation and performance
+Knowledge of:
+a. Access to system monitoring, control, and f. Site weather data source
+communications platform(s) g. Climate data and impact on performance
+b. Platform settings and alert mechanisms h. Data monitoring system capabilities and
+c. Indicators of failure, underperformance, instrumentation quality
+or false alarms i. Performance analytics (e.g., trends)
+d. Interpretation of performance data j. Remote diagnostics solutions (if available)
+e. Seasonal impacts on system performance
+Task 2: Perform preventive maintenance
+Knowledge of:
+a. OSHA safety regulations l. Module failure points and causes (e.g., signs of
+b. O&M practices and causes of failure overheating, damage to J-Box, discoloration)
+c. Maintenance schedule criteria m. Electrical equipment failure points and causes
+d. NFPA 70E (e.g., lock-out/tag-out) (e.g., vermin, debris, ventilation, water intrusion)
+e. Site-specific safety requirements n. Wiring system degredation, failure points, and causes
+f. Site-specific O&M procedure (e.g., unsupported conductors, connector failure,
+g. Appropriate testing, equipment, and loose terminations, physical damage to raceway)
+documentation required o. Battery system degredation, failure points, and
+h. Startup/shutdown procedures causes (e.g., cable terminations, corrosion,
+i. Periodic visual and mechanical inspection capacity testing, deformation of battery)
+j. Instrumentation calibration p. Site factors affecting performance (e.g., module
+k. Mounting system degredation, failure points soiling, vegetation impacts, shading)
+and causes (e.g., loose connections, corrosion, q. Array testing (e.g., Voc, Isc, Imp, fuse continuity testing)
+displacement) r. Comparison of whole system performance to
+predicted values
+Task 3: Perform corrective maintenance
+Knowledge of:
+a. OSHA regulations f. Startup/shutdown procedures
+b. Troubleshooting procedures g. Methods of repair or replacement
+c. NFPA 70E (e.g., lock-out/tag-out, personal h. Field modification and equipment substitution
+protective equipment [PPE]) i. System cleaning (e.g., snow removal,
+d. Site-specific safety requirements dust/pollen removal)
+e. Methods for diagnosing failure or low performance
+(e.g., multimeter, monitoring system, thermal imager)
+Skill in:
+Verifying effectiveness of corrective measures
+Pg. 14 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 14 ---
+
+NABCEP’s mission is to establish and operate high quality credentialing
+programs for renewable energy professionals. NABCEP credentials promote
+worker safety, provide value to practitioners and consumers, and set the
+standard for measurable cognitive skill levels.
+NABCEP’s PVIP and SHI Certifications are North America’s only
+renewable energy personnel certification that has been ANSI accredited
+to the internationally recognized ISO/IEC 17024 standard.
+NABCEP wishes to acknowledge and thank the following individuals for their contribution in developing these JTAs:
+Beth Copanas James Hasslebeck Doug Sabetti
+Greg Demarse Bob Hattier Phil Schneider
+Kevin Flaws Dell Jones Rob Smith
+Chris Giannoumis Jeff Laukhart Bob Solger
+Jeff Gilbert Ernie Pritchard Andy Walker
+Mark Gillespie Cathy Redson
+North American Board of Certified Energy Practitioners
+56 Clifton Country Road, Suite 202 Clifton Park, NY 12065
+800-654-0021 / info@nabcep.org / www.nabcep.org
+Pg. 15 NABCEP Certified PV Installation Professional Job Task Analysis v.December 2017
+
+--- PAGE 15 ---

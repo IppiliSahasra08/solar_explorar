@@ -1,0 +1,241 @@
+POWERWALL WITH BACKUP GATEWAY 2
+View Partner Portal
+The Powerwall 2 AC (Backup Gateway 2) Installation Manual (North America)
+can be found in the Installation section in the Powerwall documents
+BACKUP GATEWAY 2 OVERVIEW
+Ethernet Port
+Optional Internal
+Panelboard
+Non-Backup Loads
+Supply Terminals
+Neutral-Ground
+Bonding Strap
+Backup Loads
+and Generation
+Load / Generation
+Load / Generation
+Neutral Terminals
+Ground Terminals
+Main Neutral Terminals
+Main Ground Terminals
+SYSTEM WIRING CONFIGURATIONS
+Backup Gateway Backup Gateway
+Without Internal Panelboard With Internal Panelboard
+WHOLE HOME BACKUP
+Where all loads can be supported by Powerwall
+Powerwall and Solar Powerwall and Solar
+in existing panel on backup internal panelboard
+
+--- PAGE 1 ---
+
+PARTIAL HOME BACKUP
+Heavy loads cannot be supported by Powerwall
+Heavy loads in existing Heavy loads on non-backup
+non-backup subpanel internal panelboard
+See System Wiring Diagrams in the Installation Manual
+for detailed diagrams of common configurations
+Backup Loads Non-Backup Loads High Demand Loads
+1
+2
+DNEGEL
+REQUIRED TOOLS SUGGESTED TOOLS
+3/16” 5/16”
+1/4” 7/16”
+MOUNT POWERWALL
+Max 9 mm
+A
+B
+A Material B Minimum Embedment
+Wood Studs 2 1/2”
+1/4” beyond back of plywood
+Plywood
+(min 1/2” plywood)
+3 threads beyond
+Metal Studs
+stud / backing
+Concrete / Masonry 1 1/2”
+2 1/2” into wood studs
+Channel Strut
+3 threads beyond metal studs
+See Powerwall Mounting Details in the
+Installation Manual for additional details
+3
+
+--- PAGE 2 ---
+
+4
+SIDE CABLE ENTRY REAR CABLE ENTRY
+5
+CLICK
+MOUNT THE BACKUP GATEWAY
+6 BOTTOM, REAR, OR SIDE CABLE ENTRY
+OPTIONAL: TOP CABLE ENTRY VIA CONDUIT HUB KIT
+7
+x4 included
+Sealing washers
+must be installed
+
+--- PAGE 3 ---
+
+8 IS GATEWAY INSTALLED AS SERVICE EQUIPMENT?
+GATEWAY IS NOT INSTALLED AS SERVICE EQUIPMENT
+NO
+REMOVE NEUTRAL-GROUND BONDING STRAP
+GATEWAY IS INSTALLED AS SERVICE EQUIPMENT
+YES
+INSTALL MAIN BREAKER
+See Wiring Reference in the Installation Reference Manual for breaker types
+MAKE BACKUP GATEWAY AC POWER CONNECTIONS
+9
+SUPPLY SIDE CONDUCTORS
+1 ¼”
+6 AWG - 250 kcmil
+6 AWG - 250 kcmil
+6 AWG - 250 kcmil
+275 in-lbs
+5/16”
+¾”
+14 AWG - 2/0
+120 in-lbs
+3/16”
+
+--- PAGE 4 ---
+
+BACKUP LOAD
+PANEL CONDUCTORS
+1 ¼”
+6 AWG - 250 kcmil
+6 AWG - 250 kcmil
+6 AWG - 250 kcmil
+275 in-lbs
+5/16”
+¾”
+14 AWG - 2/0
+120 in-lbs
+3/16”
+NON-BACKUP
+PANEL CONDUCTORS
+1 ¼”
+6 AWG - 250 kcmil
+275 in-lbs
+5/16”
+¾”
+14 AWG - 2 AWG
+14 AWG - 2 AWG
+14 AWG - 2/0
+120 in-lbs
+3/16”
+OPTIONAL: INSTALL INTERNAL PANELBOARD
+10
+
+--- PAGE 5 ---
+
+11
+BACKUP INTERNAL PANELBOARD
+OR
+NON-BACKUP INTERNAL PANELBOARD
+12 INSTALL BREAKER HOLD-DOWN
+MAKE POWERWALL AC POWER CONNECTIONS
+13
+7/16”
+10 - 8 AWG
+10 - 8 AWG
+10 - 8 AWG
+
+--- PAGE 6 ---
+
+CONNECT COMMUNICATION WIRING
+14
+3/8 in
+18-16 AWG
+18-16 AWG
+24-16 AWG
+24-16 AWG
+MULTI-POWERWALL COMMUNICATION WIRING
+GND
+12 V +
+CN +
+CN –
+Drain
+Ground
+
+--- PAGE 7 ---
+
+INSTALL OPTIONAL REMOTE DISABLE SWITCH
+15
+See Install Optional Remote Disable Switch in the Installation Manual for
+information on switch operation and design considerations.
+INSTALL METERING
+METERING OVERVIEW
+Correct Metering Installation
+
+All Site loads monitored with two integrated CTs
+All Solar monitored with one auxiliary CT
+All Site loads monitored with two auxiliary CTs
+All Solar monitored with one auxiliary CT
+Incorrect Metering Installation
+
+Non-Backup Site loads
+are not monitored by
+Secondary Solar is
+integrated CTs
+not monitored
+CT ORIENTATION
+Power Flow Power Flow
+LABEL
+CT Label Source of Power
+
+--- PAGE 8 ---
+
+16
+INSTALL SOLAR METERING
+1
+2
+INSTALL REMOTE SITE METERING
+(Required for Home Loads upstream of Gateway)
+1
+2
+Note: If installing a Neurio meter and additional CTs, connect the
+Neurio over Wi-Fi to update
+See the Installation Manual for a detailed overview of metering, system
+wiring diagrams with meter placement, and instructions for installing a
+remote Neurio meter.
+CONNECT BACKUP GATEWAY TO THE INTERNET
+17
+Ethernet 2.4 GHz / 5GHz Wi-Fi
+AND / OR
+HOMEOWNER NETWORK
+HOMEOWNER PASSWORD
+CLOSE WIRING COMPARTMENTS AND POWER ON
+18 19
+
+--- PAGE 9 ---
+
+COMMISSION THE SYSTEM
+22
+TPN: 1232100-XX-X
+TSN: TGYYYYYYYYYYYY
+Password: ZZZZZZZZZZ
+23
+installer@company.com
+TPN: 1232100-XX-X
+TSN: TGYYYYYYYYYYYY
+Password: ZZZZZZZZZZ ZZZZZZZZZZ
+SPIT
+20
+ON
+21
+Join TEG-YYY Wi-Fi
+http://TEG-YYY
+Use Chrome: Incognito mode or Safari: Private Browsing mode.
+Work in one browser tab only.
+For security message Your connection is not private, select
+Advanced and Proceed.
+For Error: Bad Credentials, select FORGOT PASSWORD
+to reset password.
+For Error: Login Error (Cannot Start Wizard), select Click for
+More and tick the Force Launch Wizard option. Try again.
+If experiencing other issues, refresh the web page.
+If issues persist, reboot Gateway using RESET button.
+
+--- PAGE 10 ---
