@@ -4,45 +4,42 @@ from src.retrieval.vector_store import SolarVectorStore
 from src.llm.generator import SolarRAGGenerator
 
 def main():
-    # Defensive check: Ensure API key is configured before spinning up models
     if "GEMINI_API_KEY" not in os.environ:
         print("❌ Error: GEMINI_API_KEY environment variable is missing.")
-        print("Set it via terminal before running this script.")
-        print("Example (Windows): set GEMINI_API_KEY=AIzaSy...")
-        print("Example (Bash/Zsh): export GEMINI_API_KEY='AIzaSy...'")
         sys.exit(1)
 
-    # 1. Define the user's technical question
-    question = "How should conductors be sized?"
+    question = "What is rapid shutdown in photovoltaic systems?"
     
-    print(f"🚀 Initializing Solar Explorar RAG Application Core...")
+    print(f"🚀 Initializing Solar Explorar Upgraded RAG Engine (With Reranking)...")
     
-    # 2. Connect to the local Vector Database layer
+    # Connects to database and automatically loads both standard and reranker models
     v_store = SolarVectorStore(collection_name="solar_knowledge")
-    
-    # 3. Instantiate the Gemini generation engine
     generator = SolarRAGGenerator()
     
     print(f"\n🔎 Question: '{question}'")
-    print(f"⏳ Step 1: Querying ChromaDB for top relevant context records...")
+    print(f"⏳ Executing Two-Stage Retrieval (Vector Search 20 ➔ Cross-Encoder Rerank 5)...")
     
-    # 4. Pull top 5 relevant document chunks on demand
-    top_chunks = v_store.retrieve_top_chunks(question=question, n_results=5)
-    print(f"✅ Found {len(top_chunks)} chunks in vector space.")
+    # Execute the two-stage lookup
+    best_chunks = v_store.retrieve_and_rerank(
+        question=question, 
+        top_k_vector=20,  # Grab 20 candidates first
+        final_top_n=5     # Narrow down to the best 5
+    )
     
-    # Quick debug block to see what documents are being sent to Gemini
-    print("\n📚 Context Sources Sent to Gemini:")
-    for c in top_chunks:
-        print(f"  ├─ Document: {c['source']} (Page {c['page']}) [Distance: {c['distance']:.4f}]")
+    print("\n🎯 Top 5 Reranked Sources Chosen for Gemini:")
+    print("=" * 80)
+    for idx, c in enumerate(best_chunks, start=1):
+        print(f" Rank {idx} | Score: {c['rerank_score']:.4f} | Source: {c['source']} (Page {c['page']})")
+        # Print a small snippet of the text to inspect alignment
+        snippet = c['text'][:90].replace('\n', ' ')
+        print(f"   Snippet: {snippet}...")
+        print("-" * 80)
 
-    print(f"\n🧠 Step 2: Injecting context and streaming payload to Gemini ({generator.model_name})...")
+    print(f"\n🧠 Streaming optimized context payload to Gemini...")
+    ai_response = generator.generate_answer(question=question, retrieved_chunks=best_chunks)
     
-    # 5. Run the complete generation pipeline
-    ai_response = generator.generate_answer(question=question, retrieved_chunks=top_chunks)
-    
-    # 6. Output the final grounded response
     print("\n" + "="*80)
-    print("🤖 GROUNDED RAG RESPONSE:")
+    print("🤖 GROUNDED RAG RESPONSE (RERANKED):")
     print("="*80)
     print(ai_response)
     print("="*80 + "\n")

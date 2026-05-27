@@ -55,7 +55,7 @@ def main():
 
         results = v_store.retrieve_top_chunks(
             question=test_question,
-            n_results=5
+            n_results=10
         )
 
         print(

@@ -1,77 +1,88 @@
 from pathlib import Path
 import chromadb
 from sentence_transformers import SentenceTransformer
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
+import torch
 
 class SolarVectorStore:
     def __init__(self, collection_name: str = "solar_knowledge"):
         """
-        Initializes a local persistent instance of ChromaDB and caches the embedding model.
-        Works for both data ingestion (writing) and on-demand retrieval (reading).
+        Initializes persistent ChromaDB client, standard embedding model,
+        and an advanced Cross-Encoder Reranker model.
         """
         script_dir = Path(__file__).resolve().parent
         self.chroma_db_dir = script_dir.parents[1] / "data" / "chroma_db"
         
-        # Connect to your persistent storage on disk (creates chroma.sqlite3 if missing)
+        # Connect to persistent storage
         self.client = chromadb.PersistentClient(path=str(self.chroma_db_dir))
-        
-        # Pull your collection optimized with Cosine Similarity
         self.collection = self.client.get_or_create_collection(
             name=collection_name,
             metadata={"hnsw:space": "cosine"}
         )
         
-        # Cache the encoder model locally inside the instance
-        print("🤖 Loading embedding model 'all-MiniLM-L6-v2' (384 dimensions)...")
+        # Stage 1 Model (Bi-Encoder)
+        print("🤖 Loading Stage 1 Embedding Model (all-MiniLM-L6-v2)...")
         self.model = SentenceTransformer("all-MiniLM-L6-v2")
+        
+        # Stage 2 Model (Cross-Encoder Reranker)
+        print("🔥 Loading Stage 2 Reranker Model (cross-encoder/ms-marco-MiniLM-L-6-v2)...")
+        self.reranker_name = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+        self.rerank_tokenizer = AutoTokenizer.from_pretrained(self.reranker_name)
+        self.rerank_model = AutoModelForSequenceClassification.from_pretrained(self.reranker_name)
+        self.rerank_model.eval() # Set model to evaluation mode
 
     def upsert_chunks(self, ids: list, embeddings: list, documents: list, metadatas: list):
-        """
-        Saves parallel arrays of data directly down into local binary storage tables.
-        Required by ingest.py.
-        """
-        if not ids:
-            print("⚠️ No IDs provided to upsert.")
-            return
-            
-        self.collection.upsert(
-            ids=ids,
-            embeddings=embeddings,
-            documents=documents,
-            metadatas=metadatas
-        )
+        """Saves text and vector arrays to local database tables."""
+        if not ids: return
+        self.collection.upsert(ids=ids, embeddings=embeddings, documents=documents, metadatas=metadatas)
 
-    def retrieve_top_chunks(self, question: str, n_results: int = 5) -> list:
+    def retrieve_and_rerank(self, question: str, top_k_vector: int = 20, final_top_n: int = 5) -> list:
         """
-        Processes a raw text question, converts it to a vector, 
-        and extracts the Top N most semantically relevant chunks.
-        Required by search.py and future FastAPI endpoints.
+        Two-Stage Retrieval:
+        1. Fetches a wide window of candidates via Vector Search.
+        2. Re-scores and re-ranks them using a Cross-Encoder to output the best N items.
         """
-        # 1. On-the-fly embedding generation for the incoming question
+        # --- STAGE 1: WIDE VECTOR RETRIEVAL ---
         question_embedding = self.model.encode(question).tolist()
-        
-        # 2. Query the persistent database vector space
         raw_results = self.collection.query(
             query_embeddings=[question_embedding],
-            n_results=n_results
+            n_results=top_k_vector
         )
         
-        # 3. Restructure Chroma's parallel arrays output into a clean list of dictionaries
-        formatted_chunks = []
-        
         if not raw_results or not raw_results['ids'] or len(raw_results['ids'][0]) == 0:
-            return formatted_chunks
-            
+            return []
+
+        initial_chunks = []
         for i in range(len(raw_results['ids'][0])):
-            formatted_chunks.append({
+            initial_chunks.append({
                 "chunk_id": raw_results['ids'][0][i],
                 "text": raw_results['documents'][0][i],
                 "source": raw_results['metadatas'][0][i].get("source", "Unknown"),
                 "page": raw_results['metadatas'][0][i].get("page", "N/A"),
-                "distance": raw_results['distances'][0][i] if 'distances' in raw_results else None
+                "vector_distance": raw_results['distances'][0][i] if 'distances' in raw_results else None
             })
-            
-        return formatted_chunks
+
+        # --- STAGE 2: CROSS-ENCODER RERANKING ---
+        # Prepare pairs for the Cross-Encoder model: [[Question, Text1], [Question, Text2], ...]
+        pairs = [[question, chunk["text"]] for chunk in initial_chunks]
+        
+        with torch.no_grad():
+            # Tokenize the pairs together
+            inputs = self.rerank_tokenizer(pairs, padding=True, truncation=True, return_tensors="pt")
+            # Generate logits (raw alignment scores)
+            outputs = self.rerank_model(**inputs)
+            # Extract scores from the single output logit channel
+            scores = outputs.logits.view(-1).tolist()
+
+        # Inject the new deep semantic score back into our chunk objects
+        for idx, score in enumerate(scores):
+            initial_chunks[idx]["rerank_score"] = score
+
+        # Sort the chunks descending based on their fresh re-ranked score evaluations
+        reranked_chunks = sorted(initial_chunks, key=lambda x: x["rerank_score"], reverse=True)
+
+        # Truncate and return only the absolute highest-quality subset requested
+        return reranked_chunks[:final_top_n]
 
     def get_count(self) -> int:
-        """Returns total records inside the current storage index"""
         return self.collection.count()

@@ -10,8 +10,8 @@ def main():
     print(f"\n🔎 Incoming User Query: '{user_question}'")
     print("⏳ Translating query into a vector and scanning ChromaDB index arrays...\n")
     
-    # 3. Fetch top 5 chunks dynamically on demand
-    top_chunks = v_store.retrieve_top_chunks(question=user_question, n_results=5)
+    # 3. Fetch top 10 chunks dynamically on demand
+    top_chunks = v_store.retrieve_top_chunks(question=user_question, n_results=10)
     
     # 4. Display the retrieved chunks
     if not top_chunks:
