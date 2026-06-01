@@ -1,0 +1,2957 @@
+[
+  {
+    "question": "According to Article 690, what is a DC Combiner and what does it produce as output?",
+    "type": "definition",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "A DC Combiner is a device used in PV source and output circuits to combine two or more dc circuit inputs and provide one dc circuit output.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "DC Combiner",
+      "combine",
+      "source circuits",
+      "output circuit"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p1"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q001"
+  },
+  {
+    "question": "How does Article 690 define an 'Interactive System'?",
+    "type": "definition",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "A solar PV system that operates in parallel with and may deliver power to an electrical production and distribution network.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "interactive system",
+      "parallel",
+      "distribution network"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p1"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q002"
+  },
+  {
+    "question": "What is the NABCEP Certified PV Installation Professional's job description per the JTA document?",
+    "type": "definition",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "Given a potential site, the NABCEP Certified PV Installation Professional can design, install, inspect, and maintain any type of PV system, including grid-connected and stand-alone systems with or without energy storage.",
+    "source": "NABCEP-PV-Installation-JTA-12-14-17.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "design",
+      "install",
+      "inspect",
+      "maintain",
+      "grid-connected",
+      "stand-alone"
+    ],
+    "contexts": [
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p1"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q003"
+  },
+  {
+    "question": "What does the California Solar Permitting Guidebook say about local governments restricting solar energy system installation?",
+    "type": "definition",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "Local governments may not unreasonably restrict the installation of solar energy systems.",
+    "source": "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+    "page": 8,
+    "expected_keywords": [
+      "unreasonably restrict",
+      "solar energy systems",
+      "local governments"
+    ],
+    "contexts": [
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p8"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q004"
+  },
+  {
+    "question": "What is the nominal operating temperature range for optimum PV efficiency referenced in the Bahawalpur case study?",
+    "type": "definition",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "25 degrees Celsius is the nominal operation range for optimum efficiencies of PV solar arrays.",
+    "source": "1-s2.0-S2949821X26001341-main.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "25 degrees",
+      "nominal operation",
+      "optimum efficiencies"
+    ],
+    "contexts": [
+      "1-s2.0-S2949821X26001341-main.pdf p1"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q005"
+  },
+  {
+    "question": "According to NEC Article 690, what is an Inverter Output Circuit?",
+    "type": "definition",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "Conductors between the inverter and an ac panelboard for stand-alone systems, or between the inverter and the service equipment or electrical production and distribution network.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "inverter output circuit",
+      "conductors",
+      "ac panelboard",
+      "service equipment"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p1"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q006"
+  },
+  {
+    "question": "What NEMA enclosure rating do the Enphase IQ8 Series Microinverters comply with, and what protection does that rating provide?",
+    "type": "definition",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "NEMA 250, type 6. Provides protection against hose-directed water, entry of water during occasional temporary submersion at a limited depth, and damage from external icing.",
+    "source": "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf",
+    "page": 10,
+    "expected_keywords": [
+      "NEMA 6",
+      "NEMA 250",
+      "hose-directed water",
+      "submersion"
+    ],
+    "contexts": [
+      "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf p10"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q007"
+  },
+  {
+    "question": "What NEC provision governs rack mounting systems and clamping devices for flat-plate PV modules in C&I installations?",
+    "type": "definition",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "UL 2703 Rack Mounting Systems and Clamping Devices for Flat-Plate Photovoltaic Modules and Panels.",
+    "source": "65286.pdf",
+    "page": 26,
+    "expected_keywords": [
+      "UL 2703",
+      "rack mounting",
+      "clamping devices",
+      "flat-plate"
+    ],
+    "contexts": [
+      "65286.pdf p26"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q008"
+  },
+  {
+    "question": "What is the California Solar Permitting Guidebook edition, publication year, and governor at time of publication?",
+    "type": "simple_factual",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "Fourth Edition (updated), published Winter 2019, under Governor Gavin C. Newsom.",
+    "source": "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "Fourth Edition",
+      "2019",
+      "Gavin C. Newsom"
+    ],
+    "contexts": [
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p1"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q009"
+  },
+  {
+    "question": "What is the run capacity observed at the Quaid-e-Azam Solar Power Plant's first 100 MW phase, and what was the consequence?",
+    "type": "simple_factual",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "Run capacity was as low as 18 MW (15–35% of installed capacity), leading to a financial deficit and transfer to a public-private partnership.",
+    "source": "1-s2.0-S2949821X26001341-main.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "18 MW",
+      "100 MW",
+      "15-35%",
+      "public-private partnership"
+    ],
+    "contexts": [
+      "1-s2.0-S2949821X26001341-main.pdf p1"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q010"
+  },
+  {
+    "question": "Per Article 690, what is the maximum number of switches or circuit breakers allowed for a PV system disconnecting means?",
+    "type": "simple_factual",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "Not more than six switches or circuit breakers.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 5,
+    "expected_keywords": [
+      "six",
+      "maximum",
+      "disconnects",
+      "PV system disconnecting means"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p5"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q011"
+  },
+  {
+    "question": "What minimum PV system maximum voltage triggers the requirement for a listed dc arc-fault circuit interrupter under NEC Article 690?",
+    "type": "simple_factual",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "80 volts or greater.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 5,
+    "expected_keywords": [
+      "80 volts",
+      "arc-fault",
+      "dc arc-fault circuit interrupter"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p5"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q012"
+  },
+  {
+    "question": "In the Tesla Powerwall 2 / Backup Gateway 2 installation quick guide, what conductor size range is specified for Powerwall AC power connections?",
+    "type": "simple_factual",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "10 AWG to 8 AWG.",
+    "source": "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf",
+    "page": 5,
+    "expected_keywords": [
+      "10 AWG",
+      "8 AWG",
+      "Powerwall",
+      "AC power connections"
+    ],
+    "contexts": [
+      "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf p5"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q013"
+  },
+  {
+    "question": "What does the NREL C&I best practices report require of an EPC Contractor's work history?",
+    "type": "simple_factual",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "A successful track record of design and construction of similar type and scale projects, completed on time and on budget.",
+    "source": "65286.pdf",
+    "page": 12,
+    "expected_keywords": [
+      "EPC Contractor",
+      "track record",
+      "on time",
+      "on budget"
+    ],
+    "contexts": [
+      "65286.pdf p12"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q014"
+  },
+  {
+    "question": "To what voltage and VA limit must controlled conductors be reduced within 10 seconds of rapid shutdown initiation per Article 690 Section 690.12?",
+    "type": "simple_factual",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "Not more than 30 volts and 240 volt-amperes within 10 seconds.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 5,
+    "expected_keywords": [
+      "30 volts",
+      "240 volt-amperes",
+      "10 seconds",
+      "rapid shutdown"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p5"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q015"
+  },
+  {
+    "question": "A crystalline silicon PV module has a rated Voc of 42.0 V. The site's lowest expected ambient temperature is -15°C. Using NEC Article 690 Table 690.7, what is the maximum PV system voltage for equipment rating purposes?",
+    "type": "numerical",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "At -15°C the Table 690.7 correction factor for crystalline/multicrystalline silicon is 1.14. Maximum voltage = 42.0 V × 1.14 = 47.88 V.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 3,
+    "expected_keywords": [
+      "Table 690.7",
+      "1.14",
+      "-15°C",
+      "47.88",
+      "maximum voltage"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p3"
+    ],
+    "reasoning_type": "calculation",
+    "retrieval_depth": "single_chunk",
+    "id": "Q016"
+  },
+  {
+    "question": "Per NEC Article 690.8(A)(1), a PV source circuit has three parallel strings each with Isc = 9.8 A. What is the minimum conductor ampacity before derating factors?",
+    "type": "numerical",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "3 × 9.8 A × 125% = 36.75 A.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 3,
+    "expected_keywords": [
+      "125 percent",
+      "sum of parallel",
+      "36.75 A",
+      "short-circuit current"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p3"
+    ],
+    "reasoning_type": "calculation",
+    "retrieval_depth": "single_chunk",
+    "id": "Q017"
+  },
+  {
+    "question": "Per Article 690.8(B), when both the 125% factor from 690.8(A)(1) and the conductor sizing 125% factor from 690.8(B)(1) are applied together, what is the resulting total multiplication factor explicitly stated in the code?",
+    "type": "numerical",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "156 percent.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 3,
+    "expected_keywords": [
+      "156 percent",
+      "125 percent",
+      "690.8(A)",
+      "690.8(B)",
+      "multiplication factor"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p3"
+    ],
+    "reasoning_type": "calculation",
+    "retrieval_depth": "single_chunk",
+    "id": "Q018"
+  },
+  {
+    "question": "A diversion charge controller is the sole means of regulating charging in a PV system with a maximum array power rating of 6,000 W. Per Article 690.72, what must the minimum power rating of the diversion load be, and what must its voltage rating exceed?",
+    "type": "numerical",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Diversion load power rating ≥ 150% × 6,000 W = 9,000 W. Its voltage rating must be greater than the maximum battery voltage.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 14,
+    "expected_keywords": [
+      "150 percent",
+      "9000 W",
+      "maximum battery voltage",
+      "diversion load"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p14"
+    ],
+    "reasoning_type": "calculation",
+    "retrieval_depth": "single_chunk",
+    "id": "Q019"
+  },
+  {
+    "question": "According to NEC Article 690 Section 690.9(B), what is the minimum overcurrent device rating relative to the maximum currents calculated in 690.8(A)? What exception applies for listed continuous-operation assemblies?",
+    "type": "numerical",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "OC device ratings ≥ 125% of 690.8(A) maximum currents. Exception: assemblies listed for continuous operation at 100% of their rating may use that 100% value.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 4,
+    "expected_keywords": [
+      "125 percent",
+      "100 percent",
+      "690.8(A)",
+      "listed for continuous operation"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p4"
+    ],
+    "reasoning_type": "numerical",
+    "retrieval_depth": "single_chunk",
+    "id": "Q020"
+  },
+  {
+    "question": "The Backup Gateway 2 supply side conductors require what torque in in-lbs for the larger terminal lugs, and what conductor size range do they accommodate?",
+    "type": "numerical",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "275 in-lbs torque; 6 AWG to 250 kcmil conductors.",
+    "source": "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf",
+    "page": 3,
+    "expected_keywords": [
+      "275 in-lbs",
+      "6 AWG",
+      "250 kcmil",
+      "supply side"
+    ],
+    "contexts": [
+      "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf p3"
+    ],
+    "reasoning_type": "numerical",
+    "retrieval_depth": "single_chunk",
+    "id": "Q021"
+  },
+  {
+    "question": "What minimum embedment depth is required for Powerwall wall mounting into concrete or masonry, and what depth applies to wood studs?",
+    "type": "numerical",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "Concrete/masonry: 1 1/2 inch minimum. Wood studs: 2 1/2 inch.",
+    "source": "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "1 1/2",
+      "2 1/2",
+      "concrete",
+      "masonry",
+      "wood studs",
+      "embedment"
+    ],
+    "contexts": [
+      "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf p1"
+    ],
+    "reasoning_type": "numerical",
+    "retrieval_depth": "single_chunk",
+    "id": "Q022"
+  },
+  {
+    "question": "Article 690 Section 690.45 says equipment grounding conductors for PV source circuits are sized per Table 250.122. When no overcurrent device is used in the circuit, what current value should be assumed?",
+    "type": "numerical",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "An assumed overcurrent device rated at the PV maximum circuit current shall be used when applying Table 250.122.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 10,
+    "expected_keywords": [
+      "Table 250.122",
+      "assumed overcurrent device",
+      "PV maximum circuit current"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p10"
+    ],
+    "reasoning_type": "numerical",
+    "retrieval_depth": "single_chunk",
+    "id": "Q023"
+  },
+  {
+    "question": "Article 690 Table 690.31(E): what correction factor applies to a 90°C-rated conductor at 41–45°C ambient temperature?",
+    "type": "numerical",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "0.87",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 8,
+    "expected_keywords": [
+      "0.87",
+      "90°C",
+      "41-45°C",
+      "correction factor",
+      "Table 690.31(E)"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p8"
+    ],
+    "reasoning_type": "numerical",
+    "retrieval_depth": "single_chunk",
+    "id": "Q024"
+  },
+  {
+    "question": "What is the shunt resistance (Rsh) in ohms used in the MATLAB/SIMULINK PV module model in the Bahawalpur feasibility study?",
+    "type": "numerical",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "269.5934 ohms.",
+    "source": "1-s2.0-S2949821X26001341-main.pdf",
+    "page": 6,
+    "expected_keywords": [
+      "269.5934",
+      "shunt resistance",
+      "Rsh"
+    ],
+    "contexts": [
+      "1-s2.0-S2949821X26001341-main.pdf p6"
+    ],
+    "reasoning_type": "numerical",
+    "retrieval_depth": "single_chunk",
+    "id": "Q025"
+  },
+  {
+    "question": "What is the correct installation sequence from mounting the Powerwall through commissioning per the Backup Gateway 2 Quick Guide?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Mount Powerwall → Mount Backup Gateway → Remove neutral-ground bonding strap (or install main breaker if service equipment) → Make Gateway AC power connections → Optionally install internal panelboard → Install breaker hold-down → Make Powerwall AC power connections → Connect communication wiring → Install optional remote disable switch → Install metering → Connect to Internet → Close wiring compartments → Power on → Commission via TEG Wi-Fi.",
+    "source": "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "mount",
+      "bonding strap",
+      "AC connections",
+      "metering",
+      "commissioning",
+      "TEG Wi-Fi"
+    ],
+    "contexts": [
+      "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf p1",
+      "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf p9"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "multi_page",
+    "id": "Q026"
+  },
+  {
+    "question": "Per the NREL C&I best practices report, what is the general path of the commissioning (Cx) process for a commercial PV system?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Design review → construction inspections → start-up and acceptance (functional) testing → final performance testing.",
+    "source": "65286.pdf",
+    "page": 40,
+    "expected_keywords": [
+      "commissioning",
+      "design review",
+      "construction inspections",
+      "start-up",
+      "acceptance testing",
+      "performance testing"
+    ],
+    "contexts": [
+      "65286.pdf p40"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q027"
+  },
+  {
+    "question": "Under NEC Article 690 Section 690.18, how must an installer disable a PV array during installation or servicing to prevent electric shock?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Open circuiting, short circuiting, or opaque covering shall be used to disable an array or portions of an array.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 7,
+    "expected_keywords": [
+      "open circuiting",
+      "short circuiting",
+      "opaque covering",
+      "disable",
+      "electric shock"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p7"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q028"
+  },
+  {
+    "question": "What does the NABCEP JTA Task 7 (Orient End User to System) require an installer to convey at system turnover?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Safe startup, operation, and shutdown procedures; emergency procedures; location of components; monitoring and performance metrics; owner-signoff requirements.",
+    "source": "NABCEP-PV-Installation-JTA-12-14-17.pdf",
+    "page": 12,
+    "expected_keywords": [
+      "startup",
+      "shutdown",
+      "emergency procedures",
+      "location of components",
+      "monitoring",
+      "owner-signoff"
+    ],
+    "contexts": [
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p12"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q029"
+  },
+  {
+    "question": "What wiring layout documentation must be included in a commercial PV planset per the NREL C&I best practices report, and why is it important?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Wiring of modules into strings; strings into combiner boxes; combiner boxes into re-combiner boxes; disconnects; source circuits into inverter. These layouts help the installation team understand the system design and avoid costly mid-stream changes.",
+    "source": "65286.pdf",
+    "page": 33,
+    "expected_keywords": [
+      "wiring layouts",
+      "strings",
+      "combiner boxes",
+      "re-combiner boxes",
+      "inverter"
+    ],
+    "contexts": [
+      "65286.pdf p33"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q030"
+  },
+  {
+    "question": "According to the California Solar Permitting Guidebook, what items must be verified during a general site inspection of a PV installation to ensure it is done in a workman-like manner?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "PV array properly grounded; installed in neat and workman-like manner; electrical boxes accessible and connections suitable for environment; array fastened and sealed per attachment detail; conductor ratings/sizes match plans; appropriate signs properly installed.",
+    "source": "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+    "page": 23,
+    "expected_keywords": [
+      "workman-like",
+      "grounded",
+      "electrical boxes",
+      "conductor ratings",
+      "fastened",
+      "signs"
+    ],
+    "contexts": [
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p23"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q031"
+  },
+  {
+    "question": "Per Article 690, what are the required steps for an ungrounded PV power system under Section 690.35 to be permitted without a grounded current-carrying conductor?",
+    "type": "procedural",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "690.35 requires: (1) disconnects for all PV source and output conductors; (2) overcurrent protection for all PV source and output conductors; (3) ground-fault protection that detects faults, interrupts fault current, and disconnects all conductors or causes inverter/charge controller to cease supplying power; (4) conductors and equipment rated for ungrounded configuration. All equipment grounding and bonding requirements still apply.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 9,
+    "expected_keywords": [
+      "690.35",
+      "ungrounded",
+      "disconnects",
+      "overcurrent protection",
+      "ground-fault protection",
+      "equipment grounding"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p9"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "multi_page",
+    "id": "Q032"
+  },
+  {
+    "question": "The NABCEP JTA Domain II Task 5 covers installing DC PV system conductors. What core knowledge areas are required?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Knowledge of: NFPA 70 (NEC) articles for use, installation, and construction specifications for DC conductors; NFPA 70E (electrical safety in the workplace); appropriate conductor sizing.",
+    "source": "NABCEP-PV-Installation-JTA-12-14-17.pdf",
+    "page": 7,
+    "expected_keywords": [
+      "NFPA 70",
+      "NEC",
+      "DC conductors",
+      "NFPA 70E",
+      "conductor sizing"
+    ],
+    "contexts": [
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p7"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q033"
+  },
+  {
+    "question": "The California Solar Permitting Guidebook recommends what approach for solar pool heating system plan review to simplify the process?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Use collectors/systems certified by an accredited listing agency (greatly simplifies plan review) and use a standard one-line plumbing diagram.",
+    "source": "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+    "page": 65,
+    "expected_keywords": [
+      "standard one-line plumbing diagram",
+      "certified",
+      "listing agency",
+      "simplifies",
+      "solar pool heating"
+    ],
+    "contexts": [
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p65"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q034"
+  },
+  {
+    "question": "What does Article 690 require regarding the field inspection checklist items that a California AHJ inspector verifies for modules and DC conductors on a rooftop PV system?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Module manufacturer, make, model and number must match approved plans (CBC 107.4). DC PV modules must be listed to UL 1703. PV system markings, labels, and signs must match the approved plan. Connection to the grounding electrode system must be per the approved plan.",
+    "source": "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+    "page": 58,
+    "expected_keywords": [
+      "UL 1703",
+      "markings",
+      "grounding electrode",
+      "approved plan",
+      "manufacturer",
+      "CBC 107.4"
+    ],
+    "contexts": [
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p58",
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p57"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "multi_page",
+    "id": "Q035"
+  },
+  {
+    "question": "Why can Enphase IQ8 microinverters maintain energy production on partially shaded arrays more effectively than traditional string inverter systems?",
+    "type": "comparative",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Each IQ8 operates independently with its own MPPT per module. Shading one module reduces only that module's output. In a string inverter, all series-connected modules operate at the same current, so a shaded module limits the entire string.",
+    "source": "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "microinverter",
+      "independent",
+      "MPPT",
+      "string inverter",
+      "shading",
+      "per module"
+    ],
+    "contexts": [
+      "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf p1"
+    ],
+    "reasoning_type": "comparative",
+    "retrieval_depth": "multi_document",
+    "id": "Q036"
+  },
+  {
+    "question": "How do AC grounding electrode requirements differ from DC grounding electrode requirements under NEC Article 690 Section 690.47?",
+    "type": "comparative",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "AC systems (690.47A): grounding electrode conductor installed per 250.50–250.60 and 250.64. DC systems (690.47B): a separate DC grounding electrode must be installed and bonded directly to the AC grounding electrode system; bonding jumper sized per 250.166.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 11,
+    "expected_keywords": [
+      "690.47",
+      "AC grounding",
+      "DC grounding",
+      "bonding jumper",
+      "250.166",
+      "separate dc grounding electrode"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p11"
+    ],
+    "reasoning_type": "comparative",
+    "retrieval_depth": "single_chunk",
+    "id": "Q037"
+  },
+  {
+    "question": "How does the Bahawalpur study's feasibility approach differ from earlier studies relying on NASA Power Data Access Viewer data?",
+    "type": "comparative",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Earlier studies using NASA Power Data Access Viewer partly lacked actual-time results. The Bahawalpur study uses long-term (multidecade) climatological data in MATLAB/SIMULINK for actual-time simulation, better capturing real power losses.",
+    "source": "1-s2.0-S2949821X26001341-main.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "NASA Power Data Access Viewer",
+      "MATLAB/SIMULINK",
+      "actual-time",
+      "climatological",
+      "lack actual-time"
+    ],
+    "contexts": [
+      "1-s2.0-S2949821X26001341-main.pdf p1"
+    ],
+    "reasoning_type": "comparative",
+    "retrieval_depth": "multi_chunk",
+    "id": "Q038"
+  },
+  {
+    "question": "What key operational difference between grounded and ungrounded commercial PV DC systems is noted in the NREL C&I best practices report?",
+    "type": "comparative",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "In ungrounded systems there is no 'system ground' (no grounded current-carrying conductor), but all equipment grounding and bonding requirements still apply. All PV systems must incorporate DC GFP per NEC.",
+    "source": "65286.pdf",
+    "page": 30,
+    "expected_keywords": [
+      "ungrounded",
+      "system ground",
+      "grounded current-carrying conductor",
+      "equipment grounding",
+      "bonding",
+      "DCGFP"
+    ],
+    "contexts": [
+      "65286.pdf p30"
+    ],
+    "reasoning_type": "comparative",
+    "retrieval_depth": "single_chunk",
+    "id": "Q039"
+  },
+  {
+    "question": "What grid profile does the Enphase IQ8 installation manual specify as default, and when must an installer select an alternative?",
+    "type": "comparative",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Default: IEEE 1547. Alternative required when the utility requires it—e.g., Hawaii Electric Industries (HEI/HECO) grids or installations in California.",
+    "source": "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf",
+    "page": 25,
+    "expected_keywords": [
+      "IEEE 1547",
+      "default",
+      "Hawaii Electric",
+      "HECO",
+      "California",
+      "grid profile"
+    ],
+    "contexts": [
+      "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf p25"
+    ],
+    "reasoning_type": "comparative",
+    "retrieval_depth": "single_chunk",
+    "id": "Q040"
+  },
+  {
+    "question": "Compare the conductor identification requirements for PV source circuits versus PV output and inverter circuits under Article 690 Section 690.31(B).",
+    "type": "comparative",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Both PV source circuits and PV output/inverter circuits require conductors to be identified at all points of termination, connection, and splices. Conductors of multiple systems sharing the same junction box or raceway must each be identified at all termination/connection/splice points.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 7,
+    "expected_keywords": [
+      "PV source circuits",
+      "PV output circuits",
+      "inverter circuits",
+      "identified",
+      "termination",
+      "connection",
+      "splices"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p7"
+    ],
+    "reasoning_type": "comparative",
+    "retrieval_depth": "single_chunk",
+    "id": "Q041"
+  },
+  {
+    "question": "How does the Backup Gateway 2's backup load panel conductor specification compare to its non-backup panel conductor specification?",
+    "type": "comparative",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Both use 6 AWG–250 kcmil at 275 in-lbs for large lugs. Backup load panel: 14 AWG–2/0 at 120 in-lbs for smaller terminals. Non-backup panel: 14 AWG–2 AWG for two smaller connections plus 14 AWG–2/0 at 120 in-lbs.",
+    "source": "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf",
+    "page": 4,
+    "expected_keywords": [
+      "6 AWG",
+      "250 kcmil",
+      "275 in-lbs",
+      "backup load panel",
+      "non-backup panel",
+      "14 AWG"
+    ],
+    "contexts": [
+      "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf p3",
+      "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf p4"
+    ],
+    "reasoning_type": "comparative",
+    "retrieval_depth": "multi_page",
+    "id": "Q042"
+  },
+  {
+    "question": "How does the Bahawalpur study's two identified root causes of plant underperformance connect to the research gap it aims to fill?",
+    "type": "comparative",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Cause 1: Inadequate site survey—Bahawalpur's 45°C average temperature far exceeded the 25°C optimum for PV; modules designed for different climates. Cause 2: Government contracts based on installed capacity while run capacity was only 15–35%. Research gap: existing models lacked actual-time results using long-term climatological data. The MATLAB/SIMULINK simulation addresses this by generating actual hourly/daily power predictions before physical investment.",
+    "source": "1-s2.0-S2949821X26001341-main.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "45 degrees",
+      "25 degrees",
+      "site selection",
+      "15-35%",
+      "MATLAB/SIMULINK",
+      "climatological",
+      "research gap"
+    ],
+    "contexts": [
+      "1-s2.0-S2949821X26001341-main.pdf p1"
+    ],
+    "reasoning_type": "comparative",
+    "retrieval_depth": "multi_chunk",
+    "id": "Q043"
+  },
+  {
+    "question": "The Enphase IQ8 installation guide requires PV modules to have conductors labeled 'PV Wire' or 'PV Cable'. How does this requirement relate to Article 690's ungrounded system provisions?",
+    "type": "comparative",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Per the Enphase IQ8 manual, PV modules must have conductors labeled PV Wire or PV Cable to comply with NEC for ungrounded PV power systems. Article 690.35 governs ungrounded systems—this conductor requirement is specific to ungrounded configurations.",
+    "source": "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf",
+    "page": 32,
+    "expected_keywords": [
+      "PV Wire",
+      "PV Cable",
+      "ungrounded PV power systems",
+      "NEC",
+      "labeled",
+      "690.35"
+    ],
+    "contexts": [
+      "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf p32",
+      "Article-690-Photovoltaic-PV-System.pdf p9"
+    ],
+    "reasoning_type": "comparative",
+    "retrieval_depth": "multi_document",
+    "id": "Q044"
+  },
+  {
+    "question": "Compare the California Permitting Guidebook's plan review requirements for solar PV systems versus solar pool heating systems. What is the key documentation difference?",
+    "type": "comparative",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Solar pool heating: standard one-line plumbing diagram plus certified collector designs simplify review. Solar PV: manufacturer specification sheets must be provided for all proposed components. Pool heating has a standardized simplified pathway; PV requires comprehensive component-by-component spec sheets.",
+    "source": "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+    "page": 65,
+    "expected_keywords": [
+      "solar pool heating",
+      "one-line plumbing diagram",
+      "PV systems",
+      "manufacturer specification sheets"
+    ],
+    "contexts": [
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p65",
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p75"
+    ],
+    "reasoning_type": "comparative",
+    "retrieval_depth": "multi_page",
+    "id": "Q045"
+  },
+  {
+    "question": "A NABCEP-certified installer is commissioning a California Enphase IQ8 system. The Enphase manual explains how to set the required non-default grid profile. What profile must be selected, through what interface, and what NABCEP JTA competency applies to this task?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Profile: a California-appropriate alternative to the default IEEE 1547, set through the Enphase Installer interface. NABCEP JTA Domain II Task 8 requires knowledge of electric service provider requirements including interconnection method, equipment location, and labeling requirements.",
+    "source": "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf",
+    "page": 25,
+    "expected_keywords": [
+      "California",
+      "IEEE 1547",
+      "Enphase Installer",
+      "NABCEP",
+      "utility interconnection",
+      "electric service provider"
+    ],
+    "contexts": [
+      "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf p25",
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p8"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q046"
+  },
+  {
+    "question": "A rooftop PV system in California uses Enphase IQ8 microinverters. The California Permitting Guidebook requires DC modules listed to UL 1703. What listing standard does the Enphase IQ8 manual reference for the microinverter enclosure, and why are these different standards?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "The Enphase IQ8 manual references NEMA 250 type 6 for the microinverter's environmental enclosure. UL 1703 applies to PV modules; NEMA 250 type 6 applies to the inverter enclosure. They are different because they cover different components and performance attributes.",
+    "source": "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf",
+    "page": 10,
+    "expected_keywords": [
+      "UL 1703",
+      "NEMA 250",
+      "NEMA 6",
+      "California",
+      "modules",
+      "inverter enclosure"
+    ],
+    "contexts": [
+      "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf p10",
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p58"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q047"
+  },
+  {
+    "question": "Article 690 requires a warning label when a ground fault is detected on a grounded PV system. What exact text must the label contain, where must it be placed, and what second location is required when batteries are also present?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Text: 'IF A GROUND FAULT IS INDICATED, NORMALLY GROUNDED CONDUCTORS MAY BE UNGROUNDED AND ENERGIZED.' Placement: on the utility-interactive inverter or near the ground-fault indicator at a visible location. With batteries: same warning also at a visible location at the batteries.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 2,
+    "expected_keywords": [
+      "IF A GROUND FAULT IS INDICATED",
+      "NORMALLY GROUNDED CONDUCTORS",
+      "UNGROUNDED AND ENERGIZED",
+      "inverter",
+      "batteries"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p2"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_chunk",
+    "id": "Q048"
+  },
+  {
+    "question": "Article 690 requires a permanent label per Section 690.53 on the DC PV power source. If a California AHJ inspector verifies that markings match the approved plan, what five specific items must the 690.53 label include?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Per 690.53: (1) Rated maximum power-point current; (2) Rated maximum power-point voltage; (3) Maximum system voltage; (4) Maximum circuit current; (5) Maximum rated output current of the charge controller (where applicable).",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 12,
+    "expected_keywords": [
+      "690.53",
+      "rated maximum power-point current",
+      "power-point voltage",
+      "maximum system voltage",
+      "maximum circuit current",
+      "charge controller"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p12",
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p57"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q049"
+  },
+  {
+    "question": "The Enphase IQ8 guide warns that unused AC connectors are live when the system is energized. Combined with Article 690's rapid shutdown requirements, what safety procedure must an installer follow before accessing a live microinverter branch circuit?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "(1) Install IQ Sealing Caps on all unused AC connectors. (2) Initiate rapid shutdown per 690.12. (3) Wait 10 seconds for conductors to reduce to ≤30V/240 VA. (4) Verify de-energization before touching connectors.",
+    "source": "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf",
+    "page": 7,
+    "expected_keywords": [
+      "IQ Sealing Cap",
+      "unused AC connectors",
+      "rapid shutdown",
+      "690.12",
+      "30 volts",
+      "240 volt-amperes"
+    ],
+    "contexts": [
+      "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf p7",
+      "Article-690-Photovoltaic-PV-System.pdf p5"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q050"
+  },
+  {
+    "question": "The NREL C&I report says utility interconnection equipment upgrades can affect project feasibility. The California Permitting Guidebook adds guard rail and disability access requirements. How should a commercial PV developer integrate these considerations in early site assessment?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "NREL C&I: assess utility interconnection equipment, local circuit upgrade costs, and who pays early to determine feasibility. California Guidebook: CBC 1015.6 may require guard rails; disability access requirements apply to nonresidential buildings. Early assessment must address interconnection feasibility, circuit capacity, structural requirements, guard rail triggers, and disability access to prevent mid-stream design changes.",
+    "source": "65286.pdf",
+    "page": 36,
+    "expected_keywords": [
+      "interconnection",
+      "local circuit",
+      "feasibility",
+      "guard rails",
+      "CBC 1015.6",
+      "disability access",
+      "site assessment"
+    ],
+    "contexts": [
+      "65286.pdf p36",
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p103"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q051"
+  },
+  {
+    "question": "A Powerwall 2 system is being commissioned using the TEG Wi-Fi web interface. If the 'Login Error (Cannot Start Wizard)' occurs, what exactly does the Quick Guide instruct the installer to do? What NABCEP competency applies?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Quick Guide: select 'Click for More' and tick the 'Force Launch Wizard' option; if issues persist, refresh the web page; if still unresolved, reboot Gateway using the RESET button. NABCEP Domain III Task 1 requires verifying installation per project design; Domain III Task 3 covers mechanical tests and commissioning verification.",
+    "source": "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf",
+    "page": 9,
+    "expected_keywords": [
+      "Force Launch Wizard",
+      "RESET button",
+      "reboot Gateway",
+      "NABCEP",
+      "commissioning"
+    ],
+    "contexts": [
+      "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf p9",
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p11"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q052"
+  },
+  {
+    "question": "Article 690.4 requires parallel-connected PV systems to comply with Article 705 requirements. If an Enphase IQ8 system in California uses the wrong default IEEE 1547 grid profile instead of the California-required profile, what specific NEC compliance risk arises?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Article 690.4 requires compliance with 705.14, 705.16, 705.32, and 705.143 for systems operated in parallel with a primary electricity source. Using the wrong grid profile means the inverter may not comply with California utility interconnection requirements, violating NEC 690.4 and Article 705 interactive system requirements.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "690.4",
+      "705.14",
+      "705.16",
+      "705.32",
+      "705.143",
+      "parallel",
+      "interconnection",
+      "grid profile",
+      "California"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p1",
+      "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf p25"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q053"
+  },
+  {
+    "question": "For a bipolar PV system where combined monopole voltages exceed conductor ratings, what physical separation, raceway, and enclosure requirements does Article 690 impose? What exception exists for switchgear?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Monopole subarrays must be physically separated; electrical output circuits in separate enclosures; all conductors from each subarray routed in the same raceway; disconnecting means and overcurrent devices for each monopole subarray in separate enclosures. Exception: listed switchgear rated for the maximum voltage between circuits containing a physical barrier separating the disconnecting means for each monopole subarray.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 9,
+    "expected_keywords": [
+      "bipolar",
+      "monopole subarrays",
+      "physically separated",
+      "separate enclosures",
+      "same raceway",
+      "switchgear",
+      "physical barrier"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p9"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_page",
+    "id": "Q054"
+  },
+  {
+    "question": "The California Permitting Guidebook references CPC and CBC sections for solar thermal system penetrations. Which code sections govern penetrations through structural members, fire-resistant assemblies, and freeze protection?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "CPC 312.2: penetrations through structural members. CBC 714: penetrations through fire-resistant assemblies. CPC 312.6: freeze protection.",
+    "source": "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+    "page": 89,
+    "expected_keywords": [
+      "CPC 312.2",
+      "CBC 714",
+      "CPC 312.6",
+      "structural members",
+      "fire-resistant",
+      "freeze protection"
+    ],
+    "contexts": [
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p89"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "single_chunk",
+    "id": "Q055"
+  },
+  {
+    "question": "Article 690 Section 690.47(D) permits auxiliary grounding electrodes for roof-mounted PV arrays. What are the connection requirements, and under what exception are additional array grounding electrodes NOT required?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "A grounding electrode per 250.52 must be installed at each roof-mounted array location; electrodes connected directly to the array frame(s)/structure; DC grounding electrode conductor sized per 250.166. Exception: not required if array is within 1.8 m (6 ft) of the premises wiring electrode.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 11,
+    "expected_keywords": [
+      "auxiliary electrodes",
+      "roof-mounted",
+      "1.8 m",
+      "6 ft",
+      "array frame",
+      "250.166",
+      "250.52"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p11"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_chunk",
+    "id": "Q056"
+  },
+  {
+    "question": "Combining the NABCEP JTA, NREL C&I report, and California Permitting Guidebook: what is the complete lifecycle of responsibilities for a NABCEP-certified installer from initial site assessment through end-user orientation for a commercial PV project in California?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Design (NABCEP Domain I + NREL C&I): site survey, soils analysis, utility interconnection location, structural/electrical plansets, performance simulation. Permitting (California Guidebook): submit plan package with manufacturer spec sheets, one-line diagram, grounding plans. Installation (NABCEP Domain II + NREL C&I): safety plan, conductor installation, grounding/bonding, utility interconnection. Commissioning (NABCEP Domain III + NREL C&I): design review, construction inspection, start-up/functional/performance testing. End-user orientation (NABCEP Domain III Task 7): safe startup/shutdown, emergency procedures, monitoring, owner signoff.",
+    "source": "NABCEP-PV-Installation-JTA-12-14-17.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "site assessment",
+      "permitting",
+      "commissioning",
+      "end-user orientation",
+      "performance testing",
+      "safety plan",
+      "grounding"
+    ],
+    "contexts": [
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p1",
+      "65286.pdf p19",
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p23",
+      "65286.pdf p40",
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p12"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q057"
+  },
+  {
+    "question": "The NREL C&I report and Article 690 both address combiner box overcurrent protection. How does the equipment at each combiner level interact with NEC 690.8 and 690.9 requirements?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "At each combiner level, Article 690.9(D) requires listed PV overcurrent devices for PV source and output circuits. Conductors are sized at Isc × 125% per 690.8(A)(1); overcurrent device ratings per 690.9(B) must be ≥125% of the maximum calculated current. The combiner box aggregates source circuits; the re-combiner aggregates PV output circuits. Each level must independently comply with NEC 690 overcurrent requirements.",
+    "source": "65286.pdf",
+    "page": 33,
+    "expected_keywords": [
+      "combiner box",
+      "overcurrent protection",
+      "690.9",
+      "PV source circuit",
+      "125 percent",
+      "listed PV overcurrent devices"
+    ],
+    "contexts": [
+      "65286.pdf p33",
+      "Article-690-Photovoltaic-PV-System.pdf p4"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q058"
+  },
+  {
+    "question": "Article 690 allows ac module systems to be treated differently from standard dc PV arrays for ground-fault protection. What specific exception applies to ac modules in Section 690.5(A), and what separate condition allows ground-mounted/pole-mounted arrays to operate without GFP?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "690.5(A) Exception for ac modules: Article 690 PV source circuit requirements do not apply to ac modules—the PV source circuit, conductors, and inverters are considered integrated units. Separate condition: ground-mounted or pole-mounted PV arrays with ≤2 paralleled source circuits and all dc source and output circuits isolated from buildings are permitted without ground-fault protection.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 2,
+    "expected_keywords": [
+      "ac modules",
+      "integrated units",
+      "not apply",
+      "two paralleled source circuits",
+      "ground-mounted",
+      "pole-mounted",
+      "without ground-fault protection"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p2"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_page",
+    "id": "Q059"
+  },
+  {
+    "question": "A NABCEP candidate is preparing for the exam. How does the Bahawalpur study's use of MATLAB/SIMULINK and performance analysis align with NABCEP Domain I Task 4 (performance simulation) and Domain III Task 7 (monitoring and performance metrics)?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Domain I Task 4: requires PV system performance simulation software knowledge; Bahawalpur study uses MATLAB/SIMULINK for energy yield simulation—directly applying simulation tools. Domain III Task 7: requires monitoring and performance metrics knowledge; Bahawalpur generates hourly/daily power output time series, compares installed vs. run capacity (15-35%), and applies performance ratio concepts.",
+    "source": "1-s2.0-S2949821X26001341-main.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "MATLAB/SIMULINK",
+      "performance simulation",
+      "NABCEP",
+      "Domain I",
+      "Domain III",
+      "performance metrics"
+    ],
+    "contexts": [
+      "1-s2.0-S2949821X26001341-main.pdf p1",
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p4",
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p12"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q060"
+  },
+  {
+    "question": "Compile all Article 690 warning label texts or phrases required to be affixed to various PV system components across the entire article.",
+    "type": "long_context_retrieval",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Labels: (1) Ground fault: 'IF A GROUND FAULT IS INDICATED, NORMALLY GROUNDED CONDUCTORS MAY BE UNGROUNDED AND ENERGIZED'; (2) Shock hazard at disconnecting means: 'WARNING: ELECTRIC SHOCK HAZARD / DO NOT TOUCH TERMINALS. TERMINALS ON BOTH LINE AND LOAD SIDES MAY BE ENERGIZED IN THE OPEN POSITION'; (3) DC PV power source label per 690.53 (Imp, Vmp, max system voltage, max circuit current, max charge controller current); (4) Stand-alone single 120V supply: 'SINGLE 120-VOLT SUPPLY. DO NOT CONNECT MULTIWIRE BRANCH CIRCUITS!'; (5) Ungrounded systems: warning at each junction/combiner/disconnect that energized ungrounded circuits may be exposed.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 2,
+    "expected_keywords": [
+      "IF A GROUND FAULT IS INDICATED",
+      "ELECTRIC SHOCK HAZARD",
+      "DO NOT TOUCH TERMINALS",
+      "SINGLE 120-VOLT SUPPLY",
+      "DO NOT CONNECT MULTIWIRE BRANCH CIRCUITS",
+      "690.53"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p2",
+      "Article-690-Photovoltaic-PV-System.pdf p5",
+      "Article-690-Photovoltaic-PV-System.pdf p7",
+      "Article-690-Photovoltaic-PV-System.pdf p12"
+    ],
+    "reasoning_type": "long_context",
+    "retrieval_depth": "multi_page",
+    "id": "Q061"
+  },
+  {
+    "question": "Trace the complete electrical path from PV module output to the utility grid connection point, identifying every component, conductor type, overcurrent protection rule, and disconnecting means requirement specified across Article 690 and the NREL C&I best practices report.",
+    "type": "long_context_retrieval",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Path: Modules → PV source circuit conductors (USE-2/PV Wire, Isc×156%) → DC combiner box (listed OC devices per 690.9(D)) → PV output circuit conductors → DC disconnect (690.13–690.17, ≤6 switches) → inverter (utility-interactive) → inverter output circuit conductors → AC disconnect within sight of inverter → AC panelboard/service equipment → grid per 690.64/705.12. NREL maps: strings → combiner boxes → re-combiner boxes → disconnects → inverter.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "PV source circuit",
+      "combiner",
+      "PV output circuit",
+      "DC disconnect",
+      "inverter",
+      "inverter output circuit",
+      "AC disconnect",
+      "705.12",
+      "USE-2",
+      "PV Wire"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p1",
+      "Article-690-Photovoltaic-PV-System.pdf p3",
+      "Article-690-Photovoltaic-PV-System.pdf p4",
+      "Article-690-Photovoltaic-PV-System.pdf p5",
+      "65286.pdf p33"
+    ],
+    "reasoning_type": "long_context",
+    "retrieval_depth": "multi_document",
+    "id": "Q062"
+  },
+  {
+    "question": "Across all documents in the corpus, what is the complete set of labeling and marking requirements that must be met at or near a PV system DC disconnecting means?",
+    "type": "long_context_retrieval",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Article 690: (1) Each DC disconnect permanently marked as 'PV system disconnect'; (2) ground-fault warning label near fault indicator; (3) directory showing location of all disconnects if distributed; (4) 690.53 DC PV power source label. California Guidebook: markings must match approved plans. NABCEP: installer must know labeling requirements per electric service provider and NEC.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 2,
+    "expected_keywords": [
+      "PV system disconnect",
+      "ground fault warning",
+      "directory",
+      "690.53",
+      "approved plans"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p2",
+      "Article-690-Photovoltaic-PV-System.pdf p5",
+      "Article-690-Photovoltaic-PV-System.pdf p12",
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p57"
+    ],
+    "reasoning_type": "long_context",
+    "retrieval_depth": "multi_document",
+    "id": "Q063"
+  },
+  {
+    "question": "The Best Practices Handbook for Solar Resource Data (88300.pdf) addresses solar irradiance topics. How do the data topics it covers relate to the inputs needed for the Bahawalpur MATLAB/SIMULINK feasibility model?",
+    "type": "long_context_retrieval",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "The handbook covers solar irradiance time series generation, satellite-based data, and environmental effects (e.g., haze) on PV systems. The Bahawalpur model uses DNI from NASA Power Data Access Viewer as the primary radiation input (DR) in MATLAB/SIMULINK. The handbook's irradiance data quality and temporal resolution best practices directly apply to improving such feasibility model inputs.",
+    "source": "88300.pdf",
+    "page": 278,
+    "expected_keywords": [
+      "irradiance",
+      "DNI",
+      "satellite data",
+      "time series",
+      "MATLAB/SIMULINK",
+      "NASA",
+      "Bahawalpur"
+    ],
+    "contexts": [
+      "88300.pdf p278",
+      "1-s2.0-S2949821X26001341-main.pdf p7",
+      "1-s2.0-S2949821X26001341-main.pdf p6"
+    ],
+    "reasoning_type": "long_context",
+    "retrieval_depth": "multi_document",
+    "id": "Q064"
+  },
+  {
+    "question": "Article 690 requires a battery maintenance disconnecting means under certain conditions. What are the triggering conditions, what is prohibited from being disconnected by this means, and what location requirements apply?",
+    "type": "long_context_retrieval",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Triggered when: more than twenty-four 2-volt cells are connected in series (48 V nominal) and circuits are subject to field servicing. This disconnecting means must NOT disconnect the grounded circuit conductor(s) for the remainder of the PV electrical system. It must be accessible for maintenance. A second disconnecting means is required at the connected equipment when the primary disconnect is not within sight of the connected equipment.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 13,
+    "expected_keywords": [
+      "twenty-four",
+      "2-volt cells",
+      "48 volts",
+      "maintenance disconnecting",
+      "grounded circuit conductor",
+      "within sight"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p13",
+      "Article-690-Photovoltaic-PV-System.pdf p14"
+    ],
+    "reasoning_type": "long_context",
+    "retrieval_depth": "multi_page",
+    "id": "Q065"
+  },
+  {
+    "question": "The Bahawalpur plant has 100 MW installed capacity but achieved only 18 MW run capacity. What is the performance ratio as a percentage, and does this fall within the range cited in the paper?",
+    "type": "calculation_based",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Performance ratio = (18/100) × 100 = 18%. The paper cites 15–35% run capacity; 18% falls at the lower end of this range.",
+    "source": "1-s2.0-S2949821X26001341-main.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "18 MW",
+      "100 MW",
+      "18%",
+      "15-35%",
+      "performance ratio"
+    ],
+    "contexts": [
+      "1-s2.0-S2949821X26001341-main.pdf p1"
+    ],
+    "reasoning_type": "calculation",
+    "retrieval_depth": "multi_chunk",
+    "id": "Q066"
+  },
+  {
+    "question": "A PV source circuit module operates at 8 A. Using the series resistance value (Rs = 0.37152 ohms) from the Bahawalpur MATLAB/SIMULINK model, calculate the power loss across the series resistance.",
+    "type": "calculation_based",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Power loss = I² × Rs = (8)² × 0.37152 = 64 × 0.37152 = 23.78 W.",
+    "source": "1-s2.0-S2949821X26001341-main.pdf",
+    "page": 6,
+    "expected_keywords": [
+      "0.37152",
+      "series resistance",
+      "23.78 W",
+      "I²R"
+    ],
+    "contexts": [
+      "1-s2.0-S2949821X26001341-main.pdf p6"
+    ],
+    "reasoning_type": "calculation",
+    "retrieval_depth": "multi_document",
+    "id": "Q067"
+  },
+  {
+    "question": "A residential California PV system has two inverters. Inverter 1: 4 source circuits, Isc = 9.5 A each. Inverter 2: 3 source circuits, Isc = 10.2 A each. Per NEC 690.8(A)(1) and 690.9(B), calculate the maximum source circuit current and minimum OC device rating for each array.",
+    "type": "calculation_based",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Inverter 1: (4 × 9.5 A) × 125% = 47.5 A max source circuit current; OC device ≥ 47.5 A. Inverter 2: (3 × 10.2 A) × 125% = 38.25 A; OC device ≥ 38.25 A.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 3,
+    "expected_keywords": [
+      "690.8(A)(1)",
+      "690.9(B)",
+      "125 percent",
+      "47.5 A",
+      "38.25 A"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p3",
+      "Article-690-Photovoltaic-PV-System.pdf p4"
+    ],
+    "reasoning_type": "calculation",
+    "retrieval_depth": "multi_document",
+    "id": "Q068"
+  },
+  {
+    "question": "Using NEC Table 690.31(E), a PV installer must derate a 90°C-rated conductor at 51–55°C ambient in a hot climate similar to Bahawalpur. The conductor's rated ampacity at 90°C is 55 A. What is the derated ampacity using the correction factor for that temperature range?",
+    "type": "calculation_based",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Table 690.31(E) shows 90°C conductor at 46–50°C = 0.82; at 51–55°C = 0.76. Derated ampacity = 55 A × 0.76 = 41.8 A.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 8,
+    "expected_keywords": [
+      "Table 690.31(E)",
+      "51-55°C",
+      "90°C",
+      "0.76",
+      "41.8 A",
+      "derated"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p8"
+    ],
+    "reasoning_type": "calculation",
+    "retrieval_depth": "multi_document",
+    "id": "Q069"
+  },
+  {
+    "question": "A PV diversion charge controller is the sole means of regulating charging. PV array max power = 6,000 W. Per Article 690.72, (a) what is the minimum diversion load power rating, and (b) if the diversion controller's maximum current rating is 20 A, what is the minimum OC device rating for the diversion load circuit?",
+    "type": "calculation_based",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "(a) Diversion load ≥ 150% × 6,000 W = 9,000 W. (b) OC device ≥ 150% × 20 A = 30 A minimum.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 14,
+    "expected_keywords": [
+      "150 percent",
+      "9000 W",
+      "30 A",
+      "diversion load",
+      "overcurrent device"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p14"
+    ],
+    "reasoning_type": "calculation",
+    "retrieval_depth": "single_chunk",
+    "id": "Q070"
+  },
+  {
+    "question": "What is the specific efficiency rating and annual degradation rate of the Enphase IQ8A microinverter under STC conditions per the installation manual?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q071"
+  },
+  {
+    "question": "What is the Tesla Powerwall 3's maximum continuous power output and how does its battery chemistry differ from the Powerwall 2?",
+    "type": "comparative",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q072"
+  },
+  {
+    "question": "Under California's Self-Generation Incentive Program (SGIP), what is the current incentive rate per watt-hour for paired battery storage systems in 2024?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q073"
+  },
+  {
+    "question": "What are the specific NABCEP exam passing score requirements and the current exam fee for the PV Installation Professional exam as of 2024?",
+    "type": "simple_factual",
+    "difficulty": "easy",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q074"
+  },
+  {
+    "question": "What does NEC Article 705 Section 705.60 specifically require for large-scale utility interconnection of PV systems above 1 MW?",
+    "type": "simple_factual",
+    "difficulty": "hard",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q075"
+  },
+  {
+    "question": "What is the cost per watt installed for a commercial PV system in California as recommended by the NREL C&I best practices report?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q076"
+  },
+  {
+    "question": "What is the manufacturer's recommended cleaning frequency and cleaning solution for the Enphase IQ8 series microinverter housing?",
+    "type": "procedural",
+    "difficulty": "easy",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q077"
+  },
+  {
+    "question": "How does the SunPower Maxeon 6 module's performance in high-temperature environments compare to conventional PERC modules per any manufacturer data in the provided documents?",
+    "type": "comparative",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q078"
+  },
+  {
+    "question": "What are the specific fire setback requirements (module-free zones) for PV arrays on rooftops in California as adopted in the 2022 California Fire Code?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q079"
+  },
+  {
+    "question": "What is the Enphase Enlighten monitoring platform's data upload interval in seconds, and what API endpoints are available for third-party system integrators?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q080"
+  },
+  {
+    "question": "What are the NEC 2023 Article 690 changes regarding rapid shutdown requirements differentiating ground-mounted from rooftop systems?",
+    "type": "simple_factual",
+    "difficulty": "hard",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q081"
+  },
+  {
+    "question": "What are the Pakistan Alternative Energy Development Board's (AEDB) licensing requirements for the Quaid-e-Azam Solar Power Plant's expansion to 900 MW?",
+    "type": "procedural",
+    "difficulty": "hard",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q082"
+  },
+  {
+    "question": "What is the specific MATLAB function call used to implement the MPPT algorithm in the Bahawalpur MATLAB/SIMULINK model, and what are its input parameters?",
+    "type": "numerical",
+    "difficulty": "hard",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q083"
+  },
+  {
+    "question": "What is California Assembly Bill 2188 (AB 2188) and how does it specifically modify solar permit approval timelines for residential systems under 10 kW?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q084"
+  },
+  {
+    "question": "What does SolarEdge's HD-Wave inverter technology offer in terms of efficiency and grid compliance that differentiates it from standard string inverters, based on the provided documents?",
+    "type": "comparative",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q085"
+  },
+  {
+    "question": "How does the Best Practices Handbook for Solar Resource Data recommend correcting for soiling losses when generating long-term P50/P90 energy yield estimates?",
+    "type": "procedural",
+    "difficulty": "hard",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q086"
+  },
+  {
+    "question": "What is the Enphase IQ8's maximum DC input power for the IQ8H variant, and how does this compare to the IQ8M variant?",
+    "type": "comparative",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q087"
+  },
+  {
+    "question": "What are the requirements under NEC Article 706 for energy storage systems exceeding 20 kWh in residential applications?",
+    "type": "simple_factual",
+    "difficulty": "hard",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q088"
+  },
+  {
+    "question": "What is the California NEM 3.0 (Net Billing Tariff) export compensation rate in $/kWh for residential PV systems, and how does it compare to NEM 2.0 avoided-cost rates?",
+    "type": "comparative",
+    "difficulty": "hard",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q089"
+  },
+  {
+    "question": "Per the NREL C&I best practices report, what is the recommended minimum insurance coverage for EPC contractors working on commercial PV projects above 500 kW?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q090"
+  },
+  {
+    "question": "What is the maximum allowable voltage drop percentage for DC source circuits in a commercial PV system per the California Electrical Code as discussed in the California Solar Permitting Guidebook?",
+    "type": "numerical",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q091"
+  },
+  {
+    "question": "What are the NABCEP continuing education requirements (credit hours per renewal period) for maintaining the PV Installation Professional certification?",
+    "type": "simple_factual",
+    "difficulty": "easy",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q092"
+  },
+  {
+    "question": "What specific thermal operating limits does the Tesla Powerwall 2 installation manual prescribe for installations in climates exceeding 50°C ambient?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q093"
+  },
+  {
+    "question": "According to the IREC Solar Licensing Database referenced in the NREL C&I report, what states require a specific solar contractor license separate from a general electrical contractor license?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q094"
+  },
+  {
+    "question": "What are the bifacial PV module albedo correction factors recommended by the Best Practices Handbook for Solar Resource Data for rooftop versus ground-mounted installations?",
+    "type": "numerical",
+    "difficulty": "hard",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q095"
+  },
+  {
+    "question": "What is the Tesla Powerwall Gateway 2's UL certification number and what specific safety standards does it comply with for use as service equipment in California?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q096"
+  },
+  {
+    "question": "What maximum permit fee for a residential solar PV system under 10 kW does the California Permitting Guidebook specify under the state's standardized fee schedule?",
+    "type": "numerical",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q097"
+  },
+  {
+    "question": "What is the Enphase IQ8 trunk cable maximum string length in feet for a 240V single-phase system and how does this affect voltage drop calculations per the installation guide?",
+    "type": "numerical",
+    "difficulty": "hard",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q098"
+  },
+  {
+    "question": "What stormwater management requirements apply to utility-scale solar farms in the Bahawalpur region of Pakistan as referenced in the feasibility study?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q099"
+  },
+  {
+    "question": "How does the NEC 2023 edition's Article 690 handle back-fed breaker requirements differently from the 2014 edition used in this corpus?",
+    "type": "comparative",
+    "difficulty": "hard",
+    "is_answerable": false,
+    "ground_truth": "I cannot find the answer in the provided documents.",
+    "source": "",
+    "page": 0,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "hallucination_test",
+    "retrieval_depth": "single_chunk",
+    "id": "Q100"
+  },
+  {
+    "question": "Article 690 Section 690.47(C)(3) addresses PV systems with both AC and DC grounding requirements. What method may be used to combine these into a single conductor?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "An unspliced or irreversibly spliced combined grounding conductor may be used—sized as the larger of 250.122 or 250.166—installed per 250.64(E). The busbar connects to the associated AC equipment and serves as the combined AC equipment grounding and DC grounding electrode conductor.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 11,
+    "expected_keywords": [
+      "combined",
+      "unspliced",
+      "250.122",
+      "250.166",
+      "250.64(E)",
+      "busbar"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p11"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_chunk",
+    "id": "Q101"
+  },
+  {
+    "question": "The Enphase IQ8 installation guide states the IQ Terminator must only be used once. What happens if an installer opens the IQ Terminator after initial installation, and what must be done?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "The IQ Terminator must only be used once. If opened following installation, a replacement must be used—it cannot be reused.",
+    "source": "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf",
+    "page": 7,
+    "expected_keywords": [
+      "IQ Terminator",
+      "once",
+      "replacement",
+      "opened"
+    ],
+    "contexts": [
+      "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf p7"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q102"
+  },
+  {
+    "question": "Per Article 690, what label must appear on a stand-alone solar PV system's single 120-volt inverter output, and why?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Label: 'SINGLE 120-VOLT SUPPLY. DO NOT CONNECT MULTIWIRE BRANCH CIRCUITS!' This is because connecting multiwire branch circuits to a single 120V supply could result in overvoltage and safety hazards.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 5,
+    "expected_keywords": [
+      "SINGLE 120-VOLT SUPPLY",
+      "DO NOT CONNECT MULTIWIRE BRANCH CIRCUITS",
+      "stand-alone"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p5"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q103"
+  },
+  {
+    "question": "The NREL C&I report states the design drawings must have an appropriate level of detail to minimize unknown obstacles for the installation team. What specific items must appear in the wiring layout portion of the planset?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Wiring layouts must show: wiring of modules into strings; strings into combiner boxes; combiner boxes into re-combiner boxes; disconnects; source circuits into the inverter. These enable the installation team to understand the system design.",
+    "source": "65286.pdf",
+    "page": 33,
+    "expected_keywords": [
+      "modules into strings",
+      "combiner boxes",
+      "re-combiner boxes",
+      "disconnects",
+      "inverter",
+      "wiring layouts"
+    ],
+    "contexts": [
+      "65286.pdf p33"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q104"
+  },
+  {
+    "question": "The California Solar Permitting Guidebook mentions guard rail requirements under CBC Section 1015.6 and disability access requirements. Under what section do disability access requirements apply, and to what building types?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Disability access requirements (Section 10 of the Guidebook) apply to nonresidential, hotel, motel buildings, facilities, or structures.",
+    "source": "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+    "page": 103,
+    "expected_keywords": [
+      "disability access",
+      "nonresidential",
+      "hotel",
+      "motel",
+      "Section 10"
+    ],
+    "contexts": [
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p103"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q105"
+  },
+  {
+    "question": "What does the NABCEP JTA identify as the inspection and verification activities in Domain III (Commissioning) Task 1?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Task 1 requires: verifying installation per project design and requirements; knowledge of NEC and local AHJ requirements; knowledge of electric service provider requirements.",
+    "source": "NABCEP-PV-Installation-JTA-12-14-17.pdf",
+    "page": 11,
+    "expected_keywords": [
+      "verifying installation",
+      "project design",
+      "NEC",
+      "AHJ",
+      "electric service provider"
+    ],
+    "contexts": [
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p11"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q106"
+  },
+  {
+    "question": "Article 690 permits a normally interactive solar PV system to operate in stand-alone mode. What conditions must be met for this to be permitted?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "A normally interactive solar PV system shall be permitted to operate as a stand-alone system to supply loads that have been disconnected from electrical production and distribution network sources.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 13,
+    "expected_keywords": [
+      "interactive",
+      "stand-alone",
+      "disconnected from electrical production",
+      "distribution network"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p13"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q107"
+  },
+  {
+    "question": "For the Backup Gateway 2 metering installation, what constitutes correct versus incorrect CT (current transformer) installation per the quick guide?",
+    "type": "comparative",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Correct: all site loads monitored with two integrated CTs and all solar monitored with one auxiliary CT; OR all site loads monitored with two auxiliary CTs and all solar monitored with one auxiliary CT. Incorrect: non-backup site loads not monitored by integrated CTs; secondary solar not monitored.",
+    "source": "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf",
+    "page": 7,
+    "expected_keywords": [
+      "integrated CTs",
+      "auxiliary CT",
+      "site loads",
+      "solar",
+      "non-backup",
+      "not monitored"
+    ],
+    "contexts": [
+      "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf p7"
+    ],
+    "reasoning_type": "comparative",
+    "retrieval_depth": "single_chunk",
+    "id": "Q108"
+  },
+  {
+    "question": "What source of historical temperature data does Article 690 reference for calculating maximum PV system voltage using manufacturer-supplied temperature coefficients?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "The lowest ambient temperature found in the ASHRAE Handbook — Fundamentals, applied relative to the 25°C rating temperature.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 2,
+    "expected_keywords": [
+      "ASHRAE Handbook",
+      "Fundamentals",
+      "temperature coefficients",
+      "25°C",
+      "lowest ambient temperature"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p2"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q109"
+  },
+  {
+    "question": "What does Article 690 Section 690.4 specify about PV systems operated in parallel with a primary electricity source?",
+    "type": "definition",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Article 690 shall apply, and if the system is operated in parallel with a primary source(s) of electricity, the requirements in 705.14, 705.16, 705.32, and 705.143 shall also apply.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "parallel",
+      "705.14",
+      "705.16",
+      "705.32",
+      "705.143",
+      "primary source"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p1"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q110"
+  },
+  {
+    "question": "The NABCEP JTA Domain I Task 4 lists knowledge areas for configuring mechanical design. What trigonometry/geometry calculations are specifically mentioned?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Basic algebra, geometry, and trigonometry calculations including area, slope, inter-row shading, and geometry-related calculations.",
+    "source": "NABCEP-PV-Installation-JTA-12-14-17.pdf",
+    "page": 4,
+    "expected_keywords": [
+      "algebra",
+      "geometry",
+      "trigonometry",
+      "area",
+      "slope",
+      "inter-row shading"
+    ],
+    "contexts": [
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p4"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q111"
+  },
+  {
+    "question": "What does the Enphase IQ8 installation guide specify must be done with all unused AC connectors, and why?",
+    "type": "simple_factual",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "All unused AC connectors must be covered with an IQ Sealing Cap because unused AC connectors are live when the system is energized.",
+    "source": "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf",
+    "page": 7,
+    "expected_keywords": [
+      "IQ Sealing Cap",
+      "unused AC connectors",
+      "live",
+      "energized"
+    ],
+    "contexts": [
+      "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf p7"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q112"
+  },
+  {
+    "question": "According to the NREL C&I best practices report, what happens when interconnection and local circuit upgrade costs are not addressed early in a commercial PV project?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "In non-residential systems, interconnection equipment and local circuit upgrade considerations can make it unfeasible to install a system at a particular location or at the intended size, and these factors can change project economics mid-stream.",
+    "source": "65286.pdf",
+    "page": 36,
+    "expected_keywords": [
+      "interconnection",
+      "local circuit",
+      "unfeasible",
+      "mid-stream",
+      "non-residential"
+    ],
+    "contexts": [
+      "65286.pdf p36"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q113"
+  },
+  {
+    "question": "Article 690 Section 690.9(D) requires overcurrent protection in PV source and output circuits. What specific type of overcurrent device must be used?",
+    "type": "definition",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Listed PV overcurrent devices shall be required to provide overcurrent protection in PV source and output circuits.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 4,
+    "expected_keywords": [
+      "listed PV overcurrent devices",
+      "PV source",
+      "PV output circuits"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p4"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q114"
+  },
+  {
+    "question": "What does the Backup Gateway 2 quick guide instruct if the 'Error: Bad Credentials' message appears during commissioning?",
+    "type": "procedural",
+    "difficulty": "easy",
+    "is_answerable": true,
+    "ground_truth": "For Error: Bad Credentials, select FORGOT PASSWORD to reset the password.",
+    "source": "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf",
+    "page": 9,
+    "expected_keywords": [
+      "Bad Credentials",
+      "FORGOT PASSWORD",
+      "reset password"
+    ],
+    "contexts": [
+      "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf p9"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q115"
+  },
+  {
+    "question": "What does the Bahawalpur case study identify as the specific sizes of PV tracking systems evaluated and the decision-making framework used for site selection?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "A 50 MW solar PV system with single-axis and dual-axis tracking was evaluated. The Analytic Hierarchy Process (AHP) and Multicriteria Decision Making (MCDM) were used, with Geographic Information System (GIS) for resource mapping.",
+    "source": "1-s2.0-S2949821X26001341-main.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "50 MW",
+      "single-axis",
+      "dual-axis",
+      "Analytic Hierarchy Process",
+      "GIS",
+      "Multicriteria Decision Making"
+    ],
+    "contexts": [
+      "1-s2.0-S2949821X26001341-main.pdf p1"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q116"
+  },
+  {
+    "question": "What does Article 690 Section 690.5(B) require regarding isolation of a faulted PV circuit?",
+    "type": "procedural",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "The faulted circuit shall be isolated by one of two methods: (1) all conductors of the faulted circuit shall be automatically and simultaneously opened; or (2) the inverter or charge controller fed by the faulted circuit shall automatically cease to supply power to output circuits.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 2,
+    "expected_keywords": [
+      "faulted circuit",
+      "automatically",
+      "simultaneously opened",
+      "cease to supply power",
+      "inverter",
+      "charge controller"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p2"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q117"
+  },
+  {
+    "question": "What does the Enphase IQ8 installation guide specify about the grid profile setting for installations in Hawaii (HEI/HECO grids) and how is it configured?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "For grids managed by Hawaii Electric Industries (HEI), including HECO, an appropriate grid profile other than the default IEEE 1547 must be selected. It can be set through the Enphase Installer interface.",
+    "source": "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf",
+    "page": 25,
+    "expected_keywords": [
+      "Hawaii Electric Industries",
+      "HECO",
+      "grid profile",
+      "IEEE 1547",
+      "Enphase Installer"
+    ],
+    "contexts": [
+      "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf p25"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q118"
+  },
+  {
+    "question": "How does the California Permitting Guidebook's approach to permit review relate to code inconsistencies and inspector expertise variations across jurisdictions?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "The Guidebook addresses varying code interpretations and inconsistent inspector expertise by providing a comprehensive inspection reference and field inspection guide. Permit applicants should ask the local enforcing agency for a clear explanation of what the on-site inspection will entail, including what elements of the system the inspector will examine.",
+    "source": "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+    "page": 14,
+    "expected_keywords": [
+      "code interpretations",
+      "inconsistent expertise",
+      "field inspectors",
+      "enforcing agency",
+      "inspection",
+      "explanation"
+    ],
+    "contexts": [
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p14"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_chunk",
+    "id": "Q119"
+  },
+  {
+    "question": "For a series single-conductor cable run between PV array modules, what cable types does Article 690 permit per Section 690.31(C)(1)?",
+    "type": "definition",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Type USE-2 single-conductor cable and PV Wire are permitted for module interconnection in outdoor locations.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 7,
+    "expected_keywords": [
+      "USE-2",
+      "PV Wire",
+      "single-conductor",
+      "outdoor",
+      "module interconnection"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p7"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q120"
+  },
+  {
+    "question": "What does Article 690 require regarding the marking of fuses used in PV source circuits when the disconnecting means is located more than 1.8 m (6 ft) from the overcurrent device?",
+    "type": "simple_factual",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Where the disconnecting means are located more than 1.8 m (6 ft) from the overcurrent device, a directory showing the location of each disconnect shall be provided.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 6,
+    "expected_keywords": [
+      "1.8 m",
+      "6 ft",
+      "directory",
+      "location of each disconnect",
+      "overcurrent device"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p6"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q121"
+  },
+  {
+    "question": "Article 690 permits a common DC grounding-electrode conductor to serve multiple inverters. What sizing rule applies to this common conductor?",
+    "type": "numerical",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "A common DC grounding-electrode conductor shall be permitted to serve multiple inverters. The size of the common grounding-electrode conductor shall not be required to be larger than the largest ungrounded phase conductor.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 11,
+    "expected_keywords": [
+      "common dc grounding-electrode conductor",
+      "multiple inverters",
+      "largest ungrounded phase conductor"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p11"
+    ],
+    "reasoning_type": "numerical",
+    "retrieval_depth": "single_chunk",
+    "id": "Q122"
+  },
+  {
+    "question": "According to the NREL C&I best practices report, what information from a structural survey must be included in the design documentation notes section?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "The notes section must detail specific design criteria including maximum and minimum design temperatures, wind speed data, exposure category, seismic data, concrete specifications, and steel specifications.",
+    "source": "65286.pdf",
+    "page": 24,
+    "expected_keywords": [
+      "design temperatures",
+      "wind speed",
+      "exposure category",
+      "seismic",
+      "concrete specifications",
+      "steel specifications"
+    ],
+    "contexts": [
+      "65286.pdf p24"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q123"
+  },
+  {
+    "question": "Article 690 Section 690.72 states charge control is not required under what specific design condition?",
+    "type": "definition",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Charge control is not required where the design of the photovoltaic source circuit is matched to the voltage rating and charge current requirements of the interconnected battery cells.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 14,
+    "expected_keywords": [
+      "charge control",
+      "not required",
+      "matched",
+      "voltage rating",
+      "charge current",
+      "battery cells"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p14"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q124"
+  },
+  {
+    "question": "How does the NABCEP JTA approach battery system installation safety? What specific knowledge areas are listed under battery-related tasks?",
+    "type": "procedural",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Battery installation requires knowledge of batteries and battery equipment maintenance and installation techniques including labeling, spill kits, enclosure requirements, and ventilation. The safety plan must be implemented site-specifically.",
+    "source": "NABCEP-PV-Installation-JTA-12-14-17.pdf",
+    "page": 9,
+    "expected_keywords": [
+      "batteries",
+      "labeling",
+      "spill kits",
+      "enclosure",
+      "ventilation",
+      "safety plan"
+    ],
+    "contexts": [
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p9"
+    ],
+    "reasoning_type": "procedural",
+    "retrieval_depth": "single_chunk",
+    "id": "Q125"
+  },
+  {
+    "question": "What does Article 690 Section 690.32 require for component interconnections where fittings and connectors are intended to be concealed at the time of on-site assembly?",
+    "type": "definition",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "Fittings and connectors intended to be concealed at the time of on-site assembly, where listed for such use, shall be permitted for on-site installation. They shall have adequate fault-current withstand capability and be capable of resisting the effects of the environment in which they are used.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 9,
+    "expected_keywords": [
+      "concealed",
+      "on-site assembly",
+      "listed",
+      "fault-current withstand",
+      "environment"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p9"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q126"
+  },
+  {
+    "question": "What does the California Permitting Guidebook's information bulletin identify as the primary reason for establishing an information bulletin clarifying CBC and CRC requirements for solar PV installations?",
+    "type": "simple_factual",
+    "difficulty": "medium",
+    "is_answerable": true,
+    "ground_truth": "The information bulletin primarily clarifies requirements pertaining to the California Building Code and the California Residential Code, since these codes in their current form require significant local interpretation regarding specific code requirements for solar PV installations.",
+    "source": "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+    "page": 97,
+    "expected_keywords": [
+      "significant local interpretation",
+      "California Building Code",
+      "California Residential Code",
+      "solar PV installations",
+      "information bulletin"
+    ],
+    "contexts": [
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p97"
+    ],
+    "reasoning_type": "direct_retrieval",
+    "retrieval_depth": "single_chunk",
+    "id": "Q127"
+  },
+  {
+    "question": "What NEC section governs underwater photovoltaic reactors?",
+    "type": "unanswerable",
+    "difficulty": "easy",
+    "is_answerable": false,
+    "ground_truth": "The provided documents contain no information about underwater photovoltaic reactors.",
+    "source": null,
+    "page": null,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "unanswerable",
+    "retrieval_depth": "n/a",
+    "id": "Q128"
+  },
+  {
+    "question": "What does Article 690 specify about the use of gallium arsenide PV cells in residential installations?",
+    "type": "unanswerable",
+    "difficulty": "easy",
+    "is_answerable": false,
+    "ground_truth": "The provided documents contain no information about gallium arsenide PV cells or their use in residential installations.",
+    "source": null,
+    "page": null,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "unanswerable",
+    "retrieval_depth": "n/a",
+    "id": "Q129"
+  },
+  {
+    "question": "How does the NABCEP JTA address certification requirements for offshore floating solar installations?",
+    "type": "unanswerable",
+    "difficulty": "easy",
+    "is_answerable": false,
+    "ground_truth": "The provided documents contain no information about offshore or floating solar installations.",
+    "source": null,
+    "page": null,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "unanswerable",
+    "retrieval_depth": "n/a",
+    "id": "Q130"
+  },
+  {
+    "question": "According to the California Solar Permitting Guidebook, what permits are required for solar installations on historic landmark buildings?",
+    "type": "unanswerable",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "The provided documents do not address permitting requirements specific to solar installations on historic landmark buildings.",
+    "source": null,
+    "page": null,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "unanswerable",
+    "retrieval_depth": "n/a",
+    "id": "Q131"
+  },
+  {
+    "question": "What is the maximum string length (in modules) allowed by the Enphase IQ8 microinverter for a rooftop PV array?",
+    "type": "unanswerable",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "The Enphase IQ8 is a microinverter that connects to individual modules; the concept of string length does not apply. The documents do not specify a maximum string length for IQ8 systems.",
+    "source": null,
+    "page": null,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "unanswerable",
+    "retrieval_depth": "n/a",
+    "id": "Q132"
+  },
+  {
+    "question": "What does the Bahawalpur case study say about the impact of air pollution and dust storms on bifacial PV module rear-side irradiance?",
+    "type": "unanswerable",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "The provided documents do not discuss bifacial PV modules or the effect of dust storms on rear-side irradiance.",
+    "source": null,
+    "page": null,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "unanswerable",
+    "retrieval_depth": "n/a",
+    "id": "Q133"
+  },
+  {
+    "question": "What interconnection tariff structure does NREL recommend for commercial PV systems larger than 10 MW?",
+    "type": "unanswerable",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "The provided documents do not discuss interconnection tariff structures for systems of any size.",
+    "source": null,
+    "page": null,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "unanswerable",
+    "retrieval_depth": "n/a",
+    "id": "Q134"
+  },
+  {
+    "question": "Does Article 690 specify minimum roof pitch requirements for solar panel installations on residential buildings?",
+    "type": "unanswerable",
+    "difficulty": "easy",
+    "is_answerable": false,
+    "ground_truth": "Article 690 and the other provided documents do not specify minimum roof pitch requirements for solar panel installations.",
+    "source": null,
+    "page": null,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "unanswerable",
+    "retrieval_depth": "n/a",
+    "id": "Q135"
+  },
+  {
+    "question": "How does the Tesla Powerwall 2 integrate with vehicle-to-grid (V2G) charging systems according to the installation guide?",
+    "type": "unanswerable",
+    "difficulty": "medium",
+    "is_answerable": false,
+    "ground_truth": "The Tesla Powerwall 2 installation quick guide does not mention vehicle-to-grid (V2G) charging system integration.",
+    "source": null,
+    "page": null,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "unanswerable",
+    "retrieval_depth": "n/a",
+    "id": "Q136"
+  },
+  {
+    "question": "What does the NREL C&I best practices report specify about decommissioning and end-of-life module recycling requirements?",
+    "type": "unanswerable",
+    "difficulty": "hard",
+    "is_answerable": false,
+    "ground_truth": "The provided NREL C&I best practices report does not address decommissioning procedures or end-of-life module recycling requirements.",
+    "source": null,
+    "page": null,
+    "expected_keywords": [],
+    "contexts": [],
+    "reasoning_type": "unanswerable",
+    "retrieval_depth": "n/a",
+    "id": "Q137"
+  },
+  {
+    "question": "How do Article 690's rapid shutdown requirements relate to firefighter safety, and what specific voltage and time thresholds must be met?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Article 690.12 requires rapid shutdown of PV systems on buildings to reduce electrocution risk for emergency responders. Controlled conductors outside the array boundary must be reduced to 30V or less within 30 seconds of rapid shutdown initiation. Within the array boundary, conductors must be de-energized to 80V or less within 30 seconds. These thresholds directly address the hazard firefighters face when cutting through roofing materials or structure during fire suppression.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 5,
+    "expected_keywords": [
+      "rapid shutdown",
+      "30 volts",
+      "80 volts",
+      "30 seconds",
+      "array boundary",
+      "firefighter",
+      "emergency responder",
+      "690.12"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p5"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_chunk",
+    "id": "Q138"
+  },
+  {
+    "question": "How do NABCEP commissioning domain requirements (Domain III) align with the NEC Article 690 inspection and testing requirements an AHJ would apply during a final inspection?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "NABCEP Domain III requires commissioning tasks including design review, construction inspection, start-up testing, functional testing, and performance testing. NEC Article 690 requires compliance with wiring methods (690.31), overcurrent protection (690.9), disconnecting means markings (690.13–690.17), grounding/bonding (690.43–690.47), and labeling (690.53–690.54). The California Permitting Guidebook field inspection checklist (p57) maps AHJ inspection items—markings, conductor sizing, access, and grounding—directly to the same systems NABCEP Domain III commissioning tasks verify, meaning a complete NABCEP commissioning process effectively pre-validates what the AHJ will check.",
+    "source": "NABCEP-PV-Installation-JTA-12-14-17.pdf",
+    "page": 12,
+    "expected_keywords": [
+      "commissioning",
+      "Domain III",
+      "AHJ",
+      "inspection",
+      "grounding",
+      "labeling",
+      "overcurrent",
+      "functional testing"
+    ],
+    "contexts": [
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p12",
+      "Article-690-Photovoltaic-PV-System.pdf p5",
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p57"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q139"
+  },
+  {
+    "question": "How do interconnection requirements in Article 690 Section 690.4 and Article 705 affect the financial and technical feasibility analysis for a commercial PV project as described in the NREL C&I best practices report?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Article 690.4 requires PV systems operating in parallel with the utility to comply with 705.14 (output characteristics), 705.16 (interrupting and short-circuit rating), 705.32 (ground-fault protection), and 705.143 (loss of primary source). The NREL C&I report identifies utility interconnection location as a critical site assessment element that affects system design scope and cost. Interconnection requirements can force design changes (transformer sizing, additional protection relays, specific inverter grid profiles), directly impacting project capex and timeline—core inputs to the feasibility model.",
+    "source": "65286.pdf",
+    "page": 12,
+    "expected_keywords": [
+      "interconnection",
+      "690.4",
+      "705.14",
+      "705.16",
+      "feasibility",
+      "site assessment",
+      "utility",
+      "capex"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p1",
+      "65286.pdf p12"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q140"
+  },
+  {
+    "question": "How does the Enphase IQ8's compliance with UL 1741 SA and IEEE 1547 relate to Article 690 Section 690.4 and the utility interconnection requirements outlined in the NREL C&I report?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Article 690.4 requires PV systems connected in parallel with a primary source to meet Article 705 requirements, which reference IEEE 1547 for interconnection. The Enphase IQ8 is listed to UL 1741 SA (Supplement A), which is the testing standard that implements IEEE 1547-2018 advanced grid function requirements (volt-var, volt-watt, frequency response). The NREL C&I report identifies utility interconnection agreement compliance as a due-diligence requirement. IQ8 UL 1741 SA listing therefore directly satisfies the NEC 690.4/705 compliance path and the NREL interconnection agreement requirement simultaneously.",
+    "source": "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf",
+    "page": 2,
+    "expected_keywords": [
+      "UL 1741 SA",
+      "IEEE 1547",
+      "690.4",
+      "Article 705",
+      "interconnection",
+      "grid profile",
+      "NREL"
+    ],
+    "contexts": [
+      "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf p2",
+      "Article-690-Photovoltaic-PV-System.pdf p1",
+      "65286.pdf p12"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q141"
+  },
+  {
+    "question": "A California commercial PV project in Bahawalpur-level heat (45°C ambient) uses Enphase IQ8 microinverters. Synthesizing the Bahawalpur thermal derating findings, Enphase IQ8 operating temperature specs, and NREL C&I performance testing requirements, what commissioning and design risks should the engineer flag?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "The Bahawalpur study shows PV performance degrades significantly at 45°C ambient vs. the nominal 25°C STC, reducing output to 15–35% of installed capacity in worst cases. The Enphase IQ8 has a maximum operating temperature limit; sustained high ambient temperatures can cause thermal throttling or shutdown. The NREL C&I report requires performance testing to verify actual vs. modeled output. Risks: (1) energy yield model may overestimate output if STC-based without temperature correction; (2) microinverter thermal throttling may cause additional losses not captured in MATLAB simulation; (3) NREL commissioning performance test may fail acceptance criteria if thermal derating is not accounted for in the performance guarantee.",
+    "source": "1-s2.0-S2949821X26001341-main.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "thermal derating",
+      "45 degrees",
+      "operating temperature",
+      "IQ8",
+      "performance testing",
+      "NREL",
+      "commissioning",
+      "energy yield"
+    ],
+    "contexts": [
+      "1-s2.0-S2949821X26001341-main.pdf p1",
+      "iom-00068-en-us-iq8-iq8plus-iq8m-iq8a-iq8h.pdf p2",
+      "65286.pdf p40"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q142"
+  },
+  {
+    "question": "How do Article 690's grounding and bonding requirements for ungrounded PV systems (Section 690.35) interact with the NABCEP JTA's grounding knowledge requirements and the California Permitting Guidebook's AHJ inspection checklist?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "Article 690.35 permits ungrounded PV systems provided: (1) all conductors are ungrounded; (2) ground-fault protection is provided per 690.5; (3) disconnecting means are provided for all conductors; (4) warning labels are affixed at all exposed points. NABCEP JTA Domain II requires knowledge of grounding and bonding, including ungrounded system configurations and associated labeling. The California Permitting Guidebook field inspection checklist (p57) requires AHJ verification of grounding, bonding, and labeling—meaning an ungrounded system must satisfy 690.35 labeling and protection requirements before AHJ sign-off, and the NABCEP-certified installer must demonstrate competency in all three areas simultaneously.",
+    "source": "Article-690-Photovoltaic-PV-System.pdf",
+    "page": 9,
+    "expected_keywords": [
+      "ungrounded",
+      "690.35",
+      "ground-fault protection",
+      "labeling",
+      "NABCEP",
+      "Domain II",
+      "AHJ",
+      "inspection checklist"
+    ],
+    "contexts": [
+      "Article-690-Photovoltaic-PV-System.pdf p9",
+      "NABCEP-PV-Installation-JTA-12-14-17.pdf p8",
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p57"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q143"
+  },
+  {
+    "question": "How does the California Permitting Guidebook's streamlined permit process relate to the NREL C&I pre-construction due diligence timeline, and what bottlenecks could arise if AHJ interpretation of NEC Article 690 is inconsistent?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "The California Permitting Guidebook aims to reduce permit issuance to 3 business days for qualifying systems by standardizing documentation requirements. The NREL C&I report places permitting in the pre-construction phase between design completion and notice-to-proceed, where delays directly affect project financing timelines. If AHJs apply inconsistent interpretations of Article 690 (particularly on conductor sizing, grounding, or arc-fault requirements), permit approval may require design revisions, pushing back notice-to-proceed and potentially triggering financing contingency clauses.",
+    "source": "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf",
+    "page": 14,
+    "expected_keywords": [
+      "3 business days",
+      "streamlined",
+      "pre-construction",
+      "AHJ interpretation",
+      "financing",
+      "notice-to-proceed",
+      "Article 690"
+    ],
+    "contexts": [
+      "20190226-Solar_Permitting_Guidebook_4th_Edition.pdf p14",
+      "65286.pdf p12"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q144"
+  },
+  {
+    "question": "How do the Tesla Powerwall 2 Backup Gateway 2 automatic transfer switch requirements interact with Article 690 stand-alone system requirements and NEC Article 702 (Optional Standby Systems)?",
+    "type": "multi_hop_reasoning",
+    "difficulty": "hard",
+    "is_answerable": true,
+    "ground_truth": "The Tesla Powerwall 2 Backup Gateway 2 includes an automatic transfer switch (ATS) that isolates the home from the grid during an outage, enabling islanded operation. Article 690 stand-alone system provisions (690.10) require that standalone inverter output circuits supply power at the correct voltage and that single 120V supplies be labeled 'SINGLE 120-VOLT SUPPLY. DO NOT CONNECT MULTIWIRE BRANCH CIRCUITS.' The ATS function must comply with load disconnection and reconnection sequencing. NEC Article 702 governs optional standby systems and requires transfer equipment to prevent interconnection of normal and standby sources—directly governing the Gateway 2's ATS function during grid-outage islanding.",
+    "source": "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf",
+    "page": 1,
+    "expected_keywords": [
+      "automatic transfer switch",
+      "islanding",
+      "stand-alone",
+      "690.10",
+      "Article 702",
+      "Backup Gateway",
+      "grid outage"
+    ],
+    "contexts": [
+      "Powerwall_2_Gateway_2_Installation_Quick_Guide_NA_EN.pdf p1",
+      "Article-690-Photovoltaic-PV-System.pdf p7"
+    ],
+    "reasoning_type": "multi_hop",
+    "retrieval_depth": "multi_document",
+    "id": "Q145"
+  }
+]
