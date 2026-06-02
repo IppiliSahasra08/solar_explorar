@@ -1,22 +1,33 @@
 """
-RAG Evaluation Script
+RAG Evaluation Script using RAGAS with local LLM
 Evaluates the Solar Explorer RAG system against ground truth questions.
-Computes metrics without external RAGAS dependency.
+Uses Ollama with Llama3 (or similar) for zero API costs.
 """
 
 import os
 import sys
 import json
-import re
 from pathlib import Path
 from typing import List, Dict, Any
-from collections import Counter
 
 # Ensure the project root is on sys.path for local package imports
 PROJECT_ROOT = Path(__file__).resolve().parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+# RAGAS and dataset imports
+from ragas import evaluate
+from ragas.metrics._faithfulness import faithfulness
+from ragas.metrics._answer_relevance import answer_relevancy
+from ragas.metrics._context_recall import context_recall
+from ragas.metrics._context_precision import context_precision
+from datasets import Dataset
+
+from openai import OpenAI
+from ragas.llms import llm_factory
+from ragas.embeddings.base import embedding_factory
+
+# RAG system imports
 from src.retrieval.vector_store import SolarVectorStore
 from src.llm.generator import SolarRAGGenerator
 
@@ -27,224 +38,169 @@ def load_questions(json_path: str) -> list:
         return json.load(f)
 
 
-def compute_keyword_overlap(text: str, keywords: List[str]) -> float:
-    """Compute the ratio of keywords found in text."""
-    if not keywords:
-        return 1.0
-    
-    text_lower = text.lower()
-    found = sum(1 for kw in keywords if kw.lower() in text_lower)
-    return found / len(keywords)
+def init_evaluator_llm():
+    print("🔧 Initializing evaluator LLM: gemini-2.5-flash")
+    from langchain_google_genai import ChatGoogleGenerativeAI
+    from ragas.llms import LangchainLLMWrapper
+    llm = ChatGoogleGenerativeAI(
+        model="gemini-2.5-flash",
+        google_api_key=os.environ["GEMINI_API_KEY"]
+    )
+    print("   ✓ gemini-2.5-flash connected")
+    return LangchainLLMWrapper(llm)
 
+def init_evaluator_embeddings():
+    print("🔧 Initializing evaluator embeddings: gemini-embedding-001")
+    from langchain_google_genai import GoogleGenerativeAIEmbeddings
+    from ragas.embeddings import LangchainEmbeddingsWrapper
+    embeddings = GoogleGenerativeAIEmbeddings(
+        model="models/gemini-embedding-001",
+        google_api_key=os.environ["GEMINI_API_KEY"]
+    )
+    print("   ✓ gemini-embedding-001 initialized")
+    return LangchainEmbeddingsWrapper(embeddings)
 
-def compute_semantic_similarity(text1: str, text2: str) -> float:
+def run_rag_system(questions: List[Dict], top_k_vector: int = 20, final_top_n: int = 5) -> Dict[str, List]:
     """
-    Compute simple word-based similarity between two texts.
-    Uses Jaccard similarity on word sets.
-    """
-    # Tokenize and normalize
-    def tokenize(text):
-        words = re.findall(r'\b\w+\b', text.lower())
-        return set(words)
-    
-    set1 = tokenize(text1)
-    set2 = tokenize(text2)
-    
-    if not set1 or not set2:
-        return 0.0
-    
-    # Jaccard similarity
-    intersection = len(set1 & set2)
-    union = len(set1 | set2)
-    
-    return intersection / union if union > 0 else 0.0
-
-
-def compute_faithfulness(answer: str, contexts: List[str]) -> float:
-    """
-    Compute faithfulness score: how well the answer is supported by contexts.
-    Checks if expected keywords from ground truth appear in the context.
-    """
-    if not contexts:
-        return 0.0
-    
-    combined_context = ' '.join(contexts).lower()
-    answer_lower = answer.lower()
-    
-    # Extract key claims from answer (simplified approach)
-    # Check if the context contains most of the answer's content
-    answer_words = set(re.findall(r'\b\w{4,}\b', answer_lower))
-    context_words = set(re.findall(r'\b\w{4,}\b', combined_context))
-    
-    if not answer_words:
-        return 1.0
-    
-    # Ratio of answer words found in context
-    overlap = len(answer_words & context_words) / len(answer_words)
-    return min(overlap, 1.0)
-
-
-def compute_answer_relevance(question: str, answer: str) -> float:
-    """
-    Compute answer relevance: how relevant the answer is to the question.
-    Uses keyword overlap and semantic similarity.
-    """
-    # Extract key terms from question
-    question_keywords = set(re.findall(r'\b\w{4,}\b', question.lower()))
-    answer_keywords = set(re.findall(r'\b\w{4,}\b', answer.lower()))
-    
-    if not question_keywords:
-        return 1.0
-    
-    # Check keyword overlap
-    keyword_overlap = len(question_keywords & answer_keywords) / len(question_keywords)
-    
-    # Semantic similarity
-    semantic_sim = compute_semantic_similarity(question, answer)
-    
-    # Combined score (weighted average)
-    return 0.4 * keyword_overlap + 0.6 * semantic_sim
-
-
-def compute_context_recall(retrieved_contexts: List[str], expected_contexts: List[str]) -> float:
-    """
-    Compute context recall: how well retrieved contexts cover expected contexts.
-    Uses keyword matching against expected contexts.
-    """
-    if not expected_contexts:
-        return 1.0
-    
-    combined_retrieved = ' '.join(retrieved_contexts).lower()
-    combined_expected = ' '.join(expected_contexts).lower()
-    
-    expected_keywords = set(re.findall(r'\b\w{4,}\b', combined_expected))
-    retrieved_keywords = set(re.findall(r'\b\w{4,}\b', combined_retrieved))
-    
-    if not expected_keywords:
-        return 1.0
-    
-    # Jaccard similarity between expected and retrieved keywords
-    overlap = len(expected_keywords & retrieved_keywords) / len(expected_keywords)
-    return overlap
-
-
-def compute_context_precision(retrieved_contexts: List[str], expected_keywords: List[str]) -> float:
-    """
-    Compute context precision: how precisely relevant content is ranked.
-    Checks if expected keywords appear in top-ranked contexts.
-    """
-    if not expected_keywords or not retrieved_contexts:
-        return 0.0
-    
-    # Weight each context by its position (earlier = more important)
-    total_score = 0.0
-    weight_sum = 0.0
-    
-    for i, context in enumerate(retrieved_contexts, 1):
-        context_lower = context.lower()
-        # Position weight: higher weight for earlier positions
-        position_weight = 1.0 / i
-        
-        # Check keyword presence
-        found = sum(1 for kw in expected_keywords if kw.lower() in context_lower)
-        score = found / len(expected_keywords) if expected_keywords else 0.0
-        
-        total_score += score * position_weight
-        weight_sum += position_weight
-    
-    return total_score / weight_sum if weight_sum > 0 else 0.0
-
-
-def run_evaluation(questions: list, top_k_vector: int = 20, final_top_n: int = 5) -> Dict[str, float]:
-    """
-    Run complete evaluation on all questions.
+    Run the RAG system on all questions to generate answers and retrieve contexts.
     
     Args:
-        questions: List of question dictionaries
-        top_k_vector: Initial number of chunks to retrieve
-        final_top_n: Number of chunks after reranking
+        questions: List of question dictionaries with ground_truth
+        top_k_vector: Initial retrieval count
+        final_top_n: Final reranked count
     
     Returns:
-        Dictionary with average metric scores
+        Dictionary with user_input, response, retrieved_contexts, reference
     """
+    print("\n🚀 Running RAG system on all questions...")
+    
     # Initialize RAG components
     v_store = SolarVectorStore(collection_name="solar_knowledge")
     generator = SolarRAGGenerator()
     
-    # Accumulate scores
-    faithfulness_scores = []
-    answer_relevance_scores = []
-    context_recall_scores = []
-    context_precision_scores = []
+    results = {
+        "user_input": [],
+        "response": [],
+        "retrieved_contexts": [],
+        "reference": []
+    }
     
-    print(f"\n📊 Running evaluation on {len(questions)} questions...\n")
+    print(f"📊 Processing {len(questions)} questions...\n")
     print("-" * 80)
     
     for idx, q in enumerate(questions, 1):
         question_text = q['question']
         ground_truth = q.get('ground_truth', '')
-        expected_contexts = q.get('contexts', [])
-        expected_keywords = q.get('expected_keywords', [])
         
-        print(f"\n[{idx}/{len(questions)}] {question_text[:70]}...")
+        print(f"\n[{idx}/{len(questions)}] {question_text[:65]}...")
         
         try:
-            # Execute two-stage retrieval
+            # Two-stage retrieval
             retrieved_chunks = v_store.retrieve_and_rerank(
                 question=question_text,
                 top_k_vector=top_k_vector,
                 final_top_n=final_top_n
             )
             
-            # Generate answer with retrieved context
+            # Generate answer
             answer = generator.generate_answer(
                 question=question_text,
                 retrieved_chunks=retrieved_chunks
             )
             
-            # Build context texts from retrieved chunks
-            retrieved_contexts = [
-                f"Source: {c['source']} (Page {c['page']})\n{c['text']}"
-                for c in retrieved_chunks
-            ]
+            # Build context strings (RAGAS format: list of strings)
+            contexts = [c['text'] for c in retrieved_chunks]
             
-            # Compute metrics
-            faithfulness = compute_faithfulness(answer, retrieved_contexts)
-            answer_relevance = compute_answer_relevance(question_text, answer)
-            context_recall = compute_context_recall(retrieved_contexts, expected_contexts)
-            context_precision = compute_context_precision(
-                retrieved_contexts, 
-                expected_keywords + q.get('expected_keywords', [])
-            )
+            # Store results
+            results["user_input"].append(question_text)
+            results["response"].append(answer)
+            results["retrieved_contexts"].append(contexts)
+            results["reference"].append(ground_truth)
             
-            faithfulness_scores.append(faithfulness)
-            answer_relevance_scores.append(answer_relevance)
-            context_recall_scores.append(context_recall)
-            context_precision_scores.append(context_precision)
-            
-            print(f"   ✓ F: {faithfulness:.3f} | AR: {answer_relevance:.3f} | CR: {context_recall:.3f} | CP: {context_precision:.3f}")
+            print(f"   ✓ Answer: {len(answer)} chars | Contexts: {len(contexts)} chunks")
             
         except Exception as e:
             print(f"   ✗ Error: {str(e)}")
-            # Use neutral scores for failed evaluations
-            faithfulness_scores.append(0.0)
-            answer_relevance_scores.append(0.0)
-            context_recall_scores.append(0.0)
-            context_precision_scores.append(0.0)
+            results["user_input"].append(question_text)
+            results["response"].append(f"Error: {str(e)}")
+            results["retrieved_contexts"].append([])
+            results["reference"].append(ground_truth)
     
     print("\n" + "-" * 80)
-    
-    # Compute average scores
-    n = len(questions)
-    avg_scores = {
-        'faithfulness': sum(faithfulness_scores) / n if n > 0 else 0.0,
-        'answer_relevance': sum(answer_relevance_scores) / n if n > 0 else 0.0,
-        'context_recall': sum(context_recall_scores) / n if n > 0 else 0.0,
-        'context_precision': sum(context_precision_scores) / n if n > 0 else 0.0
-    }
-    
-    return avg_scores
+    return results
 
+
+def evaluate_with_ragas(
+    eval_data: Dict[str, List],
+    evaluator_llm,
+    evaluator_embeddings
+) -> Dict[str, Any]:
+    import time
+    import numpy as np
+    from ragas.run_config import RunConfig
+
+    print("\n🔬 Computing RAGAS metrics...")
+
+    faithfulness.llm = evaluator_llm
+    answer_relevancy.llm = evaluator_llm
+    answer_relevancy.embeddings = evaluator_embeddings
+    context_recall.llm = evaluator_llm
+    context_precision.llm = evaluator_llm
+
+    BATCH_SIZE = 4        # 4 questions × 4 metrics = 16 calls, just under 20 RPM
+    SLEEP_BETWEEN = 65    # wait 65 seconds between batches (resets the per-minute quota)
+
+    all_scores = {
+        'faithfulness': [],
+        'answer_relevancy': [],
+        'context_recall': [],
+        'context_precision': []
+    }
+
+    questions = eval_data['user_input']
+    total_batches = (len(questions) + BATCH_SIZE - 1) // BATCH_SIZE
+
+    for batch_idx in range(total_batches):
+        start = batch_idx * BATCH_SIZE
+        end = min(start + BATCH_SIZE, len(questions))
+
+        print(f"\n   Batch {batch_idx+1}/{total_batches} (questions {start+1}–{end})")
+
+        batch_data = {k: v[start:end] for k, v in eval_data.items()}
+        dataset = Dataset.from_dict(batch_data)
+
+        run_config = RunConfig(timeout=180, max_retries=3, max_wait=60, max_workers=1)
+
+        result = evaluate(
+            dataset,
+            metrics=[faithfulness, answer_relevancy, context_recall, context_precision],
+            raise_exceptions=False,
+            run_config=run_config
+        )
+
+        for key in all_scores:
+            val = result[key]
+            if isinstance(val, list):
+                valid = [v for v in val if v is not None and not np.isnan(v)]
+                all_scores[key].append(float(np.mean(valid)) if valid else 0.0)
+            elif val is not None and not np.isnan(float(val)):
+                all_scores[key].append(float(val))
+            else:
+                all_scores[key].append(0.0)
+
+        if batch_idx < total_batches - 1:
+            print(f"   ⏳ Waiting 65s to respect free tier rate limit...")
+            time.sleep(65)
+
+    scores = {
+        'faithfulness':      float(np.mean(all_scores['faithfulness'])),
+        'answer_relevance':  float(np.mean(all_scores['answer_relevancy'])),
+        'context_recall':    float(np.mean(all_scores['context_recall'])),
+        'context_precision': float(np.mean(all_scores['context_precision'])),
+    }
+
+    print("   ✓ RAGAS evaluation complete")
+    return scores
 
 def save_results(scores: Dict[str, float], output_path: str):
     """Save evaluation results to JSON file."""
@@ -256,41 +212,72 @@ def save_results(scores: Dict[str, float], output_path: str):
 def main():
     """Main evaluation workflow."""
     print("=" * 80)
-    print("🚀 Solar Explorer RAG Evaluation")
+    print("🚀 Solar Explorer RAG Evaluation (RAGAS + Ollama)")
     print("=" * 80)
     
-    # Check for required environment variables
+    # Check for required environment variables (for generator)
     if "GEMINI_API_KEY" not in os.environ:
         print("❌ Error: GEMINI_API_KEY environment variable is missing.")
+        print("   The RAG generator needs GEMINI_API_KEY to generate answers.")
         sys.exit(1)
+    
+    # Configuration
+    MODEL_NAME = os.environ.get("EVALUATION_MODEL", "llama3.1:8b")  # Ollama model
+    EMBED_MODEL = os.environ.get("EVALUATION_EMBED", "nomic-embed-text")  # Ollama embed model
+    TOP_K_VECTOR = 20
+    FINAL_TOP_N = 5
+    
+    print(f"\n📋 Configuration:")
+    print(f"   Evaluator LLM: {MODEL_NAME} (via Ollama OpenAI-compatible API)")
+    print(f"   Evaluator Embeddings: {EMBED_MODEL}")
+    print(f"   Retrieval: Vector Search ({TOP_K_VECTOR}) → Rerank ({FINAL_TOP_N})")
     
     # Paths
     questions_path = PROJECT_ROOT / "data" / "evaluation" / "questions.json"
     results_path = PROJECT_ROOT / "data" / "evaluation" / "ragas_results.json"
     
-    # Verify input file exists
+    # Verify input file
     if not questions_path.exists():
-        print(f"❌ Error: Questions file not found at {questions_path}")
+        print(f"\n❌ Error: Questions file not found at {questions_path}")
+        print("   Please ensure data/evaluation/questions.json exists")
         sys.exit(1)
     
     # Load questions
     print(f"\n📂 Loading questions from: {questions_path}")
     questions = load_questions(str(questions_path))
+    # Optional: limit the sample size for a quick smoke test
+    questions = questions[:20]
     print(f"   Found {len(questions)} questions to evaluate")
     
-    # Run evaluation
-    print(f"\n🔄 Running RAG system on all questions...")
-    print("   Retrieval: Vector Search (20) → Cross-Encoder Rerank (5)")
-    scores = run_evaluation(questions)
+    # Step 1: Run RAG system on all questions
+    print("\n" + "=" * 80)
+    print("PHASE 1: RAG Response Generation")
+    print("=" * 80)
+    eval_data = run_rag_system(questions, TOP_K_VECTOR, FINAL_TOP_N)
+    
+    # Step 2: Initialize evaluator LLM and embeddings
+    print("\n" + "=" * 80)
+    print("PHASE 2: RAGAS Evaluation")
+    print("=" * 80)
+    
+    evaluator_llm = init_evaluator_llm()
+    evaluator_embeddings = init_evaluator_embeddings()
+    
+    # Step 3: Evaluate with RAGAS
+    scores = evaluate_with_ragas(
+        eval_data,
+        evaluator_llm,
+        evaluator_embeddings
+    )
     
     # Print results
     print("\n" + "=" * 80)
     print("📈 EVALUATION RESULTS")
     print("=" * 80)
-    print(f"  Faithfulness:       {scores['faithfulness']:.4f}")
-    print(f"  Answer Relevance:   {scores['answer_relevance']:.4f}")
-    print(f"  Context Recall:     {scores['context_recall']:.4f}")
-    print(f"  Context Precision:  {scores['context_precision']:.4f}")
+    print(f"  Faithfulness:        {scores['faithfulness']:.4f}")
+    print(f"  Answer Relevance:    {scores['answer_relevance']:.4f}")
+    print(f"  Context Recall:       {scores['context_recall']:.4f}")
+    print(f"  Context Precision:    {scores['context_precision']:.4f}")
     print("=" * 80)
     
     # Save results
