@@ -1,0 +1,2 @@
+timestamp,question,answer_length,chunks_retrieved,latency_ms
+2026-06-03T15:54:31.560237,"Per Article 690, what are the required steps for an ungrounded PV power system under Section 690.35 to be permitted without a grounded current-carrying conductor?",711,5,9740.808010101318
