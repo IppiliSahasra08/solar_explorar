@@ -1,92 +1,115 @@
-# Solar Explorar — AI Rooftop Analytics
+# Solar Explorar
 
-> **Empowering the Solar Revolution with Deep Learning.**  
-> *A high-performance roof segmentation engine that calculates solar potential from satellite imagery in real-time.*
+Solar Explorar is an AI-powered solar knowledge assistant built around a retrieval-augmented generation (RAG) pipeline. It ingests solar and photovoltaic reference material, stores it in a local ChromaDB vector database, retrieves the most relevant chunks, and generates grounded answers with Gemini.
 
----
+## What is in this repository
 
-## Problem Statement
-As the world transitions to renewable energy, many homeowners and businesses are unaware of their own rooftop's solar potential. Manual assessment is slow, expensive, and non-scalable. 
+- `ingest.py` — builds the local vector index from the chunked document corpus in `data/chunks/chunks.json`
+- `search.py` — runs a fast retrieval test against the vector store
+- `rag_app.py` — demonstrates the end-to-end RAG flow with Gemini
+- `evaluate.py` — evaluates answer quality with RAGAS and an Ollama-backed evaluator
+- `src/` — core retrieval, embedding, and LLM generation logic
+- `model_implementation/` — the legacy roof-segmentation / solar analytics prototype
 
-**Solar Explorar** solves this by using **Computer Vision (U-Net)** to automatically segment rooftops from satellite data, calculate usable surface area, and provide an instant estimate of energy production, financial savings, and CO2 offset.
+## Current workflow
 
-##  Global Impact: Alignment with SDGs
-Solar Explorar is built with a commitment to the United Nations **Sustainable Development Goals (SDGs)**:
+1. Prepare a corpus of solar documents and chunk them into `data/chunks/chunks.json`.
+2. Ingest the chunks into the local ChromaDB collection named `solar_knowledge`.
+3. Retrieve the best matching context using embeddings + reranking.
+4. Generate a grounded answer with Gemini.
+5. Optionally evaluate the RAG quality with the scripts in `evaluate.py`.
 
-- **SDG 7: Affordable and Clean Energy**  
-  Democratizing solar energy access by providing free, instant assessment tools to help homeowners transition to renewables.
-- **SDG 11: Sustainable Cities and Communities**  
-  Driving urban sustainability through city-wide rooftop analysis and optimized solar deployment.
-- **SDG 13: Climate Action**  
-  Directly combatting carbon emissions by quantifying the CO2 offset potential of dormant rooftop spaces.
+## Quick start
 
-##  Key Features
-- **Precise Segmentation**: Custom U-Net ensemble (ResNet34 backbone) trained for high-accuracy binary mask generation.
-- **Satellite Integration**: Real-time imagery fetching via **Mapbox Static API**.
-- **Smart Analytics**: Automatic calculation of:
-  - **Usable Roof Area (m²)**
-  - **Estimated Solar Panel Count**
-  - **System Capacity (kW)**
-  - **Annual Energy Generation (kWh)**
-  - **Financial Savings (Rs)**
-- **Professional Dashboard**: Clean, modern UI for instant visualization of analysis results and overlays.
-- **Demo Mode**: Built-in simulator for offline presentations and cost-effective testing.
+### 1. Prerequisites
 
-##  Tech Stack
-- **Frontend**: HTML5, Vanilla CSS3 (Modern UI/UX), JavaScript (ES6+).
-- **Backend**: Python, **FastAPI**, Uvicorn.
-- **AI/ML**: **PyTorch**, Segmentation Models PyTorch (SMP), Albumentations (Augmentation), OpenCV.
-- **Data/APIs**: Mapbox (Geocoding & Satellite Imagery).
+- Python 3.10+
+- A working Ollama installation if you want to run the evaluation script
+- A Gemini API key exported as `GEMINI_API_KEY`
 
----
+### 2. Create and activate an environment
 
-##  Architecture
-1. **Input**: User enters an address or coordinates.
-2. **Geocoding**: Mapbox converts text to precise Lat/Lng.
-3. **Imagery**: High-resolution satellite tiles are retrieved.
-4. **Inference**: A K-Fold Ensemble of **U-Net** models processes the image.
-5. **Post-Processing**: OpenCV extracts contours and calculates pixel-to-meter area scaling.
-6. **Output**: Interactive dashboard displays the segmentation overlay and solar metrics.
+Windows (PowerShell):
 
----
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
 
-##  Getting Started
+macOS / Linux:
 
-### Prerequisites
-- Python 3.9+
-- [Mapbox Access Token](https://www.mapbox.com/help/how-mapbox-data-works/) (Optional, dummy mode available)
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
 
-### Installation
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/IppiliSahasra08/solar_explorar.git
-   cd solar_explorar
-   ```
+### 3. Install dependencies
 
-2. **Install Dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+Install the packages required for retrieval and generation:
 
-3. **Configure Environment** (Optional)
-   Create a `config.py` or set environment variables:
-   ```python
-   MAPBOX_TOKEN = "your_token_here"
-   ```
+```bash
+pip install google-genai sentence-transformers chromadb transformers torch ragas datasets openai
+```
 
-4. **Launch the Application**
-   ```bash
-   # Start the Backend
-   python app.py
-   
-   # Open index.html in your browser
-   ```
+If you want the legacy segmentation prototype in `model_implementation/`, install its separate requirements from that folder as well:
 
----
+```bash
+pip install -r model_implementation/requirements.txt
+```
 
-##  Meet the Team
-- **Ippili Sahasra** - 24BCE5035
-- **Sri Poojitha Sudalagunta** - 24BCE1637
-- **Shreya Kailash** - 24BCE5513
-- **Ananya Arumbakkam** - 24BCE5154
+### 4. Set your API key
+
+```powershell
+$env:GEMINI_API_KEY="your_gemini_api_key"
+```
+
+### 5. Build the vector index
+
+```bash
+python ingest.py
+```
+
+### 6. Test retrieval
+
+```bash
+python search.py
+```
+
+### 7. Run the RAG answer example
+
+```bash
+python rag_app.py
+```
+
+### 8. Run evaluation
+
+```bash
+python evaluate.py
+```
+
+## Project structure
+
+```text
+.
+├── ingest.py              # Ingest chunks into ChromaDB
+├── search.py              # Retrieval smoke test
+├── rag_app.py             # End-to-end RAG example
+├── evaluate.py            # RAGAS evaluation workflow
+├── data/                  # ChromaDB, chunks, evaluation datasets, extracted documents
+├── src/                   # Embedding, retrieval, and LLM logic
+└── model_implementation/  # Legacy solar analytics / segmentation prototype
+```
+
+## Notes
+
+- The current main project is the retrieval and question-answering pipeline, not the older image-segmentation demo.
+- The vector store uses a local persistent ChromaDB database under `data/chroma_db/`.
+- The evaluation script expects Ollama-compatible endpoints for the evaluator model and embeddings.
+
+## Team
+
+- Ippili Sahasra
+- Sri Poojitha Sudalagunta
+- Shreya Kailash
+- Ananya Arumbakkam
 

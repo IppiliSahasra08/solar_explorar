@@ -39,26 +39,16 @@ def load_questions(json_path: str) -> list:
 
 
 def init_evaluator_llm():
-    print("🔧 Initializing evaluator LLM: gemini-2.5-flash")
-    from langchain_google_genai import ChatGoogleGenerativeAI
-    from ragas.llms import LangchainLLMWrapper
-    llm = ChatGoogleGenerativeAI(
-        model="gemini-2.5-flash",
-        google_api_key=os.environ["GEMINI_API_KEY"]
-    )
-    print("   ✓ gemini-2.5-flash connected")
-    return LangchainLLMWrapper(llm)
+    from openai import OpenAI
+    from ragas.llms import llm_factory
+    ollama_client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+    return llm_factory(model="gemma2-ctx8k", provider="openai", client=ollama_client)
 
 def init_evaluator_embeddings():
-    print("🔧 Initializing evaluator embeddings: gemini-embedding-001")
-    from langchain_google_genai import GoogleGenerativeAIEmbeddings
-    from ragas.embeddings import LangchainEmbeddingsWrapper
-    embeddings = GoogleGenerativeAIEmbeddings(
-        model="models/gemini-embedding-001",
-        google_api_key=os.environ["GEMINI_API_KEY"]
-    )
-    print("   ✓ gemini-embedding-001 initialized")
-    return LangchainEmbeddingsWrapper(embeddings)
+    from openai import OpenAI
+    from ragas.embeddings.base import embedding_factory
+    ollama_client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+    return embedding_factory(model="nomic-embed-text", provider="openai", client=ollama_client)
 
 def run_rag_system(questions: List[Dict], top_k_vector: int = 20, final_top_n: int = 5) -> Dict[str, List]:
     """

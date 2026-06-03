@@ -1,0 +1,27 @@
+# Python virtual environments
+ragas_env/
+.venv/
+venv/
+env/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local model / runtime artifacts
+*.pth
+*.bin
+
+# Local database files
+*.sqlite3
+*.db
+
+# VS Code / OS noise
+.vscode/
+.DS_Store
+Thumbs.db
