@@ -45,10 +45,13 @@ def init_evaluator_llm():
     return llm_factory(model="gemma2-ctx8k", provider="openai", client=ollama_client)
 
 def init_evaluator_embeddings():
-    from openai import OpenAI
-    from ragas.embeddings.base import embedding_factory
-    ollama_client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
-    return embedding_factory(model="nomic-embed-text", provider="openai", client=ollama_client)
+    from langchain_community.embeddings import OllamaEmbeddings
+    from ragas.embeddings import LangchainEmbeddingsWrapper
+    embeddings = OllamaEmbeddings(
+        model="nomic-embed-text",
+        base_url="http://localhost:11434"
+    )
+    return LangchainEmbeddingsWrapper(embeddings)
 
 def run_rag_system(questions: List[Dict], top_k_vector: int = 20, final_top_n: int = 5) -> Dict[str, List]:
     """
@@ -137,8 +140,8 @@ def evaluate_with_ragas(
     context_recall.llm = evaluator_llm
     context_precision.llm = evaluator_llm
 
-    BATCH_SIZE = 4        # 4 questions × 4 metrics = 16 calls, just under 20 RPM
-    SLEEP_BETWEEN = 65    # wait 65 seconds between batches (resets the per-minute quota)
+    BATCH_SIZE = 10      # 4 questions × 4 metrics = 16 calls, just under 20 RPM
+    #SLEEP_BETWEEN = 65    # wait 65 seconds between batches (resets the per-minute quota)
 
     all_scores = {
         'faithfulness': [],
@@ -236,7 +239,7 @@ def main():
     print(f"\n📂 Loading questions from: {questions_path}")
     questions = load_questions(str(questions_path))
     # Optional: limit the sample size for a quick smoke test
-    questions = questions[:20]
+    #questions = questions[:20]
     print(f"   Found {len(questions)} questions to evaluate")
     
     # Step 1: Run RAG system on all questions
