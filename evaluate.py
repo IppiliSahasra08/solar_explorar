@@ -140,8 +140,7 @@ def evaluate_with_ragas(
     context_recall.llm = evaluator_llm
     context_precision.llm = evaluator_llm
 
-    BATCH_SIZE = 10      # 4 questions × 4 metrics = 16 calls, just under 20 RPM
-    #SLEEP_BETWEEN = 65    # wait 65 seconds between batches (resets the per-minute quota)
+    BATCH_SIZE = 5
 
     all_scores = {
         'faithfulness': [],
@@ -181,9 +180,18 @@ def evaluate_with_ragas(
             else:
                 all_scores[key].append(0.0)
 
-        if batch_idx < total_batches - 1:
-            print(f"   ⏳ Waiting 65s to respect free tier rate limit...")
-            time.sleep(65)
+        # ── Save progress after every batch ──
+        intermediate = {
+            'faithfulness': float(np.mean(all_scores['faithfulness'])) if all_scores['faithfulness'] else 0,
+            'answer_relevance': float(np.mean(all_scores['answer_relevancy'])) if all_scores['answer_relevancy'] else 0,
+            'context_recall': float(np.mean(all_scores['context_recall'])) if all_scores['context_recall'] else 0,
+            'context_precision': float(np.mean(all_scores['context_precision'])) if all_scores['context_precision'] else 0,
+            'batches_done': batch_idx + 1,
+            'total_batches': total_batches
+        }
+        with open('data/evaluation/ragas_partial.json', 'w') as f:
+            json.dump(intermediate, f, indent=2)
+        print(f"   💾 Progress saved ({batch_idx+1}/{total_batches} batches)")
 
     scores = {
         'faithfulness':      float(np.mean(all_scores['faithfulness'])),
