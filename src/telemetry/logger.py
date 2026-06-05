@@ -13,4 +13,10 @@ def log_query(question: str, answer: str, latency_ms: float, chunks_retrieved: i
         writer = csv.writer(f)
         if write_header:
             writer.writerow(["timestamp", "question", "answer_length", "chunks_retrieved", "latency_ms"])
-        writer.writerow([datetime.now().isoformat(), question, len(answer), chunks_retrieved, latency_ms])
+        writer.writerow([
+            datetime.now().isoformat(),
+            question[:500],
+            len(answer) if answer else 0,
+            chunks_retrieved or 0,
+            round(latency_ms, 2) if latency_ms else 0
+        ])
