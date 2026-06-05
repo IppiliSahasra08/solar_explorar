@@ -4,3 +4,6 @@ timestamp,question,answer_length,chunks_retrieved,latency_ms
 =======
 2026-06-03T15:54:31.560237,"Per Article 690, what are the required steps for an ungrounded PV power system under Section 690.35 to be permitted without a grounded current-carrying conductor?",711,5,9740.808010101318
 >>>>>>> 83dcad14618b38ea7c40ff2fc112bb74757065f3
+2026-06-06T00:24:28.547472,How do AC grounding electrode requirements differ from DC grounding electrode requirements under NEC Article 690 Section 690.47?,1778,5,11893.64218711853
+2026-06-06T00:29:31.297419,How do AC grounding electrode requirements differ from DC grounding electrode requirements under NEC Article 690 Section 690.47?,2141,5,10868.20101737976
+2026-06-06T00:35:15.608089,What key operational difference between grounded and ungrounded commercial PV DC systems is noted in the NREL C&I best practices report?,683,5,8928.84874343872
