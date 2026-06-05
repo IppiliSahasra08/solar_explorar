@@ -1,2 +1,6 @@
 timestamp,question,answer_length,chunks_retrieved,latency_ms
+<<<<<<< HEAD
 2026-06-05T23:56:22.421339,Why can Enphase IQ8 microinverters maintain energy production on partially shaded arrays more effectively than traditional string inverter systems?,656,5,11579.859733581543
+=======
+2026-06-03T15:54:31.560237,"Per Article 690, what are the required steps for an ungrounded PV power system under Section 690.35 to be permitted without a grounded current-carrying conductor?",711,5,9740.808010101318
+>>>>>>> 83dcad14618b38ea7c40ff2fc112bb74757065f3

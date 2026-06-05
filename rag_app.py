@@ -3,6 +3,7 @@ import sys
 from src.retrieval.vector_store import SolarVectorStore
 from src.llm.generator import SolarRAGGenerator
 #ragas_env/Scripts/activate
+#$env:GEMINI_API_KEY="your_api_key_here"
 def main():
     if "GEMINI_API_KEY" not in os.environ:
         print("❌ Error: GEMINI_API_KEY environment variable is missing.")
