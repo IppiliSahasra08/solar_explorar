@@ -95,11 +95,16 @@ def run_rag_system(questions: List[Dict], top_k_vector: int = 20, final_top_n: i
                 final_top_n=final_top_n
             )
             
-            # Generate answer
-            answer = generator.generate_answer(
-                question=question_text,
-                retrieved_chunks=retrieved_chunks
-            )
+            import time
+from src.telemetry.logger import log_query
+
+start = time.time()
+answer = generator.generate_answer(
+    question=question_text,
+    retrieved_chunks=retrieved_chunks
+)
+latency_ms = (time.time() - start) * 1000
+log_query(question_text, answer, latency_ms, len(retrieved_chunks))
             
             # Build context strings (RAGAS format: list of strings)
             contexts = [c['text'] for c in retrieved_chunks]

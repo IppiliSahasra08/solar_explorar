@@ -1,0 +1,2 @@
+timestamp,question,answer_length,chunks_retrieved,latency_ms
+2026-06-05T23:56:22.421339,Why can Enphase IQ8 microinverters maintain energy production on partially shaded arrays more effectively than traditional string inverter systems?,656,5,11579.859733581543
