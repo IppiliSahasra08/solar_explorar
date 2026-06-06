@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Explorar</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabinet+Grotesk:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+/* ═══════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════ */
+:root {
+  --ink:     #0D0D0D;
+  --paper:   #F5F0E8;
+  --cream:   #EDE8DC;
+  --sun:     #F97316;
+  --sun2:    #FBBF24;
+  --sky:     #0EA5E9;
+  --green:   #16A34A;
+  --red:     #DC2626;
+  --border:  rgba(13,13,13,0.10);
+  --shadow:  0 4px 24px rgba(13,13,13,0.08);
+  --shadow2: 0 16px 64px rgba(13,13,13,0.14);
+  --r:       14px;
+  --bebas:   'Bebas Neue', sans-serif;
+  --cab:     'Cabinet Grotesk', sans-serif;
+  --mono:    'JetBrains Mono', monospace;
+}
+
+/* ═══════════════════════════════════════
+   RESET + BASE
+═══════════════════════════════════════ */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--cab);
+  background:var(--paper);
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ═══════════════════════════════════════
+   GRAIN TEXTURE
+═══════════════════════════════════════ */
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:.4;
+}
+
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;height:60px;
+  background:rgba(245,240,232,0.88);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+
+.brand{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;color:var(--ink);
+}
+.brand-mark{
+  width:32px;height:32px;
+  background:var(--ink);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.brand-mark::before{
+  content:'';
+  position:absolute;
+  width:40px;height:40px;
+  background:conic-gradient(var(--sun) 0deg 60deg, transparent 60deg 120deg, var(--sun2) 120deg 180deg, transparent 180deg 240deg, var(--sun) 240deg 300deg, transparent 300deg);
+  animation:brandSpin 8s linear infinite;
+}
+.brand-mark::after{
+  content:'';position:absolute;
+  width:14px;height:14px;
+  background:var(--ink);border-radius:50%;
+}
+@keyframes brandSpin{to{transform:rotate(360deg)}}
+
+.brand-name{
+  font-family:var(--bebas);
+  font-size:22px;letter-spacing:1px;
+  color:var(--ink);
+}
+
+.nav-pills{
+  display:flex;gap:2px;
+  background:var(--cream);
+  border:1px solid var(--border);
+  border-radius:50px;padding:3px;
+}
+.nav-pill{
+  padding:7px 20px;
+  border:none;background:transparent;
+  font-family:var(--cab);font-size:13px;font-weight:700;
+  color:rgba(13,13,13,.55);
+  border-radius:50px;cursor:pointer;
+  transition:all .2s;white-space:nowrap;
+}
+.nav-pill.active{
+  background:var(--ink);color:var(--paper);
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+.nav-pill:hover:not(.active){color:var(--ink);}
+
+.nav-status{
+  display:flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:11px;
+  color:rgba(13,13,13,.4);
+}
+.dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--green);
+  animation:blink 2s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ═══════════════════════════════════════
+   PAGES
+═══════════════════════════════════════ */
+.page{display:none;padding-top:60px;min-height:100vh;}
+.page.active{display:block;}
+
+/* ═══════════════════════════════════════
+   ── ANALYZE PAGE ──
+═══════════════════════════════════════ */
+.analyze-hero{
+  padding:72px 40px 48px;
+  max-width:1080px;margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:40px;align-items:start;
+}
+
+.hero-left{}
+
+.hero-eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--sun);margin-bottom:16px;
+  display:flex;align-items:center;gap:8px;
+}
+.hero-eyebrow::before{
+  content:'';
+  display:block;width:24px;height:2px;
+  background:var(--sun);
+}
+
+.hero-title{
+  font-family:var(--bebas);
+  font-size:clamp(64px,8vw,112px);
+  line-height:.95;letter-spacing:1px;
+  color:var(--ink);margin-bottom:20px;
+}
+.hero-title .outline{
+  -webkit-text-stroke:2px var(--ink);
+  color:transparent;
+}
+.hero-title .sun-word{color:var(--sun);}
+
+.hero-sub{
+  font-size:15px;font-weight:500;
+  color:rgba(13,13,13,.55);
+  line-height:1.7;max-width:46ch;
+  margin-bottom:36px;
+}
+
+.hero-tags{
+  display:flex;flex-wrap:wrap;gap:8px;
+}
+.tag{
+  padding:6px 14px;
+  border:1px solid var(--border);
+  border-radius:50px;
+  font-size:12px;font-weight:700;
+  color:rgba(13,13,13,.55);
+  background:var(--cream);
+}
+
+.hero-card{
+  background:var(--ink);
+  color:var(--paper);
+  border-radius:20px;
+  padding:28px;
+  min-width:260px;
+  box-shadow:var(--shadow2);
+}
+.hc-label{
+  font-family:var(--mono);font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(245,240,232,.4);margin-bottom:20px;
+}
+.hc-stat{margin-bottom:16px;}
+.hc-stat-val{
+  font-family:var(--bebas);font-size:40px;
+  line-height:1;color:var(--sun);
+}
+.hc-stat-key{
+  font-size:11px;font-weight:700;
+  color:rgba(245,240,232,.5);
+  text-transform:uppercase;letter-spacing:.08em;
+}
+.hc-divider{
+  height:1px;background:rgba(245,240,232,.1);
+  margin:16px 0;
+}
+
+/* ── MODE SWITCHER ── */
+.mode-switch{
+  max-width:1080px;margin:0 auto;
+  padding:0 40px 32px;
+}
+.mode-tabs{
+  display:inline-flex;gap:0;
+  border:1px solid var(--border);
+  border-radius:50px;overflow:hidden;
+  background:var(--cream);
+}
+.mode-tab{
+  padding:10px 24px;border:none;background:transparent;
+  font-family:var(--cab);font-size:13px;font-weight:700;
+  color:rgba(13,13,13,.5);cursor:pointer;transition:all .2s;
+}
+.mode-tab.active{
+  background:var(--sun);color:white;
+}
+
+/* ── INPUT AREA ── */
+.input-area{
+  max-width:1080px;margin:0 auto;
+  padding:0 40px 40px;
+}
+
+.addr-box{
+  display:flex;gap:12px;
+  background:white;
+  border:1.5px solid var(--border);
+  border-radius:60px;
+  padding:8px 8px 8px 28px;
+  box-shadow:var(--shadow2);
+  transition:border-color .2s,box-shadow .2s;
+  margin-bottom:16px;
+}
+.addr-box:focus-within{
+  border-color:var(--sun);
+  box-shadow:0 0 0 4px rgba(249,115,22,.08),var(--shadow2);
+}
+.addr-box input{
+  flex:1;border:none;outline:none;
+  background:transparent;
+  font-family:var(--cab);font-size:15px;font-weight:500;
+  color:var(--ink);
+}
+.addr-box input::placeholder{color:rgba(13,13,13,.35);}
+
+.btn-sun{
+  background:var(--sun);color:white;
+  border:none;border-radius:50px;
+  padding:12px 28px;
+  font-family:var(--cab);font-size:14px;font-weight:800;
+  cursor:pointer;white-space:nowrap;
+  box-shadow:0 4px 16px rgba(249,115,22,.35);
+  transition:transform .2s,box-shadow .2s,opacity .2s;
+}
+.btn-sun:hover:not(:disabled){
+  transform:translateY(-1px);
+  box-shadow:0 8px 24px rgba(249,115,22,.45);
+}
+.btn-sun:disabled{opacity:.45;cursor:not-allowed;}
+
+.upload-drop{
+  border:2px dashed rgba(13,13,13,.15);
+  border-radius:20px;
+  padding:48px;text-align:center;
+  cursor:pointer;position:relative;
+  background:var(--cream);
+  transition:all .2s;
+  display:none;
+}
+.upload-drop:hover,.upload-drop.drag{
+  border-color:var(--sun);
+  background:rgba(249,115,22,.03);
+}
+.upload-drop input{
+  position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;
+}
+.upload-icon{font-size:40px;margin-bottom:12px;}
+.upload-title{font-size:15px;font-weight:800;margin-bottom:4px;}
+.upload-hint{font-size:13px;color:rgba(13,13,13,.45);}
+.upload-name{
+  margin-top:10px;font-family:var(--mono);font-size:12px;
+  color:var(--sun);display:none;
+}
+
+/* ── DEMO ADDRESSES ── */
+.demo-hints{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;
+}
+.demo-addr{
+  padding:6px 14px;
+  border:1px dashed rgba(249,115,22,.3);
+  border-radius:50px;
+  font-size:12px;font-weight:700;
+  color:rgba(249,115,22,.8);
+  cursor:pointer;background:rgba(249,115,22,.04);
+  transition:all .15s;
+}
+.demo-addr:hover{
+  border-color:var(--sun);color:var(--sun);
+  background:rgba(249,115,22,.08);
+}
+
+/* ── LOADER ── */
+.loader{
+  display:none;
+  max-width:1080px;margin:0 auto;padding:0 40px 40px;
+}
+.loader-inner{
+  background:var(--ink);color:var(--paper);
+  border-radius:20px;padding:32px;
+  display:flex;align-items:center;gap:24px;
+}
+.sun-spin{
+  width:48px;height:48px;flex-shrink:0;
+  border:3px solid rgba(245,240,232,.15);
+  border-top:3px solid var(--sun);
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loader-text{font-family:var(--mono);font-size:13px;color:rgba(245,240,232,.7);}
+.loader-sub{font-size:11px;color:rgba(245,240,232,.3);margin-top:4px;}
+
+/* ── ERROR ── */
+.err-box{
+  display:none;max-width:1080px;margin:0 auto;padding:0 40px 24px;
+}
+.err-inner{
+  background:rgba(220,38,38,.06);
+  border:1px solid rgba(220,38,38,.2);
+  border-radius:14px;padding:16px 20px;
+  color:var(--red);font-size:14px;font-weight:600;
+}
+
+/* ── RESULTS ── */
+.results{
+  display:none;
+  max-width:1080px;margin:0 auto;padding:0 40px 80px;
+}
+
+/* prediction banner */
+.pred-banner{
+  display:grid;grid-template-columns:auto 1fr auto;
+  gap:20px;align-items:center;
+  background:var(--ink);color:var(--paper);
+  border-radius:20px;padding:24px 28px;
+  margin-bottom:20px;
+  box-shadow:var(--shadow2);
+}
+.pred-emoji{font-size:3rem;line-height:1;}
+.pred-label{
+  font-family:var(--bebas);font-size:32px;
+  letter-spacing:.5px;color:var(--paper);
+  line-height:1;
+}
+.pred-desc{
+  font-size:13px;color:rgba(245,240,232,.5);
+  margin-top:6px;line-height:1.5;
+}
+.pred-cov{text-align:right;}
+.cov-val{
+  font-family:var(--bebas);font-size:52px;
+  color:var(--sun);line-height:1;
+}
+.cov-label{
+  font-family:var(--mono);font-size:10px;
+  color:rgba(245,240,232,.35);
+  text-transform:uppercase;letter-spacing:.1em;
+}
+
+/* images */
+.img-row{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:16px;margin-bottom:20px;
+}
+.img-card{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.img-label{
+  padding:12px 16px;
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  color:rgba(13,13,13,.4);text-transform:uppercase;letter-spacing:.08em;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:8px;
+}
+.img-card img{
+  width:100%;aspect-ratio:1;object-fit:cover;display:block;
+  background:var(--cream);
+}
+
+/* metrics */
+.metrics-row{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:12px;margin-bottom:20px;
+}
+.met{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--r);padding:18px 14px;text-align:center;
+  box-shadow:var(--shadow);
+  transition:transform .2s,border-color .2s;
+  position:relative;overflow:hidden;
+}
+.met::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--sun),var(--sun2));
+}
+.met:hover{transform:translateY(-4px);border-color:rgba(249,115,22,.3);}
+.met-label{
+  font-family:var(--mono);font-size:10px;font-weight:500;
+  text-transform:uppercase;letter-spacing:.1em;
+  color:rgba(13,13,13,.4);margin-bottom:10px;
+}
+.met-val{
+  font-family:var(--bebas);font-size:32px;
+  color:var(--ink);line-height:1;
+}
+.met-unit{
+  font-size:11px;font-weight:700;
+  color:rgba(13,13,13,.35);
+  text-transform:uppercase;letter-spacing:.05em;
+  margin-top:2px;
+}
+
+/* ═══════════════════════════════════════
+   ── CHAT PAGE ──
+═══════════════════════════════════════ */
+.chat-wrap{
+  max-width:1080px;margin:0 auto;
+  padding:40px 40px 80px;
+  display:grid;grid-template-columns:1fr 300px;
+  gap:20px;align-items:start;
+}
+
+.chat-panel{
+  background:white;border:1px solid var(--border);
+  border-radius:20px;overflow:hidden;
+  box-shadow:var(--shadow);
+  display:flex;flex-direction:column;
+  height:calc(100vh - 160px);
+}
+.chat-head{
+  padding:18px 22px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:14px;
+}
+.chat-head-icon{
+  width:40px;height:40px;
+  background:var(--ink);color:var(--paper);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.chat-head-title{font-size:15px;font-weight:800;}
+.chat-head-sub{font-size:12px;color:rgba(13,13,13,.4);margin-top:2px;}
+.model-tag{
+  margin-left:auto;
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:50px;padding:4px 12px;
+  font-family:var(--mono);font-size:11px;color:rgba(13,13,13,.5);
+}
+
+.chat-msgs{
+  flex:1;overflow-y:auto;padding:20px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.chat-msgs::-webkit-scrollbar{width:3px;}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+
+.chat-empty{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:10px;text-align:center;color:rgba(13,13,13,.3);
+}
+.ce-sun{
+  font-size:56px;
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.ce-title{font-size:16px;font-weight:800;color:var(--ink);}
+.ce-sub{font-size:13px;}
+
+.msg{display:flex;flex-direction:column;max-width:84%;}
+.msg.user{align-self:flex-end;align-items:flex-end;}
+.msg.bot{align-self:flex-start;align-items:flex-start;}
+.msg-bub{
+  padding:12px 16px;border-radius:16px;
+  font-size:14px;line-height:1.65;
+}
+.msg.user .msg-bub{
+  background:var(--ink);color:var(--paper);
+  border-bottom-right-radius:4px;
+}
+.msg.bot .msg-bub{
+  background:var(--cream);border:1px solid var(--border);
+  color:var(--ink);border-bottom-left-radius:4px;
+}
+.msg-meta{
+  font-family:var(--mono);font-size:11px;
+  color:rgba(13,13,13,.3);margin-top:5px;
+  display:flex;gap:8px;
+}
+.srcs{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+.src-tag{
+  display:inline-flex;align-items:center;gap:4px;
+  background:rgba(249,115,22,.07);
+  border:1px solid rgba(249,115,22,.15);
+  border-radius:50px;padding:3px 10px;
+  font-family:var(--mono);font-size:11px;color:var(--sun);
+}
+
+.typing-bub{
+  display:flex;gap:5px;align-items:center;padding:14px 18px;
+}
+.tdot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(13,13,13,.2);
+  animation:tdot 1.2s ease-in-out infinite;
+}
+.tdot:nth-child(2){animation-delay:.15s;}
+.tdot:nth-child(3){animation-delay:.3s;}
+@keyframes tdot{0%,80%,100%{transform:scale(.7);opacity:.3}40%{transform:scale(1);opacity:1}}
+
+.chat-input-row{
+  padding:14px 16px;border-top:1px solid var(--border);
+  display:flex;gap:10px;align-items:center;
+}
+.chat-input{
+  flex:1;background:var(--cream);border:1.5px solid var(--border);
+  border-radius:50px;padding:11px 20px;
+  font-family:var(--cab);font-size:14px;font-weight:500;
+  color:var(--ink);outline:none;
+  transition:border-color .2s;
+}
+.chat-input:focus{border-color:var(--sun);}
+.chat-input::placeholder{color:rgba(13,13,13,.3);}
+.send-btn{
+  width:44px;height:44px;border-radius:50%;border:none;
+  background:var(--ink);color:var(--paper);
+  font-size:16px;cursor:pointer;display:flex;
+  align-items:center;justify-content:center;flex-shrink:0;
+  box-shadow:0 4px 14px rgba(0,0,0,.2);
+  transition:transform .2s,opacity .2s;
+}
+.send-btn:hover:not(:disabled){transform:scale(1.1);}
+.send-btn:disabled{opacity:.4;cursor:not-allowed;}
+
+/* chat sidebar */
+.chat-sidebar{display:flex;flex-direction:column;gap:14px;}
+.sb-card{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--r);padding:18px;
+  box-shadow:var(--shadow);
+}
+.sb-title{
+  font-size:13px;font-weight:800;color:var(--ink);
+  margin-bottom:14px;display:flex;align-items:center;gap:8px;
+}
+.score-row{margin-bottom:12px;}
+.score-top{display:flex;justify-content:space-between;margin-bottom:5px;}
+.score-name{font-size:12px;color:rgba(13,13,13,.5);font-weight:600;}
+.score-num{font-family:var(--mono);font-size:12px;color:var(--sun);}
+.score-track{height:5px;background:var(--cream);border-radius:3px;overflow:hidden;}
+.score-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--sun),var(--sun2));transition:width 1.2s ease;}
+
+.ex-q{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:10px;padding:10px 12px;
+  font-size:12px;font-weight:600;color:rgba(13,13,13,.5);
+  cursor:pointer;margin-bottom:8px;line-height:1.5;
+  transition:all .15s;
+}
+.ex-q:hover{border-color:var(--sun);color:var(--ink);}
+.ex-q:last-child{margin-bottom:0;}
+
+.api-conf{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--r);padding:16px;
+  box-shadow:var(--shadow);
+}
+.api-lbl{
+  font-family:var(--mono);font-size:10px;font-weight:500;
+  text-transform:uppercase;letter-spacing:.1em;
+  color:rgba(13,13,13,.35);margin-bottom:8px;
+}
+.api-inp{
+  width:100%;background:var(--cream);
+  border:1px solid var(--border);border-radius:8px;
+  padding:8px 12px;font-family:var(--mono);font-size:12px;
+  color:var(--ink);outline:none;margin-bottom:8px;
+}
+.api-inp:focus{border-color:var(--sun);}
+.btn-small{
+  width:100%;background:var(--ink);color:var(--paper);
+  border:none;border-radius:8px;padding:8px;
+  font-family:var(--cab);font-size:12px;font-weight:800;
+  cursor:pointer;transition:opacity .15s;
+}
+.btn-small:hover{opacity:.8;}
+
+/* ═══════════════════════════════════════
+   ── INSIGHTS PAGE ──
+═══════════════════════════════════════ */
+.insights-wrap{
+  max-width:1080px;margin:0 auto;
+  padding:48px 40px 80px;
+}
+.ins-head{margin-bottom:32px;}
+.ins-title{
+  font-family:var(--bebas);font-size:56px;
+  letter-spacing:.5px;line-height:1;margin-bottom:6px;
+}
+.ins-sub{
+  font-family:var(--mono);font-size:12px;
+  color:rgba(13,13,13,.4);letter-spacing:.05em;
+}
+
+.scores-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:14px;margin-bottom:28px;
+}
+.sc{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--r);padding:22px 18px;
+  text-align:center;box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.sc::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:3px;background:var(--bar, linear-gradient(90deg,var(--sun),var(--sun2)));
+}
+.sc-label{
+  font-family:var(--mono);font-size:10px;font-weight:500;
+  text-transform:uppercase;letter-spacing:.1em;
+  color:rgba(13,13,13,.4);margin-bottom:10px;
+}
+.sc-val{
+  font-family:var(--bebas);font-size:44px;
+  color:var(--ink);line-height:1;
+}
+.sc-badge{
+  display:inline-block;margin-top:8px;
+  padding:3px 10px;border-radius:50px;
+  font-family:var(--mono);font-size:11px;
+}
+.bg-orange{background:rgba(249,115,22,.1);color:var(--sun);}
+.bg-green{background:rgba(22,163,74,.1);color:var(--green);}
+.bg-sky{background:rgba(14,165,233,.1);color:var(--sky);}
+.bg-gray{background:rgba(13,13,13,.06);color:rgba(13,13,13,.4);}
+
+.charts-grid{
+  display:grid;grid-template-columns:1.3fr 1fr;
+  gap:16px;margin-bottom:28px;
+}
+.chart-card{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--r);padding:24px;
+  box-shadow:var(--shadow);
+}
+.cc-title{font-size:13px;font-weight:800;margin-bottom:16px;}
+.cc-wrap{height:200px;position:relative;}
+
+/* telemetry */
+.tele-section{margin-top:8px;}
+.tele-title-row{
+  display:flex;align-items:baseline;gap:12px;margin-bottom:20px;
+}
+.tele-title{font-family:var(--bebas);font-size:36px;letter-spacing:.5px;}
+.tele-sub{font-family:var(--mono);font-size:11px;color:rgba(13,13,13,.35);}
+
+.tele-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:14px;margin-bottom:20px;
+}
+.ts{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--r);padding:20px;
+  box-shadow:var(--shadow);
+}
+.ts-val{font-family:var(--bebas);font-size:40px;color:var(--ink);line-height:1;}
+.ts-label{font-family:var(--mono);font-size:10px;font-weight:500;color:rgba(13,13,13,.35);text-transform:uppercase;letter-spacing:.1em;margin-top:4px;}
+
+.tele-table-card{
+  background:white;border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.tt-head{
+  padding:14px 20px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.tt-title{font-size:13px;font-weight:800;}
+.refresh-btn{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:8px;padding:6px 14px;
+  font-family:var(--mono);font-size:11px;color:rgba(13,13,13,.5);
+  cursor:pointer;transition:all .15s;
+}
+.refresh-btn:hover{border-color:var(--sun);color:var(--sun);}
+
+table{width:100%;border-collapse:collapse;}
+th{
+  text-align:left;padding:10px 20px;
+  font-family:var(--mono);font-size:10px;font-weight:500;
+  text-transform:uppercase;letter-spacing:.1em;
+  color:rgba(13,13,13,.35);
+  border-bottom:1px solid var(--border);
+}
+td{
+  padding:12px 20px;font-size:13px;
+  border-bottom:1px solid rgba(13,13,13,.06);
+}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:var(--cream);}
+.td-mono{font-family:var(--mono);font-size:12px;color:rgba(13,13,13,.4);}
+.lat-bar{display:flex;align-items:center;gap:8px;}
+.lat-fill{
+  height:4px;border-radius:2px;
+  background:linear-gradient(90deg,var(--sun),var(--sun2));
+  min-width:4px;
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media(max-width:768px){
+  .analyze-hero{grid-template-columns:1fr;}
+  .hero-card{display:none;}
+  .metrics-row{grid-template-columns:repeat(3,1fr);}
+  .img-row{grid-template-columns:1fr;}
+  .chat-wrap{grid-template-columns:1fr;}
+  .chat-sidebar{display:none;}
+  .scores-grid{grid-template-columns:repeat(2,1fr);}
+  .charts-grid{grid-template-columns:1fr;}
+  nav{padding:0 16px;}
+  .nav-pills{display:none;}
+  .analyze-hero,.mode-switch,.input-area,.loader,.err-box,.results{padding-left:20px;padding-right:20px;}
+  .insights-wrap,.chat-wrap{padding-left:20px;padding-right:20px;}
+}
+
+/* ═══════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════ */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.fade-up{animation:fadeUp .5s ease both;}
+</style>
+</head>
+<body>
+
+<!-- ════ NAV ════ -->
+<nav>
+  <a class="brand" href="#">
+    <div class="brand-mark"></div>
+    <span class="brand-name">Solar Explorar</span>
+  </a>
+  <div class="nav-pills">
+    <button class="nav-pill active" onclick="showPage('analyze',this)">☀ Analyze</button>
+    <button class="nav-pill" onclick="showPage('chat',this)">⚡ Ask AI</button>
+    <button class="nav-pill" onclick="showPage('insights',this)">📊 Insights</button>
+  </div>
+  <div class="nav-status">
+    <div class="dot"></div>
+    <span id="status-txt">connecting</span>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════
+     PAGE: ANALYZE
+════════════════════════════════════ -->
+<div class="page active" id="page-analyze">
+
+  <div class="analyze-hero">
+    <div class="hero-left fade-up">
+      <div class="hero-eyebrow">AI · Satellite · Deep Learning</div>
+      <h1 class="hero-title">
+        DISCOVER<br>
+        YOUR <span class="sun-word">SOLAR</span><br>
+        <span class="outline">POTENTIAL</span>
+      </h1>
+      <p class="hero-sub">Enter any address or drop a satellite image. Our U-Net ensemble segments your rooftop and calculates energy savings in seconds.</p>
+      <div class="hero-tags">
+        <span class="tag">🧠 U-Net Ensemble</span>
+        <span class="tag">🛰️ Satellite API</span>
+        <span class="tag">📐 Area Detection</span>
+        <span class="tag">🌿 CO₂ Offset</span>
+        <span class="tag">💡 RAG Assistant</span>
+      </div>
+    </div>
+    <div class="hero-card fade-up" style="animation-delay:.1s">
+      <div class="hc-label">System · Live</div>
+      <div class="hc-stat">
+        <div class="hc-stat-val">8.1kW</div>
+        <div class="hc-stat-key">avg capacity detected</div>
+      </div>
+      <div class="hc-divider"></div>
+      <div class="hc-stat">
+        <div class="hc-stat-val">$1,240</div>
+        <div class="hc-stat-key">avg annual savings</div>
+      </div>
+      <div class="hc-divider"></div>
+      <div class="hc-stat">
+        <div class="hc-stat-val">4.2T</div>
+        <div class="hc-stat-key">CO₂ offset / yr</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mode-switch">
+    <div class="mode-tabs">
+      <button class="mode-tab active" id="mt-addr" onclick="switchMode('addr')">🔍 Address Search</button>
+      <button class="mode-tab" id="mt-upload" onclick="switchMode('upload')">🛰️ Upload Image</button>
+    </div>
+  </div>
+
+  <div class="input-area">
+    <!-- Address mode -->
+    <div id="addr-mode">
+      <div class="addr-box">
+        <input type="text" id="addr-inp" placeholder="e.g. Empire State Building, New York" onkeydown="if(event.key==='Enter')doAnalyze()">
+        <button class="btn-sun" id="analyze-btn" onclick="doAnalyze()">Analyze →</button>
+      </div>
+      <div class="demo-hints">
+        <span style="font-size:12px;color:rgba(13,13,13,.35);font-weight:700;align-self:center;">Demo:</span>
+        <div class="demo-addr" onclick="fillAddr('123 Surya Marg, Delhi')">123 Surya Marg, Delhi</div>
+        <div class="demo-addr" onclick="fillAddr('456 Tech Park, Bangalore')">456 Tech Park, Bangalore</div>
+        <div class="demo-addr" onclick="fillAddr('789 Green Villa, Mumbai')">789 Green Villa, Mumbai</div>
+        <div class="demo-addr" onclick="fillAddr('101 Silicon Valley')">101 Silicon Valley</div>
+      </div>
+    </div>
+
+    <!-- Upload mode -->
+    <div id="upload-mode" style="display:none">
+      <div class="upload-drop" id="upload-drop">
+        <input type="file" id="file-inp" accept="image/*" onchange="onFile(this)">
+        <div class="upload-icon">🛰️</div>
+        <div class="upload-title">Drop a satellite image here</div>
+        <div class="upload-hint">PNG · JPG · WEBP accepted</div>
+        <div class="upload-name" id="upload-name"></div>
+      </div>
+      <div style="text-align:center;margin-top:16px">
+        <button class="btn-sun" id="upload-btn" onclick="doUpload()" style="display:none">Analyze Image →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="sun-spin"></div>
+      <div>
+        <div class="loader-text" id="loader-txt">Fetching satellite imagery…</div>
+        <div class="loader-sub">Running U-Net ensemble segmentation</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error -->
+  <div class="err-box" id="err-box">
+    <div class="err-inner" id="err-inner"></div>
+  </div>
+
+  <!-- Results -->
+  <div class="results fade-up" id="results">
+    <div class="pred-banner">
+      <div class="pred-emoji" id="r-emoji">☀️</div>
+      <div>
+        <div class="pred-label" id="r-label">Analysis Complete</div>
+        <div class="pred-desc" id="r-desc">AI roof segmentation results</div>
+      </div>
+      <div class="pred-cov">
+        <div class="cov-val" id="r-cov">--%</div>
+        <div class="cov-label">roof coverage</div>
+      </div>
+    </div>
+
+    <div class="img-row">
+      <div class="img-card">
+        <div class="img-label">🛰️ Satellite Image</div>
+        <img id="sat-img" src="" alt="Satellite">
+      </div>
+      <div class="img-card">
+        <div class="img-label">🔍 AI Detection Overlay</div>
+        <img id="mask-img" src="" alt="Mask">
+      </div>
+    </div>
+
+    <div class="metrics-row">
+      <div class="met">
+        <div class="met-label">Roof Area</div>
+        <div class="met-val" id="m-area">--</div>
+        <div class="met-unit">m²</div>
+      </div>
+      <div class="met">
+        <div class="met-label">Panels</div>
+        <div class="met-val" id="m-panels">--</div>
+        <div class="met-unit">count</div>
+      </div>
+      <div class="met">
+        <div class="met-label">Capacity</div>
+        <div class="met-val" id="m-cap">--</div>
+        <div class="met-unit">kW</div>
+      </div>
+      <div class="met">
+        <div class="met-label">Annual Savings</div>
+        <div class="met-val" id="m-sav">--</div>
+        <div class="met-unit">USD/yr</div>
+      </div>
+      <div class="met">
+        <div class="met-label">CO₂ Offset</div>
+        <div class="met-val" id="m-co2">--</div>
+        <div class="met-unit">kg/yr</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     PAGE: CHAT
+════════════════════════════════════ -->
+<div class="page" id="page-chat">
+  <div class="chat-wrap">
+    <div class="chat-panel">
+      <div class="chat-head">
+        <div class="chat-head-icon">⚡</div>
+        <div>
+          <div class="chat-head-title">Solar Knowledge Assistant</div>
+          <div class="chat-head-sub">NEC 690 · NREL · NABCEP · Tesla Powerwall · Enphase IQ8</div>
+        </div>
+        <div class="model-tag">gemini-2.5-flash</div>
+      </div>
+      <div class="chat-msgs" id="chat-msgs">
+        <div class="chat-empty" id="chat-empty">
+          <div class="ce-sun">☀️</div>
+          <div class="ce-title">Ask anything about solar energy</div>
+          <div class="ce-sub">Grounded in NEC 690, NREL, NABCEP &amp; manufacturer docs</div>
+        </div>
+      </div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chat-inp" placeholder="What are rapid shutdown requirements under Article 690?" onkeydown="if(event.key==='Enter')sendChat()">
+        <button class="send-btn" id="send-btn" onclick="sendChat()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="chat-sidebar">
+      <div class="api-conf">
+        <div class="api-lbl">RAG API</div>
+        <input class="api-inp" id="rag-url" value="http://localhost:8000">
+        <button class="btn-small" onclick="saveRag()">Save & Connect</button>
+      </div>
+      <div class="api-conf">
+        <div class="api-lbl">Roof API</div>
+        <input class="api-inp" id="roof-url" value="http://localhost:8001">
+        <button class="btn-small" onclick="saveRoof()">Save & Connect</button>
+      </div>
+
+      <div class="sb-card">
+        <div class="sb-title">📈 RAGAS Scores</div>
+        <div class="score-row">
+          <div class="score-top"><span class="score-name">faithfulness</span><span class="score-num">0.61</span></div>
+          <div class="score-track"><div class="score-fill" style="width:61%"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-top"><span class="score-name">context recall</span><span class="score-num">0.81</span></div>
+          <div class="score-track"><div class="score-fill" style="width:81%"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-top"><span class="score-name">ctx precision</span><span class="score-num">0.35</span></div>
+          <div class="score-track"><div class="score-fill" style="width:35%"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-top"><span class="score-name">answer relevance</span><span class="score-num">0.40</span></div>
+          <div class="score-track"><div class="score-fill" style="width:40%"></div></div>
+        </div>
+      </div>
+
+      <div class="sb-card">
+        <div class="sb-title">💡 Try asking</div>
+        <div class="ex-q" onclick="fillChat('What is a DC Combiner according to Article 690?')">What is a DC Combiner according to Article 690?</div>
+        <div class="ex-q" onclick="fillChat('What NEMA rating do Enphase IQ8 microinverters require?')">What NEMA rating do Enphase IQ8 microinverters require?</div>
+        <div class="ex-q" onclick="fillChat('Rapid shutdown requirements for firefighter safety?')">Rapid shutdown requirements for firefighter safety?</div>
+        <div class="ex-q" onclick="fillChat('What does NABCEP require for commissioning domain?')">NABCEP commissioning domain requirements?</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     PAGE: INSIGHTS
+════════════════════════════════════ -->
+<div class="page" id="page-insights">
+  <div class="insights-wrap">
+    <div class="ins-head">
+      <div class="ins-title">EVALUATION<br>RESULTS</div>
+      <div class="ins-sub">RAGAS v0.4.3 · gemma2:2b evaluator · 135 questions · gemma2-ctx8k</div>
+    </div>
+
+    <div class="scores-grid">
+      <div class="sc" style="--bar:linear-gradient(90deg,#F97316,#FBBF24)">
+        <div class="sc-label">faithfulness</div>
+        <div class="sc-val">0.61</div>
+        <div class="sc-badge bg-orange">grounded</div>
+      </div>
+      <div class="sc" style="--bar:linear-gradient(90deg,#0EA5E9,#38BDF8)">
+        <div class="sc-label">context recall</div>
+        <div class="sc-val">0.81</div>
+        <div class="sc-badge bg-sky">strong ↑</div>
+      </div>
+      <div class="sc" style="--bar:linear-gradient(90deg,#16A34A,#4ADE80)">
+        <div class="sc-label">ctx precision</div>
+        <div class="sc-val">0.35</div>
+        <div class="sc-badge bg-green">improving</div>
+      </div>
+      <div class="sc" style="--bar:linear-gradient(90deg,#94A3B8,#CBD5E1)">
+        <div class="sc-label">answer relevance</div>
+        <div class="sc-val">0.40</div>
+        <div class="sc-badge bg-gray">re-run needed</div>
+      </div>
+    </div>
+
+    <div class="charts-grid">
+      <div class="chart-card">
+        <div class="cc-title">Score Breakdown</div>
+        <div class="cc-wrap"><canvas id="bar-chart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="cc-title">Radar Overview</div>
+        <div class="cc-wrap"><canvas id="radar-chart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="tele-section">
+      <div class="tele-title-row">
+        <div class="tele-title">TELEMETRY</div>
+        <div class="tele-sub">live query analytics from /api/telemetry</div>
+      </div>
+
+      <div class="tele-stats">
+        <div class="ts">
+          <div class="ts-val" id="tele-total">—</div>
+          <div class="ts-label">total queries</div>
+        </div>
+        <div class="ts">
+          <div class="ts-val" id="tele-lat">—</div>
+          <div class="ts-label">avg latency ms</div>
+        </div>
+        <div class="ts">
+          <div class="ts-val" id="tele-chunks">—</div>
+          <div class="ts-label">avg chunks</div>
+        </div>
+      </div>
+
+      <div class="tele-table-card">
+        <div class="tt-head">
+          <div class="tt-title">Recent Queries</div>
+          <button class="refresh-btn" onclick="loadTele()">↻ refresh</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:150px">timestamp</th>
+              <th>question</th>
+              <th style="width:80px">ans len</th>
+              <th style="width:160px">latency</th>
+              <th style="width:60px">chunks</th>
+            </tr>
+          </thead>
+          <tbody id="tele-rows">
+            <tr><td colspan="5" style="text-align:center;padding:28px;font-family:var(--mono);font-size:12px;color:rgba(13,13,13,.3)">click refresh to load</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════
+// CONFIG
+// ═══════════════════════════════════════
+let RAG  = localStorage.getItem('rag_url')  || 'http://localhost:8000';
+let ROOF = localStorage.getItem('roof_url') || 'http://localhost:8001';
+
+document.getElementById('rag-url').value  = RAG;
+document.getElementById('roof-url').value = ROOF;
+
+function saveRag()  { RAG  = document.getElementById('rag-url').value.replace(/\/$/,'');  localStorage.setItem('rag_url',RAG);   checkStatus(); }
+function saveRoof() { ROOF = document.getElementById('roof-url').value.replace(/\/$/,''); localStorage.setItem('roof_url',ROOF); checkStatus(); }
+
+async function checkStatus() {
+  try {
+    const r = await fetch(RAG + '/');
+    document.getElementById('status-txt').textContent = r.ok ? 'live' : 'error';
+  } catch { document.getElementById('status-txt').textContent = 'offline'; }
+}
+
+// ═══════════════════════════════════════
+// PAGE SWITCHING
+// ═══════════════════════════════════════
+function showPage(name, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-pill').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (name === 'insights') { initCharts(); loadTele(); }
+}
+
+// ═══════════════════════════════════════
+// ANALYZE — ADDRESS
+// ═══════════════════════════════════════
+function switchMode(mode) {
+  document.getElementById('mt-addr').classList.toggle('active', mode==='addr');
+  document.getElementById('mt-upload').classList.toggle('active', mode==='upload');
+  document.getElementById('addr-mode').style.display   = mode==='addr'   ? 'block' : 'none';
+  document.getElementById('upload-mode').style.display = mode==='upload' ? 'block' : 'none';
+  document.getElementById('upload-drop').style.display = mode==='upload' ? 'block' : 'none';
+}
+
+function fillAddr(a) { document.getElementById('addr-inp').value = a; }
+
+function showLoader(txt) {
+  document.getElementById('loader-txt').textContent = txt;
+  document.getElementById('loader').style.display   = 'block';
+  document.getElementById('results').style.display  = 'none';
+  document.getElementById('err-box').style.display  = 'none';
+}
+function hideLoader() { document.getElementById('loader').style.display = 'none'; }
+function showErr(msg) {
+  hideLoader();
+  document.getElementById('err-inner').textContent = msg;
+  document.getElementById('err-box').style.display = 'block';
+}
+
+function renderResults(data) {
+  hideLoader();
+  const cov = data.coverage ?? 0;
+  const pred = data.prediction ?? {};
+  const met  = data.metrics   ?? {};
+
+  document.getElementById('r-emoji').textContent = pred.emoji  ?? '☀️';
+  document.getElementById('r-label').textContent = pred.label  ?? 'Analysis Complete';
+  document.getElementById('r-desc').textContent  = pred.description ?? '';
+  document.getElementById('r-cov').textContent   = cov.toFixed(1) + '%';
+
+  document.getElementById('sat-img').src  = data.satellite_image ?? data.original_image ?? '';
+  document.getElementById('mask-img').src = data.mask_image ?? '';
+
+  document.getElementById('m-area').textContent   = met.roof_area_m2    ?? '--';
+  document.getElementById('m-panels').textContent = met.panel_count      ?? '--';
+  document.getElementById('m-cap').textContent    = met.capacity_kw      ?? '--';
+  document.getElementById('m-sav').textContent    = met.annual_savings   ?? '--';
+  document.getElementById('m-co2').textContent    = met.co2_offset_kg    ?? '--';
+
+  const r = document.getElementById('results');
+  r.style.display = 'block';
+  r.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+async function doAnalyze() {
+  const addr = document.getElementById('addr-inp').value.trim();
+  if (!addr) return;
+  const btn = document.getElementById('analyze-btn');
+  btn.disabled = true;
+  showLoader('Fetching satellite imagery for "' + addr + '"…');
+
+  try {
+    // Step 1: geocode
+    const geo = await fetch(`${ROOF}/geocode?address=${encodeURIComponent(addr)}`);
+    const gdata = await geo.json();
+    if (gdata.detail) throw new Error(gdata.detail);
+
+    // Step 2: segment
+    showLoader('Running U-Net ensemble segmentation…');
+    const seg = await fetch(`${ROOF}/segment-from-coords?lat=${gdata.lat}&lng=${gdata.lng}`);
+    const sdata = await seg.json();
+    if (sdata.detail) throw new Error(sdata.detail);
+
+    renderResults(sdata);
+  } catch(e) {
+    // Fallback to demo mode
+    try {
+      showLoader('Using demo mode (no Mapbox token)…');
+      const seg = await fetch(`${ROOF}/segment-demo?address=${encodeURIComponent(addr)}`);
+      const sdata = await seg.json();
+      if (sdata.detail) throw new Error(sdata.detail);
+      renderResults(sdata);
+    } catch(e2) {
+      showErr('Analysis failed: ' + e2.message + '. Make sure the roof backend is running on ' + ROOF);
+    }
+  } finally { btn.disabled = false; }
+}
+
+// ═══════════════════════════════════════
+// ANALYZE — UPLOAD
+// ═══════════════════════════════════════
+function onFile(inp) {
+  const f = inp.files[0]; if (!f) return;
+  const n = document.getElementById('upload-name');
+  n.textContent = f.name; n.style.display = 'block';
+  document.getElementById('upload-btn').style.display = 'inline-block';
+}
+
+async function doUpload() {
+  const file = document.getElementById('file-inp').files[0];
+  if (!file) return;
+  const btn = document.getElementById('upload-btn');
+  btn.disabled = true;
+  showLoader('Running AI segmentation on uploaded image…');
+  try {
+    const fd = new FormData();
+    fd.append('file', file);
+    const res = await fetch(`${ROOF}/segment`, { method: 'POST', body: fd });
+    const data = await res.json();
+    if (data.detail) throw new Error(data.detail);
+    renderResults(data);
+  } catch(e) {
+    showErr('Upload failed: ' + e.message);
+  } finally { btn.disabled = false; }
+}
+
+// ═══════════════════════════════════════
+// CHAT
+// ═══════════════════════════════════════
+function fillChat(q) {
+  document.getElementById('chat-inp').value = q;
+  document.getElementById('chat-inp').focus();
+}
+
+function rmEmpty() {
+  const e = document.getElementById('chat-empty');
+  if (e) e.remove();
+}
+
+function addMsg(role, html, meta) {
+  rmEmpty();
+  const c = document.getElementById('chat-msgs');
+  const d = document.createElement('div');
+  d.className = 'msg ' + role;
+  d.innerHTML = `<div class="msg-bub">${html}</div>` + (meta ? `<div class="msg-meta">${meta}</div>` : '');
+  c.appendChild(d);
+  c.scrollTop = c.scrollHeight;
+}
+
+function addTyping() {
+  rmEmpty();
+  const c = document.getElementById('chat-msgs');
+  const d = document.createElement('div');
+  d.className = 'msg bot'; d.id = 'typing';
+  d.innerHTML = `<div class="msg-bub"><div class="typing-bub"><div class="tdot"></div><div class="tdot"></div><div class="tdot"></div></div></div>`;
+  c.appendChild(d); c.scrollTop = c.scrollHeight;
+}
+
+function esc(t) { return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+async function sendChat() {
+  const inp = document.getElementById('chat-inp');
+  const q = inp.value.trim(); if (!q) return;
+  inp.value = '';
+  document.getElementById('send-btn').disabled = true;
+  addMsg('user', esc(q));
+  addTyping();
+  try {
+    const t0 = Date.now();
+    const res = await fetch(RAG + '/api/ask', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({question: q})
+    });
+    const data = await res.json();
+    document.getElementById('typing')?.remove();
+    let srcs = '';
+    if (data.sources?.length) {
+      srcs = '<div class="srcs">' +
+        data.sources.slice(0,3).map(s =>
+          `<span class="src-tag">📄 ${s.source.replace('.pdf','')} p.${s.page}</span>`
+        ).join('') + '</div>';
+    }
+    addMsg('bot', esc(data.answer) + srcs, `${Date.now()-t0}ms · ${data.chunks_retrieved} chunks`);
+  } catch(e) {
+    document.getElementById('typing')?.remove();
+    addMsg('bot', `<span style="color:var(--red)">Error: ${e.message}</span>`);
+  }
+  document.getElementById('send-btn').disabled = false;
+  inp.focus();
+}
+
+// ═══════════════════════════════════════
+// TELEMETRY
+// ═══════════════════════════════════════
+async function loadTele() {
+  try {
+    const res = await fetch(RAG + '/api/telemetry');
+    const d = await res.json();
+    document.getElementById('tele-total').textContent  = d.total_queries ?? '—';
+    document.getElementById('tele-lat').textContent    = d.avg_latency_ms ? Math.round(d.avg_latency_ms) : '—';
+    document.getElementById('tele-chunks').textContent = d.avg_chunks_retrieved ? d.avg_chunks_retrieved.toFixed(1) : '—';
+    const rows = d.recent_queries || [];
+    const tb = document.getElementById('tele-rows');
+    if (!rows.length) {
+      tb.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:24px;font-family:var(--mono);font-size:12px;color:rgba(13,13,13,.3)">no queries yet</td></tr>`;
+      return;
+    }
+    const max = Math.max(...rows.map(r => r.latency_ms || 0));
+    tb.innerHTML = [...rows].reverse().map(r => {
+      const ts  = (r.timestamp||'').split('T').join(' ').split('.')[0];
+      const lat = Math.round(r.latency_ms || 0);
+      const pct = max ? Math.round(lat/max*100) : 0;
+      const q   = (r.question||'').substring(0,65) + ((r.question||'').length>65?'…':'');
+      return `<tr>
+        <td class="td-mono" style="font-size:11px">${ts}</td>
+        <td style="font-size:13px">${esc(q)}</td>
+        <td class="td-mono">${r.answer_length??'—'}</td>
+        <td><div class="lat-bar"><div class="lat-fill" style="width:${pct}%"></div><span class="td-mono" style="font-size:11px">${lat}ms</span></div></td>
+        <td class="td-mono">${r.chunks_retrieved??'—'}</td>
+      </tr>`;
+    }).join('');
+  } catch(e) {
+    document.getElementById('tele-rows').innerHTML = `<tr><td colspan="5" style="text-align:center;padding:16px;color:var(--red);font-family:var(--mono);font-size:12px">failed: ${e.message}</td></tr>`;
+  }
+}
+
+// ═══════════════════════════════════════
+// CHARTS
+// ═══════════════════════════════════════
+let chartsInit = false;
+function initCharts() {
+  if (chartsInit) return; chartsInit = true;
+  const grid = 'rgba(13,13,13,0.06)';
+  const lbl  = 'rgba(13,13,13,0.35)';
+  const mono = 'JetBrains Mono';
+
+  new Chart(document.getElementById('bar-chart'), {
+    type:'bar',
+    data:{
+      labels:['faithfulness','ctx recall','ctx precision','relevance'],
+      datasets:[{
+        data:[0.61,0.81,0.35,0.40],
+        backgroundColor:['rgba(249,115,22,.12)','rgba(14,165,233,.12)','rgba(22,163,74,.12)','rgba(13,13,13,.06)'],
+        borderColor:['#F97316','#0EA5E9','#16A34A','#94A3B8'],
+        borderWidth:2,borderRadius:8,
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{
+        y:{min:0,max:1,grid:{color:grid},ticks:{color:lbl,font:{family:mono,size:10},stepSize:.25}},
+        x:{grid:{display:false},ticks:{color:lbl,font:{family:mono,size:10}}}
+      }
+    }
+  });
+
+  new Chart(document.getElementById('radar-chart'), {
+    type:'radar',
+    data:{
+      labels:['faithfulness','ctx recall','ctx precision','relevance'],
+      datasets:[{
+        data:[0.61,0.81,0.35,0.40],
+        backgroundColor:'rgba(249,115,22,0.08)',
+        borderColor:'#F97316',borderWidth:2,
+        pointBackgroundColor:'#F97316',pointRadius:4,
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{r:{min:0,max:1,grid:{color:grid},angleLines:{color:grid},ticks:{display:false},pointLabels:{color:lbl,font:{family:mono,size:10}}}}
+    }
+  });
+}
+
+// ═══════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════
+checkStatus();
+</script>
+</body>
+</html>

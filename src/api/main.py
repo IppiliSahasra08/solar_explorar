@@ -48,6 +48,16 @@ def ask(req: AskRequest):
 import math
 from fastapi.responses import JSONResponse
 
+# 1. Serve it from FastAPI (add to src/api/main.py)
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
+app.mount("/static", StaticFiles(directory="frontend"), name="static")
+
+@app.get("/dashboard")
+def dashboard():
+    return FileResponse("frontend/index.html")
+
 @app.get("/api/telemetry")
 def get_telemetry():
     if not QUERY_LOG.exists():
