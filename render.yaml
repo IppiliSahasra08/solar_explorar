@@ -1,0 +1,70 @@
+# Solar Explorar - Render Blueprint
+# Deploy both RAG API and Roof API on Render.com
+
+services:
+  # ─────────────────────────────────────────────
+  # RAG API - Solar Knowledge Assistant (Port 8000)
+  # ─────────────────────────────────────────────
+  - type: web
+    name: solar-explorar-rag
+    runtime: python
+    region: oregon
+    plan: free
+    branch: main
+
+    # Build settings
+    buildCommand: pip install -r salvaged_requirements.txt
+
+    # Start command for RAG API
+    startCommand: uvicorn src.api.main:app --host 0.0.0.0 --port $PORT
+
+    # Health check
+    healthCheckPath: /
+
+    # Environment variables
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false  # Will be set in Render dashboard
+      - key: PYTHON_VERSION
+        value: "3.10"
+
+    # Auto-deploy settings
+    autoDeploy: true
+
+    # Pull request previews
+    pullRequestPreviewsEnabled: false
+
+  # ─────────────────────────────────────────────
+  # Roof API - Roof Analysis Service (Port 8001)
+  # ─────────────────────────────────────────────
+  - type: web
+    name: solar-explorar-roof
+    runtime: python
+    region: oregon
+    plan: free
+    branch: main
+
+    # Build settings
+    buildCommand: |
+      cd model_implementation && pip install -r requirements.txt
+
+    # Start command for Roof API
+    startCommand: cd model_implementation && python app.py
+
+    # Health check
+    healthCheckPath: /health
+
+    # Environment variables
+    envVars:
+      - key: MAPBOX_TOKEN
+        sync: false  # Will be set in Render dashboard
+      - key: PYTHON_VERSION
+        value: "3.10"
+      - key: RENDER
+        value: "true"  # Use single model to prevent OOM on free tier
+
+    # Auto-deploy settings
+    autoDeploy: true
+
+    # Pull request previews
+    pullRequestPreviewsEnabled: false
