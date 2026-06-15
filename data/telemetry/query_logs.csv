@@ -8,3 +8,5 @@ timestamp,question,answer_length,chunks_retrieved,latency_ms
 2026-06-06T00:29:31.297419,How do AC grounding electrode requirements differ from DC grounding electrode requirements under NEC Article 690 Section 690.47?,2141,5,10868.20101737976
 2026-06-06T00:35:15.608089,What key operational difference between grounded and ungrounded commercial PV DC systems is noted in the NREL C&I best practices report?,683,5,8928.84874343872
 2026-06-06T20:44:04.386456,How does the Backup Gateway 2's backup load panel conductor specification compare to its non-backup panel conductor specification?,738,5,8118.3
+2026-06-15T13:10:24.985547,What specific thermal operating limits does the Tesla Powerwall 2 installation manual prescribe for installations in climates exceeding 50°C ambient?,51,5,7839.07
+2026-06-15T13:11:03.484346,How does the NABCEP JTA approach battery system installation safety? What specific knowledge areas are listed under battery-related tasks?,1747,5,10021.09
