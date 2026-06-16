@@ -6,18 +6,20 @@ from chromadb import Documents, EmbeddingFunction, Embeddings
 
 class GeminiEmbeddingFunction(EmbeddingFunction):
     def __init__(self):
-        # Initializes the client using your system environment variable
+        # Read the environment key verified on Render
         self.client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
     def __call__(self, input: Documents) -> Embeddings:
-        # Convert ChromaDB's Documents type to a clean list of pure Python strings
-        texts = [str(doc) for doc in input]
+        # Cast elements cleanly to pure native strings for the API client
+        clean_texts = [str(doc) for doc in input]
         
-        # Using the direct text-embedding-004 identifier string
+        # Call the endpoint using the validated model string identifier
         response = self.client.models.embed_content(
-            model="text-embedding-004", 
-            contents=texts
+            model="text-embedding-004",
+            contents=clean_texts
         )
+        
+        # Return a list of lists containing the raw float embeddings
         return [embedding.values for embedding in response.embeddings]
 
 class SolarVectorStore:
