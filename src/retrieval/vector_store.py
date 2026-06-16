@@ -6,14 +6,16 @@ from chromadb import Documents, EmbeddingFunction, Embeddings
 
 class GeminiEmbeddingFunction(EmbeddingFunction):
     def __init__(self):
-        # Initializes the client using your system environment variable
+        # Explicitly setting up the SDK client
         self.client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
     def __call__(self, input: Documents) -> Embeddings:
-        # Ensure we pass the exact model ID expected by the developer endpoint
+        # Convert ChromaDB's input format into a clean list of strings for Gemini
+        texts = [str(doc) for doc in input]
+        
         response = self.client.models.embed_content(
-            model="text-embedding-004",  # Alternatively, use "gemini-embedding-2"
-            contents=input
+            model="text-embedding-004",  # This is the correct identifier string
+            contents=texts
         )
         return [embedding.values for embedding in response.embeddings]
 
