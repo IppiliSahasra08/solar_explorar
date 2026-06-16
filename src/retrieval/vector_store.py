@@ -19,7 +19,7 @@ class GeminiEmbeddingFunction(EmbeddingFunction):
 
         # Call the endpoint using the validated model string identifier
         response = self.client.models.embed_content(
-            model="text-embedding-004",
+            model="embedding-001",
             contents=clean_texts
         )
 
