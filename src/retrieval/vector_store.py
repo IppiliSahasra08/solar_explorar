@@ -4,39 +4,44 @@ import chromadb
 from google import genai
 from chromadb import Documents, EmbeddingFunction, Embeddings
 
+
 class GeminiEmbeddingFunction(EmbeddingFunction):
     def __init__(self):
         # Read the environment key verified on Render
-        self.client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+        api_key = os.environ.get("GEMINI_API_KEY")
+        if not api_key:
+            raise ValueError("GEMINI_API_KEY environment variable is not set")
+        self.client = genai.Client(api_key=api_key)
 
     def __call__(self, input: Documents) -> Embeddings:
         # Cast elements cleanly to pure native strings for the API client
         clean_texts = [str(doc) for doc in input]
-        
+
         # Call the endpoint using the validated model string identifier
         response = self.client.models.embed_content(
             model="text-embedding-004",
             contents=clean_texts
         )
-        
+
         # Return a list of lists containing the raw float embeddings
         return [embedding.values for embedding in response.embeddings]
+
 
 class SolarVectorStore:
     def __init__(self, collection_name: str = "solar_knowledge_v2"):
         """
-        Initializes persistent ChromaDB client using cloud-backed 
+        Initializes persistent ChromaDB client using cloud-backed
         Gemini embeddings to maintain zero-RAM footprint on Render Free.
         """
         # 1. Connect our custom Gemini Embedding engine
         self.embedding_function = GeminiEmbeddingFunction()
-        
+
         script_dir = Path(__file__).resolve().parent
         self.chroma_db_dir = script_dir.parents[1] / "data" / "chroma_db"
-        
+
         # 2. Connect to persistent storage
         self.client = chromadb.PersistentClient(path=str(self.chroma_db_dir))
-        
+
         # 3. Register the embedding function directly with ChromaDB
         # This tells ChromaDB to automatically use Gemini whenever we call .query()
         self.collection = self.client.get_or_create_collection(
@@ -44,8 +49,8 @@ class SolarVectorStore:
             embedding_function=self.embedding_function,
             metadata={"hnsw:space": "cosine"}
         )
-        
-        print("🚀 SolarVectorStore initialized using Gemini Cloud Embeddings!")
+
+        print("SolarVectorStore initialized using Gemini Cloud Embeddings!")
 
     def upsert_chunks(self, ids: list, documents: list, metadatas: list):
         """Saves text chunks directly. ChromaDB handles the embeddings automatically now."""
@@ -53,7 +58,7 @@ class SolarVectorStore:
         # Notice we don't pass an embeddings array anymore; ChromaDB handles it via self.embedding_function
         self.collection.upsert(ids=ids, documents=documents, metadatas=metadatas)
 
-    def retrieve_and_rerank(self, question: str, final_top_n: int = 5) -> list:
+    def retrieve_and_rerank(self, question: str, top_k_vector: int = 20, final_top_n: int = 5) -> list:
         """
         Retrieves relevant solar data context using Gemini embeddings.
         Note: Local Cross-Encoder removed to preserve Render container memory.
@@ -63,7 +68,7 @@ class SolarVectorStore:
             query_texts=[question],
             n_results=final_top_n
         )
-        
+
         if not raw_results or not raw_results['ids'] or len(raw_results['ids'][0]) == 0:
             return []
 
