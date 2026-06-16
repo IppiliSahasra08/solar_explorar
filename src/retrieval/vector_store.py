@@ -6,13 +6,13 @@ from chromadb import Documents, EmbeddingFunction, Embeddings
 
 class GeminiEmbeddingFunction(EmbeddingFunction):
     def __init__(self):
-        # Initializes the client using the environment variable set on Render
+        # Initializes the client using your system environment variable
         self.client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
     def __call__(self, input: Documents) -> Embeddings:
-        # Send the texts to Google's servers for embedding calculation
+        # Ensure we pass the exact model ID expected by the developer endpoint
         response = self.client.models.embed_content(
-            model="text-embedding-004",
+            model="text-embedding-004",  # Alternatively, use "gemini-embedding-2"
             contents=input
         )
         return [embedding.values for embedding in response.embeddings]
