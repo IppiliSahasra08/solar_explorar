@@ -18,7 +18,7 @@ class GeminiEmbeddingFunction(EmbeddingFunction):
         return [embedding.values for embedding in response.embeddings]
 
 class SolarVectorStore:
-    def __init__(self, collection_name: str = "solar_knowledge"):
+    def __init__(self, collection_name: str = "solar_knowledge_v2"):
         """
         Initializes persistent ChromaDB client using cloud-backed 
         Gemini embeddings to maintain zero-RAM footprint on Render Free.
