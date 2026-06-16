@@ -1,7 +1,5 @@
 import json
 from pathlib import Path
-from sentence_transformers import SentenceTransformer
-# Import the custom interface abstraction from your retrieval layer
 from src.retrieval.vector_store import SolarVectorStore
 
 def run_ingestion_pipeline():
@@ -10,7 +8,6 @@ def run_ingestion_pipeline():
     
     if not chunks_file.exists():
         print(f"❌ Target context source file missing at: {chunks_file}")
-        print("Please ensure you run your extraction and chunking layers first!")
         return
 
     # 1. Load the chunk data schema
@@ -22,47 +19,46 @@ def run_ingestion_pipeline():
 
     # 2. Instantiate our vector storage layer
     print("📦 Connecting to local persistent ChromaDB storage engine...")
-    v_store = SolarVectorStore(collection_name="solar_knowledge")
+    v_store = SolarVectorStore(collection_name="solar_knowledge_v2")
 
-    # 3. Load the ML encoder weights
-    print("🤖 Loading sentence-transformers model 'all-MiniLM-L6-v2'...")
-    model = SentenceTransformer("all-MiniLM-L6-v2")
-
-    # 4. Parse fields into flat lists for parallel array alignment
+    # 3. Parse fields into flat lists
     print("\n⚡ Processing text layers and constructing metadata maps...")
-    ids = []
-    documents = []
-    metadatas = []
+    all_ids = []
+    all_documents = []
+    all_metadatas = []
     
-    # Locate this section inside your ingest.py script:
     for chunk in chunks_data:
-        ids.append(f"id_{chunk['chunk_id']}")
-        documents.append(chunk["text"])
-        
-        # FIX: Replace the hardcoded "page": 1 with the real JSON attribute mapping
-        metadatas.append({
+        all_ids.append(f"id_{chunk['chunk_id']}")
+        all_documents.append(chunk["text"])
+        all_metadatas.append({
             "source": chunk["source"],
             "chunk_id": chunk["chunk_id"],
-            "page": chunk["page"]  # <-- Dynamically reading from our updated chunker!
+            "page": chunk["page"]
         })
 
-    # 5. Extract vector matrices from the raw strings
-    print("🧠 Generating high-dimensional vector space embeddings...")
-    embeddings_matrix = model.encode(documents, show_progress_bar=True)
-    embeddings_list = embeddings_matrix.tolist()
-
-    # 6. Commit arrays into persistent disk tables via our manager class
-    print("💾 Committing vectors and clean texts to disk storage tables...")
-    v_store.upsert_chunks(
-        ids=ids,
-        embeddings=embeddings_list,
-        documents=documents,
-        metadatas=metadatas
-    )
+    # 4. Commit data to cloud embeddings using 100-item chunks
+    print("🧠 Uploading text chunks to Gemini Cloud Embeddings in batches...")
+    
+    batch_size = 100
+    total_chunks = len(all_ids)
+    
+    for i in range(0, total_chunks, batch_size):
+        # Slice lists into blocks of 100 items
+        batch_ids = all_ids[i:i + batch_size]
+        batch_docs = all_documents[i:i + batch_size]
+        batch_meta = all_metadatas[i:i + batch_size]
+        
+        print(f"💾 Syncing batch {i // batch_size + 1}/{(total_chunks + batch_size - 1) // batch_size} (Items {i} to {min(i + batch_size, total_chunks)})...")
+        
+        v_store.upsert_chunks(
+            ids=batch_ids,
+            documents=batch_docs,
+            metadatas=batch_meta
+        )
 
     print("\n--- INGESTION COMPLETE ---")
     print(f"✅ Successfully initialized at: data/chroma_db/")
-    print(f"📊 Vector rows synced to SQLite index table: {v_store.get_count()}")
+    print(f"📊 Total Vector rows synced to SQLite index table: {v_store.get_count()}")
 
 if __name__ == "__main__":
     run_ingestion_pipeline()
