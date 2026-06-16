@@ -1,60 +1,70 @@
+import os
 from pathlib import Path
 import chromadb
-from sentence_transformers import SentenceTransformer
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
-import torch
+from google import genai
+from chromadb import Documents, EmbeddingFunction, Embeddings
+
+class GeminiEmbeddingFunction(EmbeddingFunction):
+    def __init__(self):
+        # Initializes the client using the environment variable set on Render
+        self.client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+
+    def __call__(self, input: Documents) -> Embeddings:
+        # Send the texts to Google's servers for embedding calculation
+        response = self.client.models.embed_content(
+            model="text-embedding-004",
+            contents=input
+        )
+        return [embedding.values for embedding in response.embeddings]
 
 class SolarVectorStore:
     def __init__(self, collection_name: str = "solar_knowledge"):
         """
-        Initializes persistent ChromaDB client, standard embedding model,
-        and an advanced Cross-Encoder Reranker model.
+        Initializes persistent ChromaDB client using cloud-backed 
+        Gemini embeddings to maintain zero-RAM footprint on Render Free.
         """
+        # 1. Connect our custom Gemini Embedding engine
+        self.embedding_function = GeminiEmbeddingFunction()
+        
         script_dir = Path(__file__).resolve().parent
         self.chroma_db_dir = script_dir.parents[1] / "data" / "chroma_db"
         
-        # Connect to persistent storage
+        # 2. Connect to persistent storage
         self.client = chromadb.PersistentClient(path=str(self.chroma_db_dir))
+        
+        # 3. Register the embedding function directly with ChromaDB
+        # This tells ChromaDB to automatically use Gemini whenever we call .query()
         self.collection = self.client.get_or_create_collection(
             name=collection_name,
+            embedding_function=self.embedding_function,
             metadata={"hnsw:space": "cosine"}
         )
         
-        # Stage 1 Model (Bi-Encoder)
-        print("🤖 Loading Stage 1 Embedding Model (all-MiniLM-L6-v2)...")
-        self.model = SentenceTransformer("all-MiniLM-L6-v2")
-        
-        # Stage 2 Model (Cross-Encoder Reranker)
-        print("🔥 Loading Stage 2 Reranker Model (cross-encoder/ms-marco-MiniLM-L-6-v2)...")
-        self.reranker_name = "cross-encoder/ms-marco-MiniLM-L-6-v2"
-        self.rerank_tokenizer = AutoTokenizer.from_pretrained(self.reranker_name)
-        self.rerank_model = AutoModelForSequenceClassification.from_pretrained(self.reranker_name)
-        self.rerank_model.eval() # Set model to evaluation mode
+        print("🚀 SolarVectorStore initialized using Gemini Cloud Embeddings!")
 
-    def upsert_chunks(self, ids: list, embeddings: list, documents: list, metadatas: list):
-        """Saves text and vector arrays to local database tables."""
+    def upsert_chunks(self, ids: list, documents: list, metadatas: list):
+        """Saves text chunks directly. ChromaDB handles the embeddings automatically now."""
         if not ids: return
-        self.collection.upsert(ids=ids, embeddings=embeddings, documents=documents, metadatas=metadatas)
+        # Notice we don't pass an embeddings array anymore; ChromaDB handles it via self.embedding_function
+        self.collection.upsert(ids=ids, documents=documents, metadatas=metadatas)
 
-    def retrieve_and_rerank(self, question: str, top_k_vector: int = 20, final_top_n: int = 5) -> list:
+    def retrieve_and_rerank(self, question: str, final_top_n: int = 5) -> list:
         """
-        Two-Stage Retrieval:
-        1. Fetches a wide window of candidates via Vector Search.
-        2. Re-scores and re-ranks them using a Cross-Encoder to output the best N items.
+        Retrieves relevant solar data context using Gemini embeddings.
+        Note: Local Cross-Encoder removed to preserve Render container memory.
         """
-        # --- STAGE 1: WIDE VECTOR RETRIEVAL ---
-        question_embedding = self.model.encode(question).tolist()
+        # ChromaDB automatically embeds the question string using Gemini behind the scenes
         raw_results = self.collection.query(
-            query_embeddings=[question_embedding],
-            n_results=top_k_vector
+            query_texts=[question],
+            n_results=final_top_n
         )
         
         if not raw_results or not raw_results['ids'] or len(raw_results['ids'][0]) == 0:
             return []
 
-        initial_chunks = []
+        final_chunks = []
         for i in range(len(raw_results['ids'][0])):
-            initial_chunks.append({
+            final_chunks.append({
                 "chunk_id": raw_results['ids'][0][i],
                 "text": raw_results['documents'][0][i],
                 "source": raw_results['metadatas'][0][i].get("source", "Unknown"),
@@ -62,27 +72,7 @@ class SolarVectorStore:
                 "vector_distance": raw_results['distances'][0][i] if 'distances' in raw_results else None
             })
 
-        # --- STAGE 2: CROSS-ENCODER RERANKING ---
-        # Prepare pairs for the Cross-Encoder model: [[Question, Text1], [Question, Text2], ...]
-        pairs = [[question, chunk["text"]] for chunk in initial_chunks]
-        
-        with torch.no_grad():
-            # Tokenize the pairs together
-            inputs = self.rerank_tokenizer(pairs, padding=True, truncation=True, return_tensors="pt")
-            # Generate logits (raw alignment scores)
-            outputs = self.rerank_model(**inputs)
-            # Extract scores from the single output logit channel
-            scores = outputs.logits.view(-1).tolist()
-
-        # Inject the new deep semantic score back into our chunk objects
-        for idx, score in enumerate(scores):
-            initial_chunks[idx]["rerank_score"] = score
-
-        # Sort the chunks descending based on their fresh re-ranked score evaluations
-        reranked_chunks = sorted(initial_chunks, key=lambda x: x["rerank_score"], reverse=True)
-
-        # Truncate and return only the absolute highest-quality subset requested
-        return reranked_chunks[:final_top_n]
+        return final_chunks
 
     def get_count(self) -> int:
         return self.collection.count()
